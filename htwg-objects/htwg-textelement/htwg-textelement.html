@@ -4,7 +4,9 @@
 <dom-module id="htwg-textelement">
 
   <template>
-
+  <div>
+    <a href={{link}}>{{textCaption}}</a>
+  </div>
   </template>
 
 </dom-module>
@@ -26,9 +28,21 @@
         type: String,
         value: "Arial"
       },
-      positionY: {
-        type: Number,
-        observer: '_positionYChanged'
+      textCaption:{
+        type: String,
+        value: "Text"
+      },
+      link:{
+        type: String,
+        value: "#"
+      },
+      active:{
+        type: Boolean,
+        value: false
+      },
+      tags:{
+        type: Array,
+        value: ["Studiumtag"] 
       }
     }
   });

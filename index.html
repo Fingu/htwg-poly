@@ -3,6 +3,10 @@
 	<head>
 
 		<script src="bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
+
+		
+
+
 		<script>
 		/* this script must run before Polymer is imported */
 		window.Polymer = {
@@ -10,10 +14,31 @@
 		  lazyRegister: true
 		};
 	  </script>
+
+	  <link rel="import" href="htwg-objects/htwg-thumbnail/htwg-thumbnail.html">
+
 	</head>
 
 
 	<body>
+		<htwg-thumbnail title="Informatik">
+			<htwg-textelement text-Caption="Angewandte Informatik" link="http://www.google.de"></htwg-textelement>
+			<htwg-textelement text-Caption="Automobilinformatik"></htwg-textelement>
+			<htwg-textelement text-Caption="Gesundheitsinformatik"></htwg-textelement>
+			<htwg-textelement text-Caption="Wirtschaftsinformatik"></htwg-textelement>
+		</htwg-thumbnail>
+
+		<htwg-thumbnail title="Architektur und Gestaltung">
+			<htwg-textelement text-Caption="Architektur" link="http://www.google.de"></htwg-textelement>
+			<htwg-textelement text-Caption="Kommunikationsdesign"></htwg-textelement>
+		</htwg-thumbnail>
+
+		<htwg-thumbnail title="Maschinenbau">
+			<htwg-textelement text-Caption="Maschinenbau"></htwg-textelement>
+			<htwg-textelement text-Caption="asdf1"></htwg-textelement>
+			<htwg-textelement text-Caption="asdfgasd2"></htwg-textelement>
+			<htwg-textelement text-Caption="Waaaaaaaaa4"></htwg-textelement>
+		</htwg-thumbnail>
 
 	</body>
 
