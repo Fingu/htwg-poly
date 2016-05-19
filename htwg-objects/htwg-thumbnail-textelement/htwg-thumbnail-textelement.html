@@ -1,0 +1,57 @@
+
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<dom-module id="htwg-thumbnail-textelement">
+
+  <style>
+  a{
+    color:black;
+    text-decoration: none;
+    font-family: Arial;
+  }
+  </style>
+
+  <template>
+  <div>
+   <li><a href={{link}}>{{textCaption}}</a></li>
+  </div>
+  </template>
+
+</dom-module>
+
+<script>
+  Polymer({
+    is: 'htwg-thumbnail-textelement',
+
+    properties: {
+      textColor: {
+        type: String,
+        value: "black"
+      },
+      textSize: { 
+        type: Number,
+        value: 10
+      },
+      textFamily:{
+        type: String,
+        value: "Arial"
+      },
+      textCaption:{
+        type: String,
+        value: "Text"
+      },
+      link:{
+        type: String,
+        value: "#"
+      },
+      active:{
+        type: Boolean,
+        value: false
+      },
+      tags:{
+        type: Array,
+        value: [] 
+      }
+    }
+  });
+</script>

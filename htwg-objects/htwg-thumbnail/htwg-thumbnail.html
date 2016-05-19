@@ -1,30 +1,34 @@
 
 <link rel="import" href="../../bower_components/polymer/polymer.html">
-<link rel="import" href="../htwg-textelement/htwg-textelement.html">
+<link rel="import" href="../htwg-thumbnail-textelement/htwg-thumbnail-textelement.html">
 
 <dom-module id="htwg-thumbnail">
 
-<style type="text/css">
-  .container-rounded{
-      border-radius: 25px;
-    background: #73AD21;
-    padding: 20px; 
-    width: 200px;
-    height: 150px; 
-  }
-  #title {
-    opacity: 1;
-    font-size: 17.5px;
-    text-align: center;
-    font-weight: bold;
-}
-#title:hover {
-    opacity: 0;
-}
-</style>
-
   <template>
-  <div id="container" class="container-rounded" on-tap="tapFunction" on-mouseover="fadeOut" on-mouseout="fadeIn">
+
+    <style type="text/css">
+
+      .container-rounded{
+          border-radius: 25px;
+        background-color: var(--htwg-thumbnail-background-color,grey);
+        padding: 20px; 
+        width: 200px;
+        height: 150px; 
+        margin: 20px;
+      }
+      #title {
+        opacity: 1;
+        font-size: 17.5px;
+        text-align: center;
+        font-weight: bold;
+      }
+      #title:hover {
+        opacity: 0;
+      }
+    </style>
+
+
+  <div id="container" class="container-rounded" on-tap="tapFunction2" on-mouseover="fadeOut" on-mouseout="fadeIn">
     <p id="title">{{title}}</p>
     <div id="content">
       <content></content>
@@ -64,7 +68,8 @@
       title: {
         type: String,
         value: "Title"
-      }
+      },
+
     }, fadeIn: function(){
         this.active = true;
         //this.$.title.style.display = "block";
@@ -87,6 +92,9 @@
       } else {
         this.fadeOut();
       }
+    },
+    tapFunction2: function(){
+      console.log(this.customStyle['--htwg-thumbnail-background-color']);
     },
     attached:function(){
       this.$.content.style.opacity = 0;

@@ -16,31 +16,44 @@
 	  </script>
 
 	  <link rel="import" href="htwg-objects/htwg-thumbnail/htwg-thumbnail.html">
+	  <link rel="import" href="htwg-objects/htwg-thumbnail-tagfilter/htwg-thumbnail-tagfilter.html">
 	  <link rel="import" href="htwg-objects/htwg-swipe-menu/htwg-swipe-menu.html">
+	  <link rel="import" href="bower_components/iron-input/iron-input.html">
+  	  	<style is="custom-style">
+		.informatik{
+			--htwg-thumbnail-background-color: grey;
+		}
+		.architektur{
+			--htwg-thumbnail-background-color: pink;
+		}
+		</style>
 
 	</head>
 
-
 	<body>
-		<htwg-thumbnail title="Informatik">
-			<htwg-textelement text-Caption="Angewandte Informatik" link="http://www.google.de"></htwg-textelement>
-			<htwg-textelement text-Caption="Automobilinformatik"></htwg-textelement>
-			<htwg-textelement text-Caption="Gesundheitsinformatik"></htwg-textelement>
-			<htwg-textelement text-Caption="Wirtschaftsinformatik"></htwg-textelement>
+
+	<htwg-thumbnail-tagfilter></htwg-thumbnail-tagfilter>
+
+		<htwg-thumbnail class="informatik" title="Informatik">
+			<!--<htwg-thumbnail-textelement text-Caption="Angewandte Informatik" link="http://www.google.de" tags=' { "tag" : "Computer" , "tag1" : "Hacken" }'></htwg-thumbnail-textelement>-->
+			<htwg-thumbnail-textelement text-Caption="Angewandte Informatik" link="http://www.google.de" tags=' ["Computer" , "Hacken"] '></htwg-thumbnail-textelement>
+			<htwg-thumbnail-textelement text-Caption="Automobilinformatik"></htwg-thumbnail-textelement>
+			<htwg-thumbnail-textelement text-Caption="Gesundheitsinformatik"></htwg-thumbnail-textelement>
+			<htwg-thumbnail-textelement text-Caption="Wirtschaftsinformatik"></htwg-thumbnail-textelement>
 		</htwg-thumbnail>
 
-		<htwg-thumbnail title="Architektur und Gestaltung">
-			<htwg-textelement text-Caption="Architektur" link="http://www.google.de"></htwg-textelement>
-			<htwg-textelement text-Caption="Kommunikationsdesign"></htwg-textelement>
+		<htwg-thumbnail class="architektur" title="Architektur und Gestaltung">
+			<htwg-thumbnail-textelement text-Caption="Architektur" link="http://www.google.de"></htwg-thumbnail-textelement>
+			<htwg-thumbnail-textelement text-Caption="Kommunikationsdesign" tags=' [ "girls" ,"love" ,"fashion" ]'></htwg-thumbnail-textelement>
 		</htwg-thumbnail>
-
+<!--
 		<htwg-thumbnail title="Maschinenbau">
-			<htwg-textelement text-Caption="Maschinenbau"></htwg-textelement>
-			<htwg-textelement text-Caption="asdf1"></htwg-textelement>
-			<htwg-textelement text-Caption="asdfgasd2"></htwg-textelement>
-			<htwg-textelement text-Caption="Waaaaaaaaa4"></htwg-textelement>
+			<htwg-thumbnail-textelement text-Caption="Maschinenbau"></htwg-thumbnail-textelement>
+			<htwg-thumbnail-textelement text-Caption="asdf1"></htwg-thumbnail-textelement>
+			<htwg-thumbnail-textelement text-Caption="asdfgasd2"></htwg-thumbnail-textelement>
+			<htwg-thumbnail-textelement text-Caption="Waaaaaaaaa4"></htwg-thumbnail-textelement>
 		</htwg-thumbnail>
-
+-->
 		</br></br>
 		<div>
 			<htwg-swipe-menu>

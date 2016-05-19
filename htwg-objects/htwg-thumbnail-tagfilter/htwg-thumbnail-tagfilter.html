@@ -1,0 +1,58 @@
+
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../htwg-thumbnail-textelement/htwg-thumbnail-textelement.html">
+
+<dom-module id="htwg-thumbnail-tagfilter">
+
+  <template>
+
+    <style type="text/css">
+
+    </style>
+
+
+  <div id="textfield-tagfilter" class="tagfilter">
+    <input></input>
+  </div>
+
+    
+  </template>
+
+</dom-module>
+
+<script>
+  Polymer({
+    is: 'htwg-thumbnail-tagfilter',
+
+    properties: {
+      textColor: {
+        type: String,
+        value: "black"
+      },
+      textSize: { 
+        type: Number,
+        value: 10
+      },
+      textFamily:{
+        type: String,
+        value: "Arial"
+      },
+      savedTag: {
+        type: Array
+      },
+      tagList: {
+        type: Array,
+        value: []
+      },
+    },
+
+    attached:function(){
+      var listElements = document.getElementsByTagName("htwg-thumbnail-textelement");
+      for(i = 0; i < listElements.length; i++){
+          this.tagList.push(listElements[i].tags);
+      }
+      console.log(this.tagList);
+    }
+
+  });
+</script>
