@@ -13,7 +13,7 @@
 
   <template>
   <div>
-   <li><a href={{link}}>{{textCaption}}</a></li>
+   <li><a href={{link}} id ="text">{{textCaption}}</a></li>
   </div>
   </template>
 
@@ -46,11 +46,20 @@
       },
       active:{
         type: Boolean,
-        value: false
+        value: false,
+        observer: '_activeChanged'
       },
       tags:{
         type: Array,
         value: [] 
+      }
+    },
+
+    _activeChanged: function(){
+      if(this.active){
+        this.$.text.style.background = "yellow";
+      }else{
+        this.$.text.style.background = 'transparent';
       }
     }
   });
