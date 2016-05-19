@@ -1,0 +1,181 @@
+
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../htwg-swipe-element/htwg-swipe-element.html">
+
+<dom-module id="htwg-swipe-menu">
+
+  <template>
+    <style>
+    #sliderContainer {
+    position: relative;
+    border: solid;
+
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-right: 10px;
+    padding-left: 10px;
+
+    cursor: pointer;
+    }
+    </style>
+
+    <div id="element-wrapper">
+      <div id="sliderContainer" on-track="handleTrack" >
+        <div id="sliderFrame">
+          <htwg-swipe-element id="hsm1" 
+          					  text-color="red"
+          					  text-size="17">
+          		Zeile 1
+          </htwg-swipe-element>
+          <htwg-swipe-element id="hsm2" 
+          					   text-color="blue"
+          					   text-size="17">
+          		Zeile 2
+          </htwg-swipe-element>
+          <htwg-swipe-element id="hsm3" 
+          					  text-color="green"
+          					  text-size="17">
+          		Zeile 3
+          </htwg-swipe-element>
+          <htwg-swipe-element id="hsm4" 
+          					  text-color="orange"
+          					  text-size="17">
+          		Zeile 4
+          </htwg-swipe-element>
+          <htwg-swipe-element id="hsm5" 
+          					  text-color="orange"
+          					  text-size="17">
+          		<br>
+          </htwg-swipe-element>
+        </div>
+      </div>
+      <div id="text-frame">
+        <content></content>
+      </div>
+    </div>
+  </template>
+
+</dom-module>
+
+<script>
+  Polymer({
+    is: 'htwg-swipe-menu',
+
+    properties: {
+      scrollable: {
+        type: Boolean,
+        value: false
+      },
+
+      //scroll direction
+      horizontal: {
+        type: Boolean,
+        value: false
+      },
+      items: {
+        type: Number,
+        value: 5
+      },
+
+      startX: Number,
+      startY: Number,
+      diffXY: {
+        type: Number,
+        value: 0
+      } 
+    },
+    attached: function() {
+      //texts = Polymer.dom(this).querySelectorAll("#carousel > img");
+    },
+
+	changeOpacity: function(element, opacity) {
+        element.customStyle['--swipe-element-opacity'] = ""+opacity;
+        element.updateStyles();
+    },
+
+    handleTrack: function(e) {
+
+      switch(e.detail.state) {
+        case 'start':
+          this.startX = e.detail.x;
+          this.startY = e.detail.y;
+          //console.log("----------------- start ------------------");
+          break;
+        case 'track':
+          container_top = this.$.sliderContainer.getBoundingClientRect().top; 
+
+          container_bottom = this.$.sliderContainer.getBoundingClientRect().bottom;
+
+          oFrame = this.$.sliderFrame;
+
+          oFrame_top = oFrame.getBoundingClientRect().top;
+          oFrame_bottom = oFrame.getBoundingClientRect().bottom;
+          oFrame_length = oFrame_bottom - oFrame_top;
+		  
+		  container_mid_abs = (container_top + ((container_bottom - container_top) / 2));
+
+
+          if (!this.horizontal) {
+            for (i=1; i<=this.items; i++){
+              //cObject = document.getElementById("hsm"+(i));
+			  //needed to select dynamically created nodes in shadow dom
+              cObject = this.$$("#hsm"+i);
+              cObjectTop = cObject.getBoundingClientRect().top;
+              cObjectBot = cObject.getBoundingClientRect().bottom;
+              cObject.positionY= (e.detail.y + this.diffXY - this.startY);
+
+			  this.changeOpacity(cObject, Math.abs(Math.sin((Math.PI / (container_bottom - container_top)) * (cObjectTop + cObject.positionY))));
+			  console.log(Math.abs(Math.sin((Math.PI / (container_bottom - container_top)) * (cObjectTop + cObject.positionY))));
+			  //console.log(Math.sin(((container_bottom - container_top) / Math.PI) * 1));
+			  //console.log(Math.sin(((container_bottom - container_top) / Math.PI) * 53));
+			  
+              if (cObject.id == "hsm1") {
+                  /*console.log("posY:" + cObject.positionY + " edety: " + e.detail.y + 
+                   	" diffXY: " + this.diffXY + " startY: " + this.startY);
+                */}
+              
+              //faehrt oben raus
+              if (cObjectTop + cObject.positionY < container_top) {
+                tmp = (this.startY - e.detail.y) - (cObjectTop - container_top);
+                cObject.positionY = oFrame_length - tmp - i * (cObjectBot - cObjectTop);
+                if (cObject.id == "hsm1") {
+                	//console.log("posy: " + cObject.positionY)
+                }
+                if((cObject.positionY < 5)) {
+                  //console.log("----------------- set 0 ------------------");
+                  this.diffXY = 0;
+                  this.startY = e.detail.y;
+                }
+              }
+              
+              //faehrt unten raus
+              else if (cObjectBot +cObject.positionY > container_bottom) {
+              	tmp = ( e.detail.y - this.startY) - (container_bottom - cObjectBot);
+                cObject.positionY = (oFrame_length)  * (-1)  + tmp - ((this.items + 1) - i) * (cObjectTop - cObjectBot) ;
+                if((cObject.positionY > -5)) {
+                  //console.log("----------------- set 0 ------------------");
+                  this.diffXY = 0;
+                  this.startY = e.detail.y;
+                }
+                //test
+                //cObject.positionY = (container_bottom - container_top) * (-1);
+              }
+            }
+
+          }
+          break;
+
+        case 'end':
+          if (!this.horizontal) {
+            this.diffXY = e.detail.y - this.startY + this.diffXY;
+          } else if (this.horizontal) {
+            this.diffXY = e.detail.x - this.startX + this.diffXY;
+          }
+          break;
+      }
+
+    }
+
+
+  });
+</script>
