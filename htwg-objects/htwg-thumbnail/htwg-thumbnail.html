@@ -28,7 +28,7 @@
     </style>
 
 
-  <div id="container" class="container-rounded" on-tap="tapFunction2" on-mouseover="fadeOut" on-mouseout="fadeIn">
+  <div id="container" class="container-rounded" on-tap="tapFunction" on-mouseover="fadeOut" on-mouseout="fadeIn">
     <p id="title">{{title}}</p>
     <div id="content">
       <content></content>
@@ -61,6 +61,11 @@
         type: Boolean,
         value: false
       },
+      marked: {
+        type: Boolean,
+        value: false,
+        observer: "__gotMarked"
+      },
       display: {
         type: Boolean,
         value: false
@@ -71,31 +76,42 @@
       },
 
     }, fadeIn: function(){
-        this.active = true;
-        //this.$.title.style.display = "block";
-        this.$.title.style.opacity = 1;
-        this.$.title.style.transition = "ease-in 0.5s";
-        this.$.content.style.opacity = 0;
-        this.$.content.style.transition = "ease-out 0.5s";
-        //this.$.content.style.display = "none";
+        if (!this.marked) {
+          this.active = true;
+          this.$.title.style.opacity = 1;
+          this.$.title.style.transition = "ease-in 0.5s";
+          this.$.content.style.opacity = 0;
+          this.$.content.style.transition = "ease-out 0.5s";
+        }
     }, fadeOut: function(){
-        this.active = false;
-        //this.$.title.style.display = "none";
+        if (!this.marked) {
+          this.active = false;
+          this.$.title.style.opacity = 0;
+          this.$.title.style.transition = "ease-out 0.5s";
+          this.$.content.style.opacity = 1;
+          this.$.content.style.transition = "ease-in 0.5s";      
+        }
+    },
+    __gotMarked: function(){
+      console.log("yo");
+      if (this.marked){
         this.$.title.style.opacity = 0;
-        this.$.title.style.transition = "ease-out 0.5s";
-        this.$.content.style.opacity = 1;
-        this.$.content.style.transition = "ease-in 0.5s";
-        //this.$.content.style.display = "block";
-    }, tapFunction: function(){
+        this.$.content.style.opacity = 1;     
+      } else {
+        this.$.title.style.opacity = 1;
+        this.$.content.style.opacity = 0;
+      } 
+    },
+     tapFunction: function(){
       if (!this.active){
         this.fadeIn();
       } else {
         this.fadeOut();
       }
     },
-    tapFunction2: function(){
-      console.log(this.customStyle['--htwg-thumbnail-background-color']);
-    },
+
+
+
     attached:function(){
       this.$.content.style.opacity = 0;
     }

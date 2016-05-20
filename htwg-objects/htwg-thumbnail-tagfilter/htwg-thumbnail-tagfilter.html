@@ -68,26 +68,36 @@
     keyup: function(event){
       const enterKey = 13;
       var inputVal = this.$.taginput.value;
+      var valid = false;
 
       if(event.keyCode === enterKey){
         for(i = 0 ; i < this.tagList.length; i++){
           for(ii = 0; ii < this.tagList[i].length;ii++){
             if(this.tagList[i][ii] == inputVal){
-              this.savedTag.push(inputVal);
+              if (this.savedTag.indexOf(inputVal) == -1) {
+                this.savedTag.push(inputVal);
+                this.markTag();
+                valid = true;
+              } else {
+                valid = true;
+                this.$.taginput.value = "";
+              }
             }
           }
         }
-        this.markTag();
+        if (!valid){
+          alert("Not a valid tag!");
+        }
 
-      }else{
-        
       }
       
     },
-    markTag: function(){
+    markTag: function(create=0){
       var listElements = document.getElementsByTagName("htwg-thumbnail-textelement");
       for(i = 0; i < listElements.length; i++){
           tmpcounter = 0;
+          listElements[i].active = false;
+          listElements[i].parentElement.marked = false;
           for(ii = 0; ii < listElements[i].tags.length; ii++){
             var tag = listElements[i].tags[ii]; 
             if(this.savedTag.indexOf(tag) != -1){
@@ -96,11 +106,16 @@
           }
           if (tmpcounter == this.savedTag.length && tmpcounter != 0){
             listElements[i].active = true;
+            listElements[i].parentElement.marked = true;
           }
       }
-      var tagelement = document.createElement('htwg-tagelement');
-      //tagelement.text("girls");
-      this.$.textfieldtagfilter.appendChild(tagelement);
+      if (create == 0) {
+        var tagelement = document.createElement('htwg-tagelement');
+        this.$.textfieldtagfilter.appendChild(tagelement);
+        tagelement.text = this.$.taginput.value;
+        this.$.taginput.value = "";
+      }
+
     },
     attached:function(){
       var listElements = document.getElementsByTagName("htwg-thumbnail-textelement");
@@ -113,7 +128,8 @@
       //alert("deleted");
     },
     deleteTag: function(obj){
-      delete this.savedTag[this.savedTag.indexOf(obj.text)];
+      this.savedTag.splice(this.savedTag.indexOf(obj.text,1));
+      this.markTag(-1);
       obj.remove();
     }
 
