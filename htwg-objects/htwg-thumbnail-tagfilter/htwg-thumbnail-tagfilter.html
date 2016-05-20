@@ -1,6 +1,7 @@
 
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 <link rel="import" href="../htwg-thumbnail-textelement/htwg-thumbnail-textelement.html">
+<link rel="import" href="../htwg-tagelement/htwg-tagelement.html">
 <link rel="import" href="../../bower_components/iron-a11y-keys-behavior/iron-a11y-keys-behavior.html">
 
 <dom-module id="htwg-thumbnail-tagfilter">
@@ -8,17 +9,21 @@
   <template>
 
     <style type="text/css">
+      .wrapper{
+        display: inline-block;
 
+      }
     </style>
 
-
-  <div id="textfield-tagfilter" class="tagfilter">
-    <input type="text" on-keyup="keyup" id="taginput"></input>
+    <div class=wrapper>
+      <div id="textfieldtagfilter" class="tagfilter" >
+        <input pattern="[a-z]" on-keyup="keyup" on-input="validateInput" id="taginput"></input>
+        <!--<htwg-tagelement text="girls"></htwg-tagelement>-->
+      </div>
   </div>
 
     
   </template>
-
 </dom-module>
 
 <script>
@@ -43,13 +48,23 @@
       },
       savedTag: {
         type: Array,
-        value: []
+        value: [],
+        observer: '_savedTagDeleted'
       },
       tagList: {
         type: Array,
         value: []
       },
     },
+    validateInput: function(event){
+        var inputValue = this.$.taginput.value;
+        var inputChar = inputValue.substring(inputValue.length-1, inputValue.length);
+        if(!inputChar.match("[a-z]")){
+          var newString = inputValue.substring(0,inputValue.length-1);
+          this.$.taginput.value = newString;
+        }
+    },
+
     keyup: function(event){
       const enterKey = 13;
       var inputVal = this.$.taginput.value;
@@ -83,6 +98,9 @@
             listElements[i].active = true;
           }
       }
+      var tagelement = document.createElement('htwg-tagelement');
+      //tagelement.text("girls");
+      this.$.textfieldtagfilter.appendChild(tagelement);
     },
     attached:function(){
       var listElements = document.getElementsByTagName("htwg-thumbnail-textelement");
@@ -90,6 +108,13 @@
           this.tagList.push(listElements[i].tags);
       }
       console.log(this.tagList);
+    },
+    _savedTagDeleted: function(){
+      //alert("deleted");
+    },
+    deleteTag: function(obj){
+      delete this.savedTag[this.savedTag.indexOf(obj.text)];
+      obj.remove();
     }
 
   });
