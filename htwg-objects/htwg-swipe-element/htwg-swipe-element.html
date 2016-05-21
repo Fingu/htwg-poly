@@ -40,16 +40,40 @@
       positionY: {
         type: Number,
         observer: '_positionYChanged'
+      },active: {
+        type: Boolean,
+        value: false,
+        observer: '_aktiveChanged'
       }
 
     },
     attached: function(){
-            this.$.swipeelement.style.color = this.textColor;
-            this.$.swipeelement.style.fontSize = this.textSize + "px";
-            this.$.swipeelement.style.fontFamily = this.textFamily;
+      this.$.swipeelement.style.color = this.textColor;
+      this.$.swipeelement.style.fontFamily = this.textFamily;
+      if(this.active){
+        this.$.swipeelement.style.fontSize = (this.textSize+3) + "px";
+        this.customStyle['--swipe-element-opacity'] = "1";
+        this.updateStyles();
+      }else{
+        this.$.swipeelement.style.fontSize = this.textSize + "px";
+            
+      }
     },
     _positionYChanged: function(newValue, oldValue){
       this.$.swipeelement.style.transform = "translateY(" + this.positionY + "px)";
+    },
+    _aktiveChanged: function(){
+      if(this.active)
+        {
+          this.$.swipeelement.style.fontSize = (this.textSize + 3) + "px";
+          this.customStyle['--swipe-element-opacity'] = "1";
+          this.updateStyles();
+        }
+      else{
+        this.$.swipeelement.style.fontSize = this.textSize + "px";
+        this.customStyle['--swipe-element-opacity'] = "0.2";
+        this.updateStyles();
+      }
     }
 
   });
