@@ -1,6 +1,5 @@
 
 <link rel="import" href="../../bower_components/polymer/polymer.html">
-<link rel="import" href="../htwg-swipe-element/htwg-swipe-element.html">
 
 <dom-module id="htwg-swipe-menu">
 
@@ -22,35 +21,10 @@
     <div id="element-wrapper">
       <div id="sliderContainer" on-track="handleTrack" >
         <div id="sliderFrame">
-          <htwg-swipe-element id="hsm1" 
-          					  text-color="red"
-          					  text-size="17">
-          		Zeile 1
-          </htwg-swipe-element>
-          <htwg-swipe-element id="hsm2" 
-          					   text-color="blue"
-          					   text-size="17">
-          		Zeile 2
-          </htwg-swipe-element>
-          <htwg-swipe-element id="hsm3" 
-          					  text-color="green"
-          					  text-size="17">
-          		Zeile 3
-          </htwg-swipe-element>
-          <htwg-swipe-element id="hsm4" 
-          					  text-color="orange"
-          					  text-size="17">
-          		Zeile 4
-          </htwg-swipe-element>
-          <htwg-swipe-element id="hsm5" 
-          					  text-color="orange"
-          					  text-size="17">
-          		<br>
-          </htwg-swipe-element>
+          
+        <content id="myContent"></content>
+
         </div>
-      </div>
-      <div id="text-frame">
-        <content></content>
       </div>
     </div>
   </template>
@@ -86,6 +60,10 @@
     },
     attached: function() {
       //texts = Polymer.dom(this).querySelectorAll("#carousel > img");
+      var distributed = this.getContentChildren('#myContent');
+      for(i = 1; i <= distributed.length; i++){
+        distributed[i-1].id = "hsm"+i;
+      }
     },
 
 	changeOpacity: function(element, opacity) {
@@ -117,9 +95,9 @@
 
           if (!this.horizontal) {
             for (i=1; i<=this.items; i++){
-              //cObject = document.getElementById("hsm"+(i));
-			  //needed to select dynamically created nodes in shadow dom
-              cObject = this.$$("#hsm"+i);
+              var distributed = this.getContentChildren('#myContent');
+              cObject = distributed[i-1];
+              
               cObjectTop = cObject.getBoundingClientRect().top;
               cObjectBot = cObject.getBoundingClientRect().bottom;
               cObject.positionY= (e.detail.y + this.diffXY - this.startY);

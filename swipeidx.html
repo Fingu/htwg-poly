@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+
+		<script src="bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
+
+		<script>
+		/* this script must run before Polymer is imported */
+		window.Polymer = {
+		  dom: 'shadow', //use shadow dom if possible
+		  lazyRegister: true
+		};
+	  </script>
+
+	  <link rel="import" href="htwg-objects/htwg-swipe-menu/htwg-swipe-menu.html">
+	  <link rel="import" href="htwg-objects/htwg-swipe-element/htwg-swipe-element.html">
+
+
+  	  	<style is="custom-style">
+  	  	.backButton{
+	  	  	position: fixed;
+			left: 0;
+			bottom: 0;
+		}
+		</style>
+
+	</head>
+
+	<body>
+		<htwg-swipe-menu>
+			<htwg-swipe-element 
+          					  text-color="red"
+          					  text-size="17">
+          		Zeile 1
+          </htwg-swipe-element>
+          <htwg-swipe-element 
+          					   text-color="blue"
+          					   text-size="17">
+          		Zeile 2
+          </htwg-swipe-element>
+          <htwg-swipe-element
+          					  text-color="green"
+          					  text-size="17">
+          		Zeile 3
+          </htwg-swipe-element>
+          <htwg-swipe-element
+          					  text-color="orange"
+          					  text-size="17">
+          		Zeile 4
+          </htwg-swipe-element>
+          <htwg-swipe-element 
+          					  text-color="orange"
+          					  text-size="17">
+          		<br>
+          </htwg-swipe-element>
+		</htwg-swipe-menu>
+		<a href=".." class="backButton"><button style="background-color:red">back</button></a>
+
+	</body>
+
+
+</html>
