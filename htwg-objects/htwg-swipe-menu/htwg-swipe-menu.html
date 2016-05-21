@@ -47,108 +47,71 @@
         value: false
       },
       items: {
-        type: Number,
-        value: 5
+        type: Number
       },
-
-      startX: Number,
-      startY: Number,
-      diffXY: {
-        type: Number,
-        value: 0
-      } 
+      startY: Number
     },
     attached: function() {
-      //texts = Polymer.dom(this).querySelectorAll("#carousel > img");
       var distributed = this.getContentChildren('#myContent');
+      this.items = distributed.length;
       for(i = 1; i <= distributed.length; i++){
         distributed[i-1].id = "hsm"+i;
       }
     },
 
 	changeOpacity: function(element, opacity) {
-        element.customStyle['--swipe-element-opacity'] = ""+opacity;
-        element.updateStyles();
+        /*element.customStyle['--swipe-element-opacity'] = ""+opacity;
+        element.updateStyles();*/
     },
 
     handleTrack: function(e) {
 
+      var container_top = this.$.sliderContainer.getBoundingClientRect().top; 
+      var container_bottom = this.$.sliderContainer.getBoundingClientRect().bottom;
+      var container_mid_abs = (container_top + ((container_bottom - container_top) / 2));
+      var sliderFrame = this.$.sliderFrame;
+      var distributed = this.getContentChildren('#myContent');
+      var sliderFrame_top = sliderFrame.getBoundingClientRect().top;
+      var sliderFrame_bottom = sliderFrame.getBoundingClientRect().bottom;
+      var sliderFrame_length = sliderFrame_bottom - sliderFrame_top;
+
       switch(e.detail.state) {
         case 'start':
-          this.startX = e.detail.x;
           this.startY = e.detail.y;
-          //console.log("----------------- start ------------------");
           break;
         case 'track':
-          container_top = this.$.sliderContainer.getBoundingClientRect().top; 
+          for (i=1; i<=this.items; i++){
+            var cObject = distributed[i-1];
+            cObjectTop = cObject.getBoundingClientRect().top;
+            cObjectBot = cObject.getBoundingClientRect().bottom;
+            cObject.positionY= (e.detail.y - this.startY);
 
-          container_bottom = this.$.sliderContainer.getBoundingClientRect().bottom;
-
-          oFrame = this.$.sliderFrame;
-
-          oFrame_top = oFrame.getBoundingClientRect().top;
-          oFrame_bottom = oFrame.getBoundingClientRect().bottom;
-          oFrame_length = oFrame_bottom - oFrame_top;
-		  
-		  container_mid_abs = (container_top + ((container_bottom - container_top) / 2));
-
-
-          if (!this.horizontal) {
-            for (i=1; i<=this.items; i++){
-              var distributed = this.getContentChildren('#myContent');
-              cObject = distributed[i-1];
-              
-              cObjectTop = cObject.getBoundingClientRect().top;
-              cObjectBot = cObject.getBoundingClientRect().bottom;
-              cObject.positionY= (e.detail.y + this.diffXY - this.startY);
-
-			  this.changeOpacity(cObject, Math.abs(Math.sin((Math.PI / (container_bottom - container_top)) * (cObjectTop + cObject.positionY))));
-			  console.log(Math.abs(Math.sin((Math.PI / (container_bottom - container_top)) * (cObjectTop + cObject.positionY))));
-			  //console.log(Math.sin(((container_bottom - container_top) / Math.PI) * 1));
-			  //console.log(Math.sin(((container_bottom - container_top) / Math.PI) * 53));
-			  
-              if (cObject.id == "hsm1") {
-                  /*console.log("posY:" + cObject.positionY + " edety: " + e.detail.y + 
-                   	" diffXY: " + this.diffXY + " startY: " + this.startY);
-                */}
-              
-              //faehrt oben raus
-              if (cObjectTop + cObject.positionY < container_top) {
-                tmp = (this.startY - e.detail.y) - (cObjectTop - container_top);
-                cObject.positionY = oFrame_length - tmp - i * (cObjectBot - cObjectTop);
-                if (cObject.id == "hsm1") {
-                	//console.log("posy: " + cObject.positionY)
-                }
-                if((cObject.positionY < 5)) {
-                  //console.log("----------------- set 0 ------------------");
-                  this.diffXY = 0;
-                  this.startY = e.detail.y;
-                }
-              }
-              
-              //faehrt unten raus
-              else if (cObjectBot +cObject.positionY > container_bottom) {
-              	tmp = ( e.detail.y - this.startY) - (container_bottom - cObjectBot);
-                cObject.positionY = (oFrame_length)  * (-1)  + tmp - ((this.items + 1) - i) * (cObjectTop - cObjectBot) ;
-                if((cObject.positionY > -5)) {
-                  //console.log("----------------- set 0 ------------------");
-                  this.diffXY = 0;
-                  this.startY = e.detail.y;
-                }
-                //test
-                //cObject.positionY = (container_bottom - container_top) * (-1);
+    			  this.changeOpacity(cObject, Math.abs(Math.sin((Math.PI / (container_bottom - container_top)) * (cObjectTop + cObject.positionY))));
+    			  //console.log(Math.abs(Math.sin((Math.PI / (container_bottom - container_top)) * (cObjectTop + cObject.positionY))));
+            
+            //faehrt oben raus
+            if (cObjectTop + cObject.positionY < container_top) {
+              tmp = (this.startY - e.detail.y) - (cObjectTop - container_top);
+              cObject.positionY = sliderFrame_length - tmp - i * (cObjectBot - cObjectTop);
+             
+              if((cObject.positionY < 5)) {
+                this.startY = e.detail.y;
               }
             }
-
+            
+            //faehrt unten raus
+            else if (cObjectBot +cObject.positionY > container_bottom) {
+            	tmp = ( e.detail.y - this.startY) - (container_bottom - cObjectBot);
+              cObject.positionY = (sliderFrame_length)  * (-1)  + tmp - ((this.items + 1) - i) * (cObjectTop - cObjectBot) ;
+              if((cObject.positionY > -5)) {
+                this.startY = e.detail.y;
+              }
+            }
           }
+
           break;
 
         case 'end':
-          if (!this.horizontal) {
-            this.diffXY = e.detail.y - this.startY + this.diffXY;
-          } else if (this.horizontal) {
-            this.diffXY = e.detail.x - this.startX + this.diffXY;
-          }
           break;
       }
 
