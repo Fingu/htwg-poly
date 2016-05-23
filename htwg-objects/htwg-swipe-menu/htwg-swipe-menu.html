@@ -6,7 +6,6 @@
   <template>
     <style>
     .okButtonContainer{
-	   	position: relative;
 	    border: groove;
 
 	    padding-top: 10px;
@@ -19,7 +18,6 @@
     }
 
     #sliderContainer {
-	    position: relative;
 	    border: groove;
 
 	    padding-top: 15px;
@@ -74,6 +72,11 @@
       diffX: {
         type: Number,
         value: 0
+      },
+      //for checking if mid of container already calculated
+      test:{
+      	type: Boolean,
+      	value: false
       }
     },
     submitted: function(){
@@ -82,16 +85,15 @@
 		for (i=1; i<=this.items; i++){
             var cObject = distributed[i-1];
             if(cObject.active){
-            	alert("Element: " + i + " is active");
+            	window.open(cObject.link);
+            	//alert("Element: " + i + " is active");
             }
         }
     }
     ,
     attached: function() {
       var distributed = this.getContentChildren('#myContent');
-      var container_top = this.$.sliderContainer.getBoundingClientRect().top; 
-      var container_bottom = this.$.sliderContainer.getBoundingClientRect().bottom;
-      this.container_middle = (container_top + ((container_bottom - container_top) / 2));
+
 
       this.items = distributed.length;
 
@@ -128,7 +130,18 @@
             cObject.positionY= (e.detail.y - this.startY) + this.diffX;
     			  //this.changeOpacity(cObject, Math.abs(Math.sin((Math.PI / (container_bottom - container_top)) * (cObjectTop + cObject.positionY))));
     			  //console.log(Math.abs(Math.sin((Math.PI / (container_bottom - container_top)) * (cObjectTop + cObject.positionY))));
-            
+
+//Mitte berechnen. Kann man das wo anders rein? 
+//In Attached fehlt der Ok-Button-Div, da kommen falsche Werte raus...
+//Hier auch doof, wird jetzt jedes mal geschaut ob schon gesetzt wurde (this.test)
+         if(distributed[i-1].active && (this.test == false)){
+        	var container_top = distributed[i-1].getBoundingClientRect().top; 
+		    var container_bottom = distributed[i-1].getBoundingClientRect().bottom;
+		    this.container_middle = (container_top + ((container_bottom - container_top) / 2));
+        	this.test = true;
+        }
+//bis hierhin geht der teil des mitte-berechnens        
+
             //faehrt oben raus
             if (cObjectTop + cObject.positionY < container_top) {
               tmp = (this.startY - e.detail.y) - (cObjectTop - container_top);
@@ -147,15 +160,16 @@
                 this.startY = e.detail.y;
               }
             }
+
             //in der Mitte
            if ( (cObjectTop+ cObject.positionY) < this.container_middle && (cObjectBot+ cObject.positionY) > this.container_middle) {
-              cObject.active = true;
+                cObject.active = true;
             }
             else{
               cObject.active = false;
             }
 
-
+      
           }
 
           break;
