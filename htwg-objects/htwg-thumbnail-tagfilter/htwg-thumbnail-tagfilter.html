@@ -94,10 +94,13 @@
     },
     markTag: function(create=0){
       var listElements = document.getElementsByTagName("htwg-thumbnail-textelement");
+	  //not nice but a temporary bug fix
+	  for(i = 0; i < listElements.length; i++){
+		listElements[i].parentElement.marked = false;
+	  }
       for(i = 0; i < listElements.length; i++){
           tmpcounter = 0;
           listElements[i].active = false;
-          listElements[i].parentElement.marked = false;
           for(ii = 0; ii < listElements[i].tags.length; ii++){
             var tag = listElements[i].tags[ii]; 
             if(this.savedTag.indexOf(tag) != -1){
