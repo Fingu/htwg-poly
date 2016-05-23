@@ -117,12 +117,14 @@
               }
             }
             //in der Mitte
-           else if ( (cObjectTop+ cObject.positionY) < this.container_middle && (cObjectBot+ cObject.positionY) > this.container_middle) {
+           if ( (cObjectTop+ cObject.positionY) < this.container_middle && (cObjectBot+ cObject.positionY) > this.container_middle) {
               cObject.active = true;
             }
             else{
               cObject.active = false;
             }
+
+
           }
 
           break;
