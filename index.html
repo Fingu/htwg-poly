@@ -19,9 +19,69 @@
   	  	<style is="custom-style">
 		.informatik{
 			--htwg-thumbnail-background-color: grey;
+			--htwg-thumbnail-background: {
+				background:
+				  linear-gradient(
+					rgba(0, 0, 0, 0.7), 
+					rgba(2, 136, 209, 0.7)
+				  ),url("../../images/informatik.jpg");
+				background-size: cover;
+			};
 		}
 		.architektur{
 			--htwg-thumbnail-background-color: pink;
+			--htwg-thumbnail-background: {
+				background:
+				  linear-gradient(
+					rgba(204, 0, 204, 0.7), 
+					rgba(2, 136, 209, 0.7)
+				  ),url("../../images/archundgestalt.jpg");
+				background-size: cover;
+			};
+		}
+		.maschinenbau{
+			--htwg-thumbnail-background-color: blue;
+			--htwg-thumbnail-background: {
+				background:
+				  linear-gradient(
+					rgba(204, 102, 0, 0.7), 
+					rgba(2, 136, 209, 0.7)
+				  ),url("../../images/maschinenbau.jpg");
+				background-size: cover;
+			};
+		}
+		.bauingenieurwesen{
+			--htwg-thumbnail-background-color: yellow;
+			--htwg-thumbnail-background: {
+				background:
+				  linear-gradient(
+					rgba(102, 204, 0, 0.7), 
+					rgba(2, 136, 209, 0.7)
+				  ),url("../../images/bauingenieurwesen.jpg");
+				background-size: cover;
+			};
+		}
+		.elektro{
+			--htwg-thumbnail-background-color: red;
+			--htwg-thumbnail-background: {
+				background:
+				  linear-gradient(
+					rgba(204, 0, 0, 0.7), 
+					rgba(2, 136, 209, 0.7)
+				  ),url("../../images/elektrotechnik.jpg");
+				background-size: cover;
+			};
+		}
+		.wirtschaft{
+			--htwg-thumbnail-background-color: green;
+			--htwg-thumbnail-background: {
+				background:
+				  linear-gradient(
+					rgba(204, 204, 0, 0.7), 
+					rgba(2, 136, 209, 0.7)
+				  ),url("../../images/wikurewi.jpg");
+				background-size: cover;
+			};
 		}
 		.wrapper{
 			float: left;
@@ -51,7 +111,7 @@
 				<htwg-thumbnail-textelement text-Caption="Kommunikationsdesign" tags=' [ "girls" ,"love" ,"fashion" ]'></htwg-thumbnail-textelement>
 			</htwg-thumbnail>
 
-			<htwg-thumbnail title="Maschinenbau">
+			<htwg-thumbnail class="maschinenbau" title="Maschinenbau">
 				<htwg-thumbnail-textelement text-Caption="Maschinenbau Konstruktion und Entwicklung" tags=' [ "entwicklung" ,"maschine" ]'></htwg-thumbnail-textelement>
 				<htwg-thumbnail-textelement text-Caption="Maschinenbau Entwicklung und Produktion" tags=' [ "produktion" ,"entwicklung" ,"maschine" ]'></htwg-thumbnail-textelement>
 				<htwg-thumbnail-textelement text-Caption="Verfahrens- und Umwelttechnik" tags=' [ "umwelt" ,"verfahren" ]'></htwg-thumbnail-textelement>
