@@ -5,28 +5,48 @@
 
   <template>
     <style>
-    #sliderContainer {
-    position: relative;
-    border: solid;
+    .okButtonContainer{
+	   	position: relative;
+	    border: groove;
 
-    padding-top: 15px;
-    padding-bottom: 15px;
-    padding-right: 10px;
-    padding-left: 10px;
+	    padding-top: 10px;
+	    padding-bottom: 10px;
+	    padding-right: 10px;
+	    padding-left: 10px;
 
-    cursor: pointer;
+	    cursor: pointer;
+	    overflow: hidden;
     }
+
+    #sliderContainer {
+	    position: relative;
+	    border: groove;
+
+	    padding-top: 15px;
+	    padding-bottom: 15px;
+	    padding-right: 10px;
+	    padding-left: 10px;
+
+	    cursor: pointer;
+    }
+
+    .submit{
+		width:3%;
+		height:3%;
+		float: right;
+    }
+
+
+
     </style>
-
-    <div id="element-wrapper">
-      <div id="sliderContainer" on-track="handleTrack" >
+      <div class="okButtonContainer">
+      	<input class="submit" type="image" src="haken.svg" on-click='submitted'/>
+      </div>
+      <div id="sliderContainer" on-track="handleTrack" background="none">
         <div id="sliderFrame">
-          
-        <content id="myContent"></content>
-
+       		<content id="myContent"></content>
         </div>
       </div>
-    </div>
   </template>
 
 </dom-module>
@@ -56,6 +76,17 @@
         value: 0
       }
     },
+    submitted: function(){
+		var distributed = this.getContentChildren('#myContent');
+
+		for (i=1; i<=this.items; i++){
+            var cObject = distributed[i-1];
+            if(cObject.active){
+            	alert("Element: " + i + " is active");
+            }
+        }
+    }
+    ,
     attached: function() {
       var distributed = this.getContentChildren('#myContent');
       var container_top = this.$.sliderContainer.getBoundingClientRect().top; 

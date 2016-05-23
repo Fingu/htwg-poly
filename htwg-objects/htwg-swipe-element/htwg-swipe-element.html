@@ -43,7 +43,7 @@
       },active: {
         type: Boolean,
         value: false,
-        observer: '_aktiveChanged'
+        observer: '_activeChanged'
       }
 
     },
@@ -62,7 +62,7 @@
     _positionYChanged: function(newValue, oldValue){
       this.$.swipeelement.style.transform = "translateY(" + this.positionY + "px)";
     },
-    _aktiveChanged: function(){
+    _activeChanged: function(){
       if(this.active)
         {
           this.$.swipeelement.style.fontSize = (this.textSize + 3) + "px";
