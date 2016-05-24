@@ -26,6 +26,8 @@
 	    padding-left: 10px;
 
 	    cursor: pointer;
+		width: inherit;
+		height: inherit;
     }
 
     .submit{
@@ -81,11 +83,10 @@
     },
     submitted: function(){
 		var distributed = this.getContentChildren('#myContent');
-
 		for (i=1; i<=this.items; i++){
             var cObject = distributed[i-1];
             if(cObject.active){
-            	window.open(cObject.link);
+            	//window.open(cObject.link);
             	//alert("Element: " + i + " is active");
             }
         }

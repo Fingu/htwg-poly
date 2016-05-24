@@ -6,24 +6,31 @@
   <template>
     <style>
     .menuContainer{
-	    border: groove;
-
 	    padding-top: 10px;
 	    padding-bottom: 10px;
 	    padding-right: 10px;
 	    padding-left: 10px;
 		display: inline-flex;
     }
+	.wrapper{
+		border: groove;
+	}
     </style>
       <div class="menuContainer">
-		<div id="layer1">
-			<content id="content1" select=".layer1"></content>
+		<div class="wrapper" id="w1" on-tap="switchLayer">
+			<div class="layer" id="layer1">
+				<content id="content1" select=".layer1"></content>
+			</div>
 		</div>
-		<div id="layer2">
-			<content id="content2" select=".layer2"></content>
+		<div class="wrapper" id="w2" on-tap="switchLayer">
+			<div class="layer" id="layer2">
+				<content id="content2" select=".layer2"></content>
+			</div>
 		</div>
-		<div id="layer3">
-			<content id="content3" select=".layer3"></content>
+		<div class="wrapper" id="w3" on-tap="switchLayer">
+			<div class="layer" id="layer3">
+				<content id="content3" select=".layer3"></content>
+			</div>
 		</div>
       </div>
   </template>
@@ -46,6 +53,15 @@
 		layer1:{
 			type: Array,
 			value: []
+		},
+		activeLayer:{
+			type: Number,
+			value: 1,
+			observer: '_layerChanged'
+		},
+		prevLayer:{
+			type: Number,
+			value: -1,
 		}
     },
 
@@ -54,10 +70,14 @@
 		this.layer2 = this.getContentChildren('#content2');
 		this.layer3 = this.getContentChildren('#content3');
 		//console.log(this.layer1[0].children);
+		this.selectActive();
+    },
+	
+	selectActive: function() {
 		var active1 = "";
 		var active2 = "";
 		for(i=0; i < this.layer1[0].children.length; ++i) {
-			console.log(this.layer1[0].children[i].name);
+			//console.log(this.layer1[0].children[i].name);
 			if(this.layer1[0].children[i].active) {
 				active1 = this.layer1[0].children[i].name.replace("_", "");
 				break;
@@ -68,6 +88,7 @@
 			if(this.layer2[i].id != active1) {
 				this.layer2[i].style.display = 'none';
 			} else {
+				this.layer2[i].style.display = 'block';
 				for(j=0; j < this.layer2[i].children.length; ++j) {
 					if(this.layer2[i].children[j].active) {
 						active2 = this.layer2[i].children[j].name.replace("_", "");
@@ -80,13 +101,62 @@
 			//console.log(this.layer3[i].id);
 			if(this.layer3[i].id != active2) {
 				this.layer3[i].style.display = 'none';
+			} else {
+				this.layer3[i].style.display = 'block';
 			}
 		}
+	},
+	
+    _layerChanged: function(newValue, oldValue){
+		console.log(this.activeLayer + " is active");
+		//this.prevLayer = oldValue;
+		if(this.activeLayer == 1) {
+			this.fadeIn(this.$.layer1);
+			this.fadeOut(this.$.layer2);
+			this.fadeOut(this.$.layer3);
+			this.$.w1.style.display = 'block';
+			this.$.w2.style.display = 'none';
+			this.$.w3.style.display = 'none';
+		} else if(this.activeLayer == 2) {
+			this.selectActive();
+			this.fadeOut(this.$.layer1);
+			this.fadeIn(this.$.layer2);
+			this.fadeOut(this.$.layer3);
+			this.$.w1.style.display = 'block';
+			this.$.w2.style.display = 'block';
+			this.$.w3.style.display = 'none';
+		} else {
+			this.selectActive();
+			this.fadeOut(this.$.layer1);
+			this.fadeOut(this.$.layer2);
+			this.fadeIn(this.$.layer3);
+			this.$.w1.style.display = 'block';
+			this.$.w2.style.display = 'block';
+			this.$.w3.style.display = 'block';
+		}
+	},
+
+	fadeIn: function(layer){
+        layer.style.opacity = 1;
+		layer.style.width = "322.89px";
+        layer.style.transition = "ease-in 0.5s";
     },
 
-	changeOpacity: function(element, opacity) {
-        element.customStyle['--swipe-element-opacity'] = ""+opacity;
-        element.updateStyles();
+	fadeOut: function(layer){
+        layer.style.opacity = 0;
+		layer.style.width = "40px";
+        layer.style.transition = "ease-out 0.5s";
     },
+	
+	switchLayer: function(e){
+	console.log(e.currentTarget);
+	//console.log(this.activeLayer + " " + this.prevLayer);
+		var l = parseInt(e.currentTarget.id.replace("w", ""));
+		if(l != this.activeLayer) {
+			this.activeLayer = l;
+		} else if(this.activeLayer < 3){
+			this.activeLayer = l + 1;
+		}
+	}
   });
 </script>
