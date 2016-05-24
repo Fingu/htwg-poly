@@ -33,64 +33,136 @@
 
 	<body>
 		<htwg-menu-frame>
-		<htwg-swipe-menu class="swipemenu">
-     			<htwg-swipe-element 
-                    					  text-color="black"
-                    					  text-size="17"
-                                               link = "https://www.google.de">
-                    		Google
-                    </htwg-swipe-element>
-                    <htwg-swipe-element 
-                    					   text-color="black"
-                    					   text-size="17"
-                                                link = "https://www.facebook.de">
-                    		Facebook
-                    </htwg-swipe-element>
-                    <htwg-swipe-element
-                    					  text-color="black"
-                    					  text-size="17"
-                    					  active
-                                               link = "http://www.golem.de">
-                    		Golem
-                    </htwg-swipe-element>
-                    <htwg-swipe-element
-                    					  text-color="black"
-                    					  text-size="17"
-                                               link = "https://www.youtube.de">
-                    		Youtube
-                    </htwg-swipe-element>
-		</htwg-swipe-menu>
-
-
-          <htwg-swipe-menu class="content">
-                    <htwg-swipe-element 
-                                          text-color="black"
-                                          text-size="17">
-                         Zeile 1
-                    </htwg-swipe-element>
-                    <htwg-swipe-element 
-                                                text-color="black"
-                                                text-size="17">
-                              Zeile 2
-                    </htwg-swipe-element>
-                    <htwg-swipe-element
-                                               text-color="black"
-                                               text-size="17"
-                                               active>
-                              Zeile 3
-                    </htwg-swipe-element>
-                    <htwg-swipe-element
-                                               text-color="black"
-                                               text-size="17">
-                              Zeile 4
-                    </htwg-swipe-element>
-                    <htwg-swipe-element
-                                               text-color="black"
-                                               text-size="17">
-                              Zeile 5
-                    </htwg-swipe-element>
-          </htwg-swipe-menu>
-		  		</htwg-menu-frame>
+			<htwg-swipe-menu class="layer1">
+				<htwg-swipe-element name="_informatik"
+					text-color="black"
+					text-size="17"
+					active
+					link = "#">
+					Informatik
+				</htwg-swipe-element>
+				<htwg-swipe-element name="_architektur 
+					text-color="black"
+					text-size="17"
+					link = "#">
+					Architektur und Gestaltung
+				</htwg-swipe-element>
+				<htwg-swipe-element name="_maschinenbau
+					text-color="black"
+					text-size="17"
+					link = "#">
+					Maschinenbau
+				</htwg-swipe-element>
+				<htwg-swipe-element name="_bauingenieur 
+					text-color="black"
+					text-size="17"
+					link = "#">
+					Bauingenieurwesen
+				</htwg-swipe-element>
+				<htwg-swipe-element name="_elektro 
+					text-color="black"
+					text-size="17"
+					link = "#">
+					Elektrotechnik und Informationstechnik
+				</htwg-swipe-element>
+				<htwg-swipe-element name="_wirtschaft 
+					text-color="black"
+					text-size="17"
+					link = "#">
+					Wirtschafts-, Kultur- und Rechtswissenschaften
+				</htwg-swipe-element>
+				
+			</htwg-swipe-menu>
+			
+			<htwg-swipe-menu id="informatik" class="layer2">
+				<htwg-swipe-element name="_ain" 
+					text-color="black"
+					text-size="17"
+					active
+					link = "#">
+					Angewandte Informatik
+				</htwg-swipe-element>
+				<htwg-swipe-element name="_ait"
+					text-color="black"
+					text-size="17"
+					link = "#">
+					Automobilinformatik
+				</htwg-swipe-element>
+				<htwg-swipe-element name="_gib"
+					text-color="black"
+					text-size="17"
+					link = "#">
+					Gesundheitsinformatik
+				</htwg-swipe-element>
+				<htwg-swipe-element name="_win"
+					text-color="black"
+					text-size="17"
+					link = "#">
+					Wirtschaftsinformatik
+				</htwg-swipe-element>
+			</htwg-swipe-menu>
+			<htwg-swipe-menu id="architektur" class="layer2">
+				<htwg-swipe-element name="_ar"
+					text-color="black"
+					text-size="17"
+					link = "#">
+					Architektur
+				</htwg-swipe-element>
+				<htwg-swipe-element name="_kd"
+					text-color="black"
+					text-size="17"
+					link = "#">
+					Kommunikationsdesign
+				</htwg-swipe-element>
+			</htwg-swipe-menu>
+			<htwg-swipe-menu id="maschinenbau" class="layer2">
+			</htwg-swipe-menu>
+			<htwg-swipe-menu id="bauingenieur" class="layer2">
+			</htwg-swipe-menu>
+			<htwg-swipe-menu id="elektro" class="layer2">
+			</htwg-swipe-menu>
+			<htwg-swipe-menu id="wirtschaft" class="layer2">
+			</htwg-swipe-menu>
+			
+			<htwg-swipe-menu id="ain" class="layer3">
+				<htwg-swipe-element
+					text-color="black"
+					text-size="17"
+					active
+					link = "#">
+					Embedded Systems
+				</htwg-swipe-element>
+				<htwg-swipe-element 
+					text-color="black"
+					text-size="17"
+					link = "#">
+					Medien-Informatik
+				</htwg-swipe-element>
+				<htwg-swipe-element 
+					text-color="black"
+					text-size="17"
+					link = "#">
+					Software-Engineering
+				</htwg-swipe-element>
+				<htwg-swipe-element 
+					text-color="black"
+					text-size="17"
+					link = "#">
+					Computer und Network Engineering
+				</htwg-swipe-element>
+			</htwg-swipe-menu>
+			<htwg-swipe-menu id="ait" class="layer3">
+			</htwg-swipe-menu>
+			<htwg-swipe-menu id="gib" class="layer3">
+			</htwg-swipe-menu>
+			<htwg-swipe-menu id="win" class="layer3">
+			</htwg-swipe-menu>
+			<htwg-swipe-menu id="ar" class="layer3">
+			</htwg-swipe-menu>
+			<htwg-swipe-menu id="kd" class="layer3">
+			</htwg-swipe-menu>
+			
+		</htwg-menu-frame>
 
 
 		<a href=".." class="backButton"><button style="background-color:red">back</button></a>

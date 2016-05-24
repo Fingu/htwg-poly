@@ -16,11 +16,14 @@
     }
     </style>
       <div class="menuContainer">
-		<div class="selectionFrame">
-			<content select=".swipemenu"></content>
+		<div id="layer1">
+			<content id="content1" select=".layer1"></content>
 		</div>
-		<div class="contentFrame">
-			<content select=".content"></content>
+		<div id="layer2">
+			<content id="content2" select=".layer2"></content>
+		</div>
+		<div id="layer3">
+			<content id="content3" select=".layer3"></content>
 		</div>
       </div>
   </template>
@@ -32,19 +35,53 @@
     is: 'htwg-menu-frame',
 
     properties: {
-
+		layer1:{
+			type: Array,
+			value: []
+		},
+		layer1:{
+			type: Array,
+			value: []
+		},
+		layer1:{
+			type: Array,
+			value: []
+		}
     },
 
     attached: function() {
-      var distributed = this.getContentChildren('#myContent');
-
-
-      this.items = distributed.length;
-
-      for(i = 1; i <= distributed.length; i++){
-        distributed[i-1].id = "hsm"+i;
-      }
-     
+		this.layer1 = this.getContentChildren('#content1');
+		this.layer2 = this.getContentChildren('#content2');
+		this.layer3 = this.getContentChildren('#content3');
+		//console.log(this.layer1[0].children);
+		var active1 = "";
+		var active2 = "";
+		for(i=0; i < this.layer1[0].children.length; ++i) {
+			console.log(this.layer1[0].children[i].name);
+			if(this.layer1[0].children[i].active) {
+				active1 = this.layer1[0].children[i].name.replace("_", "");
+				break;
+			}
+		}		
+		for(i=0; i < this.layer2.length; ++i) {
+			//console.log(this.layer2[i].id);
+			if(this.layer2[i].id != active1) {
+				this.layer2[i].style.display = 'none';
+			} else {
+				for(j=0; j < this.layer2[i].children.length; ++j) {
+					if(this.layer2[i].children[j].active) {
+						active2 = this.layer2[i].children[j].name.replace("_", "");
+						break;
+					}
+				}
+			}
+		}
+		for(i=0; i < this.layer3.length; ++i) {
+			//console.log(this.layer3[i].id);
+			if(this.layer3[i].id != active2) {
+				this.layer3[i].style.display = 'none';
+			}
+		}
     },
 
 	changeOpacity: function(element, opacity) {
