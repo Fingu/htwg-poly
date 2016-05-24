@@ -129,6 +129,10 @@
 			this.$.w2.style.display = 'none';
 			this.$.l2.style.display = "none";
 			this.$.w3.style.display = 'none';
+
+			this.$.w1.style.backgroundColor = "white";
+        	this.$.w1.style.color = "black";
+
 		} else if(this.activeLayer == 2) {
 			this.selectActive();
 			this.fadeOut(this.$.layer1);
@@ -141,6 +145,13 @@
 			this.$.l2.style.display = "none";
 			//this.$.w2.style.border = 'none';//
 			//this.$.w3.style.display = 'none';//
+
+			this.$.w1.style.backgroundColor = "grey";
+        	this.$.w1.style.color = "white";
+			this.$.w2.style.backgroundColor = "white";
+        	this.$.w2.style.color = "black";
+        	this.$.w3.style.backgroundColor = "grey";
+        	this.$.w3.style.color = "white";
 		} else {
 			this.selectActive();
 			this.fadeOut(this.$.layer1);
@@ -154,6 +165,13 @@
 			this.$.l2.style.display = "flex";
 			this.$.w3.style.display = 'block';
 			//this.$.w3.style.border = 'none';//
+
+			this.$.w1.style.backgroundColor = "grey";
+        	this.$.w1.style.color = "white";
+        	this.$.w2.style.backgroundColor = "grey";
+        	this.$.w2.style.color = "white";
+        	this.$.w3.style.backgroundColor = "white";
+        	this.$.w3.style.color = "black";
 		}
 	},
 
@@ -161,12 +179,14 @@
         layer.style.opacity = 1;
 		layer.style.width = "322.89px";
         layer.style.transition = "ease-in 0.5s";
+
     },
 
 	fadeOut: function(layer){
         layer.style.opacity = 0;
 		layer.style.width = "40px";
         layer.style.transition = "ease-out 0.5s";
+
     },
 	
 	switchLayer: function(e){
