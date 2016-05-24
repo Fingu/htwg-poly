@@ -1,0 +1,55 @@
+
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<dom-module id="htwg-menu-frame">
+
+  <template>
+    <style>
+    .menuContainer{
+	    border: groove;
+
+	    padding-top: 10px;
+	    padding-bottom: 10px;
+	    padding-right: 10px;
+	    padding-left: 10px;
+		display: inline-flex;
+    }
+    </style>
+      <div class="menuContainer">
+		<div class="selectionFrame">
+			<content select=".swipemenu"></content>
+		</div>
+		<div class="contentFrame">
+			<content select=".content"></content>
+		</div>
+      </div>
+  </template>
+
+</dom-module>
+
+<script>
+  Polymer({
+    is: 'htwg-menu-frame',
+
+    properties: {
+
+    },
+
+    attached: function() {
+      var distributed = this.getContentChildren('#myContent');
+
+
+      this.items = distributed.length;
+
+      for(i = 1; i <= distributed.length; i++){
+        distributed[i-1].id = "hsm"+i;
+      }
+     
+    },
+
+	changeOpacity: function(element, opacity) {
+        element.customStyle['--swipe-element-opacity'] = ""+opacity;
+        element.updateStyles();
+    },
+  });
+</script>

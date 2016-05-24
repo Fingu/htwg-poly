@@ -12,6 +12,7 @@
 		};
 	  </script>
 
+	  <link rel="import" href="htwg-objects/htwg-menu-frame/htwg-menu-frame.html">
 	  <link rel="import" href="htwg-objects/htwg-swipe-menu/htwg-swipe-menu.html">
 	  <link rel="import" href="htwg-objects/htwg-swipe-element/htwg-swipe-element.html">
 
@@ -31,6 +32,7 @@
 	</head>
 
 	<body>
+		<htwg-menu-frame>
 		<htwg-swipe-menu class="swipemenu">
      			<htwg-swipe-element 
                     					  text-color="black"
@@ -60,7 +62,7 @@
 		</htwg-swipe-menu>
 
 
-          <htwg-swipe-menu>
+          <htwg-swipe-menu class="content">
                     <htwg-swipe-element 
                                           text-color="black"
                                           text-size="17">
@@ -88,6 +90,7 @@
                               Zeile 5
                     </htwg-swipe-element>
           </htwg-swipe-menu>
+		  		</htwg-menu-frame>
 
 
 		<a href=".." class="backButton"><button style="background-color:red">back</button></a>
