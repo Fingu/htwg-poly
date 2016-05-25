@@ -1,0 +1,81 @@
+
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<dom-module id="htwg-bubble">
+
+  <style>
+    * {
+        box-sizing: border-box;
+    }
+    .row::after {
+        content: "";
+        clear: both;
+        display: block;
+    }
+    [class*="col-"] {
+        float: left;
+    }
+
+    .col-1 {width: 10vw;
+            height: 10vw;
+            margin-top: -10px;
+            margin-left: -10px;
+    }
+    .col-2 {width: 20%;}
+    .col-3 {width: 30%;}
+    .col-4 {width: 40%;}
+    .col-5 {width: 50%;}
+    .col-6 {width: 60%;}
+    .col-7 {width: 70%;}
+    .col-8 {width: 80%;}
+    .col-9 {width: 90%;}
+    .col-10 {width: 100%;}
+
+    .showBorder{
+      border: solid;
+    }
+  </style>
+
+  <template>
+      <div class="col-1 showBorder">
+        <content id="myContent">{{text}}</content>
+      </div>
+
+  </template>
+
+</dom-module>
+
+<script>
+  Polymer({
+    is: 'htwg-bubble',
+
+    properties: {
+      textColor: {
+        type: String,
+        value: "black"
+      },
+      active: {
+        type: Boolean,
+        value: false
+      },
+      backgroundColor: {
+        type: String,
+        value: "blue"
+      },
+      neighbors:{
+        type: Array,
+        value: []
+      },
+      text: {
+        type:String,
+        value: "."
+      }
+
+    },
+    attached: function(){
+      if(this.active){
+        this.text = "bla";//this.text;
+      }
+    }
+  });
+</script>

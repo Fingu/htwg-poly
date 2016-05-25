@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+
+		<script src="bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
+
+		<script>
+		/* this script must run before Polymer is imported */
+		window.Polymer = {
+		  dom: 'shadow', //use shadow dom if possible
+		  lazyRegister: true
+		};
+	  </script>
+
+	  <link rel="import" href="htwg-objects/htwg-thumbnail/htwg-thumbnail.html">
+	  <link rel="import" href="htwg-objects/htwg-thumbnail-tagfilter/htwg-thumbnail-tagfilter.html">
+	  <link rel="import" href="htwg-objects/htwg-swipe-menu/htwg-swipe-menu.html">
+	  <link rel="import" href="bower_components/iron-input/iron-input.html">
+	  <link rel="import" href="htwg-objects/htwg-bubble-frame/htwg-bubble-frame.html">
+  	  	<style is="custom-style">
+		.wrapper{
+			position: fixed;
+			left: 0;
+			bottom: 0;
+		}
+		</style>
+
+	</head>
+
+	<body bgcolor="#00e6b8">
+
+		<htwg-bubble-frame></htwg-bubble-frame>
+		<div class="wrapper">
+		<a href=".."><button>back</button></a>
+		</div>
+
+	</body>
+
+
+</html>
