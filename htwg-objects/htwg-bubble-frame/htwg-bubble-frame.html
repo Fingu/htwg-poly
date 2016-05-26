@@ -38,7 +38,7 @@
 
   <template>
 
-	<div onresize="this.computeRows()">
+	<div>
 		<template is="dom-repeat" items="{{bubbles}}">
 			<div class="row">
 				<template is="dom-repeat" items="{{item}}">
@@ -62,7 +62,6 @@
       },
 	  rowCount: {
 		type: Number,
-		computed: 'computeRows()',
 		value: 5
 	  },
 	  bubbles: {
@@ -75,14 +74,11 @@
 		window.addEventListener("resize", function() { that.computeRows(); });
 	},
 	computeRows: function() {
-		console.log("compute rows");
 		width = window.innerWidth;
 		height = window.innerHeight;
-		console.log(Math.floor(height / (width/10)));
-		return Math.floor(height / (width/10));
+		this.rowCount= Math.floor(height / (width/10));
 	},
 	computeBubbles: function(rowCount) {
-		console.log("compute bubbles");
 		bubbles = [];
 		for(i=0; i< rowCount; i++) {
 			bubbles[i] = [i + "_0", i + "_1", i + "_2", i + "_3", i + "_4", i + "_5", i + "_6", i + "_7", i + "_8", i + "_9"]
