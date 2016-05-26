@@ -71,6 +71,53 @@
 	.bubble {
 		background: cyan;
 	}
+
+	.full {
+		left: -30%;
+		top: -30%;
+		width: 160%;
+		height: 160%;
+	}
+	.noCorners {
+
+	}
+	.topRight {
+		left: -30%;
+		width: 130%;
+		height: 130%;
+	}
+	.bottomRight {
+		left: -30%;
+		top: -30%;
+		width: 130%;
+		height: 130%;
+	}
+	.bottomLeft {
+		top: -30%;
+		width: 130%;
+		height: 130%;
+	}
+	.topLeft {
+		width: 130%;
+		height: 130%;
+	}
+	.top {
+		height: 130%;
+	}
+	.right {
+		left: -30%;
+		width: 130%;
+	}
+	.bottom {
+		top: -30%;
+		height: 130%;
+	}
+	.left {
+		width: 130%;
+	}
+	.empty {
+		background: white;
+	}
 	
   </style>
 
@@ -79,8 +126,9 @@
         <content id="myContent">{{text}}</content>
 		<div id="bubbles">
 		  <div class="bubble-container">
-	        <div class="bubble"></div>
-	      </div>
+		    <div class="bubble">
+		    </div>
+		  </div>
 		</div>
       </div>
   </template>
@@ -163,6 +211,7 @@
 
 	checkNeighbors: function() {
 		//console.log(this.x + " " + this.y + ": ");
+		this.$$('.bubble').classList.remove(this.currentState);
 		console.log(this.neighbors);
 		var check = [];
 		for(i = 0; i < 8; i++) {
@@ -190,16 +239,29 @@
 				this.currentState = this.inactiveStates[4];
 			} else if(!check[2] && !check[4]) {
 				this.currentState = this.inactiveStates[5];
-			} else if(!check[0]) {
-				this.currentState = this.inactiveStates[6];
-			} else if(!check[2]) {
-				this.currentState = this.inactiveStates[7];
 			} else if(!check[4]) {
-				this.currentState = this.inactiveStates[8];
+				this.currentState = this.inactiveStates[6];
 			} else if(!check[6]) {
+				this.currentState = this.inactiveStates[7];
+			} else if(!check[0]) {
+				this.currentState = this.inactiveStates[8];
+			} else if(!check[2]) {
 				this.currentState = this.inactiveStates[9];
 			}
 		}
+		//this.bubble = document.createElement('div');
+        //this.bubbleContainer = document.createElement('div');
+		//Polymer.dom(this.bubbleContainer.parentNode).removeChild(
+        //  this.bubbleContainer
+        //);
+        //this.bubble.style.backgroundColor = this.color;
+        //this.bubble.classList.add('bubble');
+		//this.bubble.classList.add(this.currentState);
+        //this.bubbleContainer.classList.add('bubble-container');
+        //Polymer.dom(this.bubbleContainer).appendChild(this.bubble);
+		
+		//Polymer.dom(this.$.bubbles).appendChild(this.bubbleContainer);
+		this.$$('.bubble').classList.add(this.currentState);
 		console.log(this.currentState);
 	}
   });
