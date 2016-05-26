@@ -20,7 +20,6 @@
             height: 0;
 			padding-top: 10%;
 			display: block;
-			background: cyan;
     }
     .col-2 {width: 20%;}
     .col-3 {width: 30%;}
@@ -35,13 +34,55 @@
     .showBorder{
       border: solid;
     }
+	
+	#bubbles,
+    .bubble-container,
+    .bubble {
+        pointer-events: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+	#bubbles,
+	.bubble {
+		overflow: hidden;
+	}
+
+	.bubble-container,
+	.bubble {
+		border-radius: 25%;
+	}
+
+	.bubbleContainer {
+		width: 383.35px;
+        height: 383.35px;
+		
+		position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+		background: cyan;
+	}
+	
+	.bubble {
+		background: cyan;
+	}
+	
   </style>
 
   <template>
-      <div class="col-1">
+      <div class="col-1" style="position: relative;">
         <content id="myContent">{{text}}</content>
+		<div id="bubbles">
+		  <div class="bubble-container">
+	        <div class="bubble"></div>
+	      </div>
+		</div>
       </div>
-	  <div id="bubble"></div>
   </template>
 
 </dom-module>
