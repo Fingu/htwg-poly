@@ -39,9 +39,9 @@
   <template>
 
 	<div">
-		<template is="dom-repeat" items="{{bubbles}}">
+		<template is="dom-repeat" items="{{bubbles}}" as="rows">
 			<div class="row">
-				<template is="dom-repeat" items="{{item}}">
+				<template is="dom-repeat" items="{{rows}}">
 					<htwg-bubble id="x{{item.x}}y{{item.y}}" x="{{item.x}}" y="{{item.y}}"></htwg-bubble>
 				</template>
 			</div>
