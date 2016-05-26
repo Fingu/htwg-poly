@@ -42,7 +42,7 @@
 		<template is="dom-repeat" items="{{bubbles}}" as="rows">
 			<div class="row">
 				<template is="dom-repeat" items="{{rows}}">
-					<htwg-bubble id="x{{item.x}}y{{item.y}}" x="{{item.x}}" y="{{item.y}}" active?="{{item.active}}"></htwg-bubble>
+					<htwg-bubble id="x{{item.x}}y{{item.y}}" x="{{item.x}}" y="{{item.y}}" active="{{item.active}}"></htwg-bubble>
 				</template>
 			</div>
 		</template>
@@ -81,7 +81,7 @@
 	computeBubbles: function(rowCount) {
 		bubbles = [];
 		for(i=0; i< rowCount; i++) {
-			bubbles[i] = [{x: 0, y: i, active: (Math.random < 0.666)}, {x: 1, y: i, active: (Math.random < 0.666)}, {x: 2, y: i, active: (Math.random < 0.666)}, {x: 3, y: i, active: (Math.random < 0.666)}, {x: 4, y: i, active: (Math.random < 0.666)}, {x: 5, y: i, active: (Math.random < 0.666)}, {x: 6, y: i, active: (Math.random < 0.666)}, {x: 7, y: i, active: (Math.random < 0.666)}, {x: 8, y: i, active: (Math.random < 0.666)}, {x: 9, y: i, active: (Math.random < 0.666)}]
+			bubbles[i] = [{x: 0, y: i, active: (Math.random() > 0.666)}, {x: 1, y: i, active: (Math.random() > 0.666)}, {x: 2, y: i, active: (Math.random() > 0.666)}, {x: 3, y: i, active: (Math.random() > 0.666)}, {x: 4, y: i, active: (Math.random() > 0.666)}, {x: 5, y: i, active: (Math.random() > 0.666)}, {x: 6, y: i, active: (Math.random() > 0.666)}, {x: 7, y: i, active: (Math.random() > 0.666)}, {x: 8, y: i, active: (Math.random() > 0.666)}, {x: 9, y: i, active: (Math.random() > 0.666)}];
 		}
 		return bubbles;
 	}
