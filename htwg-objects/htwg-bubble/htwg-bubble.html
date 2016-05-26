@@ -42,7 +42,6 @@
         <content id="myContent">{{text}}</content>
       </div>
 	  <div id="bubble"></div>
-
   </template>
 
 </dom-module>
@@ -71,13 +70,43 @@
       text: {
         type:String,
         value: "."
-      }
-
+      },
+	  x: Number,
+	  y: Number
     },
     attached: function(){
+	//console.log(this.x + " " + this.y);
       if(this.active){
         this.text = "bla";//this.text;
       }
-    }
+	  this.setNeighbors()
+	  this.checkNeighbors()
+    },
+
+	setNeighbors: function() {
+		var frame = document.getElementsByTagName("htwg-bubble-frame")[0];
+		this.neighbors[0] = frame.$$('#x' +  this.x      + 'y' + (this.y - 1));
+		this.neighbors[1] = frame.$$('#x' + (this.x + 1) + 'y' + (this.y -1));
+		this.neighbors[2] = frame.$$('#x' + (this.x + 1) + 'y' +  this.y);
+		this.neighbors[3] = frame.$$('#x' + (this.x + 1) + 'y' + (this.y + 1));
+		this.neighbors[4] = frame.$$('#x' +  this.x      + 'y' + (this.y + 1));
+		this.neighbors[5] = frame.$$('#x' + (this.x - 1) + 'y' + (this.y + 1));
+		this.neighbors[6] = frame.$$('#x' + (this.x - 1) + 'y' +  this.y);
+		this.neighbors[7] = frame.$$('#x' + (this.x - 1) + 'y' + (this.y - 1));
+	},
+
+	checkNeighbors: function() {
+		console.log(this.x + " " + this.y + ": ");
+		console.log(this.neighbors);
+		for(i = 0; i < 8; i++) {
+			var active;
+			if(this.neighbors[i] == null) {
+				active = true;
+			} else {
+				active = this.neighbors[i].active;
+			}
+			console.log(active);
+		}
+	}
   });
 </script>

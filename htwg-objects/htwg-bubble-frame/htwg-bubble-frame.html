@@ -38,11 +38,11 @@
 
   <template>
 
-	<div>
+	<div">
 		<template is="dom-repeat" items="{{bubbles}}">
 			<div class="row">
 				<template is="dom-repeat" items="{{item}}">
-					<htwg-bubble id="{{item}}"></htwg-bubble>
+					<htwg-bubble id="x{{item.x}}y{{item.y}}" x="{{item.x}}" y="{{item.y}}"></htwg-bubble>
 				</template>
 			</div>
 		</template>
@@ -81,7 +81,7 @@
 	computeBubbles: function(rowCount) {
 		bubbles = [];
 		for(i=0; i< rowCount; i++) {
-			bubbles[i] = [i + "_0", i + "_1", i + "_2", i + "_3", i + "_4", i + "_5", i + "_6", i + "_7", i + "_8", i + "_9"]
+			bubbles[i] = [{x: 0, y: i}, {x: 1, y: i}, {x: 2, y: i}, {x: 3, y: i}, {x: 4, y: i}, {x: 5, y: i}, {x: 6, y: i}, {x: 7, y: i}, {x: 8, y: i}, {x: 9, y: i}]
 		}
 		return bubbles;
 	}
