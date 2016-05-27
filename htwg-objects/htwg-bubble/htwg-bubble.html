@@ -53,7 +53,11 @@
 
 	.bubble-container,
 	.bubble {
-		background: grey;
+		
+	}
+	
+	:host([active]) {
+		background: red;
 	}
 	
 	.bubble {
@@ -67,35 +71,35 @@
 		height: 160%;
 	}
 	.noCorners {
-		border-radius: 25%;
+		border-radius: var(--bubble-border-radius, 25%);
 	}
 	.topRight {
-		border-top-right-radius: 25%;
+		border-top-right-radius: var(--bubble-border-radius, 25%);
 	}
 	.bottomRight {
-		border-bottom-right-radius: 25%;
+		border-bottom-right-radius: var(--bubble-border-radius, 25%);
 	}
 	.bottomLeft {
-		border-bottom-left-radius: 25%;
+		border-bottom-left-radius: var(--bubble-border-radius, 25%);
 	}
 	.topLeft {
-		border-top-left-radius: 25%;
+		border-top-left-radius: var(--bubble-border-radius, 25%);
 	}
 	.top {
-		border-top-right-radius: 25%;
-		border-top-left-radius: 25%;
+		border-top-right-radius: var(--bubble-border-radius, 25%);
+		border-top-left-radius: var(--bubble-border-radius, 25%);
 	}
 	.right {
-		border-top-right-radius: 25%;
-		border-bottom-right-radius: 25%;
+		border-top-right-radius: var(--bubble-border-radius, 25%);
+		border-bottom-right-radius: var(--bubble-border-radius, 25%);
 	}
 	.bottom {
-		border-bottom-right-radius: 25%;
-		border-bottom-left-radius: 25%;
+		border-bottom-right-radius: var(--bubble-border-radius, 25%);
+		border-bottom-left-radius: var(--bubble-border-radius, 25%);
 	}
 	.left {
-		border-bottom-left-radius: 25%;
-		border-top-left-radius: 25%;
+		border-bottom-left-radius: var(--bubble-border-radius, 25%);
+		border-top-left-radius: var(--bubble-border-radius, 25%);
 	}
 	
 	.empty {
@@ -103,77 +107,77 @@
 	}
 	.topRightActive {
 		background: white;
-		border-top-right-radius: 25%;
+		border-top-right-radius: var(--bubble-border-radius, 25%);
 	}
 	.bottomRightActive {
 		background: white;
-		border-bottom-right-radius: 25%;
+		border-bottom-right-radius: var(--bubble-border-radius, 25%);
 	}
 	.bottomLeftActive {
 		background: white;
-		border-bottom-left-radius: 25%;
+		border-bottom-left-radius: var(--bubble-border-radius, 25%);
 	}
 	.topLeftActive {
 		background: white;
-		border-top-left-radius: 25%;
+		border-top-left-radius: var(--bubble-border-radius, 25%);
 	}
 	.topActive {
 		background: white;
-		border-top-right-radius: 25%;
-		border-top-left-radius: 25%;
+		border-top-right-radius: var(--bubble-border-radius, 25%);
+		border-top-left-radius: var(--bubble-border-radius, 25%);
 	}
 	.rightActive {
 		background: white;
-		border-top-right-radius: 25%;
-		border-bottom-right-radius: 25%;
+		border-top-right-radius: var(--bubble-border-radius, 25%);
+		border-bottom-right-radius: var(--bubble-border-radius, 25%);
 	}
 	.bottomActive {
 		background: white;
-		border-bottom-right-radius: 25%;
-		border-bottom-left-radius: 25%;
+		border-bottom-right-radius: var(--bubble-border-radius, 25%);
+		border-bottom-left-radius: var(--bubble-border-radius, 25%);
 	}
 	.leftActive {
 		background: white;
-		border-bottom-left-radius: 25%;
-		border-top-left-radius: 25%;
+		border-bottom-left-radius: var(--bubble-border-radius, 25%);
+		border-top-left-radius: var(--bubble-border-radius, 25%);
 	}
 	.notTopRight {
 		background: white;
-		border-bottom-right-radius: 25%;
-		border-bottom-left-radius: 25%;
-		border-top-left-radius: 25%;
+		border-bottom-right-radius: var(--bubble-border-radius, 25%);
+		border-bottom-left-radius: var(--bubble-border-radius, 25%);
+		border-top-left-radius: var(--bubble-border-radius, 25%);
 	}
 	.notBottomRight {
 		background: white;
-		border-top-right-radius: 25%;
-		border-bottom-left-radius: 25%;
-		border-top-left-radius: 25%;
+		border-top-right-radius: var(--bubble-border-radius, 25%);
+		border-bottom-left-radius: var(--bubble-border-radius, 25%);
+		border-top-left-radius: var(--bubble-border-radius, 25%);
 	}
 	.notBottomLeft {
 		background: white;
-		border-top-right-radius: 25%;
-		border-bottom-right-radius: 25%;
-		border-top-left-radius: 25%;
+		border-top-right-radius: var(--bubble-border-radius, 25%);
+		border-bottom-right-radius: var(--bubble-border-radius, 25%);
+		border-top-left-radius: var(--bubble-border-radius, 25%);
 	}
 	.notTopLeft {
 		background: white;
-		border-top-right-radius: 25%;
-		border-bottom-right-radius: 25%;
-		border-bottom-left-radius: 25%;
+		border-top-right-radius: var(--bubble-border-radius, 25%);
+		border-bottom-right-radius: var(--bubble-border-radius, 25%);
+		border-bottom-left-radius: var(--bubble-border-radius, 25%);
 	}
 	.diagonalRight {
 		background: white;
-		border-bottom-right-radius: 25%;
-		border-top-left-radius: 25%;
+		border-bottom-right-radius: var(--bubble-border-radius, 25%);
+		border-top-left-radius: var(--bubble-border-radius, 25%);
 	}
 	.diagonalLeft {
 		background: white;
-		border-top-right-radius: 25%;
-		border-bottom-left-radius: 25%;
+		border-top-right-radius: var(--bubble-border-radius, 25%);
+		border-bottom-left-radius: var(--bubble-border-radius, 25%);
 	}
 	.lonesome {
 		background: white;
-		border-radius: 25%;
+		border-radius: var(--bubble-border-radius, 25%);
 	}
 	
   </style>
