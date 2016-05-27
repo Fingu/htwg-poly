@@ -287,6 +287,7 @@
 			check[i] = active;
 		}
 		if(this.active) {
+			this.$$(".bubble-container").style.background = "cyan";
 			if(!check[0] && !check[1] && !check[2] && !check[3] && !check[4] && !check[5] && !check[6] && !check[7]) {
 				this.currentState = this.activeStates[15];
 			} else if(!check[0] && !check[2] && !check[3] && !check[4] && !check[5] && !check[6] && !check[7]) {//notTopRight
@@ -320,9 +321,8 @@
 			} else {//empty
 				this.currentState = this.activeStates[0];
 			}
-			console.log(this.currentState);
-			console.log(check);
 		} else {
+			this.$$(".bubble-container").style.background = "white";
 			if((!check[0] && !check[4]) || (!check[2] && !check[6])) {
 				this.currentState = this.inactiveStates[0];
 			} else if(check[0] && check[2] && check[4] && check[6]) {
