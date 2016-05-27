@@ -50,25 +50,19 @@
 	.bubble {
 		overflow: hidden;
 	}
-
-	.bubble-container,
-	.bubble {
-		
-	}
 	
-	:host([active]) {
-		background: red;
-	}
-	
+	:host([active]) .bubble-container,
 	.bubble {
 		background: cyan;
 	}
 
+	.bubble-container,
+	:host([active]) .bubble {
+		background: white;
+	}
+
 	.full {
-		left: -30%;
-		top: -30%;
-		width: 160%;
-		height: 160%;
+
 	}
 	.noCorners {
 		border-radius: var(--bubble-border-radius, 25%);
@@ -102,81 +96,66 @@
 		border-top-left-radius: var(--bubble-border-radius, 25%);
 	}
 	
-	.empty {
-		background: white;
+	:host([active]) .empty {
+		
 	}
-	.topRightActive {
-		background: white;
+	:host([active]) .topRight {
 		border-top-right-radius: var(--bubble-border-radius, 25%);
 	}
-	.bottomRightActive {
-		background: white;
+	:host([active]) .bottomRight {
 		border-bottom-right-radius: var(--bubble-border-radius, 25%);
 	}
-	.bottomLeftActive {
-		background: white;
+	:host([active]) .bottomLeft {
 		border-bottom-left-radius: var(--bubble-border-radius, 25%);
 	}
-	.topLeftActive {
-		background: white;
+	:host([active]) .topLeft {
 		border-top-left-radius: var(--bubble-border-radius, 25%);
 	}
-	.topActive {
-		background: white;
+	:host([active]) .top {
 		border-top-right-radius: var(--bubble-border-radius, 25%);
 		border-top-left-radius: var(--bubble-border-radius, 25%);
 	}
-	.rightActive {
-		background: white;
+	:host([active]) .right {
 		border-top-right-radius: var(--bubble-border-radius, 25%);
 		border-bottom-right-radius: var(--bubble-border-radius, 25%);
 	}
-	.bottomActive {
-		background: white;
+	:host([active]) .bottom {
 		border-bottom-right-radius: var(--bubble-border-radius, 25%);
 		border-bottom-left-radius: var(--bubble-border-radius, 25%);
 	}
-	.leftActive {
-		background: white;
+	:host([active]) .left {
 		border-bottom-left-radius: var(--bubble-border-radius, 25%);
 		border-top-left-radius: var(--bubble-border-radius, 25%);
 	}
 	.notTopRight {
-		background: white;
 		border-bottom-right-radius: var(--bubble-border-radius, 25%);
 		border-bottom-left-radius: var(--bubble-border-radius, 25%);
 		border-top-left-radius: var(--bubble-border-radius, 25%);
 	}
 	.notBottomRight {
-		background: white;
 		border-top-right-radius: var(--bubble-border-radius, 25%);
 		border-bottom-left-radius: var(--bubble-border-radius, 25%);
 		border-top-left-radius: var(--bubble-border-radius, 25%);
 	}
 	.notBottomLeft {
-		background: white;
 		border-top-right-radius: var(--bubble-border-radius, 25%);
 		border-bottom-right-radius: var(--bubble-border-radius, 25%);
 		border-top-left-radius: var(--bubble-border-radius, 25%);
 	}
 	.notTopLeft {
-		background: white;
 		border-top-right-radius: var(--bubble-border-radius, 25%);
 		border-bottom-right-radius: var(--bubble-border-radius, 25%);
 		border-bottom-left-radius: var(--bubble-border-radius, 25%);
 	}
 	.diagonalRight {
-		background: white;
 		border-bottom-right-radius: var(--bubble-border-radius, 25%);
 		border-top-left-radius: var(--bubble-border-radius, 25%);
 	}
 	.diagonalLeft {
-		background: white;
 		border-top-right-radius: var(--bubble-border-radius, 25%);
 		border-bottom-left-radius: var(--bubble-border-radius, 25%);
 	}
 	.lonesome {
-		background: white;
 		border-radius: var(--bubble-border-radius, 25%);
 	}
 	
@@ -207,7 +186,7 @@
 	  },
 	  activeStates: {
 		type: Array,
-		value: ["empty", "topRightActive", "bottomRightActive", "bottomLeftActive", "topLeftActive", "topActive", "rightActive", "bottomActive", "leftActive", "notTopRight",
+		value: ["empty", "topRightActive", "bottomRight", "bottomLeft", "topLeft", "top", "right", "bottom", "left", "notTopRight",
 				"notBottomRight", "notBottomLeft", "notTopLeft", "diagonalRight", "diagonalLeft", "lonesome"]
 	  },
 	  currentState: String,
@@ -238,12 +217,6 @@
 	  y: Number,
     },
     attached: function(){
-      if(this.active){
-        //this.text = "bla";//this.text;
-		this.$$(".bubble-container").style.background = "cyan";
-      } else {
-		this.$$(".bubble-container").style.background = "white";
-	  }
 	  this.setNeighbors()
 	  this.checkNeighbors()
 	  for(neighbor of this.neighbors) {
@@ -279,7 +252,6 @@
 
 	checkNeighbors: function() {
 		this.$$('.bubble').classList.remove(this.currentState);
-		//console.log(this.neighbors);
 		var check = [];
 		for(i = 0; i < 8; i++) {
 			var active;
@@ -291,7 +263,6 @@
 			check[i] = active;
 		}
 		if(this.active) {
-			this.$$(".bubble-container").style.background = "cyan";
 			if(!check[0] && !check[1] && !check[2] && !check[3] && !check[4] && !check[5] && !check[6] && !check[7]) {
 				this.currentState = this.activeStates[15];
 			} else if(!check[0] && !check[2] && !check[3] && !check[4] && !check[5] && !check[6] && !check[7]) {//notTopRight
@@ -326,7 +297,6 @@
 				this.currentState = this.activeStates[0];
 			}
 		} else {
-			this.$$(".bubble-container").style.background = "white";
 			if((!check[0] && !check[4]) || (!check[2] && !check[6])) {
 				this.currentState = this.inactiveStates[0];
 			} else if(check[0] && check[2] && check[4] && check[6]) {
@@ -349,20 +319,7 @@
 				this.currentState = this.inactiveStates[9];
 			}
 		}
-		//this.bubble = document.createElement('div');
-        //this.bubbleContainer = document.createElement('div');
-		//Polymer.dom(this.bubbleContainer.parentNode).removeChild(
-        //  this.bubbleContainer
-        //);
-        //this.bubble.style.backgroundColor = this.color;
-        //this.bubble.classList.add('bubble');
-		//this.bubble.classList.add(this.currentState);
-        //this.bubbleContainer.classList.add('bubble-container');
-        //Polymer.dom(this.bubbleContainer).appendChild(this.bubble);
-		
-		//Polymer.dom(this.$.bubbles).appendChild(this.bubbleContainer);
 		this.$$('.bubble').classList.add(this.currentState);
-		//console.log(this.currentState);
 	}
   });
 </script>
