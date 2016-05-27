@@ -96,36 +96,8 @@
 		border-top-left-radius: var(--bubble-border-radius, 25%);
 	}
 	
-	:host([active]) .empty {
+	.empty {
 		
-	}
-	:host([active]) .topRight {
-		border-top-right-radius: var(--bubble-border-radius, 25%);
-	}
-	:host([active]) .bottomRight {
-		border-bottom-right-radius: var(--bubble-border-radius, 25%);
-	}
-	:host([active]) .bottomLeft {
-		border-bottom-left-radius: var(--bubble-border-radius, 25%);
-	}
-	:host([active]) .topLeft {
-		border-top-left-radius: var(--bubble-border-radius, 25%);
-	}
-	:host([active]) .top {
-		border-top-right-radius: var(--bubble-border-radius, 25%);
-		border-top-left-radius: var(--bubble-border-radius, 25%);
-	}
-	:host([active]) .right {
-		border-top-right-radius: var(--bubble-border-radius, 25%);
-		border-bottom-right-radius: var(--bubble-border-radius, 25%);
-	}
-	:host([active]) .bottom {
-		border-bottom-right-radius: var(--bubble-border-radius, 25%);
-		border-bottom-left-radius: var(--bubble-border-radius, 25%);
-	}
-	:host([active]) .left {
-		border-bottom-left-radius: var(--bubble-border-radius, 25%);
-		border-top-left-radius: var(--bubble-border-radius, 25%);
 	}
 	.notTopRight {
 		border-bottom-right-radius: var(--bubble-border-radius, 25%);
@@ -186,7 +158,7 @@
 	  },
 	  activeStates: {
 		type: Array,
-		value: ["empty", "topRightActive", "bottomRight", "bottomLeft", "topLeft", "top", "right", "bottom", "left", "notTopRight",
+		value: ["empty", "topRight", "bottomRight", "bottomLeft", "topLeft", "top", "right", "bottom", "left", "notTopRight",
 				"notBottomRight", "notBottomLeft", "notTopLeft", "diagonalRight", "diagonalLeft", "lonesome"]
 	  },
 	  currentState: String,

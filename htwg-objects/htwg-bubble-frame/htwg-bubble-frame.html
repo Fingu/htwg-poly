@@ -82,9 +82,14 @@
 		this.rowCount= Math.floor(height / (width/10));
 	},
 	computeBubbles: function(rowCount) {
+		var a = 0.333;//0.666
 		bubbles = [];
-		for(i=0; i< rowCount; i++) {
-			bubbles[i] = [{x: 0, y: i, active: (Math.random() > 0.666)}, {x: 1, y: i, active: (Math.random() > 0.666)}, {x: 2, y: i, active: (Math.random() > 0.666)}, {x: 3, y: i, active: (Math.random() > 0.666)}, {x: 4, y: i, active: (Math.random() > 0.666)}, {x: 5, y: i, active: (Math.random() > 0.666)}, {x: 6, y: i, active: (Math.random() > 0.666)}, {x: 7, y: i, active: (Math.random() > 0.666)}, {x: 8, y: i, active: (Math.random() > 0.666)}, {x: 9, y: i, active: (Math.random() > 0.666)}];
+		for(i=0; i < rowCount; i++) {
+			a = 0.333;
+			if(i == 0 || i == rowCount - 1) {
+				a = 1;
+			}
+			bubbles[i] = [{x: 0, y: i, active: false}, {x: 1, y: i, active: (Math.random() > a)}, {x: 2, y: i, active: (Math.random() > a)}, {x: 3, y: i, active: (Math.random() > a)}, {x: 4, y: i, active: (Math.random() > a)}, {x: 5, y: i, active: (Math.random() > a)}, {x: 6, y: i, active: (Math.random() > a)}, {x: 7, y: i, active: (Math.random() > a)}, {x: 8, y: i, active: (Math.random() > a)}, {x: 9, y: i, active: false}];
 		}
 		return bubbles;
 	}
