@@ -182,20 +182,22 @@
       }
 	  this.setNeighbors()
 	  this.checkNeighbors()
+	  for(neighbor of this.neighbors) {
+			if(neighbor != null) {
+				neighbor.setNeighbors();
+				neighbor.checkNeighbors();
+			}
+		}
     },
 
 	_activeChanged: function() {
-		console.log(this.active);
 		if(this.neighbors != undefined) {
 			this.checkNeighbors();
-			
 			for(neighbor of this.neighbors) {
 				if(neighbor != null) {
-					console.log("tuk");
 					neighbor.checkNeighbors();
 				}
 			}
-
 		}
 	},
 
@@ -212,9 +214,8 @@
 	},
 
 	checkNeighbors: function() {
-		//console.log(this.x + " " + this.y + ": ");
 		this.$$('.bubble').classList.remove(this.currentState);
-		console.log(this.neighbors);
+		//console.log(this.neighbors);
 		var check = [];
 		for(i = 0; i < 8; i++) {
 			var active;
@@ -224,7 +225,6 @@
 				active = this.neighbors[i].active;
 			}
 			check[i] = active;
-			//console.log(active);
 		}
 		if(this.active) {
 			this.currentState = this.activeStates[0];
@@ -264,7 +264,7 @@
 		
 		//Polymer.dom(this.$.bubbles).appendChild(this.bubbleContainer);
 		this.$$('.bubble').classList.add(this.currentState);
-		console.log(this.currentState);
+		//console.log(this.currentState);
 	}
   });
 </script>
