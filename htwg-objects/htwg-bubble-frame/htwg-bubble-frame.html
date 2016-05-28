@@ -13,6 +13,7 @@
         content: "";
         clear: both;
         display: block;
+		background: rgba(255,255,255,0);
     }
     [class*="col-"] {
         float: left;
@@ -37,11 +38,15 @@
 	:host {
 		--bubble-border-radius: 40%;
 	}
+	.wrapper {
+		background: url("../../images/informatik.jpg");
+		background-size: cover;
+	}
   </style>
 
   <template>
 
-	<div">
+	<div class="wrapper">
 		<template is="dom-repeat" items="{{bubbles}}" as="rows">
 			<div class="row">
 				<template is="dom-repeat" items="{{rows}}">
@@ -75,6 +80,7 @@
 	attached: function() {
 		var that = this;
 		window.addEventListener("resize", function() { that.computeRows(); });
+		that.computeRows();
 	},
 	computeRows: function() {
 		width = window.innerWidth;
