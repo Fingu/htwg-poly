@@ -86,6 +86,16 @@
 		width = window.innerWidth;
 		height = window.innerHeight;
 		this.rowCount= Math.floor(height / (width/10));
+		
+		//needed for resizing
+		for(i=0;i<this.rowCount;i++){
+			for(j=0;j<10;j++){
+				var blub = this.$$('#x'+bubbles[i][j].x+'y'+bubbles[i][j].y);
+				if(blub != null) {
+					blub.positionBackground();
+				}
+			}
+		}
 	},
 	computeBubbles: function(rowCount) {
 		var a = 0.333;//0.666
