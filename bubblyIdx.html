@@ -26,13 +26,76 @@
 		htwg-bubble-frame {
 			
 		}
+		.content-wrapper{
+			float: left;
+			display: inline-flex;
+		}
+		.page-content {
+			position: relative;
+			margin: auto;
+			width: 60%;
+			padding-top: 10%;
+		}
 		</style>
 
 	</head>
 
 	<body>
 
-		<htwg-bubble-frame></htwg-bubble-frame>
+		<htwg-bubble-frame>
+			<div class="page-content">
+				<p>
+					<htwg-thumbnail-tagfilter></htwg-thumbnail-tagfilter>
+				</p>
+
+				<div class="content-wrapper">
+					<htwg-thumbnail class="informatik" title="Informatik">
+						<!--<htwg-thumbnail-textelement text-Caption="Angewandte Informatik" link="http://www.google.de" tags=' { "tag" : "Computer" , "tag1" : "Hacken" }'></htwg-thumbnail-textelement>-->
+						<htwg-thumbnail-textelement text-Caption="Angewandte Informatik" link="http://www.google.de" tags=' ["computer" , "hacken"] '></htwg-thumbnail-textelement>
+						<htwg-thumbnail-textelement text-Caption="Automobilinformatik" tags=' [ "auto" ,"motor" ]'></htwg-thumbnail-textelement>
+						<htwg-thumbnail-textelement text-Caption="Gesundheitsinformatik" tags=' [ "medizin" ,"gesund" ]'></htwg-thumbnail-textelement>
+						<htwg-thumbnail-textelement text-Caption="Wirtschaftsinformatik" tags=' [ "geld" ,"wirtschaft" ]'></htwg-thumbnail-textelement>
+					</htwg-thumbnail>
+
+					<htwg-thumbnail class="architektur" title="Architektur und Gestaltung">
+						<htwg-thumbnail-textelement text-Caption="Architektur" link="http://www.google.de" tags=' [ "bauen" ,"haus"]'></htwg-thumbnail-textelement>
+						<htwg-thumbnail-textelement text-Caption="Kommunikationsdesign" tags=' [ "girls" ,"love" ,"fashion" ]'></htwg-thumbnail-textelement>
+					</htwg-thumbnail>
+
+					<htwg-thumbnail class="maschinenbau" title="Maschinenbau">
+						<htwg-thumbnail-textelement text-Caption="Maschinenbau Konstruktion und Entwicklung" tags=' [ "entwicklung" ,"maschine" ]'></htwg-thumbnail-textelement>
+						<htwg-thumbnail-textelement text-Caption="Maschinenbau Entwicklung und Produktion" tags=' [ "produktion" ,"entwicklung" ,"maschine" ]'></htwg-thumbnail-textelement>
+						<htwg-thumbnail-textelement text-Caption="Verfahrens- und Umwelttechnik" tags=' [ "umwelt" ,"verfahren" ]'></htwg-thumbnail-textelement>
+						<htwg-thumbnail-textelement text-Caption="Wirtschaftsingenieurwesen Maschinenbau" tags=' [ "wirtschaft" ,"maschine" ]'></htwg-thumbnail-textelement>
+					</htwg-thumbnail>
+				</div>
+				<div class="content-wrapper">
+					<htwg-thumbnail class="bauingenieurwesen" title="Bauingenieurwesen">
+						<htwg-thumbnail-textelement text-Caption="Bauingenieurwesen" link="http://www.google.de" tags=' ["bau" , "strasse"] '></htwg-thumbnail-textelement>
+						<htwg-thumbnail-textelement text-Caption="Wirtschaftsingenieurwesen Bau" tags=' [ "wirtschaft" ,"bau" ]'></htwg-thumbnail-textelement>
+						<htwg-thumbnail-textelement text-Caption="Umwelttechnik und Ressourcemanagement" tags=' [ "umwelt" ,"ressourcen" ]'></htwg-thumbnail-textelement>
+					</htwg-thumbnail>
+
+					<htwg-thumbnail class="elektro" title="Elektro- und Informationstechnik">
+						<htwg-thumbnail-textelement text-Caption="Automobil- Informationstechnik" link="http://www.google.de" tags=' [ "auto" ,"elektrotechnik" ]'></htwg-thumbnail-textelement>
+						<htwg-thumbnail-textelement text-Caption="Elektro- und Informationstechnik" tags=' [ "elektrotechnik" ,"computer" ]'></htwg-thumbnail-textelement>
+						<htwg-thumbnail-textelement text-Caption="Wirtschaftsingenieurwesen Elektro- und Informationstechnik" tags=' [ "elektro" ,"wirtschaft" ]'></htwg-thumbnail-textelement>
+					</htwg-thumbnail>
+
+					<htwg-thumbnail class="wirtschaft" title="Wirtschafts- Kultur- und Rechtswissenschaften">
+						<htwg-thumbnail-textelement text-Caption="Betriebswirtschaftslehre" tags=' [ "wirtschaft" ,"geld" ,"hemd" ]'></htwg-thumbnail-textelement>
+						<htwg-thumbnail-textelement text-Caption="Wirtschaftsrecht" tags=' [ "recht" ,"wirtschaft" ]'></htwg-thumbnail-textelement>
+						<htwg-thumbnail-textelement text-Caption="Wirtschaftssprachen Asien und Management China | Südost- und Südasien" tags=' [ "girls" ,"asien" ,"china" ]'></htwg-thumbnail-textelement>
+						<htwg-thumbnail-textelement text-Caption="Wirtschaftssprachen Deutsch und Tourismusmanagement" tags=' [ "deutsch" ,"tourismus" ]'></htwg-thumbnail-textelement>
+					</htwg-thumbnail>
+				</div>
+
+				<div class="content-wrapper">
+				<a href="/swipeidx.html"><button>to swipe</button></a>
+				<a href="/bubblyIdx.html"><button>to bubble</button></a>
+				</div>
+			</div>
+		</htwg-bubble-frame>
 		<div class="wrapper">
 		<a href=".."><button>back</button></a>
 		</div>
