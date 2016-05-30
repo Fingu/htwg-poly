@@ -96,7 +96,7 @@
 	computeRows: function() {
 		width = window.innerWidth;
 		height = window.innerHeight;
-		this.rowCount= Math.floor(height / (width/10));
+		this.rowCount= Math.round(height / (width/10));
 		
 		//needed for resizing
 		for(i=0;i<this.rowCount;i++){
@@ -109,10 +109,10 @@
 		}
 	},
 	computeBubbles: function(rowCount) {
-		var a = 0.9;//0.666
+		var a = 1;//0.666
 		bubbles = [];
 		for(i=0; i < rowCount; i++) {
-			a = 0.333;
+			a = 0.9;
 			if(i == 0 || i == rowCount - 1) {
 				a = 1;
 			}

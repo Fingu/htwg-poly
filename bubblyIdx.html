@@ -43,16 +43,16 @@
 			position: relative;
 		}
 
-		.col-1 {width: 10%;}
+		.col-1 {width: 10%; min-width: 50px;}
 		.col-2 {width: 20%; min-width: 100px;}
-		.col-3 {width: 30%;}
-		.col-4 {width: 40%;}
-		.col-5 {width: 50%;}
-		.col-6 {width: 60%;}
-		.col-7 {width: 70%;}
-		.col-8 {width: 80%;}
-		.col-9 {width: 90%;}
-		.col-10 {width: 100%;}
+		.col-3 {width: 30%; min-width: 150px;}
+		.col-4 {width: 40%; min-width: 200px;}
+		.col-5 {width: 50%; min-width: 250px;}
+		.col-6 {width: 60%; min-width: 300px;}
+		.col-7 {width: 70%; min-width: 350px;}
+		.col-8 {width: 80%; min-width: 400px;}
+		.col-9 {width: 90%; min-width: 450px;}
+		.col-10 {width: 100%; min-width: 500px;}
 		</style>
 
 	</head>
@@ -61,11 +61,50 @@
 
 		<htwg-bubble-frame>
 			<div class="row">
+				<div class="col-1"></div>
+				<div class="col-4 content">
+					<p>
+						<htwg-thumbnail-tagfilter></htwg-thumbnail-tagfilter>
+					</p>
+				</div>
+			</div>
+			<div class="row">
 				<div class="col-2"></div>
-				<div class="col-2 content">test</div>
-				<div class="col-2 content">testasf</div>
-				<div class="col-2 content">testf</div>
-				<div class="col-2 content">testhhhhhh</div>
+				<div class="col-3 content">
+					<htwg-thumbnail class="informatik" title="Informatik">
+						<!--<htwg-thumbnail-textelement text-Caption="Angewandte Informatik" link="http://www.google.de" tags=' { "tag" : "Computer" , "tag1" : "Hacken" }'></htwg-thumbnail-textelement>-->
+						<htwg-thumbnail-textelement text-Caption="Angewandte Informatik" link="http://www.google.de" tags=' ["computer" , "hacken"] '></htwg-thumbnail-textelement>
+						<htwg-thumbnail-textelement text-Caption="Automobilinformatik" tags=' [ "auto" ,"motor" ]'></htwg-thumbnail-textelement>
+						<htwg-thumbnail-textelement text-Caption="Gesundheitsinformatik" tags=' [ "medizin" ,"gesund" ]'></htwg-thumbnail-textelement>
+						<htwg-thumbnail-textelement text-Caption="Wirtschaftsinformatik" tags=' [ "geld" ,"wirtschaft" ]'></htwg-thumbnail-textelement>
+					</htwg-thumbnail>
+				</div>
+				<div class="col-3 content">
+					<htwg-thumbnail class="architektur" title="Architektur und Gestaltung">
+						<htwg-thumbnail-textelement text-Caption="Architektur" link="http://www.google.de" tags=' [ "bauen" ,"haus"]'></htwg-thumbnail-textelement>
+						<htwg-thumbnail-textelement text-Caption="Kommunikationsdesign" tags=' [ "girls" ,"love" ,"fashion" ]'></htwg-thumbnail-textelement>
+					</htwg-thumbnail>
+				</div>
+				<div class="col-2"></div>
+			</div>
+			<div class="row">
+				<div class="col-2"></div>
+				<div class="col-3 content">
+					<htwg-thumbnail class="maschinenbau" title="Maschinenbau">
+						<htwg-thumbnail-textelement text-Caption="Maschinenbau Konstruktion und Entwicklung" tags=' [ "entwicklung" ,"maschine" ]'></htwg-thumbnail-textelement>
+						<htwg-thumbnail-textelement text-Caption="Maschinenbau Entwicklung und Produktion" tags=' [ "produktion" ,"entwicklung" ,"maschine" ]'></htwg-thumbnail-textelement>
+						<htwg-thumbnail-textelement text-Caption="Verfahrens- und Umwelttechnik" tags=' [ "umwelt" ,"verfahren" ]'></htwg-thumbnail-textelement>
+						<htwg-thumbnail-textelement text-Caption="Wirtschaftsingenieurwesen Maschinenbau" tags=' [ "wirtschaft" ,"maschine" ]'></htwg-thumbnail-textelement>
+					</htwg-thumbnail>
+				</div>
+				<div class="col-3 content">
+					<htwg-thumbnail class="bauingenieurwesen" title="Bauingenieurwesen">
+						<htwg-thumbnail-textelement text-Caption="Bauingenieurwesen" link="http://www.google.de" tags=' ["bau" , "strasse"] '></htwg-thumbnail-textelement>
+						<htwg-thumbnail-textelement text-Caption="Wirtschaftsingenieurwesen Bau" tags=' [ "wirtschaft" ,"bau" ]'></htwg-thumbnail-textelement>
+						<htwg-thumbnail-textelement text-Caption="Umwelttechnik und Ressourcemanagement" tags=' [ "umwelt" ,"ressourcen" ]'></htwg-thumbnail-textelement>
+					</htwg-thumbnail>
+				</div>
+				<div class="col-2"></div>
 			</div>
 		</htwg-bubble-frame>
 		<div class="wrapper">
