@@ -56,7 +56,7 @@
 	:host([active]) .bubble-container,
 	.bubble {
 		background-color: rgba(0,255,255,1);
-		background-image: url("../../images/informatik.jpg");
+		background-image: url("../../images/wikurewi.jpg");
 		/*background-size: 700% 700% ;*/
 	}
 
@@ -142,7 +142,7 @@
 
   <template>
       <div class="col-1" style="position: relative;">
-        <content id="myContent">{{text}}</content>
+        <content id="myContent"></content>
 		<div id="bubbles">
 		  <div class="bubble-container">
 		    <div class="bubble">
@@ -188,10 +188,6 @@
         type: Array,
 		value: function() {return [];} //otherwise it's shared (https://github.com/Polymer/polymer/issues/3505)
       },
-      text: {
-        type:String,
-        value: "."
-      },
 	  x: Number,
 	  y: Number,
     },
@@ -207,7 +203,8 @@
 		if(!this.active) {
 			this.checkCollisions();
 		}
-
+		var that = this;
+		window.addEventListener("resize", function() { that.checkCollisions(); });
     },
 
 	_activeChanged: function() {
