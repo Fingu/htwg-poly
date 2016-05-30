@@ -44,6 +44,12 @@
 		position: absolute;
 		width: 100%;
 	}
+	.page-content {
+		position: relative;
+		margin: auto;
+		width: 70%;
+		padding-top: 11%;
+	}
   </style>
 
   <template>
@@ -57,7 +63,9 @@
 			</div>
 		</template>
 	</div>
-	<content></content>
+	<div class="page-content">
+		<content></content>
+	</div>
   </template>
 
 </dom-module>
@@ -101,7 +109,7 @@
 		}
 	},
 	computeBubbles: function(rowCount) {
-		var a = 0.333;//0.666
+		var a = 0.9;//0.666
 		bubbles = [];
 		for(i=0; i < rowCount; i++) {
 			a = 0.333;

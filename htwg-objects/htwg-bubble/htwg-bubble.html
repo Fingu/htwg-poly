@@ -204,6 +204,10 @@
 				neighbor.checkNeighbors();
 			}
 		}
+		if(!this.active) {
+			this.checkCollisions();
+		}
+
     },
 
 	_activeChanged: function() {
@@ -214,6 +218,9 @@
 					neighbor.checkNeighbors();
 				}
 			}
+		}
+		if(!this.active) {
+			this.checkCollisions();
 		}
 	},
 
@@ -303,12 +310,42 @@
 	},
 	
 	positionBackground: function() {
-     var bubble   = this.$$('.bubble');
-	 bubble.style.backgroundPosition = "-" + bubble.getBoundingClientRect().left + "px -" + bubble.getBoundingClientRect().top + "px";
-	 bubble.style.backgroundSize = window.innerWidth + "px " + window.innerHeight + "px";
-	 var container   = this.$$('.bubble-container');
-	 container.style.backgroundPosition = "-" + container.getBoundingClientRect().left + "px -" + container.getBoundingClientRect().top + "px";
-	 container.style.backgroundSize = window.innerWidth + "px " + window.innerHeight + "px";
-  }
+      var bubble   = this.$$('.bubble');
+	  bubble.style.backgroundPosition = "-" + bubble.getBoundingClientRect().left + "px -" + bubble.getBoundingClientRect().top + "px";
+	  bubble.style.backgroundSize = window.innerWidth + "px " + window.innerHeight + "px";
+	  var container   = this.$$('.bubble-container');
+	  container.style.backgroundPosition = "-" + container.getBoundingClientRect().left + "px -" + container.getBoundingClientRect().top + "px";
+	  container.style.backgroundSize = window.innerWidth + "px " + window.innerHeight + "px";
+    },
+    checkCollisions: function() {
+		var divs = document.getElementsByClassName("content");
+		//console.log(this.getBoundingClientRect().top);
+		myRect = this.$.bubbles.getBoundingClientRect();
+		myTop = myRect.top;
+		myHeight = myRect.bottom - myRect.top;
+		myLeft = myRect.left;
+		myWidth = myRect.right - myRect.left;
+		if(myHeight + myWidth == 0) {
+			return;
+		}
+		//console.log(myLeft + " " + myWidth + myTop + " " + myHeight);
+		for (var i=0; i < divs.length; i++) {
+			divRect = divs[i].getBoundingClientRect();
+			divTop = divRect.top;
+			divHeight = divRect.bottom - divRect.top;
+			divLeft = divRect.left;
+			divWidth = divRect.right - divRect.left;
+			//console.log(divLeft + " " + divWidth);
+
+			
+			if (((divTop <= myTop && (divTop + divHeight) >= myTop) && ((divLeft <= myLeft && (divLeft + divWidth) >= myLeft) || (divLeft >= myLeft && (myLeft + myWidth) >= divLeft))) || 
+				((myTop <= divTop && (myTop + myHeight) >= divTop) && ((myLeft <= divLeft && (myLeft + myWidth) >= divLeft) || (myLeft >= divLeft && (divLeft + divWidth) >= myLeft)))) {
+				console.log(this.x + " " + this.y);
+				console.log(divLeft + " " + divWidth + " " + divTop + " " + divHeight);
+				this.active = true;
+				break;
+			}
+		}
+	}
   });
 </script>
