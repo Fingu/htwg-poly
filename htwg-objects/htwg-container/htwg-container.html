@@ -1,0 +1,60 @@
+
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<dom-module id="htwg-container">
+
+  <style>
+  :host([active]) {
+  	height: 200px;
+  	transition: height 2s;
+  	display: block;
+  }
+  :host {
+  	height: 0px;
+  	transition: height 2s;
+  }
+  	.contentArea{
+  		background: white;
+  		height: inherit;
+  		width: 40%;
+  		overflow: hidden;
+  	}
+  	.backgroundArea{
+  		background: darkgrey;
+  		height: inherit;
+  	}
+  </style>
+
+  <template>
+  	<div class="backgroundArea">
+  		<div class="contentArea">
+  			<content></content>
+  		</div>
+  	</div>
+  </template>
+
+</dom-module>
+
+<script>
+  Polymer({
+    is: 'htwg-container',
+
+    properties: {
+      active: {
+        type: Boolean,
+        value: false,
+		reflectToAttribute: true,
+		notify: true,
+		observer: "_activeChanged"
+      },
+    },
+    attached: function(){
+
+
+    },
+
+	_activeChanged: function() {
+
+	}
+  });
+</script>

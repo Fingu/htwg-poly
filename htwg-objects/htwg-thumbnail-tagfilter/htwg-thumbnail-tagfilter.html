@@ -91,7 +91,8 @@
       }
       
     },
-    markTag: function(create=0){
+    markTag: function(create){
+      create = create | 0;
       var listElements = document.getElementsByTagName("htwg-thumbnail-textelement");
 	  //not nice but a temporary bug fix
 	  for(i = 0; i < listElements.length; i++){
