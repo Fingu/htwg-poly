@@ -8,6 +8,7 @@
 
     <style type="text/css">
 
+
       .overlay {
         height: 0%;
         width: 100%;
@@ -18,57 +19,69 @@
         background-color: rgb(0,0,0);
         background-color: rgba(0,0,0, 0.8);
         overflow-x: hidden;
-        transition: 0.5s;
+        transition: 0.7s;
       }
 
       .overlay-content {
         position: relative;
-        top: 3%;
+        top: 10%;
+        line-height: 80px;
         width: 100%;
-        text-align: center;
-        margin-top: 30px;
-      }
-
-      .menubar a {
-          padding: 8px;
-          text-decoration: none;
-          font-size: 24pt;
-          color: white;
-          display: inline;
-          transition: 0.3s;
-      }
-
-      .menubar img {
-          position: absolute;
-          width: 80px;
-          height: 80px;
-          top: 3%;
-          left: 2%;
-      }
-
-      .menubar{
-        margin-left: 100px;
+        text-align: left;
+        vertical-align: middle;
       }
 
       .overlay a:hover  {
           color: grey;
       }
 
+      .menubar{
+        margin-left: 200px;
+      }
+
+      .menubar a {
+          padding: 8px;
+          text-decoration: none;
+          color: white;
+          display: inline;
+          transition: 0.3s;
+          font-size: 2em;
+      }
+
+      #navbar img {
+          position: absolute;
+          width: 80px;
+          height: 80px;
+          top: 10%;
+          left: 60px;
+      }
+
       .closebtn {
           position: absolute;
+          color: white;
           top: 3%;
-          right: 2%;
-          font-size: 60px !important;
+          right: 3%;
+          font-size: 4em;
+          cursor: pointer;
+      }
+
+      #burger {
+        position: absolute;
+        top: 3%;
+        right: 3%;
+        font-size: 3em;
+        cursor: pointer;
       }
 
     </style>
 
-  <span style="font-size:30px;cursor:pointer" on-tap="openNav">☰</span>
+  <span id="burger" on-tap="openNav">☰</span>
   
   <div id="navbar" class="overlay">
+    <a class="closebtn" on-tap="closeNav">x</a>
+    <img src="htwg-logo.png" alt="picture not found" style="width:80px;height:80px"></img>
     <div class="overlay-content">
           <div class="menubar">
-            <img src="htwg-logo.png" alt="picture not found"></img>
             <a href="#">Hochschule</a>
             <a class="dot"> &middot; </a>
             <a href="#">Studiengänge</a>
@@ -78,7 +91,7 @@
             <a href="#">Konstanz</a>
             <a class="dot"> &middot; </a>
             <a class="last" href="#">Grenzenlos studieren</a>
-            <a class="closebtn" on-tap="closeNav">×</a>
+            
           </div>
           <div class="menucontent">
           </div>
@@ -114,9 +127,11 @@
     }, 
     openNav: function(){
       this.$.navbar.style.height = "100%";
+      this.$.burger.style.display = "none";
     }, 
     closeNav: function(){
       this.$.navbar.style.height = "0%";
+      this.$.burger.style.display = "";
     }
 
   });
