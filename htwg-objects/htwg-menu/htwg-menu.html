@@ -16,6 +16,7 @@
       left: 0;
       text-align: center;
       cursor: pointer;
+      white-space: nowrap;
     }
     .contentClass{
       display: inline-block;
@@ -28,9 +29,9 @@
   }
     </style>
 
-    <div class="menuClass">
+    <div class="menuClass" id="menu">
       <ul id="MenuList">
-          <content class="contentClass"></content>
+          <content class="contentClass" id = "mycontent"></content>
       </ul>
 
     </div>
@@ -44,10 +45,13 @@
     is: 'htwg-menu',
 
     properties: {
-      textColor: {
-        type: String,
-        value: "black"
+      height: {
+        type: Number,
+        value: 10
       }
+    },
+    attached: function(){
+      this.$.menu.style.height = this.height + "vw";
     }
 
   });
