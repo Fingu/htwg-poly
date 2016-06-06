@@ -15,44 +15,117 @@
 	  <link rel="import" href="htwg-objects/htwg-menu/htwg-menu.html">
 	  <link rel="import" href="htwg-objects/htwg-menuelement/htwg-menuelement.html">
 	  <link rel="import" href="htwg-objects/htwg-window-container/htwg-window-container.html">
+ 	  <link rel="import" href="htwg-objects/htwg-overlay-menu/htwg-overlay-menu.html">
 
   	  	<style>
+  	  	#overlayMenu{
+  	  		position:absolute;
+  	  		right: 0px;
+  	  	}
+  	  	.ueberschrift{
+  	  		position: relative;
+  	  		left: 20vw;
+  	  		top: 20vh;
+  	  		right: 20vw;
+  	  		font-size: 6vh;
+  	  		font-weight: bold;
+
+  	  	}
 		</style>
 
 	</head>
 
 	<body>
-		<htwg-menu height=5>
+		<htwg-menu height=8>
 			<htwg-menuelement >
-				<a href="#top">Top</a>
+				<a href="#kurzportrait">Kurzportrait</a>
 			</htwg-menuelement>
 			<htwg-menuelement >
 				·
 			</htwg-menuelement>
 			<htwg-menuelement >
-				<a href="#htwg">HTWG</a>
+				<a href="#bewerbung">Bewerbung</a>
 			</htwg-menuelement>
 			<htwg-menuelement >
 				·
 			</htwg-menuelement>
 			<htwg-menuelement >
-				<a href="#etech">Elektrotechnik</a>
+				<a href="#studenaufbau">Studienaufbau</a>
 			</htwg-menuelement>
+			<htwg-menuelement >
+				·
+			</htwg-menuelement>
+			<htwg-menuelement >
+				<a href="#ausstattung">Ausstattung</a>
+			</htwg-menuelement>
+			<htwg-menuelement >
+				·
+			</htwg-menuelement>
+			<htwg-menuelement >
+				<a href="#fachschaft">Fachschaft</a>
+			</htwg-menuelement>
+			<htwg-menuelement >
+				·
+			</htwg-menuelement>
+			<htwg-menuelement >
+				<a href="#arbeiten">Arbeiten</a>
+			</htwg-menuelement>
+			<htwg-overlay-menu id="overlayMenu">
+			</htwg-overlay-menu>
+
 		</htwg-menu>
 
 		<htwg-window-container 
 			background-image="../../images/wikurewi.jpg"
 			id="top">
+			<h1 class="ueberschrift">Angwewandte <br>Informatik</h1>
 		</htwg-window-container>
 
 		<htwg-window-container 
 			background-image="../../images/htwg.jpg"
-			id="htwg">
+			id="kurzportrait">
+			<p>Lolalalelalsldalsdasd
+			asdlasdkalsda
+			sdlkdflaksdfklasdflas
+			laksdflkasld
+			aksdlfkasldf
+			asdlfkalsdfk</p>
+			<p>Lolalalelalsldalsdasd
+			asdlasdkalsda
+			sdlkdflaksdfklasdflas
+			laksdflkasld
+			aksdlfkasldf
+			asdlfkalsdfk</p>
+			<p>Lolalalelalsldalsdasd
+			asdlasdkalsda
+			sdlkdflaksdfklasdflas
+			laksdflkasld
+			aksdlfkasldf
+			asdlfkalsdfk</p>
+
 		</htwg-window-container>
 
 		<htwg-window-container 
 			background-image="../../images/elektrotechnik.jpg"
-			id="etech">
+			id="bewerbung">
+			<p>Lolalalelalsldalsdasd
+			asdlasdkalsda
+			sdlkdflaksdfklasdflas
+			laksdflkasld
+			aksdlfkasldf
+			asdlfkalsdfk</p>
+			<p>Lolalalelalsldalsdasd
+			asdlasdkalsda
+			sdlkdflaksdfklasdflas
+			laksdflkasld
+			aksdlfkasldf
+			asdlfkalsdfk</p>
+			<p>Lolalalelalsldalsdasd
+			asdlasdkalsda
+			sdlkdflaksdfklasdflas
+			laksdflkasld
+			aksdlfkasldf
+			asdlfkalsdfk</p>
 		</htwg-window-container>
 	</body>
 
