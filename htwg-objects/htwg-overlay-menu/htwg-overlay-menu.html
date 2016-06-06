@@ -8,34 +8,82 @@
 
     <style type="text/css">
 
-      .container-rounded{
-          border-radius: 25px;
-        background-color: var(--htwg-thumbnail-background-color,grey);
-        padding: 20px; 
-        width: 200px;
-        height: 150px; 
-        margin: 20px;
-		@apply(--htwg-thumbnail-background);
+      .overlay {
+        height: 0%;
+        width: 100%;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        background-color: rgb(0,0,0);
+        background-color: rgba(0,0,0, 0.8);
+        overflow-x: hidden;
+        transition: 0.5s;
       }
-      #title {
-        opacity: 1;
-        font-size: 17.5px;
+
+      .overlay-content {
+        position: relative;
+        top: 3%;
+        width: 100%;
         text-align: center;
-        font-weight: bold;
+        margin-top: 30px;
       }
-      #title:hover {
-        opacity: 0;
+
+      .menubar a {
+          padding: 8px;
+          text-decoration: none;
+          font-size: 24pt;
+          color: white;
+          display: inline;
+          transition: 0.3s;
       }
+
+      .menubar img {
+          position: absolute;
+          width: 80px;
+          height: 80px;
+          top: 3%;
+          left: 2%;
+      }
+
+      .menubar{
+        margin-left: 100px;
+      }
+
+      .overlay a:hover  {
+          color: grey;
+      }
+
+      .closebtn {
+          position: absolute;
+          top: 3%;
+          right: 2%;
+          font-size: 60px !important;
+      }
+
     </style>
 
-
-  <div id="container" class="container-rounded" on-tap="tapFunction" on-mouseover="fadeOut" on-mouseout="fadeIn">
-    <p id="title">{{title}}</p>
-    <div id="content">
-      <content></content>
+  <span style="font-size:30px;cursor:pointer" on-tap="openNav">☰</span>
+  
+  <div id="navbar" class="overlay">
+    <div class="overlay-content">
+          <div class="menubar">
+            <img src="htwg-logo.png" alt="picture not found"></img>
+            <a href="#">Hochschule</a>
+            <a class="dot"> &middot; </a>
+            <a href="#">Studiengänge</a>
+            <a class="dot"> &middot; </a>
+            <a href="#">Veranstaltung</a>
+            <a class="dot"> &middot; </a>
+            <a href="#">Konstanz</a>
+            <a class="dot"> &middot; </a>
+            <a class="last" href="#">Grenzenlos studieren</a>
+            <a class="closebtn" on-tap="closeNav">×</a>
+          </div>
+          <div class="menucontent">
+          </div>
     </div>
   </div>
-
     
   </template>
 
@@ -52,8 +100,8 @@
       },
       title: {
         type: String,
-        value: "Title"
-      },
+        value: "open"
+      }
 
     }, tapFunction: function(){
       if (!this.active){
@@ -61,10 +109,14 @@
       } else {
         this.fadeOut();
       }
-    },
-
+    }, 
     attached:function(){
-      this.$.content.style.opacity = 0;
+    }, 
+    openNav: function(){
+      this.$.navbar.style.height = "100%";
+    }, 
+    closeNav: function(){
+      this.$.navbar.style.height = "0%";
     }
 
   });
