@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<script src="bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
+
+		<script>
+		/* this script must run before Polymer is imported */
+		window.Polymer = {
+		  dom: 'shadow', //use shadow dom if possible
+		  lazyRegister: true
+		};
+	  </script>
+
+	  <link rel="import" href="htwg-objects/htwg-menu/htwg-menu.html">
+	  <link rel="import" href="htwg-objects/htwg-menuelement/htwg-menuelement.html">
+	  <link rel="import" href="htwg-objects/htwg-window-container/htwg-window-container.html">
+
+  	  	<style>
+		</style>
+
+	</head>
+
+	<body>
+		<htwg-menu height=5>
+			<htwg-menuelement >
+				<a href="#top">Top</a>
+			</htwg-menuelement>
+			<htwg-menuelement >
+				·
+			</htwg-menuelement>
+			<htwg-menuelement >
+				<a href="#htwg">HTWG</a>
+			</htwg-menuelement>
+			<htwg-menuelement >
+				·
+			</htwg-menuelement>
+			<htwg-menuelement >
+				<a href="#etech">Elektrotechnik</a>
+			</htwg-menuelement>
+		</htwg-menu>
+
+		<htwg-window-container 
+			background-image="../../images/wikurewi.jpg"
+			id="top">
+		</htwg-window-container>
+
+		<htwg-window-container 
+			background-image="../../images/htwg.jpg"
+			id="htwg">
+		</htwg-window-container>
+
+		<htwg-window-container 
+			background-image="../../images/elektrotechnik.jpg"
+			id="etech">
+		</htwg-window-container>
+	</body>
+
+
+</html>

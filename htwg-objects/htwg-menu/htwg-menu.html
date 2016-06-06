@@ -1,0 +1,58 @@
+
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../htwg-thumbnail-textelement/htwg-thumbnail-textelement.html">
+
+<dom-module id="htwg-menu">
+
+  <template>
+
+    <style type="text/css">
+    .menuClass{
+      background: rgba(255, 255, 255, 0.6);
+      position: fixed;
+      width: 100%;
+      height: 10vw;
+      top: 0;
+      left: 0;
+      text-align: center;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+    .contentClass{
+      display: inline-block;
+    }
+    ul {
+      text-align: center;
+      list-style-type: none;
+      overflow: hidden;   
+      display: inline-block;
+  }
+    </style>
+
+    <div class="menuClass" id="menu">
+      <ul id="MenuList">
+          <content class="contentClass" id = "mycontent"></content>
+      </ul>
+
+    </div>
+    
+  </template>
+
+</dom-module>
+
+<script>
+  Polymer({
+    is: 'htwg-menu',
+
+    properties: {
+      height: {
+        type: Number,
+        value: 10
+      }
+    },
+    attached: function(){
+      this.$.menu.style.height = this.height + "vw";
+    }
+
+  });
+</script>
