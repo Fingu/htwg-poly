@@ -1,0 +1,71 @@
+
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../htwg-thumbnail-textelement/htwg-thumbnail-textelement.html">
+
+<dom-module id="htwg-overlay-menu">
+
+  <template>
+
+    <style type="text/css">
+
+      .container-rounded{
+          border-radius: 25px;
+        background-color: var(--htwg-thumbnail-background-color,grey);
+        padding: 20px; 
+        width: 200px;
+        height: 150px; 
+        margin: 20px;
+		@apply(--htwg-thumbnail-background);
+      }
+      #title {
+        opacity: 1;
+        font-size: 17.5px;
+        text-align: center;
+        font-weight: bold;
+      }
+      #title:hover {
+        opacity: 0;
+      }
+    </style>
+
+
+  <div id="container" class="container-rounded" on-tap="tapFunction" on-mouseover="fadeOut" on-mouseout="fadeIn">
+    <p id="title">{{title}}</p>
+    <div id="content">
+      <content></content>
+    </div>
+  </div>
+
+    
+  </template>
+
+</dom-module>
+
+<script>
+  Polymer({
+    is: 'htwg-overlay-menu',
+
+    properties: {
+      textColor: {
+        type: String,
+        value: "black"
+      },
+      title: {
+        type: String,
+        value: "Title"
+      },
+
+    }, tapFunction: function(){
+      if (!this.active){
+        this.fadeIn();
+      } else {
+        this.fadeOut();
+      }
+    },
+
+    attached:function(){
+      this.$.content.style.opacity = 0;
+    }
+
+  });
+</script>
