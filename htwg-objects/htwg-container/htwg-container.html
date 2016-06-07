@@ -23,11 +23,16 @@
   		height: inherit;
   		overflow: hidden;
   	}
+  	.closecontainer{
+  		position: absolute;
+  		right: 5vw;
+  	}
   </style>
 
   <template>
   	<div class="backgroundArea">
   		<div class="contentclass">
+  		<img src="../../images/closebutton-over.png" class="closecontainer" on-tap="close"></img>
   			<content></content>
   		</div>
   	</div>
@@ -44,17 +49,15 @@
         type: Boolean,
         value: false,
 		reflectToAttribute: true,
-		notify: true,
-		observer: "_activeChanged"
+		notify: true
       },
     },
     attached: function(){
 
 
     },
-
-	_activeChanged: function() {
-
+	close: function(){
+		this.active = false;
 	}
   });
 </script>

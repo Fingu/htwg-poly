@@ -14,10 +14,10 @@
 
 		function popAinContainer(){
 
-			if(!document.getElementById("AinContainer").active){
-				document.getElementById("AinContainer").active = true;			
+			if(!document.getElementById("kurzportraitContainer").active){
+				document.getElementById("kurzportraitContainer").active = true;			
 			}else{
-				document.getElementById("AinContainer").active = false;
+				document.getElementById("kurzportraitContainer").active = false;
 			}
 		}
 	  </script>
@@ -94,14 +94,7 @@
 			background-image="../../images/wikurewi.jpg"
 			id="top">
 			<h1 class="ueberschrift">Angwewandte <br>Informatik</h1>
-			<button onclick="popAinContainer()"><a href="#AinContainer">pop container</a></button>
 		</htwg-window-container>
-
-		<htwg-container id="AinContainer">
-			<p> Lorentum ipslum alsdlkasldk</p>
-			<p> adfjlakdfkajsdfklaksdjfkla</p>
-			<p>asdfkjaklsdjfkajsdfkljaskdfj</p>
-		</htwg-container>
 
 		<htwg-window-container 
 			background-image="../../images/htwg.jpg"
@@ -124,8 +117,15 @@
 			laksdflkasld
 			aksdlfkasldf
 			asdlfkalsdfk</p>
+			<button onclick="popAinContainer()"><a href="#kurzportraitContainer">pop container</a></button>
 
 		</htwg-window-container>
+
+		<htwg-container id="kurzportraitContainer">
+			<p> Lorentum ipslum alsdlkasldk</p>
+			<p> adfjlakdfkajsdfklaksdjfkla</p>
+			<p>asdfkjaklsdjfkajsdfkljaskdfj</p>
+		</htwg-container>
 
 		<htwg-window-container 
 			background-image="../../images/elektrotechnik.jpg"
