@@ -12,12 +12,11 @@
 		  lazyRegister: true
 		};
 
-		function popAinContainer(){
-
-			if(!document.getElementById("kurzportraitContainer").active){
-				document.getElementById("kurzportraitContainer").active = true;			
+		function popAinContainer(container){
+			if(!document.getElementById(container).active){
+				document.getElementById(container).active = true;			
 			}else{
-				document.getElementById("kurzportraitContainer").active = false;
+				document.getElementById(container).active = false;
 			}
 		}
 	  </script>
@@ -65,7 +64,7 @@
 				·
 			</htwg-menuelement>
 			<htwg-menuelement >
-				<a href="#studenaufbau">Studienaufbau</a>
+				<a href="#studienaufbau">Studienaufbau</a>
 			</htwg-menuelement>
 			<htwg-menuelement >
 				·
@@ -117,7 +116,7 @@
 			laksdflkasld
 			aksdlfkasldf
 			asdlfkalsdfk</p>
-			<button onclick="popAinContainer()"><a href="#kurzportraitContainer">pop container</a></button>
+			<button onclick="popAinContainer('kurzportraitContainer')"><a href="#kurzportraitContainer">pop container</a></button>
 
 		</htwg-window-container>
 
@@ -148,7 +147,139 @@
 			laksdflkasld
 			aksdlfkasldf
 			asdlfkalsdfk</p>
+
+			<button onclick="popAinContainer('bewerbungContainer')"><a href="#bewerbungContainer">pop container</a></button>
 		</htwg-window-container>
+
+		<htwg-container id="bewerbungContainer">
+			<p> Lorentum ipslum alsdlkasldk</p>
+			<p> adfjlakdfkajsdfklaksdjfkla</p>
+			<p>asdfkjaklsdjfkajsdfkljaskdfj</p>
+		</htwg-container>
+
+
+		<htwg-window-container 
+			background-image="../../images/studienaufbau.jpg"
+			id="studienaufbau">
+			<p>Lolalalelalsldalsdasd
+			asdlasdkalsda
+			sdlkdflaksdfklasdflas
+			laksdflkasld
+			aksdlfkasldf
+			asdlfkalsdfk</p>
+			<p>Lolalalelalsldalsdasd
+			asdlasdkalsda
+			sdlkdflaksdfklasdflas
+			laksdflkasld
+			aksdlfkasldf
+			asdlfkalsdfk</p>
+			<p>Lolalalelalsldalsdasd
+			asdlasdkalsda
+			sdlkdflaksdfklasdflas
+			laksdflkasld
+			aksdlfkasldf
+			asdlfkalsdfk</p>
+			<button onclick="popAinContainer('studienaufbauContainer')"><a href="#studienaufbauContainer">pop container</a></button>
+		</htwg-window-container>
+
+		<htwg-container id="studienaufbauContainer">
+			<p> Lorentum ipslum alsdlkasldk</p>
+			<p> adfjlakdfkajsdfklaksdjfkla</p>
+			<p>asdfkjaklsdjfkajsdfkljaskdfj</p>
+		</htwg-container>
+
+
+		<htwg-window-container 
+			background-image="../../images/ausstattung.jpg"
+			id="ausstattung">
+			<p>Lolalalelalsldalsdasd
+			asdlasdkalsda
+			sdlkdflaksdfklasdflas
+			laksdflkasld
+			aksdlfkasldf
+			asdlfkalsdfk</p>
+			<p>Lolalalelalsldalsdasd
+			asdlasdkalsda
+			sdlkdflaksdfklasdflas
+			laksdflkasld
+			aksdlfkasldf
+			asdlfkalsdfk</p>
+			<p>Lolalalelalsldalsdasd
+			asdlasdkalsda
+			sdlkdflaksdfklasdflas
+			laksdflkasld
+			aksdlfkasldf
+			asdlfkalsdfk</p>
+			<button onclick="popAinContainer('ausstattungContainer')"><a href="#ausstattungContainer">pop container</a></button>
+		</htwg-window-container>
+
+		<htwg-container id="ausstattungContainer">
+			<p> Lorentum ipslum alsdlkasldk</p>
+			<p> adfjlakdfkajsdfklaksdjfkla</p>
+			<p>asdfkjaklsdjfkajsdfkljaskdfj</p>
+		</htwg-container>
+
+
+		<htwg-window-container 
+			background-image="../../images/fachschaft.jpg"
+			id="fachschaft">
+			<p>Lolalalelalsldalsdasd
+			asdlasdkalsda
+			sdlkdflaksdfklasdflas
+			laksdflkasld
+			aksdlfkasldf
+			asdlfkalsdfk</p>
+			<p>Lolalalelalsldalsdasd
+			asdlasdkalsda
+			sdlkdflaksdfklasdflas
+			laksdflkasld
+			aksdlfkasldf
+			asdlfkalsdfk</p>
+			<p>Lolalalelalsldalsdasd
+			asdlasdkalsda
+			sdlkdflaksdfklasdflas
+			laksdflkasld
+			aksdlfkasldf
+			asdlfkalsdfk</p>
+			<button onclick="popAinContainer('fachschaftContainer')"><a href="#fachschaftContainer">pop container</a></button>
+		</htwg-window-container>
+
+		<htwg-container id="fachschaftContainer">
+			<p> Lorentum ipslum alsdlkasldk</p>
+			<p> adfjlakdfkajsdfklaksdjfkla</p>
+			<p>asdfkjaklsdjfkajsdfkljaskdfj</p>
+		</htwg-container>
+
+
+		<htwg-window-container 
+			background-image="../../images/arbeiten.jpg"
+			id="arbeiten">
+			<p>Lolalalelalsldalsdasd
+			asdlasdkalsda
+			sdlkdflaksdfklasdflas
+			laksdflkasld
+			aksdlfkasldf
+			asdlfkalsdfk</p>
+			<p>Lolalalelalsldalsdasd
+			asdlasdkalsda
+			sdlkdflaksdfklasdflas
+			laksdflkasld
+			aksdlfkasldf
+			asdlfkalsdfk</p>
+			<p>Lolalalelalsldalsdasd
+			asdlasdkalsda
+			sdlkdflaksdfklasdflas
+			laksdflkasld
+			aksdlfkasldf
+			asdlfkalsdfk</p>
+			<button onclick="popAinContainer('arbeitenContainer')"><a href="#arbeitenContainer">pop container</a></button>
+		</htwg-window-container>
+
+		<htwg-container id="arbeitenContainer">
+			<p> Lorentum ipslum alsdlkasldk</p>
+			<p> adfjlakdfkajsdfklaksdjfkla</p>
+			<p>asdfkjaklsdjfkajsdfkljaskdfj</p>
+		</htwg-container>
 	</body>
 
 
