@@ -19,18 +19,56 @@
         float: left;
     }
 
-    .col-1 {width: 10%;
-            padding-bottom:10%;
+    .col-1 {width: 2%;
+            padding-bottom:2%;
     }
-    .col-2 {width: 20%;}
-    .col-3 {width: 30%;}
-    .col-4 {width: 40%;}
+    .col-2 {width: 4%;}
+    .col-3 {width: 6%;}
+    .col-4 {width: 8%;}
     .col-5 {width: 50%;}
     .col-6 {width: 60%;}
     .col-7 {width: 70%;}
     .col-8 {width: 80%;}
     .col-9 {width: 90%;}
     .col-10 {width: 100%;}
+    .col-11 {width: 20%;}
+    .col-12 {width: 30%;}
+    .col-13 {width: 40%;}
+    .col-14 {width: 50%;}
+    .col-15 {width: 60%;}
+    .col-16 {width: 70%;}
+    .col-17 {width: 80%;}
+    .col-18 {width: 90%;}
+    .col-19 {width: 100%;}
+    .col-20 {width: 20%;}
+    .col-21 {width: 30%;}
+    .col-22 {width: 40%;}
+    .col-23 {width: 50%;}
+    .col-24 {width: 60%;}
+    .col-25 {width: 70%;}
+    .col-26 {width: 80%;}
+    .col-27 {width: 90%;}
+    .col-28 {width: 100%;}
+    .col-29 {width: 20%;}
+    .col-30 {width: 30%;}
+    .col-31 {width: 40%;}
+    .col-32 {width: 50%;}
+    .col-33 {width: 60%;}
+    .col-34 {width: 70%;}
+    .col-35 {width: 80%;}
+    .col-36 {width: 90%;}
+    .col-37 {width: 100%;}
+    .col-38 {width: 20%;}
+    .col-39 {width: 30%;}
+    .col-40 {width: 40%;}
+    .col-41 {width: 50%;}
+    .col-42 {width: 60%;}
+    .col-43 {width: 70%;}
+    .col-44 {width: 80%;}
+    .col-45 {width: 90%;}
+    .col-46 {width: 100%;}
+    .col-47 {width: 100%;}
+    .col-48 {width: 100%;}
 
     .showBorder{
       border: solid;
@@ -43,6 +81,7 @@
 		/*background-size: cover;*/
 		position: absolute;
 		width: 100%;
+		height: 100vh;
 	}
 	.page-content {
 		position: relative;
@@ -95,12 +134,12 @@
 	},
 	computeRows: function() {
 		width = window.innerWidth;
-		height = window.innerHeight;
-		this.rowCount= Math.round(height / (width/10));
+		height = this.$$(".wrapper").offsetHeight;
+		this.rowCount= Math.round(height / (width/24));//floor?
 		
 		//needed for resizing
 		for(i=0;i<this.rowCount;i++){
-			for(j=0;j<10;j++){
+			for(j=0;j<24;j++){
 				var blub = this.$$('#x'+bubbles[i][j].x+'y'+bubbles[i][j].y);
 				if(blub != null) {
 					blub.positionBackground();
@@ -112,11 +151,22 @@
 		var a = 1;//0.666
 		bubbles = [];
 		for(i=0; i < rowCount; i++) {
-			a = 0.8;
+			a = 0.95;
 			if(i == 0 || i == rowCount - 1) {
 				a = 1;
 			}
-			bubbles[i] = [{x: 0, y: i, active: false}, {x: 1, y: i, active: (Math.random() > a)}, {x: 2, y: i, active: (Math.random() > a)}, {x: 3, y: i, active: (Math.random() > a)}, {x: 4, y: i, active: (Math.random() > a)}, {x: 5, y: i, active: (Math.random() > a)}, {x: 6, y: i, active: (Math.random() > a)}, {x: 7, y: i, active: (Math.random() > a)}, {x: 8, y: i, active: (Math.random() > a)}, {x: 9, y: i, active: false}];
+			row = [];
+			for(j=0; j < 24; j++) {
+				if(j == 0 || j == 23) {
+					a = 1;
+				}
+				row[j] = {x: j, y: i, active: (Math.random() > a)};
+				if(i != 0 && i != rowCount - 1) {
+					a = 0.95;
+				}
+			}
+			bubbles[i] = row;
+			//bubbles[i] = [{x: 0, y: i, active: false}, {x: 1, y: i, active: (Math.random() > a)}, {x: 2, y: i, active: (Math.random() > a)}, {x: 3, y: i, active: (Math.random() > a)}, {x: 4, y: i, active: (Math.random() > a)}, {x: 5, y: i, active: (Math.random() > a)}, {x: 6, y: i, active: (Math.random() > a)}, {x: 7, y: i, active: (Math.random() > a)}, {x: 8, y: i, active: (Math.random() > a)}, {x: 9, y: i, active: false}];
 		}
 		return bubbles;
 	}
