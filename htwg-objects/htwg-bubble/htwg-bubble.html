@@ -1,9 +1,10 @@
 
 <link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../htwg-grid/htwg-grid.html">
 
 <dom-module id="htwg-bubble">
 
-  <style>
+  <style include="htwg-grid">
     * {
         box-sizing: border-box;
     }
@@ -15,22 +16,6 @@
     [class*="col-"] {
         float: left;
     }
-
-    .col-1 {width: 10%;
-			padding-top: 10%;
-    }
-    .col-2 {
-		width: 4.167%;
-		padding-top: 4.167%;
-	}
-    .col-3 {width: 30%;}
-    .col-4 {width: 40%;}
-    .col-5 {width: 50%;}
-    .col-6 {width: 60%;}
-    .col-7 {width: 70%;}
-    .col-8 {width: 80%;}
-    .col-9 {width: 90%;}
-    .col-10 {width: 100%;}
 
     .showBorder{
       border: solid;
@@ -56,8 +41,7 @@
 	:host([active]) .bubble-container,
 	.bubble {
 		background-color: rgba(0,255,255,1);
-		background-image: var(--bubble-frame-image);/*url("../../images/wikurewi.jpg");*/
-		/*background-size: 700% 700% ;*/
+		background-image: var(--bubble-frame-image);
 	}
 
 	.bubble-container {
@@ -141,7 +125,7 @@
   </style>
 
   <template>
-      <div class="col-6 col-s-4 col-m-3 col-l-2" style="position: relative;">
+      <div class="col-2 col-s-2 col-m-2 col-l-2" style="position: relative;">
         <content id="myContent"></content>
 		<div id="bubbles">
 		  <div class="bubble-container">
@@ -317,7 +301,6 @@
 	
 	positionBackground: function() {
       var bubble   = this.$$('.bubble');
-	  //if(bubble.getBoundingClientRect().top <= 0) { console.log(bubble.getBoundingClientRect().top); }
 	  bubble.style.backgroundPosition = "-" + bubble.getBoundingClientRect().left + "px -" + (bubble.getBoundingClientRect().top + window.scrollY) + "px";
 	  bubble.style.backgroundSize = window.innerWidth + "px " + window.innerHeight + "px";
 	  var container   = this.$$('.bubble-container');
