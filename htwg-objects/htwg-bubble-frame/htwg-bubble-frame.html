@@ -122,6 +122,10 @@
 		type: Number,
 		value: 5
 	  },
+	  columnCount: {
+		type: Number,
+		value: 10
+	  },
 	  bubbles: {
 		type: Array,
 		computed: 'computeBubbles(rowCount)'
@@ -134,12 +138,21 @@
 	},
 	computeRows: function() {
 		width = window.innerWidth;
+		if(width < 600) {
+			this.columnCount = 8;
+		} else if(width < 768) {
+			this.columnCount = 12;
+		} else if(width < 1920) {
+			this.columnCount = 16;
+		} else {
+			this.columnCount = 24;
+		}
 		height = this.$$(".wrapper").offsetHeight;
-		this.rowCount= Math.round(height / (width/24));//floor?
+		this.rowCount= Math.round(height / (width/this.columnCount));//floor?
 		
 		//needed for resizing
 		for(i=0;i<this.rowCount;i++){
-			for(j=0;j<24;j++){
+			for(j=0;j<this.columnCount;j++){
 				var blub = this.$$('#x'+bubbles[i][j].x+'y'+bubbles[i][j].y);
 				if(blub != null) {
 					blub.positionBackground();
@@ -147,7 +160,7 @@
 			}
 		}
 	},
-	computeBubbles: function(rowCount) {
+	computeBubbles: function(rowCount) {//evtl. mit computeRows kombinieren, sonst Performance-Problem
 		var a = 1;//0.666
 		bubbles = [];
 		for(i=0; i < rowCount; i++) {
@@ -156,8 +169,8 @@
 				a = 1;
 			}
 			row = [];
-			for(j=0; j < 24; j++) {
-				if(j == 0 || j == 23) {
+			for(j=0; j < this.columnCount; j++) {
+				if(j == 0 || j == this.columnCount - 1) {
 					a = 1;
 				}
 				row[j] = {x: j, y: i, active: (Math.random() > a)};

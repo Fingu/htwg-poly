@@ -39,20 +39,9 @@
 		[class*="col-"] {
 			float: left;
 			height: auto;
-			min-height: 18px;
+			/*min-height: 18px;*/
 			position: relative;
 		}
-
-		/*.col-1 {width: 10%; min-width: 50px;}
-		.col-2 {width: 20%; min-width: 100px;}
-		.col-3 {width: 30%; min-width: 150px;}
-		.col-4 {width: 40%; min-width: 200px;}
-		.col-5 {width: 50%; min-width: 250px;}
-		.col-6 {width: 60%; min-width: 300px;}
-		.col-7 {width: 70%; min-width: 350px;}
-		.col-8 {width: 80%; min-width: 400px;}
-		.col-9 {width: 90%; min-width: 450px;}
-		.col-10 {width: 100%; min-width: 500px;}*/
 		
 		.col-1 {width: 2.083%;
 				padding-bottom: 2.083%;
@@ -66,8 +55,12 @@
 		.col-4 {width: 8.333%;
 				padding-bottom: 8.333%;
 		}
-		.col-5 {width: 10.417%;}
-		.col-6 {width: 12.5%;}
+		.col-5 {width: 10.417%;
+				padding-bottom: 10.417%;
+		}
+		.col-6 {width: 12.5%;
+				padding-bottom: 12.5%;
+		}
 		.col-7 {width: 14.583%;}
 		.col-8 {width: 16.667%;}
 		.col-9 {width: 18.75%;}
@@ -86,30 +79,128 @@
 		.col-22 {width: 45.833%;}
 		.col-23 {width: 47.917%;}
 		.col-24 {width: 50%;}
-		.col-25 {width: 70%;}/*usw*/
-		.col-26 {width: 80%;}
-		.col-27 {width: 90%;}
-		.col-28 {width: 100%;}
-		.col-29 {width: 20%;}
-		.col-30 {width: 30%;}
-		.col-31 {width: 40%;}
-		.col-32 {width: 50%;}
-		.col-33 {width: 60%;}
-		.col-34 {width: 70%;}
-		.col-35 {width: 80%;}
-		.col-36 {width: 90%;}
-		.col-37 {width: 100%;}
-		.col-38 {width: 20%;}
-		.col-39 {width: 30%;}
-		.col-40 {width: 40%;}
-		.col-41 {width: 50%;}
-		.col-42 {width: 60%;}
-		.col-43 {width: 70%;}
-		.col-44 {width: 80%;}
-		.col-45 {width: 90%;}
-		.col-46 {width: 100%;}
-		.col-47 {width: 100%;}
+		.col-25 {width: 52.083%;}/*usw*/
+		.col-26 {width: 54.167%;}
+		.col-27 {width: 56.25%;}
+		.col-28 {width: 58.333%;}
+		.col-29 {width: 60.417%;}
+		.col-30 {width: 62.5%;}
+		.col-31 {width: 64.583%;}
+		.col-32 {width: 66.667%;}
+		.col-33 {width: 68.75%;}
+		.col-34 {width: 70.833%;}
+		.col-35 {width: 72.917%;}
+		.col-36 {width: 75%;}
+		.col-37 {width: 77.083%;}
+		.col-38 {width: 79.167%;}
+		.col-39 {width: 81.25%;}
+		.col-40 {width: 83.333%;}
+		.col-41 {width: 85.417%;}
+		.col-42 {width: 87.5%;}
+		.col-43 {width: 89.583%;}
+		.col-44 {width: 91.667%;}
+		.col-45 {width: 93.75%;}
+		.col-46 {width: 95.833%;}
+		.col-47 {width: 97.917%;}
 		.col-48 {width: 100%;}
+		
+		/*content columns*/
+		.col-1 {width: 6.25%;}
+		.col-2 {width: 12.5%;}
+		.col-3 {width: 18.75%;}
+		.col-4 {width: 25%;}
+		.col-5 {width: 31.25%;}
+		.col-6 {width: 37.5%;}
+		.col-7 {width: 43.75%;}
+		.col-8 {width: 50%;}
+		.col-9 {width: 56.25%;}
+		.col-10 {width: 62.5%;}
+		.col-11 {width: 68.75%;}
+		.col-12 {width: 75%;}
+		.col-13 {width: 81.25%;}
+		.col-14 {width: 87.5%;}
+		.col-15 {width: 93.75%;}
+		.col-16 {width: 100%;}
+
+				
+		/*for mobile phone*/
+		.col-1 {width: 6.25%;}
+		.col-2 {width: 12.5%;}
+		.col-3 {width: 18.75%;}
+		.col-4 {width: 25%;}
+		.col-5 {width: 31.25%;}
+		.col-6 {width: 37.5%;}
+		.col-7 {width: 43.75%;}
+		.col-8 {width: 50%;}
+		.col-9 {width: 56.25%;}
+		.col-10 {width: 62.5%;}
+		.col-11 {width: 68.75%;}
+		.col-12 {width: 75%;}
+		.col-13 {width: 81.25%;}
+		.col-14 {width: 87.5%;}
+		.col-15 {width: 93.75%;}
+		.col-16 {width: 100%;}
+
+		/*for large screen*/
+		@media only screen and (min-width: 1920px) {
+			.col-l-1 {width: 6.25%;}
+			.col-l-2 {width: 12.5%;}
+			.col-l-3 {width: 18.75%;}
+			.col-l-4 {width: 25%;}
+			.col-l-5 {width: 31.25%;}
+			.col-l-6 {width: 37.5%;}
+			.col-l-7 {width: 43.75%;}
+			.col-l-8 {width: 50%;}
+			.col-l-9 {width: 56.25%;}
+			.col-l-10 {width: 62.5%;}
+			.col-l-11 {width: 68.75%;}
+			.col-l-12 {width: 75%;}
+			.col-l-13 {width: 81.25%;}
+			.col-l-14 {width: 87.5%;}
+			.col-l-15 {width: 93.75%;}
+			.col-l-16 {width: 100%;}
+		}
+
+		/*for desktop*/
+		@media only screen and (min-width: 768px) {
+			.col-m-1 {width: 6.25%;}
+			.col-m-2 {width: 12.5%;}
+			.col-m-3 {width: 18.75%;}
+			.col-m-4 {width: 25%;}
+			.col-m-5 {width: 31.25%;}
+			.col-m-6 {width: 37.5%;}
+			.col-m-7 {width: 43.75%;}
+			.col-m-8 {width: 50%;}
+			.col-m-9 {width: 56.25%;}
+			.col-m-10 {width: 62.5%;}
+			.col-m-11 {width: 68.75%;}
+			.col-m-12 {width: 75%;}
+			.col-m-13 {width: 81.25%;}
+			.col-m-14 {width: 87.5%;}
+			.col-m-15 {width: 93.75%;}
+			.col-m-16 {width: 100%;}
+		}
+		
+		/*for tablet*/
+		@media only screen and (min-width: 600px) {
+			.col-s-1 {width: 6.25%;}
+			.col-s-2 {width: 12.5%;}
+			.col-s-3 {width: 18.75%;}
+			.col-s-4 {width: 25%;}
+			.col-s-5 {width: 31.25%;}
+			.col-s-6 {width: 37.5%;}
+			.col-s-7 {width: 43.75%;}
+			.col-s-8 {width: 50%;}
+			.col-s-9 {width: 56.25%;}
+			.col-s-10 {width: 62.5%;}
+			.col-s-11 {width: 68.75%;}
+			.col-s-12 {width: 75%;}
+			.col-s-13 {width: 81.25%;}
+			.col-s-14 {width: 87.5%;}
+			.col-s-15 {width: 93.75%;}
+			.col-s-16 {width: 100%;}
+		}
+
 		</style>
 
 	</head>
@@ -117,21 +208,22 @@
 	<body>
 
 		<div class="row" style="min-height: 100vh;">
-			<div class="col-48">
+			<div class="col-16">
 				<htwg-bubble-frame>
 					<div class="row">
-						<div class="col-11"></div>
-						<div class="col-8">
+						<div class="col-3 col-s-5 col-m-7 col-l-11"></div>
+						<div class="col-2 col-s-4 col-m-5 col-l-8">
 							<p class="content">
 		Der Alkoholgehalt der meisten Biersorten liegt in Deutschland und Österreich zwischen 4,5 % und 6 %.
 							</p>
 						</div>
-						<div class="col-12"></div>
-						<div class="col-8">
+						<div class="col-6 col-s-4 col-m-8 col-l-10"></div>
+						<div class="col-2 col-s-4 col-m-5 col-l-8">
 							<p class="content">
 								Bier ist ein Nahrungs- und Genussmittel, das durch Gärung aus Malz oder aus stärkehaltiger Rohfrucht (Malzersatzstoffe) gewonnen und nicht destilliert wird.
 							</p>
 						</div>
+						<div class="col-3 col-s-5 col-m-7 col-l-11"></div>
 					</div>
 				</htwg-bubble-frame>
 			</div>
