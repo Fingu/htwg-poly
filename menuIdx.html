@@ -16,7 +16,9 @@
 
 		function popAinContainer(container){
 			if(!document.getElementById(container).active){
-				document.getElementById(container).active = true;			
+				document.getElementById(container).active = true;
+				console.log(document.getElementsByTagName("htwg-container-frame"));
+				document.getElementsByTagName("htwg-container-frame")[0].activeId = container;		
 			}else{
 				document.getElementById(container).active = false;
 			}
@@ -28,6 +30,7 @@
 	  <link rel="import" href="htwg-objects/htwg-window-container/htwg-window-container.html">
  	  <link rel="import" href="htwg-objects/htwg-overlay-menu/htwg-overlay-menu.html">
 	  <link rel="import" href="htwg-objects/htwg-container/htwg-container.html">
+	  <link rel="import" href="htwg-objects/htwg-container-frame/htwg-container-frame.html">
    	  <link rel="import" href="htwg-objects/htwg-bubble-frame/htwg-bubble-frame.html">
 	    <link rel="import" href="htwg-objects/htwg-grid/htwg-grid.html">
   	  	
@@ -130,7 +133,7 @@
 		</htwg-window-container>
 
 
-		<htwg-window-container id="kurzportrait">
+		<htwg-container-frame><htwg-window-container id="kurzportrait" containerId=1>
 			<htwg-bubble-frame class="bubbleKurzportrait">
 					<div class="row">
 						<div class="col-5 col-s-5 col-m-7 col-l-11"></div>
@@ -161,7 +164,7 @@
 
 
 
-		<htwg-container id="kurzportraitContainer">
+		<htwg-container id="kurzportraitContainer" containerId=2>
 			<p> Lorentum ipslum alsdlkasldk</p>
 			<p> adfjlakdfkajsdfklaksdjfkla</p>
 			<p>asdfkjaklsdjfkajsdfkljaskdfj</p>
@@ -197,7 +200,7 @@
 			
 		</htwg-window-container>
 
-		<htwg-container id="bewerbungContainer">
+		<htwg-container id="bewerbungContainer" containerId=3>
 			<p> Lorentum ipslum alsdlkasldk</p>
 			<p> adfjlakdfkajsdfklaksdjfkla</p>
 			<p>asdfkjaklsdjfkajsdfkljaskdfj</p>
@@ -234,7 +237,7 @@
 			
 		</htwg-window-container>
 
-		<htwg-container id="studienaufbauContainer">
+		<htwg-container id="studienaufbauContainer" containerId=4>
 			<p> Lorentum ipslum alsdlkasldk</p>
 			<p> adfjlakdfkajsdfklaksdjfkla</p>
 			<p>asdfkjaklsdjfkajsdfkljaskdfj</p>
@@ -278,6 +281,7 @@
 
 
 		<htwg-window-container
+			containerId=5
 			id="fachschaft">
 
 			<htwg-bubble-frame class="bubbleFachschaft">
@@ -315,7 +319,7 @@
 
 
 		<htwg-window-container 
-			background-image="../../images/arbeiten.jpg"
+			containerId=6
 			id="arbeiten">
 
 
@@ -352,6 +356,7 @@
 			<p> adfjlakdfkajsdfklaksdjfkla</p>
 			<p>asdfkjaklsdjfkajsdfkljaskdfj</p>
 		</htwg-container>
+		</htwg-container-frame>
 	</body>
 
 
