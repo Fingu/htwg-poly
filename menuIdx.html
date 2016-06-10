@@ -30,8 +30,11 @@
 	  <link rel="import" href="htwg-objects/htwg-container/htwg-container.html">
    	  <link rel="import" href="htwg-objects/htwg-bubble-frame/htwg-bubble-frame.html">
 	    <link rel="import" href="htwg-objects/htwg-grid/htwg-grid.html">
+	    <link rel="import" href="htwg-objects/htwg-color/htwg-color.html">
   	  	
+		<style is="custom-style"  include="htwg-color"></style>
   	  	<style is="custom-style"  include="htwg-grid">
+		
   	  	#overlayMenu{
   	  		position:absolute;
   	  		right: 0px;
@@ -58,26 +61,32 @@
 
   	  	.bubbleKurzportrait{
   	  		--bubble-frame-image: url("../../images/htwg.jpg");
+			--bubble-color: var(--htwg-ei-80);
   	  	}
 
   	  	.bubbleBewerbung{
   	  		--bubble-frame-image: url("../../images/elektrotechnik.jpg");
+			--bubble-color: var(--htwg-ag-80);
   	  	}
 
   	  	.bubbleStudienaufbau{
   	  		--bubble-frame-image: url("../../images/studienaufbau.jpg");
+			--bubble-color: var(--htwg-ws-80);
   	  	}
 
   	  	.bubbleAusstattung{
   	  		--bubble-frame-image: url("../../images/ausstattung.jpg");
+			--bubble-color: var(--htwg-bi-80);
   	  	}
 
   	  	.bubbleFachschaft{
   	  		--bubble-frame-image: url("../../images/fachschaft.jpg");
+			--bubble-color: var(--htwg-ma-80);
   	  	}
 
   	  	.bubbleArbeiten{
   	  		--bubble-frame-image: url("../../images/arbeiten.jpg");
+			--bubble-color: var(--htwg-in-80);
   	  	}
 		</style>
 
