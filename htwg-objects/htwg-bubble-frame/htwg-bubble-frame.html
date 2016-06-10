@@ -82,7 +82,7 @@
 			this.columnCount = 24;
 		}
 		height = this.$$(".wrapper").offsetHeight;
-		this.rowCount= Math.round(height / (width/this.columnCount));//floor?
+		this.rowCount= Math.floor(height / (width/this.columnCount));//floor?
 		
 		//needed for resizing
 		for(i=0;i<this.rowCount;i++){

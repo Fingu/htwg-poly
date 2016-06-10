@@ -58,20 +58,30 @@
     
     },
 	close: function(){
+    this.style.transition = "height 2s";
 		this.active = false;
+
+    var positionTop = this.$.test.getBoundingClientRect().top + window.scrollY - window.innerHeight;
+    $('body, html').animate({scrollTop: positionTop});
+    
 	},
+  closeWithAnimation:function(){
+    this.style.transition = "height 0s";
+    this.active = false;
+  },
   _activeChanged: function(){
     if(this.active){
           var listElements = document.getElementsByTagName("htwg-container");
           for(i = 0; i < listElements.length; i++){
             if(listElements[i] != this){
+              listElements[i].closeWithAnimation();
               listElements[i].active = false;
             }
           }
-       var positionTop = this.$.test.getBoundingClientRect().top + window.scrollY;
 
-          $('body, html').animate({scrollTop: positionTop});
 
+    var positionTop = this.$.test.getBoundingClientRect().top + window.scrollY;
+    $('body, html').animate({scrollTop: positionTop});
 
     }
   }

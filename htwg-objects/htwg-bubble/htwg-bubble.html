@@ -46,10 +46,14 @@
 
 	.bubble-container {
 		/*background: radial-gradient(circle, rgba(255,255,255,0) 70%, rgba(255,255,255,1) 76%);*/
-		background: rgba(255,255,255,1);
+		background:
+		  linear-gradient(
+			rgba(0,255,255,0.8), 
+			rgba(0,255,255,0.8)
+		  ),var(--bubble-frame-image);
 	}
 	:host([active]) .bubble {
-		background: rgba(255,255,255,1);
+		background: rgba(0,255,255,0.8);
 	}
 
 	.full {
@@ -264,10 +268,8 @@
 				this.currentState = this.activeStates[0];
 			}
 		} else {
-			var full = false;
 			if((!check[0] && !check[4]) || (!check[2] && !check[6])) {
 				this.currentState = this.inactiveStates[0];
-				full = true;
 			} else if(check[0] && check[2] && check[4] && check[6]) {
 				this.currentState = this.inactiveStates[1];
 			} else if(!check[4] && !check[6]) {
@@ -280,18 +282,14 @@
 				this.currentState = this.inactiveStates[5];
 			} else if(!check[4]) {
 				this.currentState = this.inactiveStates[6];
-				full = true;
 			} else if(!check[6]) {
 				this.currentState = this.inactiveStates[7];
-				full = true;
 			} else if(!check[0]) {
 				this.currentState = this.inactiveStates[8];
-				full = true;
 			} else if(!check[2]) {
 				this.currentState = this.inactiveStates[9];
-				full = true;
 			}
-			if(!full && Math.random() > 0.7) {
+			if((check[1] || check[3] || check[5] || check[7]) && Math.random() > 0.95) {
 				this.active = true;
 			}
 		}
