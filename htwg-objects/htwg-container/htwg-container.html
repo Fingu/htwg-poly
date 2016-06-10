@@ -56,34 +56,19 @@
     },
     attached: function(){
     
-      var that = this;
-      $(window).scroll(function() {
-        if(that.active === true){
-          //that.active = false;
-        }
-      });
     },
 	close: function(){
 		this.active = false;
 	},
   _activeChanged: function(){
-  console.log("active changed");
     if(this.active){
-        console.log("asdasd");
-
           var listElements = document.getElementsByTagName("htwg-container");
-          console.log("ddddd");
           for(i = 0; i < listElements.length; i++){
             if(listElements[i] != this){
               listElements[i].active = false;
             }
-            console.log("i: " + i + "listEle: " + listElements[i]);
           }
-                    console.log("fffff");
-
-       var positionTop = this.$.test.getBoundingClientRect().top;
-       //var positionTop = "200px";
-        console.log("pos: " + positionTop);
+       var positionTop = this.$.test.getBoundingClientRect().top + window.scrollY;
 
           $('body, html').animate({scrollTop: positionTop});
 
