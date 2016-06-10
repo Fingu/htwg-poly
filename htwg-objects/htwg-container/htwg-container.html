@@ -31,7 +31,7 @@
   </style>
 
   <template>
-  	<div class="backgroundArea">
+  	<div class="backgroundArea" id="test">
   		<div class="contentclass">
   		<img src="../../images/closebutton-over.png" class="closecontainer" on-tap="close"></img>
   			<content></content>
@@ -58,9 +58,7 @@
     
       var that = this;
       $(window).scroll(function() {
-        console.log("scrolled");
         if(that.active === true){
-          console.log("if");
           //that.active = false;
         }
       });
@@ -69,17 +67,25 @@
 		this.active = false;
 	},
   _activeChanged: function(){
-
+  console.log("active changed");
     if(this.active){
+        console.log("asdasd");
+
           var listElements = document.getElementsByTagName("htwg-container");
+          console.log("ddddd");
           for(i = 0; i < listElements.length; i++){
             if(listElements[i] != this){
               listElements[i].active = false;
             }
+            console.log("i: " + i + "listEle: " + listElements[i]);
           }
-          
+                    console.log("fffff");
 
-          window.scrollBy(0, window.innerHeight);
+       var positionTop = this.$.test.getBoundingClientRect().top;
+       //var positionTop = "200px";
+        console.log("pos: " + positionTop);
+
+          $('body, html').animate({scrollTop: positionTop});
 
 
     }
