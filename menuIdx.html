@@ -10,14 +10,6 @@
 		  dom: 'shadow', //use shadow dom if possible
 		  lazyRegister: true
 		};
-
-		function popAinContainer(container){
-			if(!document.getElementById(container).active){
-				document.getElementById(container).active = true;			
-			}else{
-				document.getElementById(container).active = false;
-			}
-		}
 	  </script>
 
 	  <link rel="import" href="htwg-objects/htwg-menu/htwg-menu.html">
@@ -25,10 +17,16 @@
 	  <link rel="import" href="htwg-objects/htwg-window-container/htwg-window-container.html">
  	  <link rel="import" href="htwg-objects/htwg-overlay-menu/htwg-overlay-menu.html">
 	  <link rel="import" href="htwg-objects/htwg-container/htwg-container.html">
+	  <link rel="import" href="htwg-objects/htwg-container/htwg-container-opener.html">
    	  <link rel="import" href="htwg-objects/htwg-bubble-frame/htwg-bubble-frame.html">
 	  <link rel="import" href="htwg-objects/htwg-grid/htwg-grid.html">
 	  <link rel="import" href="htwg-objects/htwg-color/htwg-color.html">
-  	  	
+ 	  <link rel="import" href="htwg-objects/htwg-container/htwg-container-title.html">
+	  <link rel="import" href="htwg-objects/htwg-container/htwg-container-menu.html">
+	  <link rel="import" href="htwg-objects/htwg-container/htwg-container-menuitem.html">
+	  <link rel="import" href="htwg-objects/htwg-container/htwg-container-text.html">
+
+
   	  	<style is="custom-style" include="htwg-grid htwg-color">
 		
   	  	#overlayMenu{
@@ -96,6 +94,10 @@
   	  	.bubbleArbeiten{
   	  		--bubble-frame-image: url("../../images/arbeiten.jpg");
 			--bubble-color: var(--htwg-in-80);
+  	  	}
+
+  	  	p.titel {
+  	  		font-size: 30pt;
   	  	}
 		</style>
 
@@ -167,14 +169,12 @@
 								Bier ist ein Nahrungs- und Genussmittel, das durch Gärung aus Malz oder aus stärkehaltiger Rohfrucht (Malzersatzstoffe) gewonnen und nicht destilliert wird.
 							</p>
 						</div>
-						<div class="col-3 col-s-5 col-m-7 col-l-11">
+						<div class="row">
+							<div class="col-2 col-s-4 col-m-6 col-l-8">
+								<htwg-container-opener class="content" target="kurzportraitContainer"></htwg-container-opener>
+							</div>
 						</div>
-					</div>
-					<div class="row">
-						<div class="col-16 col-s-24 col-m-32 col-l-48">
-							<button class="content" onclick="popAinContainer('kurzportraitContainer')">pop container</button>
-						</div>
-					</div>
+
 				</htwg-bubble-frame>
 
 			
@@ -182,13 +182,27 @@
 		</htwg-window-container>
 
 
-
+<!-- HTWG Container (popped auf-->
 		<htwg-container id="kurzportraitContainer">
-			<p> Lorentum ipslum alsdlkasldk</p>
-			<p> adfjlakdfkajsdfklaksdjfkla</p>
-			<p>asdfkjaklsdjfkajsdfkljaskdfj</p>
+
+			<htwg-container-title 
+				textsize=60>
+				Kurzportrait
+			</htwg-container-title>
+
+			<htwg-container-menu>
+				<htwg-container-menuitem linkid="text1">
+					Text1
+				</htwg-container-menuitem>
+			</htwg-container-menu>
+
+			<htwg-container-text id="text1">
+				<p>AIN ist ein praxisnaher Studiengang, der sich 7 Semester lang mit Computer and Network Engineering, Embedded Systems, Medieninformatk und Software-Engineering beschäftigt.</p>
+			</htwg-container-text>
+
 		</htwg-container>
 
+<!-- Neues Window -->
 		<htwg-window-container
 			id="bewerbung">
 
@@ -210,8 +224,8 @@
 						</div>
 					</div>
 					<div class="row">
-						<div class="col-16 col-s-24 col-m-32 col-l-48">
-							<button class="content" onclick="popAinContainer('bewerbungContainer')">pop container</button>
+						<div class="col-2 col-s-4 col-m-6 col-l-8">
+							<htwg-container-opener class="content" target="bewerbungContainer"></htwg-container-opener>
 						</div>
 					</div>
 			</htwg-bubble-frame>
@@ -233,22 +247,22 @@
 					<div class="row">
 						<div class="col-5 col-s-5 col-m-7 col-l-11"></div>
 						<div class="col-8 col-s-4 col-m-5 col-l-8">
-							<p class="content">
-								bubbleStudienaufbaububbleStudienaufbaububbleStudienaufbaububbleStudienaufbau
+							<p class="content"> 
+								bubbleStu dien ufbaub ubbleSt udienau fbaububbleSt udienaufbau bubbleStudie naufbau
 							</p>
 						</div>
 						<div class="col-5 col-s-6 col-m-8 col-l-10"></div>
 						<div class="col-8 col-s-4 col-m-5 col-l-8">
 							<p class="content">
-								bubbleStudienaufbaububbleStudienaufbaububbleStudienaufbau
+								bubbleStudienaufb aububbleStud ienaufbaubu bbleStu dienaufbau
 							</p>
 						</div>
 						<div class="col-3 col-s-5 col-m-7 col-l-11">
 						</div>
 					</div>
 					<div class="row">
-						<div class="col-16 col-s-24 col-m-32 col-l-48">
-							<button class="content" onclick="popAinContainer('studienaufbauContainer')">pop container</button>
+						<div class="col-2 col-s-4 col-m-6 col-l-8">
+							<htwg-container-opener class="content" target="studienaufbauContainer"></htwg-container-opener>
 						</div>
 					</div>
 			</htwg-bubble-frame>
@@ -271,21 +285,21 @@
 						<div class="col-5 col-s-5 col-m-7 col-l-11"></div>
 						<div class="col-8 col-s-4 col-m-5 col-l-8">
 							<p class="content">
-								bubbleStudienaufbaububbleStudienaufbaububbleStudienaufbaububbleStudienaufbau
+								bubbleStud ienaufbaubu bbleStudienauf baububbl eStudienaufbaub ubbleStudienaufbau
 							</p>
 						</div>
 						<div class="col-5 col-s-6 col-m-8 col-l-10"></div>
 						<div class="col-8 col-s-4 col-m-5 col-l-8">
 							<p class="content">
-								bubbleStudienaufbaububbleStudienaufbaububbleStudienaufbau
+								bubbleSt udienaufbau bubbleStudienau fbaububbleS udienaufbau
 							</p>
 						</div>
 						<div class="col-3 col-s-5 col-m-7 col-l-11">
 						</div>
 					</div>
 					<div class="row">
-						<div class="col-16 col-s-24 col-m-32 col-l-48">
-							<button class="content" onclick="popAinContainer('ausstattungContainer')">pop container</button>
+						<div class="col-2 col-s-4 col-m-6 col-l-8">
+							<htwg-container-opener class="content" target="ausstattungContainer"></htwg-container-opener>
 						</div>
 					</div>
 			</htwg-bubble-frame>
@@ -307,21 +321,21 @@
 						<div class="col-5 col-s-5 col-m-7 col-l-11"></div>
 						<div class="col-8 col-s-4 col-m-5 col-l-8">
 							<p class="content">
-								bubbleStudienaufbaububbleStudienaufbaububbleStudienaufbaububbleStudienaufbau
+								bubbleStudie naufbaububb leStudienaufb aubub bleStu dienaufbau bubbleStudie naufbau
 							</p>
 						</div>
 						<div class="col-5 col-s-6 col-m-8 col-l-10"></div>
 						<div class="col-8 col-s-4 col-m-5 col-l-8">
 							<p class="content">
-								bubbleStudienaufbaububbleStudienaufbaububbleStudienaufbau
+								bubbleStudien aufbaubub bleStudienaufbaububb leStudienaufbau
 							</p>
 						</div>
 						<div class="col-3 col-s-5 col-m-7 col-l-11">
 						</div>
 					</div>
 					<div class="row">
-						<div class="col-16 col-s-24 col-m-32 col-l-48">
-							<button class="content" onclick="popAinContainer('fachschaftContainer')">pop container</button>
+						<div class="col-2 col-s-4 col-m-6 col-l-8">
+							<htwg-container-opener class="content" target="fachschaftContainer"></htwg-container-opener>
 						</div>
 					</div>
 			</htwg-bubble-frame>
@@ -345,21 +359,21 @@
 						<div class="col-5 col-s-5 col-m-7 col-l-11"></div>
 						<div class="col-8 col-s-4 col-m-5 col-l-8">
 							<p class="content">
-								bubbleStudienaufbaububbleStudienaufbaububbleStudienaufbaububbleStudienaufbau
+								bubbleStudienaufbaubub bleStudienaufbaububbl eStudienaufbaububbleStudienaufbau
 							</p>
 						</div>
 						<div class="col-5 col-s-6 col-m-8 col-l-10"></div>
 						<div class="col-8 col-s-4 col-m-5 col-l-8">
 							<p class="content">
-								bubbleStudienaufbaububbleStudienaufbaububbleStudienaufbau
+								bubbleStudienaufbaububb leStudienaufbaububbl eStudienaufbau
 							</p>
 						</div>
 						<div class="col-3 col-s-5 col-m-7 col-l-11">
 						</div>
 					</div>
 					<div class="row">
-						<div class="col-16 col-s-24 col-m-32 col-l-48">
-							<button class="content" onclick="popAinContainer('arbeitenContainer')">pop container</button>
+						<div class="col-2 col-s-4 col-m-6 col-l-8">
+							<htwg-container-opener class="content" target="arbeitenContainer"></htwg-container-opener>
 						</div>
 					</div>
 			</htwg-bubble-frame>

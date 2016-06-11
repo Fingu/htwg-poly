@@ -1,0 +1,37 @@
+
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+
+
+<dom-module id="htwg-container-menuitem">
+
+  <style>
+  </style>
+
+  <template>
+    <li on-tap="tapped">
+      <content ></content>
+    </li>
+  </template>
+
+</dom-module>
+
+<script>
+  Polymer({
+    is: 'htwg-container-menuitem',
+
+    properties: {
+      linkid: {
+        value: String,
+        default: "#"
+      }
+    },
+    attached: function(){
+    
+    },
+    tapped: function(){
+      console.log(this.linkid + " - " + document.getElementById(this.linkid));
+          document.getElementById(this.linkid).active = true;
+    }
+  });
+</script>
