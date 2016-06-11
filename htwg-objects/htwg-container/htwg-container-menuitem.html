@@ -30,8 +30,15 @@
     
     },
     tapped: function(){
-      console.log(this.linkid + " - " + document.getElementById(this.linkid));
-          document.getElementById(this.linkid).active = true;
+      var texts = document.getElementsByTagName("htwg-container-text");
+    //not nice but a temporary bug fix
+      for(i = 0; i < texts.length; i++){
+        texts[i].active = false;
+      }
+      if(document.getElementById(this.linkid).active != true){
+        document.getElementById(this.linkid).active = true;
+      }
+          
     }
   });
 </script>

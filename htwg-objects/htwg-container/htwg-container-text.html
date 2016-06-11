@@ -6,16 +6,14 @@
 <dom-module id="htwg-container-text">
 
   <style>
-  :host[active] {
+    :host{
+    visibility: hidden;
     position: absolute;
     word-wrap: break-word;
     left: 45vw;
     right: 5vw;
     top: 10vh;
-  }
-  :host{
-    visibility: hidden;
-  };
+    }
   </style>
 
   <template>
@@ -31,11 +29,21 @@
     properties: {
       active: {
         type: Boolean,
-        value: false
+        value: false,
+        observer: "_activechanged"
       },
     },
     attached: function(){
-    
+      if(this.active){
+        this.style.visibility="visible";
+      }
+    },
+    _activechanged: function(){
+      if(this.active){
+        this.style.visibility="visible";
+      }else{
+        this.style.visibility="hidden";
+      }
     }
   });
 </script>
