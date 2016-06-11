@@ -320,11 +320,28 @@
 	positionBackground: function() {
       var bubble   = this.$$('.bubble');
 	  bubble.style.backgroundPosition = "-" + bubble.getBoundingClientRect().left + "px -" + (bubble.getBoundingClientRect().top + window.scrollY) + "px";
-	  bubble.style.backgroundSize = window.innerWidth + "px " + window.innerHeight + "px";
+	  bubble.style.backgroundSize = window.innerWidth + "px " + this.computeHeight();
 	  var container   = this.$$('.bubble-container');
 	  container.style.backgroundPosition = "-" + container.getBoundingClientRect().left + "px -" + (container.getBoundingClientRect().top + window.scrollY) + "px";
-	  container.style.backgroundSize = window.innerWidth + "px " + window.innerHeight + "px";
+	  container.style.backgroundSize = window.innerWidth + "px " + this.computeHeight();
     },
+	
+	computeHeight: function() {
+		var columns = 0;
+		var width = window.innerWidth;
+		var height = window.innerHeight;
+		if(width < 600) {
+			columns = 8;
+		} else if(width < 768) {
+			columns = 12;
+		} else if(width < 1920) {
+			columns = 16;
+		} else {
+			columns = 24;
+		}
+	    return (height - (height % (width / columns)) + 1) + "px";
+	},
+
     checkCollisions: function() {
 		var divs = document.getElementsByClassName("content");
 		myRect = this.$.bubbles.getBoundingClientRect();
