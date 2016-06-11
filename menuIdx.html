@@ -4,9 +4,6 @@
 		<meta charset="utf-8"/>
 		<script src="bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
 		<script src="https://code.jquery.com/jquery-2.1.4.js"></script>
-
-		<link href='https://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
-
 		<script>
 		/* this script must run before Polymer is imported */
 		window.Polymer = {
@@ -29,11 +26,10 @@
  	  <link rel="import" href="htwg-objects/htwg-overlay-menu/htwg-overlay-menu.html">
 	  <link rel="import" href="htwg-objects/htwg-container/htwg-container.html">
    	  <link rel="import" href="htwg-objects/htwg-bubble-frame/htwg-bubble-frame.html">
-	    <link rel="import" href="htwg-objects/htwg-grid/htwg-grid.html">
-	    <link rel="import" href="htwg-objects/htwg-color/htwg-color.html">
+	  <link rel="import" href="htwg-objects/htwg-grid/htwg-grid.html">
+	  <link rel="import" href="htwg-objects/htwg-color/htwg-color.html">
   	  	
-		<style is="custom-style"  include="htwg-color"></style>
-  	  	<style is="custom-style"  include="htwg-grid">
+  	  	<style is="custom-style" include="htwg-grid htwg-color">
 		
   	  	#overlayMenu{
   	  		position:absolute;
@@ -43,9 +39,8 @@
   	  		position: relative;
   	  		left: 20vw;
   	  		top: 20vh;
-  	  		font-size: 6vh;
-  	  		font-weight: bold;
-
+			padding-bottom: 20vh;
+			font-family: MarkProBlack;
   	  	}
   	  	body{
   	  		margin-top: 0px;
@@ -59,6 +54,20 @@
 			src: url("htwg-objects/fonts/MarkPro.otf") format("opentype");
 		}
 
+  	  	@font-face {
+			font-family: MarkProBlack;
+			src: url("htwg-objects/fonts/MarkPro-Black.otf") format("opentype");
+		}
+
+  	  	@font-face {
+			font-family: MarkProBold;
+			src: url("htwg-objects/fonts/MarkPro-Bold.otf") format("opentype");
+		}
+
+		htwg-bubble-frame {
+			color: var(--htwg-white);
+		}
+		
   	  	.bubbleKurzportrait{
   	  		--bubble-frame-image: url("../../images/htwg.jpg");
 			--bubble-color: var(--htwg-ei-80);
@@ -135,7 +144,11 @@
 		<htwg-window-container 
 			background-image="../../images/wikurewi.jpg"
 			id="top">
-			<h1 class="ueberschrift">Angewandte <br>Informatik</h1>
+			<div class="row">
+				<div class="col-16 col-s-24 col-m-32 col-l-48">
+					<h1 class="ueberschrift">Angewandte <br>Informatik</h1>
+				</div>
+			</div>
 		</htwg-window-container>
 
 
@@ -159,7 +172,7 @@
 					</div>
 					<div class="row">
 						<div class="col-16 col-s-24 col-m-32 col-l-48">
-							<button onclick="popAinContainer('kurzportraitContainer')">pop container</button>
+							<button class="content" onclick="popAinContainer('kurzportraitContainer')">pop container</button>
 						</div>
 					</div>
 				</htwg-bubble-frame>
@@ -198,7 +211,7 @@
 					</div>
 					<div class="row">
 						<div class="col-16 col-s-24 col-m-32 col-l-48">
-							<button onclick="popAinContainer('bewerbungContainer')">pop container</button>
+							<button class="content" onclick="popAinContainer('bewerbungContainer')">pop container</button>
 						</div>
 					</div>
 			</htwg-bubble-frame>
@@ -235,7 +248,7 @@
 					</div>
 					<div class="row">
 						<div class="col-16 col-s-24 col-m-32 col-l-48">
-							<button onclick="popAinContainer('studienaufbauContainer')">pop container</button>
+							<button class="content" onclick="popAinContainer('studienaufbauContainer')">pop container</button>
 						</div>
 					</div>
 			</htwg-bubble-frame>
@@ -272,7 +285,7 @@
 					</div>
 					<div class="row">
 						<div class="col-16 col-s-24 col-m-32 col-l-48">
-							<button onclick="popAinContainer('ausstattungContainer')">pop container</button>
+							<button class="content" onclick="popAinContainer('ausstattungContainer')">pop container</button>
 						</div>
 					</div>
 			</htwg-bubble-frame>
@@ -308,7 +321,7 @@
 					</div>
 					<div class="row">
 						<div class="col-16 col-s-24 col-m-32 col-l-48">
-							<button onclick="popAinContainer('fachschaftContainer')">pop container</button>
+							<button class="content" onclick="popAinContainer('fachschaftContainer')">pop container</button>
 						</div>
 					</div>
 			</htwg-bubble-frame>
@@ -323,8 +336,7 @@
 		</htwg-container>
 
 
-		<htwg-window-container 
-			background-image="../../images/arbeiten.jpg"
+		<htwg-window-container
 			id="arbeiten">
 
 
@@ -347,7 +359,7 @@
 					</div>
 					<div class="row">
 						<div class="col-16 col-s-24 col-m-32 col-l-48">
-							<button onclick="popAinContainer('arbeitenContainer')">pop container</button>
+							<button class="content" onclick="popAinContainer('arbeitenContainer')">pop container</button>
 						</div>
 					</div>
 			</htwg-bubble-frame>
