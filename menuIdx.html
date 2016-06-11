@@ -13,14 +13,6 @@
 		  dom: 'shadow', //use shadow dom if possible
 		  lazyRegister: true
 		};
-
-		function popAinContainer(container){
-			if(!document.getElementById(container).active){
-				document.getElementById(container).active = true;			
-			}else{
-				document.getElementById(container).active = false;
-			}
-		}
 	  </script>
 
 	  <link rel="import" href="htwg-objects/htwg-menu/htwg-menu.html">
@@ -28,6 +20,7 @@
 	  <link rel="import" href="htwg-objects/htwg-window-container/htwg-window-container.html">
  	  <link rel="import" href="htwg-objects/htwg-overlay-menu/htwg-overlay-menu.html">
 	  <link rel="import" href="htwg-objects/htwg-container/htwg-container.html">
+	  <link rel="import" href="htwg-objects/htwg-container/htwg-container-opener.html">
    	  <link rel="import" href="htwg-objects/htwg-bubble-frame/htwg-bubble-frame.html">
 	    <link rel="import" href="htwg-objects/htwg-grid/htwg-grid.html">
   	  	
@@ -78,6 +71,10 @@
 
   	  	.bubbleArbeiten{
   	  		--bubble-frame-image: url("../../images/arbeiten.jpg");
+  	  	}
+
+  	  	p.titel {
+  	  		font-size: 30pt;
   	  	}
 		</style>
 
@@ -145,14 +142,13 @@
 								Bier ist ein Nahrungs- und Genussmittel, das durch Gärung aus Malz oder aus stärkehaltiger Rohfrucht (Malzersatzstoffe) gewonnen und nicht destilliert wird.
 							</p>
 						</div>
-						<div class="col-3 col-s-5 col-m-7 col-l-11">
+
+						<div class="row">
+							<div class="col-2 col-s-4 col-m-6 col-l-8">
+								<htwg-container-opener class="content" target="kurzportraitContainer"></htwg-container-opener>
+							</div>
 						</div>
-					</div>
-					<div class="row">
-						<div class="col-16 col-s-24 col-m-32 col-l-48">
-							<button onclick="popAinContainer('kurzportraitContainer')">pop container</button>
-						</div>
-					</div>
+
 				</htwg-bubble-frame>
 
 			
@@ -189,7 +185,7 @@
 					</div>
 					<div class="row">
 						<div class="col-16 col-s-24 col-m-32 col-l-48">
-							<button onclick="popAinContainer('bewerbungContainer')">pop container</button>
+							<htwg-container-opener class="content" target="bewerbungContainer"></htwg-container-opener>
 						</div>
 					</div>
 			</htwg-bubble-frame>
@@ -226,7 +222,7 @@
 					</div>
 					<div class="row">
 						<div class="col-16 col-s-24 col-m-32 col-l-48">
-							<button onclick="popAinContainer('studienaufbauContainer')">pop container</button>
+							<htwg-container-opener class="content" target="studienaufbauContainer"></htwg-container-opener>
 						</div>
 					</div>
 			</htwg-bubble-frame>
@@ -263,7 +259,7 @@
 					</div>
 					<div class="row">
 						<div class="col-16 col-s-24 col-m-32 col-l-48">
-							<button onclick="popAinContainer('ausstattungContainer')">pop container</button>
+							<htwg-container-opener class="content" target="ausstattungContainer"></htwg-container-opener>
 						</div>
 					</div>
 			</htwg-bubble-frame>
@@ -299,7 +295,7 @@
 					</div>
 					<div class="row">
 						<div class="col-16 col-s-24 col-m-32 col-l-48">
-							<button onclick="popAinContainer('fachschaftContainer')">pop container</button>
+							<htwg-container-opener class="content" target="fachschaftContainer"></htwg-container-opener>
 						</div>
 					</div>
 			</htwg-bubble-frame>
@@ -338,7 +334,7 @@
 					</div>
 					<div class="row">
 						<div class="col-16 col-s-24 col-m-32 col-l-48">
-							<button onclick="popAinContainer('arbeitenContainer')">pop container</button>
+							<htwg-container-opener class="content" target="arbeitenContainer"></htwg-container-opener>
 						</div>
 					</div>
 			</htwg-bubble-frame>
