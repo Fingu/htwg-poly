@@ -1,0 +1,43 @@
+
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+
+
+<dom-module id="htwg-container-title">
+
+  <style>
+    :host {
+      font-weight: bold;
+      opacity: 0.4;
+      position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    }
+  </style>
+
+  <template>
+    <content></content>
+  </template>
+
+</dom-module>
+
+<script>
+  Polymer({
+    is: 'htwg-container-title',
+
+    properties: {
+      textsize: {
+        type: Number,
+        value: 15
+      },
+      textcolor: {
+        type: String,
+        value: "black"
+      }
+    },
+    attached: function(){
+      this.style.fontSize = this.textsize+"px";
+      this.style.color = this.textcolor;
+    }  
+  });
+</script>

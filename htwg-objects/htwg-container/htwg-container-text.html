@@ -1,0 +1,41 @@
+
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+
+
+<dom-module id="htwg-container-text">
+
+  <style>
+  :host[active] {
+    position: absolute;
+    word-wrap: break-word;
+    left: 45vw;
+    right: 5vw;
+    top: 10vh;
+  }
+  :host{
+    visibility: hidden;
+  };
+  </style>
+
+  <template>
+    <content></content>
+  </template>
+
+</dom-module>
+
+<script>
+  Polymer({
+    is: 'htwg-container-text',
+
+    properties: {
+      active: {
+        type: Boolean,
+        value: false
+      },
+    },
+    attached: function(){
+    
+    }
+  });
+</script>

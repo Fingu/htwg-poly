@@ -28,7 +28,12 @@
    	  <link rel="import" href="htwg-objects/htwg-bubble-frame/htwg-bubble-frame.html">
 	  <link rel="import" href="htwg-objects/htwg-grid/htwg-grid.html">
 	  <link rel="import" href="htwg-objects/htwg-color/htwg-color.html">
-  	  	
+ 	  <link rel="import" href="htwg-objects/htwg-container/htwg-container-title.html">
+	  <link rel="import" href="htwg-objects/htwg-container/htwg-container-menu.html">
+	  <link rel="import" href="htwg-objects/htwg-container/htwg-container-menuitem.html">
+	  <link rel="import" href="htwg-objects/htwg-container/htwg-container-text.html">
+
+
   	  	<style is="custom-style" include="htwg-grid htwg-color">
 		
   	  	#overlayMenu{
@@ -182,13 +187,27 @@
 		</htwg-window-container>
 
 
-
+<!-- HTWG Container (popped auf-->
 		<htwg-container id="kurzportraitContainer">
-			<p> Lorentum ipslum alsdlkasldk</p>
-			<p> adfjlakdfkajsdfklaksdjfkla</p>
-			<p>asdfkjaklsdjfkajsdfkljaskdfj</p>
+
+			<htwg-container-title 
+				textsize=60>
+				Kurzportrait
+			</htwg-container-title>
+
+			<htwg-container-menu>
+				<htwg-container-menuitem linkid="text1">
+					Text1
+				</htwg-container-menuitem>
+			</htwg-container-menu>
+
+			<htwg-container-text id="text1">
+				<p>AIN ist ein praxisnaher Studiengang, der sich 7 Semester lang mit Computer and Network Engineering, Embedded Systems, Medieninformatk und Software-Engineering beschäftigt.</p>
+			</htwg-container-text>
+
 		</htwg-container>
 
+<!-- Neues Window -->
 		<htwg-window-container
 			id="bewerbung">
 
