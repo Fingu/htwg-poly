@@ -55,7 +55,7 @@
 	}
 	:host([active]) .bubble {
 		background: var(--bubble-color);
-		transition: 0.5s;
+		transition: 1s;
 	}
 
 	.full {
@@ -225,6 +225,21 @@
 					that.neighbors[5].active = Math.random() > 0.9;
 					if(that.neighbors[5].active) {return};
 				}
+				if(that.neighbors[7] != null && !that.neighbors[7].active) {
+					that.neighbors[7].active = Math.random() > 0.9;
+					if(that.neighbors[7].active) {return};
+				}
+				if(that.neighbors[0] != null && !that.neighbors[0].active) {
+					that.neighbors[0].active = Math.random() > 0.5;
+					if(that.neighbors[0].active) {return};
+				}
+				if(that.neighbors[1] != null && !that.neighbors[1].active) {
+					that.neighbors[1].active = Math.random() > 0.9;
+					if(that.neighbors[1].active) {return};
+				}
+
+
+
 			}, (Math.random() * 100000) + 1);
 		}
 	},

@@ -9,12 +9,18 @@
     :host{
       font-size: 24pt;
       cursor: s-resize;
+      vertical-align: middle;
+      text-align: center;
     };
+    #text:hover{
+      font-size: 26pt;
+      transition: 0.3s;
+    }
   </style>
 
   <template>
-  	<div id="COtext"on-tap="popAinContainer" on-mouseover="mouseoverCO" on-mouseout="mouseotCO">
-      pop container
+  	<div id="text" on-tap="popContainer" on-mouseover="mouseover" on-mouseout="mouseout">
+      <content></content>
   	</div>
   </template>
 
@@ -30,9 +36,7 @@
         value: "",
       },
     },
-    attached: function(){
-    },
-    popAinContainer:function(){
+    popContainer:function(){
       container = this.target;
       if(!document.getElementById(container).active){
         document.getElementById(container).active = true;     
@@ -40,12 +44,12 @@
         document.getElementById(container).active = false;
       }
     },
-    mouseoverCO:function(){
-      this.$.COtext.style.color = "blue";
+    mouseover:function(){
+
     },
 
-    mouseotCO:function(){
-      this.$.COtext.style.color = "black";
+    mouseout:function(){
+
     }
   
   });
