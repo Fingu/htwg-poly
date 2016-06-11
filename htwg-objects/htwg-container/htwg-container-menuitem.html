@@ -22,23 +22,41 @@
 
     properties: {
       linkid: {
-        value: String,
+        type: String,
         default: "#"
+      },
+      active: {
+        type: Boolean,
+        default: false,
+        observer: "_activechanged"
       }
     },
     attached: function(){
-    
+      if(this.active){
+        this.style.textShadow = "1px 1px 0px black";
+      }
     },
     tapped: function(){
-      var texts = document.getElementsByTagName("htwg-container-text");
-    //not nice but a temporary bug fix
-      for(i = 0; i < texts.length; i++){
+      var texts = Polymer.dom(this).parentNode.parentNode.getElementsByTagName("htwg-container-text");
+      var menuitems = Polymer.dom(this).parentNode.parentNode.getElementsByTagName("htwg-container-menuitem");
+
+     for(i = 0; i < texts.length; i++){
         texts[i].active = false;
+      }
+      for(i = 0; i < texts.length; i++){
+        menuitems[i].active = false;
       }
       if(document.getElementById(this.linkid).active != true){
         document.getElementById(this.linkid).active = true;
       }
-          
+      this.active = true;
+    },
+    _activechanged: function(){
+      if(this.active){
+        this.style.textShadow = "1px 1px 0px black";
+      }else{
+        this.style.textShadow = "0px 0px 0px black";
+      }
     }
   });
 </script>
