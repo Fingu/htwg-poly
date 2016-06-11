@@ -4,9 +4,6 @@
 		<meta charset="utf-8"/>
 		<script src="bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
 		<script src="https://code.jquery.com/jquery-2.1.4.js"></script>
-
-		<link href='https://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
-
 		<script>
 		/* this script must run before Polymer is imported */
 		window.Polymer = {
@@ -22,9 +19,11 @@
 	  <link rel="import" href="htwg-objects/htwg-container/htwg-container.html">
 	  <link rel="import" href="htwg-objects/htwg-container/htwg-container-opener.html">
    	  <link rel="import" href="htwg-objects/htwg-bubble-frame/htwg-bubble-frame.html">
-	    <link rel="import" href="htwg-objects/htwg-grid/htwg-grid.html">
+	  <link rel="import" href="htwg-objects/htwg-grid/htwg-grid.html">
+	  <link rel="import" href="htwg-objects/htwg-color/htwg-color.html">
   	  	
-  	  	<style is="custom-style"  include="htwg-grid">
+  	  	<style is="custom-style" include="htwg-grid htwg-color">
+		
   	  	#overlayMenu{
   	  		position:absolute;
   	  		right: 0px;
@@ -33,9 +32,8 @@
   	  		position: relative;
   	  		left: 20vw;
   	  		top: 20vh;
-  	  		font-size: 6vh;
-  	  		font-weight: bold;
-
+			padding-bottom: 20vh;
+			font-family: MarkProBlack;
   	  	}
   	  	body{
   	  		margin-top: 0px;
@@ -49,28 +47,48 @@
 			src: url("htwg-objects/fonts/MarkPro.otf") format("opentype");
 		}
 
+  	  	@font-face {
+			font-family: MarkProBlack;
+			src: url("htwg-objects/fonts/MarkPro-Black.otf") format("opentype");
+		}
+
+  	  	@font-face {
+			font-family: MarkProBold;
+			src: url("htwg-objects/fonts/MarkPro-Bold.otf") format("opentype");
+		}
+
+		htwg-bubble-frame {
+			color: var(--htwg-white);
+		}
+		
   	  	.bubbleKurzportrait{
   	  		--bubble-frame-image: url("../../images/htwg.jpg");
+			--bubble-color: var(--htwg-ei-80);
   	  	}
 
   	  	.bubbleBewerbung{
   	  		--bubble-frame-image: url("../../images/elektrotechnik.jpg");
+			--bubble-color: var(--htwg-ag-80);
   	  	}
 
   	  	.bubbleStudienaufbau{
   	  		--bubble-frame-image: url("../../images/studienaufbau.jpg");
+			--bubble-color: var(--htwg-ws-80);
   	  	}
 
   	  	.bubbleAusstattung{
   	  		--bubble-frame-image: url("../../images/ausstattung.jpg");
+			--bubble-color: var(--htwg-bi-80);
   	  	}
 
   	  	.bubbleFachschaft{
   	  		--bubble-frame-image: url("../../images/fachschaft.jpg");
+			--bubble-color: var(--htwg-ma-80);
   	  	}
 
   	  	.bubbleArbeiten{
   	  		--bubble-frame-image: url("../../images/arbeiten.jpg");
+			--bubble-color: var(--htwg-in-80);
   	  	}
 
   	  	p.titel {
@@ -123,7 +141,11 @@
 		<htwg-window-container 
 			background-image="../../images/wikurewi.jpg"
 			id="top">
-			<h1 class="ueberschrift">Angewandte <br>Informatik</h1>
+			<div class="row">
+				<div class="col-16 col-s-24 col-m-32 col-l-48">
+					<h1 class="ueberschrift">Angewandte <br>Informatik</h1>
+				</div>
+			</div>
 		</htwg-window-container>
 
 
@@ -142,7 +164,6 @@
 								Bier ist ein Nahrungs- und Genussmittel, das durch Gärung aus Malz oder aus stärkehaltiger Rohfrucht (Malzersatzstoffe) gewonnen und nicht destilliert wird.
 							</p>
 						</div>
-
 						<div class="row">
 							<div class="col-2 col-s-4 col-m-6 col-l-8">
 								<htwg-container-opener class="content" target="kurzportraitContainer"></htwg-container-opener>
@@ -310,8 +331,7 @@
 		</htwg-container>
 
 
-		<htwg-window-container 
-			background-image="../../images/arbeiten.jpg"
+		<htwg-window-container
 			id="arbeiten">
 
 
