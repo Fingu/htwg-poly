@@ -13,7 +13,7 @@
   </style>
 
   <template>
-  	<div id="text"on-tap="popAinContainer" on-mouseover="mouseoverCO" on-mouseout="mouseotCO">
+  	<div id="COtext"on-tap="popAinContainer" on-mouseover="mouseoverCO" on-mouseout="mouseotCO">
       pop container
   	</div>
   </template>
@@ -41,11 +41,11 @@
       }
     },
     mouseoverCO:function(){
-      this.$.text.style.color = "blue";
+      this.$.COtext.style.color = "blue";
     },
 
     mouseotCO:function(){
-      this.$.text.style.color = "black";
+      this.$.COtext.style.color = "black";
     }
   
   });
