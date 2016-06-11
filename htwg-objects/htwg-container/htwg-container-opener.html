@@ -1,0 +1,52 @@
+
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+
+
+<dom-module id="htwg-container-opener">
+
+  <style>
+    :host{
+      font-size: 24pt;
+      cursor: s-resize;
+    };
+  </style>
+
+  <template>
+  	<div id="text"on-tap="popAinContainer" on-mouseover="mouseoverCO" on-mouseout="mouseotCO">
+      pop container
+  	</div>
+  </template>
+
+</dom-module>
+
+<script>
+  Polymer({
+    is: 'htwg-container-opener',
+
+    properties: {
+      target: {
+        type: String,
+        value: "",
+      },
+    },
+    attached: function(){
+    },
+    popAinContainer:function(){
+      container = this.target;
+      if(!document.getElementById(container).active){
+        document.getElementById(container).active = true;     
+      }else{
+        document.getElementById(container).active = false;
+      }
+    },
+    mouseoverCO:function(){
+      this.$.text.style.color = "blue";
+    },
+
+    mouseotCO:function(){
+      this.$.text.style.color = "black";
+    }
+  
+  });
+</script>
