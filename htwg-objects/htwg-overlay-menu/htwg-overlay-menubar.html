@@ -14,6 +14,7 @@
         text-align: left;
         vertical-align: middle;
         margin: 5%;
+        user-select: none;
       }
 
       .closebtn {
@@ -52,8 +53,8 @@
       },
     },
     closeNav: function(){
-      this.$.navbar.style.height = "0%";
-      this.$.burger.style.display = "";
+      navbar = document.getElementsByTagName('htwg-overlay-menu');
+      navbar[0].closeNav();
     }
 
   });
