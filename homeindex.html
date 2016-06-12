@@ -25,10 +25,15 @@
 	  <link rel="import" href="bower_components/iron-input/iron-input.html">
 
   	  	<style is="custom-style">
-		.wrapper{
-			float: left;
-			display: inline-flex;
-		}
+			.wrapper{
+				float: left;
+				display: inline-flex;
+			}
+
+			#filter{
+				margin-left: 3vw;
+				background-color: rgba(0,0,0,0);
+			}
 		</style>
 
 	</head>
@@ -44,14 +49,14 @@
 				<htwg-overlay-menuitem>Konstanz</htwg-overlay-menuitem>
 				<htwg-overlay-menuitem>Grenzenlos studieren</htwg-overlay-menuitem>
 			</htwg-overlay-menubar>
+
 			<htwg-overlay-content>
+				<htwg-thumbnail-tagfilter id="filter"></htwg-thumbnail-tagfilter>
+			</htwg-overlay-content>
 
-
-				<p><htwg-thumbnail-tagfilter></htwg-thumbnail-tagfilter></p>
-
+			<htwg-overlay-content>
 				<div class="wrapper">
 					<htwg-thumbnail class="informatik" title="Informatik">
-						<!--<htwg-thumbnail-textelement text-Caption="Angewandte Informatik" link="http://www.google.de" tags=' { "tag" : "Computer" , "tag1" : "Hacken" }'></htwg-thumbnail-textelement>-->
 						<htwg-thumbnail-textelement text-Caption="Angewandte Informatik" link="http://www.google.de" tags=' ["computer" , "hacken"] '></htwg-thumbnail-textelement>
 						<htwg-thumbnail-textelement text-Caption="Automobilinformatik" tags=' [ "auto" ,"motor" ]'></htwg-thumbnail-textelement>
 						<htwg-thumbnail-textelement text-Caption="Gesundheitsinformatik" tags=' [ "medizin" ,"gesund" ]'></htwg-thumbnail-textelement>
@@ -70,8 +75,6 @@
 						<htwg-thumbnail-textelement text-Caption="Wirtschaftsingenieurwesen Maschinenbau" tags=' [ "wirtschaft" ,"maschine" ]'></htwg-thumbnail-textelement>
 					</htwg-thumbnail>
 				</div>
-
-
 			</htwg-overlay-content>
 		</htwg-overlaymenu>
 
