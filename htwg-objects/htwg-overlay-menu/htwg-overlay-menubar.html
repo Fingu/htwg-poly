@@ -16,6 +16,15 @@
         margin: 5%;
       }
 
+      .closebtn {
+          position: absolute;
+          right: 3%;
+          top: 3%;
+          color: white;
+          font-size: 4em;
+          cursor: pointer;
+      }
+
     </style>
   
     <div class="overlay-content">
@@ -37,20 +46,15 @@
         type: String,
         value: ""
       },
-      title: {
+      path: {
         type: String,
-        value: "open"
-      }
-
-    }, tapFunction: function(){
-      if (!this.active){
-        this.fadeIn();
-      } else {
-        this.fadeOut();
-      }
-    }, 
-    attached:function(){
-    }, 
+        value: ""
+      },
+    },
+    closeNav: function(){
+      this.$.navbar.style.height = "0%";
+      this.$.burger.style.display = "";
+    }
 
   });
 </script>

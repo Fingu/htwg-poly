@@ -13,6 +13,7 @@
 	  </script>
 
 	  <link rel="import" href="htwg-objects/htwg-overlay-menu/htwg-overlay-menu.html">
+	  <link rel="import" href="htwg-objects/htwg-overlay-menu/htwg-overlay-menubar.html">
 	  <link rel="import" href="htwg-objects/htwg-overlay-menu/htwg-overlay-menuitem.html">
 	  <link rel="import" href="bower_components/iron-input/iron-input.html">
 
@@ -26,9 +27,11 @@
 	</head>
 
 	<body background="images/backtest.jpg">
-		<htwg-overlay-menu logo="images/htwg-logo.png">
-			<htwg-overlay-menuitem link="homeindex.html">Thisone</htwg-overlay-menuitem>
-			<htwg-overlay-menuitem link="index.html">Startpage</htwg-overlay-menuitem>
+		<htwg-overlay-menu>
+			<htwg-overlay-menubar logo="images/htwg-logo.png">
+				<htwg-overlay-menuitem link="homeindex.html">Thisone</htwg-overlay-menuitem>
+				<htwg-overlay-menuitem link="index.html">Startpage</htwg-overlay-menuitem>
+			</htwg-overlay-menubar>
 		</htwg-overlaymenu>
 	</body>
 

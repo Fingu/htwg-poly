@@ -8,7 +8,6 @@
 
     <style type="text/css">
 
-
       .overlay {
         height: 0%;
         width: 100%;
@@ -22,42 +21,6 @@
         transition: 0.7s;
       }
 
-      .overlay-content {
-        line-height: 80px;
-        width: 100%;
-        text-align: left;
-        vertical-align: middle;
-        margin: 5%;
-      }
-
-      .overlay span:hover  {
-          color: grey;
-      }
-
-      .overlay .test {
-        margin-left: 2,5%;
-        margin-right: 2,5%;
-      }
-
-
-      .menubar a {
-          padding: 8px;
-          text-decoration: none;
-          color: white;
-          display: inline;
-          transition: 0.3s;
-          font-size: 2em;
-      }
-
-      .closebtn {
-          position: absolute;
-          right: 3%;
-          top: 3%;
-          color: white;
-          font-size: 4em;
-          cursor: pointer;
-      }
-
       #burger {
         position: absolute;
         top: 3%;
@@ -69,14 +32,9 @@
     </style>
 
   <span id="burger" on-tap="openNav">☰</span>
-  
 
   <div id="navbar" class="overlay">
-    <div class="overlay-content">
-      <img src="{{logo}}" alt="picture not found" style="width:80px;height:80px"></img>
-        <content></content>
-       <a class="closebtn" on-tap="closeNav">x</a>
-    </div>
+      <content></content>
   </div>
     
   </template>
@@ -88,20 +46,8 @@
     is: 'htwg-overlay-menu',
 
     properties: {
-      backColor: {
-        type: String,
-        value: "grey"
-      },
-      path: {
-        type: String,
-        value: ""
-      },
-      logo: {
-        type: String,
-        value: ""
-      }
-
-    }, tapFunction: function(){
+    }, 
+    tapFunction: function(){
       if (!this.active){
         this.fadeIn();
       } else {
@@ -114,10 +60,7 @@
       this.$.navbar.style.height = "100%";
       this.$.burger.style.display = "none";
     }, 
-    closeNav: function(){
-      this.$.navbar.style.height = "0%";
-      this.$.burger.style.display = "";
-    }
+
 
   });
 </script>
