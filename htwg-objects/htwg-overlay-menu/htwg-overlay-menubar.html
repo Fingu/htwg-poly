@@ -1,0 +1,56 @@
+
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../htwg-thumbnail-textelement/htwg-thumbnail-textelement.html">
+
+<dom-module id="htwg-overlay-menubar">
+
+  <template>
+
+    <style type="text/css">
+
+      .overlay-content {
+        line-height: 80px;
+        width: 100%;
+        text-align: left;
+        vertical-align: middle;
+        margin: 5%;
+      }
+
+    </style>
+  
+    <div class="overlay-content">
+      <img src="{{logo}}" alt="picture not found" style="width:80px;height:80px"></img>
+        <content></content>
+       <a class="closebtn" on-tap="closeNav">x</a>
+    </div>
+    
+  </template>
+
+</dom-module>
+
+<script>
+  Polymer({
+    is: 'htwg-overlay-menubar',
+
+    properties: {
+      logo: {
+        type: String,
+        value: ""
+      },
+      title: {
+        type: String,
+        value: "open"
+      }
+
+    }, tapFunction: function(){
+      if (!this.active){
+        this.fadeIn();
+      } else {
+        this.fadeOut();
+      }
+    }, 
+    attached:function(){
+    }, 
+
+  });
+</script>

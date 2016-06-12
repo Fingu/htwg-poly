@@ -1,0 +1,50 @@
+
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../htwg-thumbnail-textelement/htwg-thumbnail-textelement.html">
+
+<dom-module id="htwg-overlay-menuitem">
+
+  <template>
+
+    <style type="text/css">
+
+      span {
+          margin-left: 5%;
+          margin-right: 5%;
+          font-size: 24pt;
+          color: white;
+      }
+
+      span:hover {
+        color: grey;
+        cursor: pointer;
+      }
+
+    </style>
+
+      <span on-tap="openLink">
+      <content></content>
+      </span>
+    
+  </template>
+
+</dom-module>
+
+<script>
+  Polymer({
+    is: 'htwg-overlay-menuitem',
+
+    properties: {
+      link: {
+        type: String,
+        value: ""
+      }
+
+    }, openLink: function(){
+      if (this.link != ""){
+        window.open(this.link, "_self");
+      }
+    }
+
+  });
+</script>

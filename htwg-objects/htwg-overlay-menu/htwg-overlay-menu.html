@@ -23,21 +23,22 @@
       }
 
       .overlay-content {
-        position: relative;
-        top: 10%;
         line-height: 80px;
         width: 100%;
         text-align: left;
         vertical-align: middle;
+        margin: 5%;
       }
 
-      .overlay a:hover  {
+      .overlay span:hover  {
           color: grey;
       }
 
-      .menubar{
-        margin-left: 200px;
+      .overlay .test {
+        margin-left: 2,5%;
+        margin-right: 2,5%;
       }
+
 
       .menubar a {
           padding: 8px;
@@ -48,19 +49,11 @@
           font-size: 2em;
       }
 
-      #navbar img {
-          position: absolute;
-          width: 80px;
-          height: 80px;
-          top: 10%;
-          left: 60px;
-      }
-
       .closebtn {
           position: absolute;
-          color: white;
-          top: 3%;
           right: 3%;
+          top: 3%;
+          color: white;
           font-size: 4em;
           cursor: pointer;
       }
@@ -77,24 +70,12 @@
 
   <span id="burger" on-tap="openNav">☰</span>
   
+
   <div id="navbar" class="overlay">
-    <a class="closebtn" on-tap="closeNav">x</a>
-    <img src="htwg-logo.png" alt="picture not found" style="width:80px;height:80px"></img>
     <div class="overlay-content">
-          <div class="menubar">
-            <a href="#">Hochschule</a>
-            <a class="dot"> &middot; </a>
-            <a href="#">Studiengänge</a>
-            <a class="dot"> &middot; </a>
-            <a href="#">Veranstaltung</a>
-            <a class="dot"> &middot; </a>
-            <a href="#">Konstanz</a>
-            <a class="dot"> &middot; </a>
-            <a class="last" href="#">Grenzenlos studieren</a>
-            
-          </div>
-          <div class="menucontent">
-          </div>
+      <img src="{{logo}}" alt="picture not found" style="width:80px;height:80px"></img>
+        <content></content>
+       <a class="closebtn" on-tap="closeNav">x</a>
     </div>
   </div>
     
@@ -107,13 +88,17 @@
     is: 'htwg-overlay-menu',
 
     properties: {
-      textColor: {
+      backColor: {
         type: String,
-        value: "black"
+        value: "grey"
       },
-      title: {
+      path: {
         type: String,
-        value: "open"
+        value: ""
+      },
+      logo: {
+        type: String,
+        value: ""
       }
 
     }, tapFunction: function(){
