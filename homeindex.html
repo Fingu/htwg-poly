@@ -13,8 +13,15 @@
 	  </script>
 
 	  <link rel="import" href="htwg-objects/htwg-overlay-menu/htwg-overlay-menu.html">
+	  <link rel="import" href="htwg-objects/htwg-overlay-menu/htwg-overlay-content.html">
 	  <link rel="import" href="htwg-objects/htwg-overlay-menu/htwg-overlay-menubar.html">
 	  <link rel="import" href="htwg-objects/htwg-overlay-menu/htwg-overlay-menuitem.html">
+
+	  <link rel="import" href="htwg-objects/htwg-thumbnail/htwg-thumbnail.html">
+	  <link rel="import" href="htwg-objects/htwg-thumbnail/htwg-thumbnail-tagfilter.html">
+	  <link rel="import" href="htwg-objects/htwg-thumbnail/htwg-thumbnail-textelement.html">
+	  <link rel="import" href="htwg-objects/htwg-thumbnail/htwg-tagelement.html">
+
 	  <link rel="import" href="bower_components/iron-input/iron-input.html">
 
   	  	<style is="custom-style">
@@ -27,12 +34,48 @@
 	</head>
 
 	<body background="images/backtest.jpg">
-		<htwg-overlay-menu id="overlaymenu">
+
+
+		<htwg-overlay-menu>
 			<htwg-overlay-menubar logo="images/htwg-logo.png">
-				<htwg-overlay-menuitem link="homeindex.html">Thisone</htwg-overlay-menuitem>
-				<htwg-overlay-menuitem link="index.html">Startpage</htwg-overlay-menuitem>
+				<htwg-overlay-menuitem link="homeindex.html">Hochschule</htwg-overlay-menuitem>
+				<htwg-overlay-menuitem>Studiengaenge</htwg-overlay-menuitem>
+				<htwg-overlay-menuitem>Veranstaltung</htwg-overlay-menuitem>
+				<htwg-overlay-menuitem>Konstanz</htwg-overlay-menuitem>
+				<htwg-overlay-menuitem>Grenzenlos studieren</htwg-overlay-menuitem>
 			</htwg-overlay-menubar>
+			<htwg-overlay-content>
+
+
+				<p><htwg-thumbnail-tagfilter></htwg-thumbnail-tagfilter></p>
+
+				<div class="wrapper">
+					<htwg-thumbnail class="informatik" title="Informatik">
+						<!--<htwg-thumbnail-textelement text-Caption="Angewandte Informatik" link="http://www.google.de" tags=' { "tag" : "Computer" , "tag1" : "Hacken" }'></htwg-thumbnail-textelement>-->
+						<htwg-thumbnail-textelement text-Caption="Angewandte Informatik" link="http://www.google.de" tags=' ["computer" , "hacken"] '></htwg-thumbnail-textelement>
+						<htwg-thumbnail-textelement text-Caption="Automobilinformatik" tags=' [ "auto" ,"motor" ]'></htwg-thumbnail-textelement>
+						<htwg-thumbnail-textelement text-Caption="Gesundheitsinformatik" tags=' [ "medizin" ,"gesund" ]'></htwg-thumbnail-textelement>
+						<htwg-thumbnail-textelement text-Caption="Wirtschaftsinformatik" tags=' [ "geld" ,"wirtschaft" ]'></htwg-thumbnail-textelement>
+					</htwg-thumbnail>
+
+					<htwg-thumbnail class="architektur" title="Architektur und Gestaltung">
+						<htwg-thumbnail-textelement text-Caption="Architektur" link="http://www.google.de" tags=' [ "bauen" ,"haus"]'></htwg-thumbnail-textelement>
+						<htwg-thumbnail-textelement text-Caption="Kommunikationsdesign" tags=' [ "girls" ,"love" ,"fashion" ]'></htwg-thumbnail-textelement>
+					</htwg-thumbnail>
+
+					<htwg-thumbnail class="maschinenbau" title="Maschinenbau">
+						<htwg-thumbnail-textelement text-Caption="Maschinenbau Konstruktion und Entwicklung" tags=' [ "entwicklung" ,"maschine" ]'></htwg-thumbnail-textelement>
+						<htwg-thumbnail-textelement text-Caption="Maschinenbau Entwicklung und Produktion" tags=' [ "produktion" ,"entwicklung" ,"maschine" ]'></htwg-thumbnail-textelement>
+						<htwg-thumbnail-textelement text-Caption="Verfahrens- und Umwelttechnik" tags=' [ "umwelt" ,"verfahren" ]'></htwg-thumbnail-textelement>
+						<htwg-thumbnail-textelement text-Caption="Wirtschaftsingenieurwesen Maschinenbau" tags=' [ "wirtschaft" ,"maschine" ]'></htwg-thumbnail-textelement>
+					</htwg-thumbnail>
+				</div>
+
+
+			</htwg-overlay-content>
 		</htwg-overlaymenu>
+
+
 	</body>
 
 

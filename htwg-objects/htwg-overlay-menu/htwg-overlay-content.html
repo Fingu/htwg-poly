@@ -1,0 +1,40 @@
+
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../htwg-thumbnail-textelement/htwg-thumbnail-textelement.html">
+
+<dom-module id="htwg-overlay-content">
+
+  <template>
+
+    <style type="text/css">
+
+      .overlay-content {
+        width: 100%;
+        margin-top: 5%;
+        margin-left: 5%;
+        margin-right: 5%;
+        max-width: 90%;
+      }
+
+    </style>
+  
+    <div class="overlay-content">
+        <content></content>
+    </div>
+    
+  </template>
+
+</dom-module>
+
+<script>
+  Polymer({
+    is: 'htwg-overlay-content',
+
+    properties: {
+      path: {
+        type: String,
+        value: ""
+      },
+    }
+  });
+</script>
