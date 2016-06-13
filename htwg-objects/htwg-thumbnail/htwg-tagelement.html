@@ -5,24 +5,21 @@
 
   <style>
       .container-rounded{
-          border-radius: 25px;
-        background-color: var(--htwg-thumbnail-background-color,grey);
-        padding: 5px; 
-        width: 50px;
+        width: 10vw;
+        min-width: 160px;
         height: 30px; 
-        margin: 5px;
+        color: white;
+      }
+      .container-rounded span{
         cursor: pointer;
+        float: right;
       }
-      .wrapper{
-        display: inline;
-        overflow: hidden;
-        white-space: nowrap;
-      }
+
   </style>
 
   <template>
-   <div id="container" class="container-rounded" on-tap="delete">
-    #{{text}} x
+   <div id="container" class="container-rounded">
+    #{{text}}<span id="close" on-tap="delete">x</span>
    </div>
 
   </template>
