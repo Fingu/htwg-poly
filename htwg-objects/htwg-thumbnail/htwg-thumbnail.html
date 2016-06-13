@@ -49,6 +49,7 @@
         background-color: var(--htwg-thumbnail-background-color,white);
         border-radius: 10px;
       }
+
       hr{
         border: 0;
         height: 1px;
@@ -181,7 +182,8 @@
       this.$$(".container-rounded").style.height = this.height-15 + "vh";
       this.$$(".container-rounded").style.backgroundImage = "url('"+this.icon+"')";
       this.$$(".container-rounded").style.backgroundRepeat = "no-repeat";
-      this.$$(".container-rounded").style.backgroundSize = "90%";
+      this.$$(".container-rounded").style.backgroundSize = "auto 95%";
+      this.$$(".container-rounded").style.backgroundPosition = "center";
     }
 
   });
