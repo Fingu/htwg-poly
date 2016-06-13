@@ -21,6 +21,7 @@
    	  <link rel="import" href="htwg-objects/htwg-bubble-frame/htwg-bubble-frame.html">
 	  <link rel="import" href="htwg-objects/htwg-grid/htwg-grid.html">
 	  <link rel="import" href="htwg-objects/htwg-color/htwg-color.html">
+	  <link rel="import" href="htwg-objects/htwg-font/htwg-font.html">
  	  <link rel="import" href="htwg-objects/htwg-container/htwg-container-title.html">
 	  <link rel="import" href="htwg-objects/htwg-container/htwg-container-menu.html">
 	  <link rel="import" href="htwg-objects/htwg-container/htwg-container-menuitem.html">
@@ -28,7 +29,7 @@
 	  <link rel="import" href="htwg-objects/htwg-container/htwg-container-fileloader.html">
 
 
-  	  	<style is="custom-style" include="htwg-grid htwg-color">
+  	  	<style is="custom-style" include="htwg-grid htwg-color htwg-font">
 		
   	  	#overlayMenu{
   	  		position:absolute;
@@ -39,31 +40,15 @@
   	  		left: 20vw;
   	  		top: 20vh;
 			padding-bottom: 20vh;
-			font-family: MarkProBlack;
+			color: var(--htwg-black);
   	  	}
   	  	body{
   	  		margin-top: 0px;
   	  		margin-left: 0px;
   	  		position: absolute;
-  	  		font-family: MarkPro;
   	  	}
 
-  	  	@font-face {
-			font-family: MarkPro;
-			src: url("htwg-objects/fonts/MarkPro.otf") format("opentype");
-		}
-
-  	  	@font-face {
-			font-family: MarkProBlack;
-			src: url("htwg-objects/fonts/MarkPro-Black.otf") format("opentype");
-		}
-
-  	  	@font-face {
-			font-family: MarkProBold;
-			src: url("htwg-objects/fonts/MarkPro-Bold.otf") format("opentype");
-		}
-
-		htwg-bubble-frame {
+		htwg-window-container {
 			color: var(--htwg-white);
 		}
 		
@@ -97,9 +82,6 @@
 			--bubble-color: var(--htwg-in-80);
   	  	}
 
-  	  	p.titel {
-  	  		font-size: 30pt;
-  	  	}
   	  	#contactContainer{
   	  		--container-background: var(--htwg-in-100);
   	  	}
@@ -165,7 +147,7 @@
 					<div class="row" style="margin-top: 35%;">
 						<div class="col-9 col-s-15 col-m-21 col-l-31"></div>
 						<div class="col-2 col-s-4 col-m-6 col-l-8">
-							<htwg-container-opener class="content" target="kurzportraitContainer">Kurzportrait</htwg-container-opener>
+							<htwg-container-opener class="content" target="kurzportraitContainer"><h3>Kurzportrait</h3></htwg-container-opener>
 						</div>
 					</div>
 				</htwg-bubble-frame>
@@ -178,9 +160,8 @@
 <!-- HTWG Container (popped auf-->
 		<htwg-container id="kurzportraitContainer">
 
-			<htwg-container-title 
-				textsize=136>
-				Kurzportrait
+			<htwg-container-title>
+				<h1>Kurzportrait</h1>
 			</htwg-container-title>
 
 			<htwg-container-fileloader active sourcefile="text/ain/kurzportrait.html">
@@ -196,7 +177,7 @@
 					<div class="row" style="margin-top: 35%;">
 						<div class="col-9 col-s-15 col-m-21 col-l-31"></div>
 						<div class="col-2 col-s-4 col-m-6 col-l-8">
-							<htwg-container-opener class="content" target="bewerbungContainer">Bewerbung</htwg-container-opener>
+							<htwg-container-opener class="content" target="bewerbungContainer"><h3>Bewerbung</h3></htwg-container-opener>
 						</div>
 					</div>
 			</htwg-bubble-frame>
@@ -205,9 +186,8 @@
 		</htwg-window-container>
 
 		<htwg-container id="bewerbungContainer">
-			<htwg-container-title 
-				textsize=60>
-				Bewerbung
+			<htwg-container-title>
+				<h1>Bewerbung</h1>
 			</htwg-container-title>
 
 			<htwg-container-menu>
@@ -236,7 +216,7 @@
 					<div class="row" style="margin-top: 35%;">
 						<div class="col-9 col-s-15 col-m-21 col-l-31"></div>
 						<div class="col-2 col-s-4 col-m-6 col-l-8">
-							<htwg-container-opener class="content" target="studienaufbauContainer">Studienaufbau</htwg-container-opener>
+							<htwg-container-opener class="content" target="studienaufbauContainer"><h3>Studienaufbau</h3></htwg-container-opener>
 						</div>
 					</div>
 			</htwg-bubble-frame>
@@ -245,9 +225,8 @@
 		</htwg-window-container>
 
 		<htwg-container id="studienaufbauContainer">
-			<htwg-container-title 
-				textsize=60>
-				Studienaufbau
+			<htwg-container-title>
+				<h1>Studienaufbau</h1>
 			</htwg-container-title>
 
 			<htwg-container-menu>
@@ -325,7 +304,7 @@ Die professionelle Erstellung von komplexer, robuster und zuverlässiger Softwar
 					<div class="row" style="margin-top: 35%;">
 						<div class="col-9 col-s-15 col-m-21 col-l-31"></div>
 						<div class="col-2 col-s-4 col-m-6 col-l-8">
-							<htwg-container-opener class="content" target="ausstattungContainer">Ausstattung</htwg-container-opener>
+							<htwg-container-opener class="content" target="ausstattungContainer"><h3>Ausstattung</h3></htwg-container-opener>
 						</div>
 					</div>
 			</htwg-bubble-frame>
@@ -333,9 +312,8 @@ Die professionelle Erstellung von komplexer, robuster und zuverlässiger Softwar
 		</htwg-window-container>
 
 		<htwg-container id="ausstattungContainer">
-			<htwg-container-title 
-				textsize=60>
-				Ausstattung
+			<htwg-container-title>
+				<h1>Ausstattung</h1>
 			</htwg-container-title>
 
 			<htwg-container-menu>
@@ -358,7 +336,7 @@ Die professionelle Erstellung von komplexer, robuster und zuverlässiger Softwar
 					<div class="row" style="margin-top: 35%;">
 						<div class="col-9 col-s-15 col-m-21 col-l-31"></div>
 						<div class="col-2 col-s-4 col-m-6 col-l-8">
-							<htwg-container-opener class="content" target="fachschaftContainer">Fachschaft</htwg-container-opener>
+							<htwg-container-opener class="content" target="fachschaftContainer"><h3>Fachschaft</h3></htwg-container-opener>
 						</div>
 					</div>
 			</htwg-bubble-frame>
@@ -367,9 +345,8 @@ Die professionelle Erstellung von komplexer, robuster und zuverlässiger Softwar
 		</htwg-window-container>
 
 		<htwg-container id="fachschaftContainer">
-			<htwg-container-title 
-				textsize=60>
-				Fachschaft
+			<htwg-container-title>
+				<h1>Fachschaft</h1>
 			</htwg-container-title>
 
 			<htwg-container-menu>
@@ -399,7 +376,7 @@ Die professionelle Erstellung von komplexer, robuster und zuverlässiger Softwar
 					<div class="row" style="margin-top: 35%;">
 						<div class="col-9 col-s-15 col-m-21 col-l-31"></div>
 						<div class="col-2 col-s-4 col-m-6 col-l-8">
-							<htwg-container-opener class="content" target="arbeitenContainer">Arbeiten</htwg-container-opener>
+							<htwg-container-opener class="content" target="arbeitenContainer"><h3>Arbeiten</h3></htwg-container-opener>
 						</div>
 					</div>
 			</htwg-bubble-frame>
@@ -409,9 +386,8 @@ Die professionelle Erstellung von komplexer, robuster und zuverlässiger Softwar
 		</htwg-window-container>
 
 		<htwg-container id="arbeitenContainer">
-			<htwg-container-title 
-				textsize=60>
-				Arbeiten
+			<htwg-container-title>
+				<h1>Arbeiten</h1>
 			</htwg-container-title>
 
 			<htwg-container-menu>
@@ -430,7 +406,8 @@ Die professionelle Erstellung von komplexer, robuster und zuverlässiger Softwar
 			<div class="col-8 col-s-12 col-m-16 col-l-24">
 				<img src="images/gmaps-in.png" width="90%" height="90%"></img>
 			</div>
-			<div class="col-8 col-s-12 col-m-16 col-l-24">asdasdasdasd
+			<div class="col-8 col-s-12 col-m-16 col-l-24">
+				<h3>asdasdasdasd</h3>
 				<p>adasd</p>
 				<p>adasdadsasd</p>
 				<p>adafafasd</p>
