@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<script src="bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
+		<script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+		<script>
+		/* this script must run before Polymer is imported */
+		window.Polymer = {
+		  dom: 'shadow', //use shadow dom if possible
+		  lazyRegister: true
+		};
+	  </script>
+
+	  <link rel="import" href="htwg-objects/htwg-menu/htwg-menu.html">
+	  <link rel="import" href="htwg-objects/htwg-menuelement/htwg-menuelement.html">
+	  <link rel="import" href="htwg-objects/htwg-window-container/htwg-window-container.html">
+ 	  <link rel="import" href="htwg-objects/htwg-overlay-menu/htwg-overlay-menu.html">
+	  <link rel="import" href="htwg-objects/htwg-container/htwg-container.html">
+	  <link rel="import" href="htwg-objects/htwg-container/htwg-container-opener.html">
+   	  <link rel="import" href="htwg-objects/htwg-bubble-frame/htwg-bubble-frame.html">
+	  <link rel="import" href="htwg-objects/htwg-grid/htwg-grid.html">
+	  <link rel="import" href="htwg-objects/htwg-color/htwg-color.html">
+ 	  <link rel="import" href="htwg-objects/htwg-container/htwg-container-title.html">
+	  <link rel="import" href="htwg-objects/htwg-container/htwg-container-menu.html">
+	  <link rel="import" href="htwg-objects/htwg-container/htwg-container-menuitem.html">
+	  <link rel="import" href="htwg-objects/htwg-container/htwg-container-text.html">
+
+
+  	  	<style is="custom-style" include="htwg-grid htwg-color">
+		
+  	  	#overlayMenu{
+  	  		position:absolute;
+  	  		right: 0px;
+  	  	}
+  	  	.ueberschrift{
+  	  		position: relative;
+  	  		left: 20vw;
+  	  		top: 20vh;
+			padding-bottom: 20vh;
+			font-family: MarkProBlack;
+  	  	}
+  	  	body{
+  	  		margin-top: 0px;
+  	  		margin-left: 0px;
+  	  		position: absolute;
+  	  		font-family: MarkPro;
+  	  	}
+
+  	  	@font-face {
+			font-family: MarkPro;
+			src: url("htwg-objects/fonts/MarkPro.otf") format("opentype");
+		}
+
+  	  	@font-face {
+			font-family: MarkProBlack;
+			src: url("htwg-objects/fonts/MarkPro-Black.otf") format("opentype");
+		}
+
+  	  	@font-face {
+			font-family: MarkProBold;
+			src: url("htwg-objects/fonts/MarkPro-Bold.otf") format("opentype");
+		}
+
+		htwg-bubble-frame {
+			color: var(--htwg-white);
+		}
+		
+  	  	.bubbleKurzportrait{
+  	  		--bubble-frame-image: url("../../images/htwg.jpg");
+			--bubble-color: var(--htwg-ei-80);
+  	  	}
+
+  	  	.bubbleBewerbung{
+  	  		--bubble-frame-image: url("../../images/elektrotechnik.jpg");
+			--bubble-color: var(--htwg-ag-80);
+  	  	}
+
+  	  	.bubbleStudienaufbau{
+  	  		--bubble-frame-image: url("../../images/studienaufbau.jpg");
+			--bubble-color: var(--htwg-ws-80);
+  	  	}
+
+  	  	.bubbleAusstattung{
+  	  		--bubble-frame-image: url("../../images/ausstattung.jpg");
+			--bubble-color: var(--htwg-bi-80);
+  	  	}
+
+  	  	.bubbleFachschaft{
+  	  		--bubble-frame-image: url("../../images/fachschaft.jpg");
+			--bubble-color: var(--htwg-ma-80);
+  	  	}
+
+  	  	.bubbleArbeiten{
+  	  		--bubble-frame-image: url("../../images/arbeiten.jpg");
+			--bubble-color: var(--htwg-in-80);
+  	  	}
+
+  	  	p.titel {
+  	  		font-size: 29pt;
+  	  	}
+  	  	#contactContainer{
+  	  		--container-background: var(--htwg-in-100);
+  	  	}
+  	  	#top{
+  	  		--container-background: url("../../images/wikurewi.jpg")
+  	  	}
+		</style>
+
+	</head>
+
+	<body>
+			<htwg-menu height=5>
+			<htwg-menuelement >
+				<a href="#kurzportrait">Kurzportrait</a>
+			</htwg-menuelement>
+			<htwg-menuelement >
+				·
+
+			</htwg-menuelement>
+			<htwg-menuelement >
+				<a href="#studienaufbau">Studienaufbau</a>
+			</htwg-menuelement>
+			<htwg-menuelement >
+				·
+			</htwg-menuelement>
+			<htwg-menuelement >
+				<a href="#fachschaft">Fachschaft</a>
+			</htwg-menuelement>
+			<htwg-menuelement >
+				·
+			</htwg-menuelement>
+			<htwg-menuelement >
+				<a href="#arbeiten">Arbeiten</a>
+			</htwg-menuelement>
+			<htwg-menuelement >
+				·
+			</htwg-menuelement>
+			<htwg-menuelement >
+				<a href="#ausstattung">Ausstattung</a>
+			</htwg-menuelement>
+			<htwg-menuelement >
+
+		</htwg-menu>
+
+		<htwg-window-container
+			id="top">
+			<div class="row">
+				<div class="col-16 col-s-24 col-m-32 col-l-48">
+					<h1 class="ueberschrift">KOMMUNIKATIONS<br>DESIGN</h1>
+				</div>
+			</div>
+		</htwg-window-container>
+
+
+		<htwg-window-container id="kurzportrait">
+			<htwg-bubble-frame class="bubbleKurzportrait">
+					<div class="row" style="margin-top: 35%;">
+						<div class="col-9 col-s-15 col-m-21 col-l-31"></div>
+						<div class="col-2 col-s-4 col-m-6 col-l-8">
+							<htwg-container-opener class="content" target="kurzportraitContainer">Kurzportrait</htwg-container-opener>
+						</div>
+					</div>
+				</htwg-bubble-frame>
+
+			
+
+		</htwg-window-container>
+
+
+<!-- HTWG Container (popped auf-->
+		<htwg-container id="kurzportraitContainer">
+
+			<htwg-container-title 
+				textsize=136>
+				Kurzportrait
+			</htwg-container-title>
+
+			<htwg-container-text id="kurzBeschreibung" active>
+				<p>Ein gutes Studium verändert das Leben. Es macht aus Absolventen Persönlichkeiten ...</p>
+			</htwg-container-text>
+
+		</htwg-container>
+
+		<htwg-window-container
+			id="studienaufbau">
+
+			<htwg-bubble-frame class="bubbleStudienaufbau">
+					<div class="row" style="margin-top: 35%;">
+						<div class="col-9 col-s-15 col-m-21 col-l-31"></div>
+						<div class="col-2 col-s-4 col-m-6 col-l-8">
+							<htwg-container-opener class="content" target="studienaufbauContainer">Studienaufbau</htwg-container-opener>
+						</div>
+					</div>
+			</htwg-bubble-frame>
+
+			
+		</htwg-window-container>
+
+		<htwg-container id="studienaufbauContainer">
+			<htwg-container-title 
+				textsize=60>
+				Studienaufbau
+			</htwg-container-title>
+
+			<htwg-container-text id="saAllgemein" active>
+				<p>under construction</p>
+			</htwg-container-text>
+		</htwg-container>
+
+
+		<htwg-window-container
+			id="ausstattung">
+
+			<htwg-bubble-frame class="bubbleAusstattung">
+					<div class="row" style="margin-top: 35%;">
+						<div class="col-9 col-s-15 col-m-21 col-l-31"></div>
+						<div class="col-2 col-s-4 col-m-6 col-l-8">
+							<htwg-container-opener class="content" target="ausstattungContainer">Ausstattung</htwg-container-opener>
+						</div>
+					</div>
+			</htwg-bubble-frame>
+			
+		</htwg-window-container>
+
+		<htwg-container id="ausstattungContainer">
+			<htwg-container-title 
+				textsize=60>
+				Ausstattung
+			</htwg-container-title>
+
+			<htwg-container-text id="ausstattung1" active>
+				<p>Keine Austattung angegeben</p>
+			</htwg-container-text>
+
+		</htwg-container>
+
+
+		<htwg-window-container
+			id="fachschaft">
+
+			<htwg-bubble-frame class="bubbleFachschaft">
+					<div class="row" style="margin-top: 35%;">
+						<div class="col-9 col-s-15 col-m-21 col-l-31"></div>
+						<div class="col-2 col-s-4 col-m-6 col-l-8">
+							<htwg-container-opener class="content" target="fachschaftContainer">Fachschaft</htwg-container-opener>
+						</div>
+					</div>
+			</htwg-bubble-frame>
+
+			
+		</htwg-window-container>
+
+		<htwg-container id="fachschaftContainer">
+			<htwg-container-title 
+				textsize=136>
+				Fachschaft
+			</htwg-container-title>
+
+			<htwg-container-menu>
+				<htwg-container-menuitem linkid="fachschaftInfo" active>
+					Fachschaft Info
+				</htwg-container-menuitem>
+				<htwg-container-menuitem linkid="fachschaftProf">
+					Professoren
+				</htwg-container-menuitem>
+				<htwg-container-menuitem linkid="fachschaftMitarbeiter">
+					Mitarbeiter
+				</htwg-container-menuitem>
+			</htwg-container-menu>
+
+			<htwg-container-text id="fachschaftInfo" active>
+				<p>Das Kollegium der Studiengänge Kommunikationsdesign bilden zehn Professoren. Den gestandenen Kommunikationsdesignern stehen mehrere Spezialisten zur Seite ...</p>
+			</htwg-container-text>
+
+			<htwg-container-text id="fachschaftProf">
+				<p><img src="images/kd/fachschaft/jo.jpg"></img></p>
+				<p><img src="images/kd/fachschaft/judith.jpg"></img></p>
+				<p><img src="images/kd/fachschaft/jochen.jpg"></img></p>
+				<p><img src="images/kd/fachschaft/karin.jpg"></img></p>
+				<p><img src="images/kd/fachschaft/philipp.jpg"></img></p>
+				<p><img src="images/kd/fachschaft/tine.jpg"></img></p>
+			</htwg-container-text>
+
+			<htwg-container-text id="fachschaftMitarbeiter">
+				<p><img src="images/kd/fachschaft/valentin.jpg">Valentin</img></p>
+				<p><img src="images/kd/fachschaft/carmen.jpg">Carmen</img></p>
+			</htwg-container-text>
+		</htwg-container>
+
+
+		<htwg-window-container
+			id="arbeiten">
+
+			<htwg-bubble-frame class="bubbleArbeiten">
+					<div class="row" style="margin-top: 35%;">
+						<div class="col-9 col-s-15 col-m-21 col-l-31"></div>
+						<div class="col-2 col-s-4 col-m-6 col-l-8">
+							<htwg-container-opener class="content" target="arbeitenContainer">Arbeiten</htwg-container-opener>
+						</div>
+					</div>
+			</htwg-bubble-frame>
+			
+		</htwg-window-container>
+
+		<htwg-container id="arbeitenContainer">
+			<htwg-container-title 
+				textsize=136>
+				Arbeiten
+			</htwg-container-title>
+
+			<htwg-container-text id="arbeitenInfo" active>
+				<p>Wir arbeiten doch nix</p>
+			</htwg-container-text>
+		</htwg-container>
+
+
+		<htwg-window-container id="contactContainer">
+			<div class="col-8 col-s-12 col-m-16 col-l-24">
+				<img src="images/gmaps-in.png" width="90%" height="90%"></img>
+			</div>
+			<div class="col-8 col-s-12 col-m-16 col-l-24">asdasdasdasd
+				<p>adasd</p>
+				<p>adasdadsasd</p>
+				<p>adafafasd</p>
+				<p>aadfsdfgdasd</p>
+				<p>adafgdsfgasd</p>
+				<p>adadfadgfhdfasd</p>
+			</div>
+		</htwg-window-container>
+
+	</body>
+
+
+</html>

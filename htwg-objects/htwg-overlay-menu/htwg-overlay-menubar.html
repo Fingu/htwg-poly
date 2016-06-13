@@ -19,8 +19,9 @@
 
       .closebtn {
           color: white;
-          position: relative;
-          right: 0;
+          position: absolute;
+          right: 3%;
+          top: 2%;
           font-size: 4em;
           cursor: pointer;
           vertical-align: top;
@@ -42,7 +43,7 @@
     <div class="overlay-content">
       <img src="{{logo}}" alt="picture not found" style="width:80px;height:80px"></img>
         <content></content>
-       <a class="closebtn" on-tap="closeNav">x</a>
+      <a class="closebtn" on-tap="closeNav">x</a>
     </div>
     
   </template>
