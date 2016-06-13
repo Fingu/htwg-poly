@@ -13,10 +13,10 @@
       };
       .container-rounded{
 		    border-radius: 10px;
-        padding: 20px; 
+        padding: 0px; 
         width: 200px;
         height: 150px; 
-        margin: 20px;
+        margin: 0px;
       }
       #title {
         opacity: 1;
@@ -120,11 +120,11 @@
       },
       width: {
         type: Number,
-        value: 20
+        value: 10
       },
       height: {
         type: Number,
-        value: 30
+        value: 10
       },
       icon: {
         type: String,
@@ -176,13 +176,11 @@
       this.$$(".outerwrapper").style.width = this.width + "vw";
       this.$$(".innerwrapper").style.height = this.height + "vh";
 
-      this.$$(".container-rounded").style.width = this.width-10 + "vw";
-      this.$$(".container-rounded").style.height = this.height-15 + "vh";
-      this.$$(".container-rounded").style.left = this.width-10 + "vw";
-      this.$$(".container-rounded").style.height = this.height-15 + "vh";
+      this.$$(".container-rounded").style.width = (this.width-1) + "vw";
+      this.$$(".container-rounded").style.height = (this.height-1) + "vh";
       this.$$(".container-rounded").style.backgroundImage = "url('"+this.icon+"')";
       this.$$(".container-rounded").style.backgroundRepeat = "no-repeat";
-      this.$$(".container-rounded").style.backgroundSize = "auto 95%";
+      this.$$(".container-rounded").style.backgroundSize = " auto 95%";
       this.$$(".container-rounded").style.backgroundPosition = "center";
     }
 
