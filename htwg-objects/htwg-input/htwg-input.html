@@ -1,0 +1,61 @@
+
+<link rel="import" href="../polymer/polymer.html">
+
+<dom-module id="htwg-input">
+  <template>
+    <style>
+      .custominput {
+          border: 0;
+          outline: 0;
+          background: transparent;
+          border-bottom: 2px solid black;
+          width: 15vw;
+          font-family:MarkPro;
+          font-size: 15pt;  
+
+       }
+        @font-face {
+          font-family: MarkPro;
+          src: url("htwg-objects/fonts/MarkPro.otf") format("opentype");
+        }
+    </style>
+
+    <input class="custominput" pattern="[a-z]" on-input="valchanged" id="input" data-placeholder="search"></input>
+
+  </template>
+</dom-module>
+
+<script>
+ Polymer({
+    is: 'htwg-input',
+    properties: {
+      value: {
+        type: String,
+        value: "",
+        observer: "_valueobserver"
+      }
+    },
+    attached: function(){
+      var inputs = this.$.input;
+          inputs.value = inputs.getAttribute('data-placeholder');
+          inputs.addEventListener('focus', function() {
+              if (this.value == this.getAttribute('data-placeholder')) {
+                  this.value = '';
+              }
+          });
+          inputs.addEventListener('blur', function() {
+              if (this.value == '') {
+                  this.value = this.getAttribute('data-placeholder');
+              }
+          });
+    },
+    valchanged: function(){
+      var inputValue = this.$.input.value;
+      this.value = inputValue;
+    },
+    _valueobserver: function(){
+      this.$.input.value = this.value;
+    }
+  });
+</script>
+
