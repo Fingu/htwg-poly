@@ -1,6 +1,6 @@
 
 <link rel="import" href="../../bower_components/polymer/polymer.html">
-<link rel="import" href="../htwg-thumbnail-textelement/htwg-thumbnail-textelement.html">
+<link rel="import" href="../htwg-thumbnail/htwg-thumbnail-textelement.html">
 
 <dom-module id="htwg-overlay-menu">
 
@@ -31,7 +31,7 @@
 
     </style>
 
-  <span id="burger" on-tap="openNav">☰</span>
+  <span id="burger" on-tap="changeNav">☰</span>
 
   <div id="navbar" class="overlay">
       <content></content>
@@ -46,23 +46,26 @@
     is: 'htwg-overlay-menu',
 
     properties: {
-    }, 
-    tapFunction: function(){
-      if (!this.active){
-        this.fadeIn();
-      } else {
-        this.fadeOut();
+      active: {
+        type: Boolean,
+        value: false
       }
     }, 
     attached:function(){
     }, 
-    openNav: function(){
-      this.$.navbar.style.height = "100%";
-      this.$.burger.style.display = "none";
-    }, 
-    closeNav: function(){
-      this.$.navbar.style.height = "0%";
-      this.$.burger.style.display = "";
+    changeNav: function(){
+      if (!this.active){
+        this.$.navbar.style.height = "100%";
+        this.$.burger.textContent = "X";
+        this.$.burger.style.zIndex = "101";
+        this.$.burger.style.color = "white";
+        this.active = true;
+      } else {
+        this.$.navbar.style.height = "0%";
+        this.$.burger.textContent = "☰";
+        this.$.burger.style.color = "black";
+        this.active = false;
+      }
     }
 
 

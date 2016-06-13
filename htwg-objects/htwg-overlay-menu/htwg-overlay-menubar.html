@@ -17,20 +17,6 @@
         max-width: 90%;
       }
 
-      .closebtn {
-          color: white;
-          position: absolute;
-          right: 3%;
-          top: 2%;
-          font-size: 4em;
-          cursor: pointer;
-          vertical-align: top;
-          -webkit-user-select: none;
-          -moz-user-select: none;
-          -ms-user-select: none;
-          user-select: none;
-      }
-
       img {
         -webkit-user-select: none;
         -moz-user-select: none;
@@ -43,7 +29,6 @@
     <div class="overlay-content">
       <img src="{{logo}}" alt="picture not found" style="width:80px;height:80px"></img>
         <content></content>
-      <a class="closebtn" on-tap="closeNav">x</a>
     </div>
     
   </template>
@@ -63,11 +48,6 @@
         type: String,
         value: ""
       },
-    },
-    closeNav: function(){
-      navbar = document.getElementsByTagName('htwg-overlay-menu');
-      navbar[0].closeNav();
     }
-
   });
 </script>
