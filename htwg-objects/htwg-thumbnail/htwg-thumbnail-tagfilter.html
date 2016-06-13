@@ -3,7 +3,7 @@
 <link rel="import" href="../htwg-thumbnail-textelement/htwg-thumbnail-textelement.html">
 <link rel="import" href="../htwg-tagelement/htwg-tagelement.html">
 <link rel="import" href="../../bower_components/iron-a11y-keys-behavior/iron-a11y-keys-behavior.html">
-
+<link rel="import" href="../htwg-input/htwg-input.html">
 <dom-module id="htwg-thumbnail-tagfilter">
 
   <template>
@@ -11,12 +11,14 @@
     <style type="text/css">
       .wrapper{
         display: inline-block;
+
       }
     </style>
 
     <div class=wrapper>
       <div id="textfieldtagfilter" class="tagfilter" >
-        <input pattern="[a-z]" on-keyup="keyup" on-input="validateInput" id="taginput"></input>
+      <htwg-input on-keyup="keyup" on-input="validateInput" id="taginput" inputwidth=30 inputfontsize=60></htwg-input>
+        <!--<htwg-tagelement text="girls"></htwg-tagelement>-->
       </div>
   </div>
 
@@ -56,8 +58,11 @@
     },
     validateInput: function(event){
         var inputValue = this.$.taginput.value;
+
         var inputChar = inputValue.substring(inputValue.length-1, inputValue.length);
+        console.log(inputChar);
         if(!inputChar.match("[a-z]")){
+          console.log("in if");
           var newString = inputValue.substring(0,inputValue.length-1);
           this.$.taginput.value = newString;
         }
