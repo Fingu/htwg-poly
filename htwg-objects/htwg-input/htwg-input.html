@@ -9,10 +9,7 @@
           outline: 0;
           background: transparent;
           border-bottom: 2px solid black;
-          width: 15vw;
           font-family:MarkPro;
-          font-size: 15pt;  
-
        }
         @font-face {
           font-family: MarkPro;
@@ -33,13 +30,29 @@
         type: String,
         value: "",
         observer: "_valueobserver"
+      },
+      //width of input in unit: vw
+      inputwidth: {
+        type: Number,
+        value: 15
+      },
+      //fontsize of text in input in unit: pt
+      inputfontsize: {
+        type: Number,
+        value: 15
       }
     },
     attached: function(){
+
+      //Set the width and the style
+      this.$$(".custominput").style.width = this.inputwidth + "vw";
+      this.$$(".custominput").style.fontSize = this.inputfontsize + "pt";
+
       var inputs = this.$.input;
           inputs.value = inputs.getAttribute('data-placeholder');
           inputs.addEventListener('focus', function() {
               if (this.value == this.getAttribute('data-placeholder')) {
+//Todo: Hier Tagvoschläge suchen und in this.value klatschen
                   this.value = '';
               }
           });
