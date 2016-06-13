@@ -7,15 +7,16 @@
   <template>
 
     <style type="text/css">
-
+      :host{
+        padding-left: 20px;
+        padding-bottom: 20px;
+      };
       .container-rounded{
-          border-radius: 25px;
-        background-color: var(--htwg-thumbnail-background-color,grey);
+		    border-radius: 10px;
         padding: 20px; 
         width: 200px;
         height: 150px; 
         margin: 20px;
-		@apply(--htwg-thumbnail-background);
       }
       #title {
         opacity: 1;
@@ -26,17 +27,59 @@
       #title:hover {
         opacity: 0;
       }
+
+      .innerwrapper{
+        background-color: var(--htwg-thumbnail-background-color,white);
+        border-radius: 10px;
+        padding: 20px; 
+        margin: 0 auto; 
+        word-wrap: break-word; 
+        word-break: break-all;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+      }
+      .outerwrapper{
+        background-color: "transparent";
+        border-radius: 10px;
+      }
+      .outerwrapperactive{
+        background-color: var(--htwg-thumbnail-background-color,white);
+        border-radius: 10px;
+      }
+
+      hr{
+        border: 0;
+        height: 1px;
+        background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+      }
+
+      ul {
+       list-style:none;
+       text-align: center;
+       padding-left: 0px;
+      }
     </style>
+    <div class="outerwrapper" id="wrapper"  on-mouseout="fadeIn" on-mouseover="fadeOut">
+        <div class="innerwrapper" on-tap="tapFunction" >
+          <!-- Div with the icon background-->
+          <div id="container" class="container-rounded"></div>
 
+          </div>
+        
 
-  <div id="container" class="container-rounded" on-tap="tapFunction" on-mouseover="fadeOut" on-mouseout="fadeIn">
-    <p id="title">{{title}}</p>
-    <div id="content">
-      <content></content>
+          <!-- represents the content and the title -->
+          <p id="title">{{title}}</p>
+
+          <div id="content">
+            <hr>
+            <ul>
+              <content></content>
+            </ul>
+        </div>
     </div>
-  </div>
-
-    
   </template>
 
 </dom-module>
@@ -75,22 +118,38 @@
         type: String,
         value: "Title"
       },
+      width: {
+        type: Number,
+        value: 20
+      },
+      height: {
+        type: Number,
+        value: 30
+      },
+      icon: {
+        type: String,
+        value: ""
+      }
 
     }, fadeIn: function(){
         if (!this.marked) {
           this.active = true;
-          this.$.title.style.opacity = 1;
-          this.$.title.style.transition = "ease-in 0.5s";
+          this.$.wrapper.className = "outerwrapper";  
+          this.$.wrapper.style.opacity = 1;
+          this.$.wrapper.style.transition = "ease-in 0.5s";
           this.$.content.style.opacity = 0;
           this.$.content.style.transition = "ease-out 0.5s";
         }
     }, fadeOut: function(){
         if (!this.marked) {
           this.active = false;
-          this.$.title.style.opacity = 0;
-          this.$.title.style.transition = "ease-out 0.5s";
+          this.$.wrapper.className = "outerwrapperactive";
+          this.$.wrapper.style.opacity = 1;
+          this.$.wrapper.style.transition = "ease-out 1.0s";
           this.$.content.style.opacity = 1;
-          this.$.content.style.transition = "ease-in 0.5s";      
+          this.$.content.style.transition = "ease-in 0.5s";    
+          
+           
         }
     },
     __gotMarked: function(){
@@ -114,6 +173,17 @@
 
     attached:function(){
       this.$.content.style.opacity = 0;
+      this.$$(".outerwrapper").style.width = this.width + "vw";
+      this.$$(".innerwrapper").style.height = this.height + "vh";
+
+      this.$$(".container-rounded").style.width = this.width-10 + "vw";
+      this.$$(".container-rounded").style.height = this.height-15 + "vh";
+      this.$$(".container-rounded").style.left = this.width-10 + "vw";
+      this.$$(".container-rounded").style.height = this.height-15 + "vh";
+      this.$$(".container-rounded").style.backgroundImage = "url('"+this.icon+"')";
+      this.$$(".container-rounded").style.backgroundRepeat = "no-repeat";
+      this.$$(".container-rounded").style.backgroundSize = "auto 95%";
+      this.$$(".container-rounded").style.backgroundPosition = "center";
     }
 
   });
