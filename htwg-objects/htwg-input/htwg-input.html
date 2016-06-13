@@ -1,0 +1,74 @@
+
+<link rel="import" href="../polymer/polymer.html">
+
+<dom-module id="htwg-input">
+  <template>
+    <style>
+      .custominput {
+          border: 0;
+          outline: 0;
+          background: transparent;
+          border-bottom: 2px solid black;
+          font-family:MarkPro;
+       }
+        @font-face {
+          font-family: MarkPro;
+          src: url("htwg-objects/fonts/MarkPro.otf") format("opentype");
+        }
+    </style>
+
+    <input class="custominput" pattern="[a-z]" on-input="valchanged" id="input" data-placeholder="search"></input>
+
+  </template>
+</dom-module>
+
+<script>
+ Polymer({
+    is: 'htwg-input',
+    properties: {
+      value: {
+        type: String,
+        value: "",
+        observer: "_valueobserver"
+      },
+      //width of input in unit: vw
+      inputwidth: {
+        type: Number,
+        value: 15
+      },
+      //fontsize of text in input in unit: pt
+      inputfontsize: {
+        type: Number,
+        value: 15
+      }
+    },
+    attached: function(){
+
+      //Set the width and the style
+      this.$$(".custominput").style.width = this.inputwidth + "vw";
+      this.$$(".custominput").style.fontSize = this.inputfontsize + "pt";
+
+      var inputs = this.$.input;
+          inputs.value = inputs.getAttribute('data-placeholder');
+          inputs.addEventListener('focus', function() {
+              if (this.value == this.getAttribute('data-placeholder')) {
+//Todo: Hier Tagvoschläge suchen und in this.value klatschen
+                  this.value = '';
+              }
+          });
+          inputs.addEventListener('blur', function() {
+              if (this.value == '') {
+                  this.value = this.getAttribute('data-placeholder');
+              }
+          });
+    },
+    valchanged: function(){
+      var inputValue = this.$.input.value;
+      this.value = inputValue;
+    },
+    _valueobserver: function(){
+      this.$.input.value = this.value;
+    }
+  });
+</script>
+
