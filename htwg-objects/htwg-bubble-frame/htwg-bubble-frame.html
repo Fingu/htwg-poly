@@ -82,22 +82,10 @@
 			this.columnCount = 24;
 		}
 		height = this.$$(".wrapper").offsetHeight;
-		//this.$$(".wrapper").style.height = this.rowCount * width / this.columnCount;
-		//console.log(this.$$(".wrapper").height);
-		this.rowCount = Math.floor(height / (width/this.columnCount));//floor?
-		
-		//needed for resizing
-		for(i=0;i<this.rowCount;i++){
-			for(j=0;j<this.columnCount;j++){
-				var blub = this.$$('#x'+bubbles[i][j].x+'y'+bubbles[i][j].y);
-				if(blub != null) {
-					blub.positionBackground();
-				}
-			}
-		}
+		this.rowCount = Math.round(height / (width/this.columnCount));
 	},
-	computeBubbles: function(rowCount) {//evtl. mit computeRows kombinieren, sonst Performance-Problem
-		var a = 1;//0.666
+	computeBubbles: function(rowCount) {
+		var a = 1;
 		bubbles = [];
 		for(i=0; i < rowCount; i++) {
 			a = 0.95;

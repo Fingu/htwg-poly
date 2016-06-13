@@ -62,7 +62,7 @@
 		} else {
 			columns = 24;
 		}
-	    this.$.window_container.style.height = (height - (height % (width / columns)) + 1) + "px";
+	    this.$.window_container.style.height = (height - (height % (width / columns)) + (width / columns)) + "px";
 	}
 
   });

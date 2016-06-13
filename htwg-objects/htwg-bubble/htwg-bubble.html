@@ -194,8 +194,7 @@
 			this.checkCollisions();
 		}
 		var that = this;
-		window.addEventListener("resize", function() { that.checkCollisions(); });
-		//setTimeout(function(){ alert("Hello"); }, 3000);
+		window.addEventListener("resize", function() { that.checkCollisions(); that.positionBackground();});
     },
 
 	_activeChanged: function() {
@@ -334,11 +333,15 @@
 	
 	positionBackground: function() {
       var bubble   = this.$$('.bubble');
-	  bubble.style.backgroundPosition = "-" + bubble.getBoundingClientRect().left + "px -" + (bubble.getBoundingClientRect().top + window.scrollY) + "px";
-	  bubble.style.backgroundSize = window.innerWidth + "px " + this.computeHeight();
+	  var widthImg = 1920;
+	  if(window.innerWidth > widthImg) {
+		widthImg = window.innerWidth;
+	  }
+	  bubble.style.backgroundPosition = "-" + (((widthImg - window.innerWidth) / 2) + bubble.getBoundingClientRect().left) + "px -" + (bubble.getBoundingClientRect().top + window.scrollY) + "px";
+	  bubble.style.backgroundSize = widthImg + "px " + this.computeHeight();
 	  var container   = this.$$('.bubble-container');
-	  container.style.backgroundPosition = "-" + container.getBoundingClientRect().left + "px -" + (container.getBoundingClientRect().top + window.scrollY) + "px";
-	  container.style.backgroundSize = window.innerWidth + "px " + this.computeHeight();
+	  container.style.backgroundPosition = "-" + ((widthImg - window.innerWidth) / 2 + container.getBoundingClientRect().left) + "px -" + (container.getBoundingClientRect().top + window.scrollY) + "px";
+	  container.style.backgroundSize = widthImg + "px " + this.computeHeight();
     },
 	
 	computeHeight: function() {
@@ -354,7 +357,7 @@
 		} else {
 			columns = 24;
 		}
-	    return (height - (height % (width / columns)) + 1) + "px";
+	    return (height - (height % (width / columns)) + (width / columns)) + "px";
 	},
 
     checkCollisions: function() {
