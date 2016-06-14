@@ -9,13 +9,14 @@
       :host{
         padding-left: 20px;
         padding-bottom: 20px;
-        word-wrap: normal;
-        word-break: normal;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
+        word-wrap: normal !important;
+        display: inline-block;
+word-break: break-word !important;
+        -webkit-user-select: none !important;
+        -moz-user-select: none !important;
+        -ms-user-select: none !important;
 
-        user-select: none;
+        user-select: none !important;
       };
       .container-rounded{
 		    border-radius: 10px;
@@ -28,22 +29,17 @@
         opacity: 1;
         text-align: center;
       }
-      #title:hover {
-        opacity: 0;
-      }
 
       .innerwrapper{
         background-color: var(--htwg-thumbnail-background-color,white);
         border-radius: 10px;
         padding: 20px; 
         margin: 0 auto; 
-        word-wrap: break-word; 
-        word-break: break-all;
         display: flex;
         flex-direction: row;
-        flex-wrap: wrap;
         justify-content: center;
-        align-items: center;
+        
+        position: relative;
       }
       .outerwrapper{
         background-color: "transparent";
@@ -66,17 +62,28 @@
        padding-left: 0px;
       }
       .markednumtest{
-        width: 5vw;
+        position: absolute;
+        width:1.3vw;
+        border: solid 1px #fff;
+        border-radius: 35vw;
+        text-align: center;
+        color: red;
+        font-weight: bold;
+        right: -10px;
+        top: -10px;
+        -moz-box-shadow:    1px 1px 1px 1px #ccc;
+        -webkit-box-shadow: 1px 1px 1px 1px #ccc;
+        box-shadow:         1px 1px 1px 1px #ccc;
       }
     </style>
-    <!-- TODO: Schoener machen, kein input field! -->
-    <input id="markedcounter"type="text" value="0" readonly class="markednumtest"></input>
+    
 
     <div class="outerwrapper" id="wrapper"  on-mouseout="fadeIn" on-mouseover="fadeOut">
         <div class="innerwrapper" on-tap="tapFunction" >
           <!-- Div with the icon background-->
+          <input id="markedcounter"type="text" value="0" readonly class="markednumtest"></input>
           <div id="container" class="container-rounded"></div>
-
+            
           </div>
         
 
