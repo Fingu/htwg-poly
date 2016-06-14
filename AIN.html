@@ -3,7 +3,6 @@
 	<head>
 		<meta charset="utf-8"/>
 		<script src="bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
-		<script src="https://code.jquery.com/jquery-2.1.4.js"></script>
 		<script>
 		/* this script must run before Polymer is imported */
 		window.Polymer = {
@@ -52,35 +51,33 @@
 		htwg-container {
 			color: var(--htwg-white);
 		}
+
+		htwg-bubble-frame{
+			--bubble-color: var(--htwg-in-80);
+		}
 		
   	  	.bubbleKurzportrait{
   	  		--bubble-frame-image: url("../../images/htwg.jpg");
-			--bubble-color: var(--htwg-ei-80);
   	  	}
 
   	  	.bubbleBewerbung{
   	  		--bubble-frame-image: url("../../images/elektrotechnik.jpg");
-			--bubble-color: var(--htwg-ag-80);
   	  	}
 
   	  	.bubbleStudienaufbau{
   	  		--bubble-frame-image: url("../../images/studienaufbau.jpg");
-			--bubble-color: var(--htwg-ws-80);
   	  	}
 
   	  	.bubbleAusstattung{
   	  		--bubble-frame-image: url("../../images/ausstattung.jpg");
-			--bubble-color: var(--htwg-bi-80);
   	  	}
 
   	  	.bubbleFachschaft{
   	  		--bubble-frame-image: url("../../images/fachschaft.jpg");
-			--bubble-color: var(--htwg-ma-80);
   	  	}
 
   	  	.bubbleArbeiten{
   	  		--bubble-frame-image: url("../../images/arbeiten.jpg");
-			--bubble-color: var(--htwg-in-80);
   	  	}
 
   	  	#contactContainer{
@@ -164,13 +161,26 @@
 <!-- HTWG Container (popped auf-->
 		<htwg-container id="kurzportraitContainer">
 
-			<htwg-container-title>
-				<h1>Kurzportrait</h1>
-			</htwg-container-title>
+			<h1>Kurzportrait</h1>
 
-			<htwg-container-fileloader active sourcefile="text/ain/kurzportrait.html">
-			</htwg-container-fileloader>
-
+			<p>Kürzel: AIN</p>
+			<span>
+				Vertiefungsrichtungen: Computer and Network Engineering, Embedded Systems, Medieninformatik, Software-Engineering
+				Profil: praxisorientiert
+				Studiendauer: Das Studium umfasst 7 Semester mit 128 SWS und 210 ECTS- Punkten. Praxissemester: Das vierte Semester ist ein integriertes praktisch
+				Studiensemester, welches in einem Unternehmen außerhalb der
+				Hochschule absolviert wird
+				Studienbeginn: WS 2010/2011. Das Studium kann zum Wintersemester oder
+				Sommersemester begonnen werden.
+				Bewerbungsschluss: für das Wintersemester der 15. Juli des jeweiligen Jahres,
+				für das Sommersemester der 15. Januar. Studiengebühren: entfallen ab SS 2012
+				Auslands-Semester: möglich z.B. an Partnerhochschulen.
+				Abschluss: Bachelor of Science (B.Sc.)
+				Weiterqualifzierung: Angebot der HTWG: dreisemestriges Masterstudium
+				Informatik (MSI) oder Business Information Technology (BIT) 
+				Akkreditierung: Der Studiengang ist durch die zentrale Evaluations- und
+				Akkreditierungsagentur Hannover (ZEvA) akkreditiert.
+			</span>
 		</htwg-container>
 
 <!-- Neues Window -->

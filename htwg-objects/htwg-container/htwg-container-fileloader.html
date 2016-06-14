@@ -1,13 +1,10 @@
 
 <link rel="import" href="../../bower_components/polymer/polymer.html">
-<script src="https://code.jquery.com/jquery-2.1.4.js"></script>
-
 
 <dom-module id="htwg-container-fileloader">
 
   <style>
     :host{
-    visibility: hidden;
     position: absolute;
     word-wrap: break-word;
     left: 5vw;
@@ -18,8 +15,7 @@
   </style>
 
   <template>
-    <span id="content">
-    </span>
+    <span id="content"></span>
   </template>
 
 </dom-module>
@@ -29,31 +25,31 @@
     is: 'htwg-container-fileloader',
 
     properties: {
-      active: {
-        type: Boolean,
-        value: false,
-        observer: "_activechanged"
-      },
       sourcefile: {
         type: String,
         value: ""
       }
     },
     attached: function(){
-      if(this.active){
-        this.style.visibility="visible";
-      }
+
       if(this.sourcefile != ""){
-        this.$.content.innerHTML = "<object type='text/html' data='" + this.sourcefile + "' width='100%' height='100%'></object>";
         this.$.content.style.width = "50vw";
+        this.loadFile();
       }
     },
-    _activechanged: function(){
-      if(this.active){
-        this.style.visibility="visible";
-      }else{
-        this.style.visibility="hidden";
+
+    loadFile: function() {
+        if (this.sourcefile) {
+          console.log(this.sourcefile);
+          var link = this.importHref(this.sourcefile, 
+            function() {
+              Polymer.dom(this.$.content).appendChild(link.import.body);
+            },
+            function(){
+              console.log("error");
+            }
+          );
+        }
       }
-    }
   });
 </script>
