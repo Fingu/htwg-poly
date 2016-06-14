@@ -10,6 +10,13 @@
       :host{
         padding-left: 20px;
         padding-bottom: 20px;
+        word-wrap: normal;
+        word-break: normal;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+
+        user-select: none;
       };
       .container-rounded{
 		    border-radius: 10px;
@@ -130,34 +137,28 @@
       }
 
     }, fadeIn: function(){
-        if (!this.marked) {
           this.active = true;
           this.$.wrapper.className = "outerwrapper";  
           this.$.wrapper.style.opacity = 1;
           this.$.wrapper.style.transition = "ease-in 0.5s";
           this.$.content.style.opacity = 0;
           this.$.content.style.transition = "ease-out 0.5s";
-        }
     }, fadeOut: function(){
-        if (!this.marked) {
           this.active = false;
           this.$.wrapper.className = "outerwrapperactive";
           this.$.wrapper.style.opacity = 1;
           this.$.wrapper.style.transition = "ease-out 1.0s";
           this.$.content.style.opacity = 1;
           this.$.content.style.transition = "ease-in 0.5s";    
-          
-           
-        }
     },
     __gotMarked: function(){
-      if (this.marked){
+      /*if (this.marked){
         this.$.title.style.opacity = 0;
         this.$.content.style.opacity = 1;     
       } else {
         this.$.title.style.opacity = 1;
         this.$.content.style.opacity = 0;
-      } 
+      } */
     },
      tapFunction: function(){
       if (!this.active){
