@@ -60,12 +60,23 @@
         var inputValue = this.$.taginput.value;
 
         var inputChar = inputValue.substring(inputValue.length-1, inputValue.length);
-        console.log(inputChar);
         if(!inputChar.match("[a-z]")){
-          console.log("in if");
           var newString = inputValue.substring(0,inputValue.length-1);
           this.$.taginput.value = newString;
         }
+
+        if(inputValue.length > 0){
+          var proposes = [];
+          for(i = 0 ; i < this.tagList.length; i++){
+            for(ii = 0; ii < this.tagList[i].length;ii++){
+              if(this.tagList[i][ii].startsWith(inputValue)){
+                proposes.push(this.tagList[i][ii]);
+              }
+            }
+          }
+          this.$.taginput.proposes = proposes;
+          console.log("Proposals:" + this.$.taginput.proposes);
+      }
     },
 
     keyup: function(event){
@@ -89,18 +100,26 @@
           alert("Not a valid tag!");
         } else {
 			this.markTag();
-		}
-		this.$.taginput.value = "";
-      }
+		  }
+		  this.$.taginput.value = "";
+    }
       
     },
     markTag: function(create){
       create = create | 0;
       var listElements = document.getElementsByTagName("htwg-thumbnail-textelement");
-	  //not nice but a temporary bug fix
-	  for(i = 0; i < listElements.length; i++){
-		listElements[i].parentElement.marked = false;
-	  }
+    // wenn keine Elemente existieren, blende alle wieder ein!
+      if(this.savedTag.length == 0){
+        for(i = 0; i < listElements.length; i++){
+          listElements[i].active = true;
+          listElements[i].parentElement.marked = 0;
+        }
+        return;
+      }
+    // wenn Elemente existieren, blende nur die markierten ein
+  	  for(i = 0; i < listElements.length; i++){
+  		  listElements[i].parentElement.marked = 0;
+  	  }
       for(i = 0; i < listElements.length; i++){
           tmpcounter = 0;
           listElements[i].active = false;
@@ -112,7 +131,7 @@
           }
           if (tmpcounter == this.savedTag.length && tmpcounter != 0){
             listElements[i].active = true;
-            listElements[i].parentElement.marked = true;
+            listElements[i].parentElement.marked += 1;
           }
       }
       if (create == 0) {

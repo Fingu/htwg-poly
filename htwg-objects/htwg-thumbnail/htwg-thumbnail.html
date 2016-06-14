@@ -10,6 +10,13 @@
       :host{
         padding-left: 20px;
         padding-bottom: 20px;
+        word-wrap: normal;
+        word-break: normal;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+
+        user-select: none;
       };
       .container-rounded{
 		    border-radius: 10px;
@@ -59,7 +66,13 @@
        text-align: center;
        padding-left: 0px;
       }
+      .markednumtest{
+        width: 5vw;
+      }
     </style>
+    <!-- TODO: Schoener machen, kein input field! -->
+    <input id="markedcounter"type="text" value="0" readonly class="markednumtest"></input>
+
     <div class="outerwrapper" id="wrapper"  on-mouseout="fadeIn" on-mouseover="fadeOut">
         <div class="innerwrapper" on-tap="tapFunction" >
           <!-- Div with the icon background-->
@@ -104,8 +117,8 @@
         value: false
       },
       marked: {
-        type: Boolean,
-        value: false,
+        type: Number,
+        value: 0,
         observer: "__gotMarked"
       },
       display: {
@@ -130,34 +143,28 @@
       }
 
     }, fadeIn: function(){
-        if (!this.marked) {
           this.active = true;
           this.$.wrapper.className = "outerwrapper";  
           this.$.wrapper.style.opacity = 1;
           this.$.wrapper.style.transition = "ease-in 0.5s";
           this.$.content.style.opacity = 0;
           this.$.content.style.transition = "ease-out 0.5s";
-        }
     }, fadeOut: function(){
-        if (!this.marked) {
           this.active = false;
           this.$.wrapper.className = "outerwrapperactive";
           this.$.wrapper.style.opacity = 1;
           this.$.wrapper.style.transition = "ease-out 1.0s";
           this.$.content.style.opacity = 1;
           this.$.content.style.transition = "ease-in 0.5s";    
-          
-           
-        }
     },
     __gotMarked: function(){
-      if (this.marked){
-        this.$.title.style.opacity = 0;
-        this.$.content.style.opacity = 1;     
-      } else {
-        this.$.title.style.opacity = 1;
-        this.$.content.style.opacity = 0;
-      } 
+          if(this.marked > 0){
+            this.$.markedcounter.value = this.marked;
+            this.$.markedcounter.style.visibility = "visible";
+          }
+          else{
+            this.$.markedcounter.style.visibility = "hidden";
+          }
     },
      tapFunction: function(){
       if (!this.active){
