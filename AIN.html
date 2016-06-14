@@ -32,7 +32,8 @@
 		
   	  	#overlayMenu{
   	  		position:absolute;
-  	  		right: 0px;
+  	  		right: 5%;
+  	  		--overlay-color: var(--htwg-in-80);
   	  	}
   	  	.ueberschrift{
   	  		position: relative;
@@ -108,7 +109,8 @@
 			<htwg-menuelement >
 				<a href="#fachschaft">Fachschaft</a>
 			</htwg-menuelement>
-			<htwg-menuelement >
+			<htwg-overlay-menu id="overlayMenu">
+			</htwg-overlay-menu>
 
 		</htwg-menu>
 
@@ -116,7 +118,7 @@
 			id="top">
 			<div class="row">
 				<div class="col-16 col-s-24 col-m-32 col-l-48">
-					<h1 class="ueberschrift">Angewandte <br>Informatik</h1>
+					<h1 class="ueberschrift">ANGEWANDTE<br>INFORMATIK</h1>
 				</div>
 			</div>
 		</htwg-window-container>
