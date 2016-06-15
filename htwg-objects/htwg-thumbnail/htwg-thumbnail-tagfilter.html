@@ -116,12 +116,14 @@
         for(i = 0; i < listElements.length; i++){
           listElements[i].active = true;
           listElements[i].parentElement.marked = 0;
+          listElements[i].parentElement.visibleElement = true;
         }
         return;
       }
     // wenn Elemente existieren, blende nur die markierten ein
   	  for(i = 0; i < listElements.length; i++){
   		  listElements[i].parentElement.marked = 0;
+        listElements[i].parentElement.visibleElement = false;
   	  }
       for(i = 0; i < listElements.length; i++){
           tmpcounter = 0;
@@ -135,6 +137,7 @@
           if (tmpcounter == this.savedTag.length && tmpcounter != 0){
             listElements[i].active = true;
             listElements[i].parentElement.marked += 1;
+            listElements[i].parentElement.visibleElement = true;
           }
       }
       if (create == 0) {
