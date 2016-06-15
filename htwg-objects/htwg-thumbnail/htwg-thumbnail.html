@@ -172,22 +172,28 @@ word-break: break-word !important;
     },
     __gotMarked: function(){
       //Zahlen oben einblenden/ausblenden und setzen
-      //TODO: Hier abchecken ob die (bei App) angezeigt werden sollen oder nicht
-          if(this.marked > 0){
-            //this.$.markedcounter.value = this.marked;
-            //this.$.markedcounter.style.visibility = "visible";
+      //Bei ipad oder kleiner (1024) werden Zahlen angezeigt
+          if (!window.matchMedia("(min-width: 1024px)").matches) {
+              if(this.marked > 0){
+                this.$.markedcounter.value = this.marked;
+                this.$.markedcounter.style.visibility = "visible";
+              }
+              else{
+                this.$.markedcounter.style.visibility = "hidden";
+              }
           }
-          else{
-            //this.$.markedcounter.style.visibility = "hidden";
-          }
+
     },
     // Thumbnail ausgrauen oder nicht
     _visibleChanged: function(){
-      if(this.visibleElement){
-          this.style.opacity = 1.0;
-      }else{
-          this.style.opacity = 0.5;
-      }
+      //Bei Ipad oder kleiner(1024px) wird nichtmehr ausgegraut
+      if (window.matchMedia("(min-width: 1024px)").matches) {
+          if(this.visibleElement){
+              this.style.opacity = 1.0;
+          }else{
+              this.style.opacity = 0.5;
+          }
+     }
     },
      tapFunction: function(){
       if (!this.active){
