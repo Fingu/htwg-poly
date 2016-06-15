@@ -1,7 +1,6 @@
 
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 <link rel="import" href="htwg-tagelement.html">
-<link rel="import" href="../../bower_components/iron-a11y-keys-behavior/iron-a11y-keys-behavior.html">
 <link rel="import" href="../htwg-input/htwg-input.html">
 <dom-module id="htwg-thumbnail-tagfilter">
 
@@ -18,10 +17,9 @@
       }
     </style>
 
-    <div class=wrapper>
+  <div class=wrapper>
       <div id="textfieldtagfilter" class="tagfilter" >
-      <htwg-input on-keyup="keyup" on-input="validateInput" id="taginput" inputwidth=30 inputfontsize=60></htwg-input>
-        <!--<htwg-tagelement text="girls"></htwg-tagelement>-->
+          <htwg-input on-keyup="keyup" on-input="validateInput" id="taginput" inputwidth=30 inputfontsize=60></htwg-input>
       </div>
   </div>
 
@@ -32,9 +30,7 @@
 <script>
   Polymer({
     is: 'htwg-thumbnail-tagfilter',
-    behaviors: [
-      Polymer.IronA11yKeysBehavior
-    ],
+
 
     properties: {
       textColor: {
@@ -51,8 +47,7 @@
       },
       savedTag: {
         type: Array,
-        value: [],
-        observer: '_savedTagDeleted'
+        value: []
       },
       tagList: {
         type: Array,
@@ -125,7 +120,7 @@
   		  listElements[i].parentElement.marked = 0;
         listElements[i].parentElement.visibleElement = false;
   	  }
-      
+
       for(i = 0; i < listElements.length; i++){
           tmpcounter = 0;
           listElements[i].active = false;
@@ -153,9 +148,6 @@
       for(i = 0; i < listElements.length; i++){
           this.tagList.push(listElements[i].tags);
       }
-    },
-    _savedTagDeleted: function(){
-      //alert("deleted");
     },
     deleteTag: function(obj){
       this.savedTag.splice(this.savedTag.indexOf(obj.text),1);
