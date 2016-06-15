@@ -43,6 +43,7 @@
 		background-color: var(--bubble-color);
 		background-image: var(--bubble-frame-image);
 		transition: 0.5s;
+		transition: background-image 2s;
 	}
 
 	.bubble-container {
@@ -52,6 +53,7 @@
 			var(--bubble-color)
 		  ),var(--bubble-frame-image);
 		  transition: 0.5s;
+		  transition: background-image 2s;
 	}
 	:host([active]) .bubble {
 		background: var(--bubble-color);
@@ -211,35 +213,36 @@
 		} else {
 			var that = this;
 			setTimeout(function(){
-				that.active = Math.random() > 0.9;
-				if(that.neighbors[3] != null && !that.neighbors[3].active) {
-					that.neighbors[3].active = Math.random() > 0.9;
-					if(that.neighbors[3].active) {return};
-				}
-				if(that.neighbors[4] != null && !that.neighbors[4].active) {
-					that.neighbors[4].active = Math.random() > 0.5;
-					if(that.neighbors[4].active) {return};
-				}
-				if(that.neighbors[5] != null && !that.neighbors[5].active) {
-					that.neighbors[5].active = Math.random() > 0.9;
-					if(that.neighbors[5].active) {return};
-				}
-				if(that.neighbors[7] != null && !that.neighbors[7].active) {
-					that.neighbors[7].active = Math.random() > 0.9;
-					if(that.neighbors[7].active) {return};
-				}
-				if(that.neighbors[0] != null && !that.neighbors[0].active) {
-					that.neighbors[0].active = Math.random() > 0.5;
-					if(that.neighbors[0].active) {return};
-				}
-				if(that.neighbors[1] != null && !that.neighbors[1].active) {
-					that.neighbors[1].active = Math.random() > 0.9;
-					if(that.neighbors[1].active) {return};
-				}
+				that.active = Math.random() > 0.99;
 
-
-
-			}, (Math.random() * 100000) + 1);
+				if (Math.random() < 0.50) {
+					if(that.neighbors[3] != null && !that.neighbors[3].active) {
+						that.neighbors[3].active = Math.random() > 0.8;
+						if(that.neighbors[3].active) {return};
+					}
+					if(that.neighbors[4] != null && !that.neighbors[4].active) {
+						that.neighbors[4].active = Math.random() > 0.8;
+						if(that.neighbors[4].active) {return};
+					}
+					if(that.neighbors[5] != null && !that.neighbors[5].active) {
+						that.neighbors[5].active = Math.random() > 0.8;
+						if(that.neighbors[5].active) {return};
+					}
+				} else {
+					if(that.neighbors[7] != null && !that.neighbors[7].active) {
+						that.neighbors[7].active = Math.random() > 0.8;
+						if(that.neighbors[7].active) {return};
+					}
+					if(that.neighbors[0] != null && !that.neighbors[0].active) {
+						that.neighbors[0].active = Math.random() > 0.8;
+						if(that.neighbors[0].active) {return};
+					}
+					if(that.neighbors[1] != null && !that.neighbors[1].active) {
+						that.neighbors[1].active = Math.random() > 0.8;
+						if(that.neighbors[1].active) {return};
+					}
+				}
+			}, (Math.random() * 30000) + 5000);
 		}
 	},
 
@@ -256,6 +259,7 @@
 	},
 
 	checkNeighbors: function() {
+		this.updateStyles();
 		this.$$('.bubble').classList.remove(this.currentState);
 		var check = [];
 		for(i = 0; i < 8; i++) {
@@ -322,9 +326,6 @@
 				this.currentState = this.inactiveStates[8];
 			} else if(!check[2]) {
 				this.currentState = this.inactiveStates[9];
-			}
-			if((check[1] || check[3] || check[5] || check[7]) && Math.random() > 0.95) {
-				this.active = true;
 			}
 		}
 		this.$$('.bubble').classList.add(this.currentState);

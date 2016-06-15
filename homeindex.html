@@ -12,6 +12,10 @@
 		};
 	  </script>
 
+	  <link rel="import" href="htwg-objects/htwg-grid/htwg-grid.html">
+	  <link rel="import" href="htwg-objects/htwg-color/htwg-color.html">
+	  <link rel="import" href="htwg-objects/htwg-font/htwg-font.html">
+
 	  <link rel="import" href="htwg-objects/htwg-overlay-menu/htwg-overlay-menu.html">
 	  <link rel="import" href="htwg-objects/htwg-overlay-menu/htwg-overlay-content.html">
 	  <link rel="import" href="htwg-objects/htwg-overlay-menu/htwg-overlay-menubar.html">
@@ -22,9 +26,12 @@
 	  <link rel="import" href="htwg-objects/htwg-thumbnail/htwg-thumbnail-textelement.html">
 	  <link rel="import" href="htwg-objects/htwg-thumbnail/htwg-tagelement.html">
 
+	  <link rel="import" href="htwg-objects/htwg-bubble-frame/htwg-bubble-frame.html">
+	  <link rel="import" href="htwg-objects/htwg-window-container/htwg-window-container.html">
+
 	  <link rel="import" href="bower_components/iron-input/iron-input.html">
 
-  	  	<style is="custom-style">
+  	  	<style is="custom-style" include="htwg-color htwg-grid htwg-font">
 			.wrapper{
 				float: left;
 				display: inline-flex;
@@ -34,50 +41,120 @@
 				margin-left: 3vw;
 				background-color: rgba(0,0,0,0);
 			}
+
+			htwg-bubble-frame {
+				--bubble-color: var(--htwg-gray-80);
+				--bubble-frame-image: url("images/home/home_01.jpg");
+			}
+	  	  	body{
+	  	  		margin-top: 0px;
+	  	  		margin-left: 0px;
+	  	  		position: absolute;
+  	  		}
+  	  		htwg-window-container {
+  	  			color: var(--htwg-white);
+  	  		}
+
+  	  		#login {
+  	  			height: 80px;
+  	  			width: 100px;
+  	  		}
+
 		</style>
+
+
 
 	</head>
 
-	<body background="images/backtest.jpg">
+	<body>
+			<htwg-overlay-menu id="overlayMenu">
+				<htwg-overlay-menubar logo="images/htwg-logo.png">
+					<htwg-overlay-menuitem link="homeindex.html">Hochschule</htwg-overlay-menuitem>
+					<htwg-overlay-menuitem>Studiengaenge</htwg-overlay-menuitem>
+					<htwg-overlay-menuitem>Veranstaltung</htwg-overlay-menuitem>
+					<htwg-overlay-menuitem>Konstanz</htwg-overlay-menuitem>
+					<htwg-overlay-menuitem>Grenzenlos studieren</htwg-overlay-menuitem>
+				</htwg-overlay-menubar>
+				<p>
+					<htwg-thumbnail-tagfilter></htwg-thumbnail-tagfilter>
+				</p>
 
-
-		<htwg-overlay-menu>
-			<htwg-overlay-menubar logo="images/htwg-logo.png">
-				<htwg-overlay-menuitem link="homeindex.html">Hochschule</htwg-overlay-menuitem>
-				<htwg-overlay-menuitem>Studiengaenge</htwg-overlay-menuitem>
-				<htwg-overlay-menuitem>Veranstaltung</htwg-overlay-menuitem>
-				<htwg-overlay-menuitem>Konstanz</htwg-overlay-menuitem>
-				<htwg-overlay-menuitem>Grenzenlos studieren</htwg-overlay-menuitem>
-			</htwg-overlay-menubar>
-
-			<htwg-overlay-content>
-				<htwg-thumbnail-tagfilter></htwg-thumbnail-tagfilter>
-			</htwg-overlay-content>
-
-			<htwg-overlay-content>
 				<div class="wrapper">
-					<htwg-thumbnail class="informatik" title="Informatik">
+					<htwg-thumbnail class="informatik" title="Informatik" icon="../../images/icons/icon_information.png">
+						<!--<htwg-thumbnail-textelement text-Caption="Angewandte Informatik" link="http://www.google.de" tags=' { "tag" : "Computer" , "tag1" : "Hacken" }'></htwg-thumbnail-textelement>-->
 						<htwg-thumbnail-textelement text-Caption="Angewandte Informatik" link="http://www.google.de" tags=' ["computer" , "hacken"] '></htwg-thumbnail-textelement>
-						<htwg-thumbnail-textelement text-Caption="Automobilinformatik" tags=' [ "auto" ,"motor" ]'></htwg-thumbnail-textelement>
-						<htwg-thumbnail-textelement text-Caption="Gesundheitsinformatik" tags=' [ "medizin" ,"gesund" ]'></htwg-thumbnail-textelement>
+						<htwg-thumbnail-textelement text-Caption="Automobilinformatik" tags=' [ "computer","auto" ,"motor" ]'></htwg-thumbnail-textelement>
+						<htwg-thumbnail-textelement text-Caption="Gesundheitsinformatik" tags=' ["computer", "medizin" ,"gesund" ]'></htwg-thumbnail-textelement>
 						<htwg-thumbnail-textelement text-Caption="Wirtschaftsinformatik" tags=' [ "geld" ,"wirtschaft" ]'></htwg-thumbnail-textelement>
 					</htwg-thumbnail>
 
-					<htwg-thumbnail class="architektur" title="Architektur und Gestaltung">
+					<htwg-thumbnail class="architektur" title="Architektur und Gestaltung" icon="../../images/icons/icon_architekturgestaltung.png">
 						<htwg-thumbnail-textelement text-Caption="Architektur" link="http://www.google.de" tags=' [ "bauen" ,"haus"]'></htwg-thumbnail-textelement>
 						<htwg-thumbnail-textelement text-Caption="Kommunikationsdesign" tags=' [ "girls" ,"love" ,"fashion" ]'></htwg-thumbnail-textelement>
 					</htwg-thumbnail>
 
-					<htwg-thumbnail class="maschinenbau" title="Maschinenbau">
+					<htwg-thumbnail class="maschinenbau" title="Maschinenbau" icon="../../images/icons/icon_maschinenbau.png">
 						<htwg-thumbnail-textelement text-Caption="Maschinenbau Konstruktion und Entwicklung" tags=' [ "entwicklung" ,"maschine" ]'></htwg-thumbnail-textelement>
 						<htwg-thumbnail-textelement text-Caption="Maschinenbau Entwicklung und Produktion" tags=' [ "produktion" ,"entwicklung" ,"maschine" ]'></htwg-thumbnail-textelement>
 						<htwg-thumbnail-textelement text-Caption="Verfahrens- und Umwelttechnik" tags=' [ "umwelt" ,"verfahren" ]'></htwg-thumbnail-textelement>
 						<htwg-thumbnail-textelement text-Caption="Wirtschaftsingenieurwesen Maschinenbau" tags=' [ "wirtschaft" ,"maschine" ]'></htwg-thumbnail-textelement>
 					</htwg-thumbnail>
 				</div>
-			</htwg-overlay-content>
-		</htwg-overlaymenu>
+				<div class="wrapper">
+					<htwg-thumbnail class="bauingenieurwesen" title="Bauingenieur- wesen" icon="../../images/icons/icon_bauingenieur.png">
+						<htwg-thumbnail-textelement text-Caption="Bauingenieurwesen" link="http://www.google.de" tags=' ["bau" , "strasse"] '></htwg-thumbnail-textelement>
+						<htwg-thumbnail-textelement text-Caption="Wirtschaftsingenieurwesen Bau" tags=' [ "wirtschaft" ,"bau" ]'></htwg-thumbnail-textelement>
+						<htwg-thumbnail-textelement text-Caption="Umwelttechnik und Ressourcemanagement" tags=' [ "umwelt" ,"ressourcen" ]'></htwg-thumbnail-textelement>
+					</htwg-thumbnail>
 
+					<htwg-thumbnail class="elektro" title="Elektro- und Informations- technik" icon="../../images/icons/icon_elektroinformation.png">
+						<htwg-thumbnail-textelement text-Caption="Automobil- Informationstechnik" link="http://www.google.de" tags=' [ "auto" ,"elektrotechnik" ]'></htwg-thumbnail-textelement>
+						<htwg-thumbnail-textelement text-Caption="Elektro- und Informationstechnik" tags=' [ "elektrotechnik" ,"computer" ]'></htwg-thumbnail-textelement>
+						<htwg-thumbnail-textelement text-Caption="Wirtschaftsingenieurwesen Elektro- und Informationstechnik" tags=' [ "elektro" ,"wirtschaft" ]'></htwg-thumbnail-textelement>
+					</htwg-thumbnail>
+
+					<htwg-thumbnail class="wirtschaft" title="Wirtschafts- Kultur- und Rechts- wissenschaften" icon="../../images/icons/icon_wirtschaftkulturrecht.png">
+						<htwg-thumbnail-textelement text-Caption="Betriebswirtschaftslehre" tags=' [ "wirtschaft" ,"geld" ,"hemd" ]'></htwg-thumbnail-textelement>
+						<htwg-thumbnail-textelement text-Caption="Wirtschaftsrecht" tags=' [ "recht" ,"wirtschaft" ]'></htwg-thumbnail-textelement>
+						<htwg-thumbnail-textelement text-Caption="Wirtschaftssprachen Asien und Management China | Südost- und Südasien" tags=' [ "girls" ,"asien" ,"china" ]'></htwg-thumbnail-textelement>
+						<htwg-thumbnail-textelement text-Caption="Wirtschaftssprachen Deutsch und Tourismusmanagement" tags=' [ "deutsch" ,"tourismus" ]'></htwg-thumbnail-textelement>
+					</htwg-thumbnail>
+				</div>
+			</htwg-overlay-menu>
+
+
+		<htwg-window-container>
+			<htwg-bubble-frame id="main">
+				<div class="row" style="margin-top: 5%;">
+					<div class="col-2 col-s-4 col-m-6 col-l-8"></div>
+					<div class="col-6 col-s-10 col-m-14 col-l-18">
+						<htwg-container-opener class="content" target="bewerbungContainer"><h3>STUDIEREN<br>AM BODENSEE</h3></htwg-container-opener>
+					</div>
+				</div>
+				<div class="row" style="margin-top: 25%;">
+					<div class="col-12 col-s-18 col-m-24 col-l-38"><img id="login" src="images/home/login_weiss.png"></img></div>
+					<div class="col-4 col-s-6 col-m-8 col-l-10">
+						<htwg-container-opener class="content" target="bewerbungContainer"><h3>Jetzt bewerben</h3></htwg-container-opener>
+					</div>
+				</div>
+
+
+			</htwg-bubble-frame>
+		</htwg-window-container>
+
+		<script type="text/javascript">
+
+		var number = 2;
+			var myVar=setInterval(function(){
+				currentObj = document.getElementById('main');
+				currentObj.customStyle["--bubble-frame-image"] = 'url("images/home/home_0' + number + '.jpg")';
+				currentObj.updateStyles();
+				number++;
+				if (number==4){
+					number = 1;
+				}
+			}, 30000);
+		</script>
 
 	</body>
 
