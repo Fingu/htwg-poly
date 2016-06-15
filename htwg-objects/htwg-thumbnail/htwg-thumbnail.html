@@ -148,6 +148,7 @@ word-break: break-word !important;
         type: String,
         value: ""
       },
+      // Boolean dafür ob Element ausgegraut wird oder nicht
       visibleElement: {
         type: Boolean,
         value: true,
@@ -170,16 +171,17 @@ word-break: break-word !important;
           this.$.content.style.transition = "ease-in 0.5s";    
     },
     __gotMarked: function(){
+      //Zahlen oben einblenden/ausblenden und setzen
+      //TODO: Hier abchecken ob die (bei App) angezeigt werden sollen oder nicht
           if(this.marked > 0){
             //this.$.markedcounter.value = this.marked;
             //this.$.markedcounter.style.visibility = "visible";
-            //this.style.opacity = 1.0;
           }
           else{
             //this.$.markedcounter.style.visibility = "hidden";
-            //this.style.opacity = 0.5;
           }
     },
+    // Thumbnail ausgrauen oder nicht
     _visibleChanged: function(){
       if(this.visibleElement){
           this.style.opacity = 1.0;
