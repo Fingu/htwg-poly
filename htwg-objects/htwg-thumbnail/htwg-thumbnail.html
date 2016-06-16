@@ -7,23 +7,28 @@
 
     <style type="text/css">
       :host{
-        padding-left: 20px;
-        padding-bottom: 20px;
         word-wrap: normal !important;
         display: inline-block;
-word-break: break-word !important;
+		word-break: break-word !important;
         -webkit-user-select: none !important;
         -moz-user-select: none !important;
         -ms-user-select: none !important;
 
         user-select: none !important;
+		width: 158px;
+		padding-left: 20%;
+		padding-right: 20%;
       };
       .container-rounded{
-		    border-radius: 10px;
+		border-radius: 10px;
         padding: 0px; 
-        width: 200px;
-        height: 150px; 
+        width: 125px;
+        height: 118px; 
         margin: 0px;
+		/*background-image: url('"+this.icon+"');*/
+        background-repeat: no-repeat;
+        background-size: auto 90%;
+        background-position: center;
       }
       #title {
         opacity: 1;
@@ -38,7 +43,6 @@ word-break: break-word !important;
         display: flex;
         flex-direction: row;
         justify-content: center;
-        
         position: relative;
       }
       .outerwrapper{
@@ -63,19 +67,22 @@ word-break: break-word !important;
       }
       .markednumtest{
         position: absolute;
-        width:1.3vw;
+        width: 21px;;
+		left: 95%;
+		top: -5%;
         border: solid 1px #fff;
         border-radius: 35vw;
         text-align: center;
         color: red;
         font-weight: bold;
-        right: -10px;
-        top: -10px;
         -moz-box-shadow:    1px 1px 1px 1px #ccc;
         -webkit-box-shadow: 1px 1px 1px 1px #ccc;
         box-shadow:         1px 1px 1px 1px #ccc;
         visibility: hidden;
       }
+	  #content {
+		display: none;
+	  }
     </style>
     
 
@@ -159,15 +166,20 @@ word-break: break-word !important;
           this.active = true;
           this.$.wrapper.className = "outerwrapper";  
           this.$.wrapper.style.opacity = 1;
+		  this.$.wrapper.style.display = "block";
           this.$.wrapper.style.transition = "ease-in 0.5s";
           this.$.content.style.opacity = 0;
+		  this.$.content.style.display = "none";
+		  
           this.$.content.style.transition = "ease-out 0.5s";
     }, fadeOut: function(){
           this.active = false;
           this.$.wrapper.className = "outerwrapperactive";
           this.$.wrapper.style.opacity = 1;
+		  this.$.wrapper.style.display = "block";
           this.$.wrapper.style.transition = "ease-out 1.0s";
           this.$.content.style.opacity = 1;
+		  this.$.content.style.display = "block";
           this.$.content.style.transition = "ease-in 0.5s";    
     },
     __gotMarked: function(){
@@ -207,15 +219,15 @@ word-break: break-word !important;
 
     attached:function(){
       this.$.content.style.opacity = 0;
-      this.$$(".outerwrapper").style.width = this.width + "vw";
-      this.$$(".innerwrapper").style.height = this.height + "vh";
+      //this.$$(".outerwrapper").style.width = this.width + "vw";
+      //this.$$(".innerwrapper").style.height = this.height + "vh";
 
-      this.$$(".container-rounded").style.width = (this.width-1) + "vw";
-      this.$$(".container-rounded").style.height = (this.height-1) + "vh";
+      //this.$$(".container-rounded").style.width = (this.width-1) + "vw";
+      //this.$$(".container-rounded").style.height = (this.height-1) + "vh";
       this.$$(".container-rounded").style.backgroundImage = "url('"+this.icon+"')";
-      this.$$(".container-rounded").style.backgroundRepeat = "no-repeat";
-      this.$$(".container-rounded").style.backgroundSize = " auto 95%";
-      this.$$(".container-rounded").style.backgroundPosition = "center";
+      //this.$$(".container-rounded").style.backgroundRepeat = "no-repeat";
+      //this.$$(".container-rounded").style.backgroundSize = " auto 95%";
+      //this.$$(".container-rounded").style.backgroundPosition = "center";
     }
 
   });
