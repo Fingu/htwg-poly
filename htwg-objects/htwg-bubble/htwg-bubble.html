@@ -193,6 +193,7 @@
 
 		var that = this;
 		window.addEventListener("resize", function() { that.checkCollisions(); that.positionBackground();});
+		window.addEventListener("scroll", function() { that.positionBackground();});
     },
 
 	_activeChanged: function() {
@@ -212,27 +213,27 @@
 
 				if(that.neighbors[3] != null && !that.neighbors[3].active) {
 					that.neighbors[3].active = Math.random() > 0.8;
-					if(that.neighbors[3].active) {return};
+					if(that.neighbors[3].active) {return;};
 				}
 				if(that.neighbors[4] != null && !that.neighbors[4].active) {
 					that.neighbors[4].active = Math.random() > 0.8;
-					if(that.neighbors[4].active) {return};
+					if(that.neighbors[4].active) {return;};
 				}
 				if(that.neighbors[5] != null && !that.neighbors[5].active) {
 					that.neighbors[5].active = Math.random() > 0.8;
-					if(that.neighbors[5].active) {return};
+					if(that.neighbors[5].active) {return;};
 				}
 				if(that.neighbors[7] != null && !that.neighbors[7].active) {
 					that.neighbors[7].active = Math.random() > 0.8;
-					if(that.neighbors[7].active) {return};
+					if(that.neighbors[7].active) {return;};
 				}
 				if(that.neighbors[0] != null && !that.neighbors[0].active) {
 					that.neighbors[0].active = Math.random() > 0.8;
-					if(that.neighbors[0].active) {return};
+					if(that.neighbors[0].active) {return;};
 				}
 				if(that.neighbors[1] != null && !that.neighbors[1].active) {
 					that.neighbors[1].active = Math.random() > 0.8;
-					if(that.neighbors[1].active) {return};
+					if(that.neighbors[1].active) {return;};
 				}
 			}, (Math.random() * 30000) + 1000);
 		}
