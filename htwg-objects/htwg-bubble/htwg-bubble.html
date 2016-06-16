@@ -161,9 +161,9 @@
 				"notBottomRight", "notBottomLeft", "notTopLeft", "diagonalRight", "diagonalLeft", "lonesome"]
 	  },
 	  currentState: String,
-      textColor: {
-        type: String,
-        value: "black"
+      content: {
+        type: Boolean,
+        value: false
       },
       active: {
         type: Boolean,
@@ -172,10 +172,6 @@
 		notify: true,
 		observer: "_activeChanged"
       },
-      backgroundColor: {
-        type: String,
-        value: "blue"
-      },
       neighbors:{
         type: Array,
 		value: function() {return [];} //otherwise it's shared (https://github.com/Polymer/polymer/issues/3505)
@@ -183,6 +179,7 @@
 	  x: Number,
 	  y: Number,
     },
+	
     attached: function(){
 	  this.setNeighbors()
 	  this.checkNeighbors()
@@ -192,9 +189,8 @@
 				neighbor.checkNeighbors();
 			}
 		}
-		if(!this.active) {
-			this.checkCollisions();
-		}
+		this.checkCollisions();
+
 		var that = this;
 		window.addEventListener("resize", function() { that.checkCollisions(); that.positionBackground();});
     },
@@ -208,41 +204,37 @@
 				}
 			}
 		}
-		if(!this.active) {
-			this.checkCollisions();
-		} else {
+		this.checkCollisions();
+		if(this.active) {
 			var that = this;
 			setTimeout(function(){
-				that.active = Math.random() > 0.99;
+				that.active = that.content || Math.random() > 0.99;
 
-				if (Math.random() < 0.50) {
-					if(that.neighbors[3] != null && !that.neighbors[3].active) {
-						that.neighbors[3].active = Math.random() > 0.8;
-						//if(that.neighbors[3].active) {return};
-					}
-					if(that.neighbors[4] != null && !that.neighbors[4].active) {
-						that.neighbors[4].active = Math.random() > 0.8;
-						//if(that.neighbors[4].active) {return};
-					}
-					if(that.neighbors[5] != null && !that.neighbors[5].active) {
-						that.neighbors[5].active = Math.random() > 0.8;
-						//if(that.neighbors[5].active) {return};
-					}
-				} else {
-					if(that.neighbors[7] != null && !that.neighbors[7].active) {
-						that.neighbors[7].active = Math.random() > 0.8;
-						//if(that.neighbors[7].active) {return};
-					}
-					if(that.neighbors[0] != null && !that.neighbors[0].active) {
-						that.neighbors[0].active = Math.random() > 0.8;
-						//if(that.neighbors[0].active) {return};
-					}
-					if(that.neighbors[1] != null && !that.neighbors[1].active) {
-						that.neighbors[1].active = Math.random() > 0.8;
-						//if(that.neighbors[1].active) {return};
-					}
+				if(that.neighbors[3] != null && !that.neighbors[3].active) {
+					that.neighbors[3].active = Math.random() > 0.8;
+					//if(that.neighbors[3].active) {return};
 				}
-			}, (Math.random() * 30000) + 5000);
+				if(that.neighbors[4] != null && !that.neighbors[4].active) {
+					that.neighbors[4].active = Math.random() > 0.8;
+					//if(that.neighbors[4].active) {return};
+				}
+				if(that.neighbors[5] != null && !that.neighbors[5].active) {
+					that.neighbors[5].active = Math.random() > 0.8;
+					//if(that.neighbors[5].active) {return};
+				}
+				if(that.neighbors[7] != null && !that.neighbors[7].active) {
+					that.neighbors[7].active = Math.random() > 0.8;
+					//if(that.neighbors[7].active) {return};
+				}
+				if(that.neighbors[0] != null && !that.neighbors[0].active) {
+					that.neighbors[0].active = Math.random() > 0.8;
+					//if(that.neighbors[0].active) {return};
+				}
+				if(that.neighbors[1] != null && !that.neighbors[1].active) {
+					that.neighbors[1].active = Math.random() > 0.8;
+					//if(that.neighbors[1].active) {return};
+				}
+			}, (Math.random() * 30000) + 1000);
 		}
 	},
 
@@ -382,9 +374,11 @@
 			if (((divTop <= myTop && (divTop + divHeight) >= myTop) && ((divLeft <= myLeft && (divLeft + divWidth) >= myLeft) || (divLeft >= myLeft && (myLeft + myWidth) >= divLeft))) || 
 				((myTop <= divTop && (myTop + myHeight) >= divTop) && ((myLeft <= divLeft && (myLeft + myWidth) >= divLeft) || (myLeft >= divLeft && (divLeft + divWidth) >= myLeft)))) {
 				this.active = true;
-				break;
+				this.content = true;
+				return;
 			}
 		}
+		this.content = false;
 	}
   });
 </script>
