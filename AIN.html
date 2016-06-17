@@ -207,7 +207,7 @@
 
 			<h1 class="title">Kurzportrait</h1>
 
-			<span>
+			<span class="content1">
 				Kürzel: AIN<br>
 				Vertiefungsrichtungen: Computer and Network Engineering, Embedded Systems, Medieninformatik, Software-Engineering
 				Profil: praxisorientiert
@@ -220,10 +220,18 @@
 				für das Sommersemester der 15. Januar. Studiengebühren: entfallen ab SS 2012
 				Auslands-Semester: möglich z.B. an Partnerhochschulen.
 				Abschluss: Bachelor of Science (B.Sc.)
+			</span><span class="content2">
 				Weiterqualifzierung: Angebot der HTWG: dreisemestriges Masterstudium
 				Informatik (MSI) oder Business Information Technology (BIT) 
 				Akkreditierung: Der Studiengang ist durch die zentrale Evaluations- und
 				Akkreditierungsagentur Hannover (ZEvA) akkreditiert.
+				asdfsfasdfas
+				asfasdfasdfasdfasdfasdf
+				asdfasdfasdfasdfasdfjfhaskdjf hdsojhfa sdkjfha dsfjhas fkjh 
+				dsjfhdalsk jlasdkfjh alskdjfh alksjdhf laskjdfha slkdjfhas lkjfh
+				ajshflaksjdfh asdkjhf alskjdfh laskjdfh laskdjfh lasdkjfhals jkf
+				jdshfkasjdhf kasjhdf 1 lkasjfhalsdk jasdkfjhaslkfj h
+				psadhflkasjhf öasjdhf asjkdfh akjsdhf askjdfh akj
 			</span>
 		</htwg-container>
 
@@ -243,9 +251,9 @@
 			
 		</htwg-window-container>
 
-		<htwg-container id="bewerbungContainer">
+		<htwg-container id="bewerbungContainer" art="menu">
 			<h1 class="title">Bewerbung</h1>
-			<htwg-container-menu>
+			<htwg-container-menu class="content1">
 				<htwg-container-menuitem linkid="bewerbenTermine" active>
 					Termine und Fristen
 				</htwg-container-menuitem>
@@ -256,17 +264,19 @@
 					Zulassung
 				</htwg-container-menuitem>
 			</htwg-container-menu>
-			<htwg-container-text id="bewerbenTermine" active>
+			<htwg-container-text id="bewerbenTermine" class="content2" active>
 				<p>
 					<h3>Termine und Fristen</h3>
+					<br>
 					Für das Wintersemester 2016/17 ist eine Bewerbung um einen Studienplatz an der HTWG Konstanz ausschließlich über die Online-Bewerbung möglich.
 					Alle Informationen dazu fnden Sie hier. 
 				</p>
 			</htwg-container-text>
 
-			<htwg-container-text id="bewerbenVorrausetzung">
+			<htwg-container-text id="bewerbenVorrausetzung" class="content2">
 				<p>
 					<h3>Vorraussetzungen</h3>
+					<br>
 					Hochschulzugangsberechtigung: z.B. Fachhochschulreife oder Abitur.
 					Vorkenntnisse im Programmieren werden nicht erwartet.
 					Bewerber/innen mit ausländischer Staatsangehörigkeit und mit ausländischen Schul- und Hochschulzeugnissen benötigen eine Zeugnisanerkennung des Studienkollegs Konstanz (STK). Dies gilt auch dann, wenn Sie bereits außerhalb der Hochschule Konstanz eine Feststellungsprüfung, die DSH-Prüfung oder TestDaF erfolgreich erworben haben. Mit der Zeugnisanerkennung des STK und Ihren vollständigen Bewerbungsunterlagen können Sie sich anschließend um einen Studienplatz an der Hochschule Konstanz bewerben.
@@ -274,9 +284,10 @@
 				</p>
 			</htwg-container-text>
 
-			<htwg-container-text id="bewerbenZulassung">
+			<htwg-container-text id="bewerbenZulassung" class="content2">
 				<p>
 					<h3>Zulassung</h3>
+					<br>
 					Im Wintersemester stehen 60, im Sommersemester 30 Studienplätze zur Verfügung. Die Zulassung erfolgt über ein Auswahlverfahren auf Basis der Bewerbungsunterlagen.
 					Die Zugangsnote berechnet sich aus
 					• der Note für die Hochschulzugangsberechtigung und
@@ -395,11 +406,51 @@ Die professionelle Erstellung von komplexer, robuster und zuverlässiger Softwar
 		<htwg-container id="fachschaftContainer">
 			<h1 class="title">Fachschaft</h1>
 
-			<p>
+			<p id="content1">
 				Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
 			</p>
 
 		</htwg-container>
+
+		
+
+
+
+
+
+
+
+
+		<htwg-window-container
+			id="test">
+
+			<htwg-bubble-frame class="bubbleTest">
+					<div class="row" style="margin-top: 35%;">
+						<div class="col-9 col-s-15 col-m-21 col-l-31"></div>
+						<div class="col-2 col-s-4 col-m-6 col-l-8">
+							<htwg-container-opener class="content" target="testContainer"><h3>Test</h3></htwg-container-opener>
+						</div>
+					</div>
+			</htwg-bubble-frame>
+
+			
+		</htwg-window-container>
+
+		<htwg-container id="testContainer" art="menu">
+			<h1 class="title">Test</h1>
+
+			<span>asd</span>
+
+		</htwg-container>
+
+
+
+
+
+
+
+
+
 
 		<htwg-window-container id="contactContainer">
 			<div class="col-8 col-s-12 col-m-16 col-l-24">
@@ -412,6 +463,8 @@ Die professionelle Erstellung von komplexer, robuster und zuverlässiger Softwar
 				</p>
 			</div>
 		</htwg-window-container>
+
+
 
 	</body>
 
