@@ -27,7 +27,7 @@
     </style>
   
     <div class="overlay-content">
-      <img src="{{logo}}" alt="picture not found" style="width:80px;height:80px"></img>
+      <img src="{{logo}}" alt="picture not found" style="width:80px;height:80px" on-tap="openLink"></img>
         <content></content>
     </div>
     
@@ -44,10 +44,18 @@
         type: String,
         value: ""
       },
-      path: {
+      link: {
         type: String,
         value: ""
       },
+
+    },
+    attached:function(){
+    },
+    openLink:function(){
+        if (this.link != ""){
+          window.open(this.link, "_self");
+      }
     }
   });
 </script>
