@@ -208,9 +208,9 @@
       //Bei Ipad oder kleiner(1024px) wird nichtmehr ausgegraut
       if (window.matchMedia("(min-width: 1024px)").matches) {
           if(this.visibleElement){
-              this.style.opacity = 1.0;
+              this.$$(".innerwrapper").style.opacity = 1.0;
           }else{
-              this.style.opacity = 0.5;
+              this.$$(".innerwrapper").style.opacity = 0.5;
           }
      }
     },
