@@ -31,20 +31,11 @@
       margin-top: 70px;
       margin-bottom: 70px;
     }
-    .text {
-
-    }
-    .gallary {
-
-    }
-    .menu {
-
-    }
 
   </style>
 
   <template>
-  	<div class="backgroundArea" id="test">
+  	<div class="backgroundArea">
   		<div class="contentclass">
   		<img src="../../images/closebutton-over.png" class="closecontainer" on-tap="close"></img>
         <div class="row">
@@ -54,23 +45,13 @@
           </div>
           <div class="col-1 col-s-1 col-m-2 col-l-3"></div>
         </div>
+
         <div class="row" id="textcontent">
           <div class="border" id="borderLeft"></div>
-          <div class="content" id="contentOne"><content select="#content1"></content></div>
+          <div class="content" id="contentOne"><content select=".content1"></content></div>
           <div class="gap" id="gapOne"></div>
-          <div class="content"id="contentTwo"><content select="#content2"></div>
-          <div class="gap" id="gapTwo"></div>
-          <div class="content"id="contentThree"><content select="#content3"></div>
-          <div class="gap" id="gapThree"></div>
-          <div class="content"id="contentFour"><content select="#content4"></div>
-          <div class="gap" id="gapFour"></div>
-          <div class="content"id="contentFive"><content select="#content5"></div>
+          <div class="content"id="contentTwo"><content select=".content2"></div>
           <div class="border" id="borderRight"></div>
-          <!--<div id="textcontent">
-            <content select="span, p"></content>
-            <content select="htwg-container-menu"></content>
-            <content select="htwg-container-text"></content>
-          </div>-->
         </div>
   		</div>
   	</div>
@@ -90,22 +71,24 @@
     		notify: true,
         observer: "_activeChanged"
       },
-      art: {
-        type: String,
-        value: "text"
+      menu: {
+        type: Boolean,
+        value: false
       }
     },
     attached: function(){
-      if (this.art == "text") {
+      if (!this.menu) {
         this.$.borderLeft.classList.add("col-1", "col-s-1", "col-m-2", "col-l-3");
         this.$.borderRight.classList.add("col-1", "col-s-1", "col-m-2", "col-l-3");
         this.$.gapOne.classList.add("col-2", "col-s-2", "col-m-2", "col-l-2");
         this.$.contentOne.classList.add("col-7", "col-s-10", "col-m-13", "col-l-20");
         this.$.contentTwo.classList.add("col-7", "col-s-10", "col-m-13", "col-l-20");
-      } else if (this.art == "gallary" || this.art == "menu" || this.art == "text") {
-        this.$.textcontent.classList.add(art);
-      } else {
-        console.log(this.art + " is not a valid container art");
+      } else if (this.menu) {
+        this.$.borderLeft.classList.add("col-1", "col-s-2", "col-m-2", "col-l-3");
+        this.$.borderRight.classList.add("col-1", "col-s-2", "col-m-2", "col-l-3");
+        this.$.gapOne.classList.add("col-4", "col-s-4", "col-m-4", "col-l-4");
+        this.$.contentOne.classList.add("col-3", "col-s-5", "col-m-8", "col-l-13");
+        this.$.contentTwo.classList.add("col-7", "col-s-11", "col-m-16", "col-l-25");        
       }
     },
 	close: function(){
