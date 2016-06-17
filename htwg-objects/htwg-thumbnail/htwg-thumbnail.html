@@ -7,51 +7,55 @@
 
     <style type="text/css">
       :host{
-        word-wrap: normal !important;
-        display: inline-block;
-		word-break: break-word !important;
-        -webkit-user-select: none !important;
-        -moz-user-select: none !important;
-        -ms-user-select: none !important;
+        word-wrap: break-word;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
 
-        user-select: none !important;
-		width: 158px;
-		padding-left: 20%;
-		padding-right: 20%;
+        user-select: none;
+
+        height: 110pt; 
+		margin: auto;
       };
       .container-rounded{
 		border-radius: 10px;
-        padding: 0px; 
-        width: 125px;
-        height: 118px; 
+        padding: 0px;  
         margin: 0px;
 		/*background-image: url('"+this.icon+"');*/
         background-repeat: no-repeat;
-        background-size: auto 90%;
+		background-size: auto 60%;
+		width: 110pt;
+		height: auto;
         background-position: center;
       }
       #title {
         opacity: 1;
         text-align: center;
+		color: var(--htwg-thumbnail-title-color,white);
       }
 
       .innerwrapper{
         background-color: var(--htwg-thumbnail-background-color,white);
         border-radius: 10px;
-        padding: 20px; 
         margin: 0 auto; 
         display: flex;
         flex-direction: row;
         justify-content: center;
         position: relative;
+		width: 110pt; 
+        height: 110pt;
       }
       .outerwrapper{
         background-color: "transparent";
         border-radius: 10px;
+		margin: auto;
+		width: 110pt;
       }
       .outerwrapperactive{
         background-color: var(--htwg-thumbnail-background-color,white);
         border-radius: 10px;
+		margin: auto;
+		width: 110pt;
       }
 
       hr{
@@ -170,8 +174,9 @@
           this.$.wrapper.style.transition = "ease-in 0.5s";
           this.$.content.style.opacity = 0;
 		  this.$.content.style.display = "none";
-		  
           this.$.content.style.transition = "ease-out 0.5s";
+		  this.customStyle['--htwg-thumbnail-title-color'] = 'white';
+		  this.updateStyles();  
     }, fadeOut: function(){
           this.active = false;
           this.$.wrapper.className = "outerwrapperactive";
@@ -180,7 +185,9 @@
           this.$.wrapper.style.transition = "ease-out 1.0s";
           this.$.content.style.opacity = 1;
 		  this.$.content.style.display = "block";
-          this.$.content.style.transition = "ease-in 0.5s";    
+          this.$.content.style.transition = "ease-in 0.5s";
+		  this.customStyle['--htwg-thumbnail-title-color'] = 'black';
+		  this.updateStyles();   
     },
     __gotMarked: function(){
       //Zahlen oben einblenden/ausblenden und setzen
@@ -215,19 +222,9 @@
       }
     },
 
-
-
     attached:function(){
       this.$.content.style.opacity = 0;
-      //this.$$(".outerwrapper").style.width = this.width + "vw";
-      //this.$$(".innerwrapper").style.height = this.height + "vh";
-
-      //this.$$(".container-rounded").style.width = (this.width-1) + "vw";
-      //this.$$(".container-rounded").style.height = (this.height-1) + "vh";
       this.$$(".container-rounded").style.backgroundImage = "url('"+this.icon+"')";
-      //this.$$(".container-rounded").style.backgroundRepeat = "no-repeat";
-      //this.$$(".container-rounded").style.backgroundSize = " auto 95%";
-      //this.$$(".container-rounded").style.backgroundPosition = "center";
     }
 
   });

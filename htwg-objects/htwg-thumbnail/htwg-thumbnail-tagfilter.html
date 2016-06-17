@@ -6,18 +6,31 @@
 
   <template>
 
-    <style type="text/css">
+    <style>
+	  :host {
+		--input-font-style: {
+			font-family: MarkProBlack;
+			font-size: 136pt;
+			color: white;
+			opacity: 0.8;			
+		};
+		@font-face {
+			font-family: MarkProBlack;
+			src: url("../fonts/MarkPro-Black.otf") format("opentype");
+		}
+      }
       .wrapper{
-        display: inline-block;
+		width: 110pt;
+		margin: auto;
       }
       .tagfilter{
         position: relative;
       }
     </style>
 
-  <div class=wrapper>
+  <div class="wrapper">
       <div id="textfieldtagfilter" class="tagfilter" >
-          <htwg-input on-keyup="keyup" on-input="validateInput" id="taginput" inputwidth=30 inputfontsize=60></htwg-input>
+          <htwg-input on-keyup="keyup" on-input="validateInput" id="taginput"></htwg-input>
       </div>
   </div>
 
@@ -29,20 +42,7 @@
   Polymer({
     is: 'htwg-thumbnail-tagfilter',
 
-
     properties: {
-      textColor: {
-        type: String,
-        value: "black"
-      },
-      textSize: { 
-        type: Number,
-        value: 10
-      },
-      textFamily:{
-        type: String,
-        value: "Arial"
-      },
       savedTag: {
         type: Array,
         value: []

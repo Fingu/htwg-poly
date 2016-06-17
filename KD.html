@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="de">
 	<head>
 		<meta charset="utf-8"/>
 		<script src="bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
@@ -93,8 +93,6 @@
   	  	}
   	  	htwg-thumbnail{
 			--htwg-thumbnail-background-color: var(--htwg-white);
-			padding-left: 10%;
-
 		}
 		.wrapper{	
 			float: left;
@@ -135,50 +133,58 @@
 					<htwg-overlay-menuitem>Konstanz</htwg-overlay-menuitem>
 					<htwg-overlay-menuitem>Grenzenlos studieren</htwg-overlay-menuitem>
 				</htwg-overlay-menubar>
-				<p>
-					<htwg-thumbnail-tagfilter></htwg-thumbnail-tagfilter>
-				</p>
-
-				<div class="wrapper">
-					<htwg-thumbnail class="informatik" title="Informatik" icon="../../images/icons/icon_information.png">
-						<!--<htwg-thumbnail-textelement text-Caption="Angewandte Informatik" link="http://www.google.de" tags=' { "tag" : "Computer" , "tag1" : "Hacken" }'></htwg-thumbnail-textelement>-->
-						<htwg-thumbnail-textelement text-Caption="Angewandte Informatik" link="AIN.html" tags=' ["computer" , "hacken"] '></htwg-thumbnail-textelement>
-						<htwg-thumbnail-textelement text-Caption="Automobilinformatik" tags=' [ "computer","auto" ,"motor" ]'></htwg-thumbnail-textelement>
-						<htwg-thumbnail-textelement text-Caption="Gesundheitsinformatik" tags=' ["computer", "medizin" ,"gesund" ]'></htwg-thumbnail-textelement>
-						<htwg-thumbnail-textelement text-Caption="Wirtschaftsinformatik" tags=' [ "geld" ,"wirtschaft" ]'></htwg-thumbnail-textelement>
-					</htwg-thumbnail>
-
-					<htwg-thumbnail class="architektur" title="Architektur und Gestaltung" icon="../../images/icons/icon_architekturgestaltung.png">
-						<htwg-thumbnail-textelement text-Caption="Architektur" link="http://www.google.de" tags=' [ "bauen" ,"haus"]'></htwg-thumbnail-textelement>
-						<htwg-thumbnail-textelement text-Caption="Kommunikationsdesign" link="KD.html" tags=' [ "girls" ,"love" ,"fashion" ]'></htwg-thumbnail-textelement>
-					</htwg-thumbnail>
-
-					<htwg-thumbnail class="maschinenbau" title="Maschinenbau" icon="../../images/icons/icon_maschinenbau.png">
-						<htwg-thumbnail-textelement text-Caption="Maschinenbau Konstruktion und Entwicklung" tags=' [ "entwicklung" ,"maschine" ]'></htwg-thumbnail-textelement>
-						<htwg-thumbnail-textelement text-Caption="Maschinenbau Entwicklung und Produktion" tags=' [ "produktion" ,"entwicklung" ,"maschine" ]'></htwg-thumbnail-textelement>
-						<htwg-thumbnail-textelement text-Caption="Verfahrens- und Umwelttechnik" tags=' [ "umwelt" ,"verfahren" ]'></htwg-thumbnail-textelement>
-						<htwg-thumbnail-textelement text-Caption="Wirtschaftsingenieurwesen Maschinenbau" tags=' [ "wirtschaft" ,"maschine" ]'></htwg-thumbnail-textelement>
-					</htwg-thumbnail>
+				
+				<div class="row">
+					<div class="col-8 col-s-8 col-m-8 col-l-8">
+						<htwg-thumbnail-tagfilter></htwg-thumbnail-tagfilter>
+					</div>
 				</div>
-				<div class="wrapper">
-					<htwg-thumbnail class="bauingenieurwesen" title="Bauingenieur- wesen" icon="../../images/icons/icon_bauingenieur.png">
-						<htwg-thumbnail-textelement text-Caption="Bauingenieurwesen" link="http://www.google.de" tags=' ["bau" , "strasse"] '></htwg-thumbnail-textelement>
-						<htwg-thumbnail-textelement text-Caption="Wirtschaftsingenieurwesen Bau" tags=' [ "wirtschaft" ,"bau" ]'></htwg-thumbnail-textelement>
-						<htwg-thumbnail-textelement text-Caption="Umwelttechnik und Ressourcemanagement" tags=' [ "umwelt" ,"ressourcen" ]'></htwg-thumbnail-textelement>
-					</htwg-thumbnail>
-
-					<htwg-thumbnail class="elektro" title="Elektro- und Informations- technik" icon="../../images/icons/icon_elektroinformation.png">
-						<htwg-thumbnail-textelement text-Caption="Automobil- Informationstechnik" link="http://www.google.de" tags=' [ "auto" ,"elektrotechnik" ]'></htwg-thumbnail-textelement>
-						<htwg-thumbnail-textelement text-Caption="Elektro- und Informationstechnik" tags=' [ "elektrotechnik" ,"computer" ]'></htwg-thumbnail-textelement>
-						<htwg-thumbnail-textelement text-Caption="Wirtschaftsingenieurwesen Elektro- und Informationstechnik" tags=' [ "elektro" ,"wirtschaft" ]'></htwg-thumbnail-textelement>
-					</htwg-thumbnail>
-
-					<htwg-thumbnail class="wirtschaft" title="Wirtschafts- Kultur- und Rechts- wissenschaften" icon="../../images/icons/icon_wirtschaftkulturrecht.png">
-						<htwg-thumbnail-textelement text-Caption="Betriebswirtschaftslehre" tags=' [ "wirtschaft" ,"geld" ,"hemd" ]'></htwg-thumbnail-textelement>
-						<htwg-thumbnail-textelement text-Caption="Wirtschaftsrecht" tags=' [ "recht" ,"wirtschaft" ]'></htwg-thumbnail-textelement>
-						<htwg-thumbnail-textelement text-Caption="Wirtschaftssprachen Asien und Management China | Südost- und Südasien" tags=' [ "girls" ,"asien" ,"china" ]'></htwg-thumbnail-textelement>
-						<htwg-thumbnail-textelement text-Caption="Wirtschaftssprachen Deutsch und Tourismusmanagement" tags=' [ "deutsch" ,"tourismus" ]'></htwg-thumbnail-textelement>
-					</htwg-thumbnail>
+				<div class="row">
+					<div class="col-8 col-s-8 col-m-8 col-l-8">
+						<htwg-thumbnail class="informatik" title="Informatik" icon="../../images/icons/icon_information.png">
+							<!--<htwg-thumbnail-textelement text-Caption="Angewandte Informatik" link="http://www.google.de" tags=' { "tag" : "Computer" , "tag1" : "Hacken" }'></htwg-thumbnail-textelement>-->
+							<htwg-thumbnail-textelement text-Caption="Angewandte Informatik" link="AIN.html" tags=' ["computer" , "hacken"] '></htwg-thumbnail-textelement>
+							<htwg-thumbnail-textelement text-Caption="Automobilinformatik" tags=' [ "computer","auto" ,"motor" ]'></htwg-thumbnail-textelement>
+							<htwg-thumbnail-textelement text-Caption="Gesundheitsinformatik" tags=' ["computer", "medizin" ,"gesund" ]'></htwg-thumbnail-textelement>
+							<htwg-thumbnail-textelement text-Caption="Wirtschaftsinformatik" tags=' [ "geld" ,"wirtschaft" ]'></htwg-thumbnail-textelement>
+						</htwg-thumbnail>
+					</div>
+					<div class="col-8 col-s-8 col-m-8 col-l-8">
+						<htwg-thumbnail class="architektur" title="Architektur & Gestaltung" icon="../../images/icons/icon_architekturgestaltung.png">
+							<htwg-thumbnail-textelement text-Caption="Architektur" link="http://www.google.de" tags=' [ "bauen" ,"haus"]'></htwg-thumbnail-textelement>
+							<htwg-thumbnail-textelement text-Caption="Kommunikationsdesign" link="KD.html" tags=' [ "girls" ,"love" ,"fashion" ]'></htwg-thumbnail-textelement>
+						</htwg-thumbnail>
+					</div>
+					<div class="col-8 col-s-8 col-m-8 col-l-8">
+						<htwg-thumbnail class="maschinenbau" title="Maschinenbau" icon="../../images/icons/icon_maschinenbau.png">
+							<htwg-thumbnail-textelement text-Caption="Maschinenbau Konstruktion und Entwicklung" tags=' [ "entwicklung" ,"maschine" ]'></htwg-thumbnail-textelement>
+							<htwg-thumbnail-textelement text-Caption="Maschinenbau Entwicklung und Produktion" tags=' [ "produktion" ,"entwicklung" ,"maschine" ]'></htwg-thumbnail-textelement>
+							<htwg-thumbnail-textelement text-Caption="Verfahrens- und Umwelttechnik" tags=' [ "umwelt" ,"verfahren" ]'></htwg-thumbnail-textelement>
+							<htwg-thumbnail-textelement text-Caption="Wirtschaftsingenieurwesen Maschinenbau" tags=' [ "wirtschaft" ,"maschine" ]'></htwg-thumbnail-textelement>
+						</htwg-thumbnail>
+					</div>
+					<div class="col-8 col-s-8 col-m-8 col-l-8">
+						<htwg-thumbnail class="bauingenieurwesen" title="Bauingenieurwesen" icon="../../images/icons/icon_bauingenieur.png">
+							<htwg-thumbnail-textelement text-Caption="Bauingenieurwesen" link="http://www.google.de" tags=' ["bau" , "strasse"] '></htwg-thumbnail-textelement>
+							<htwg-thumbnail-textelement text-Caption="Wirtschaftsingenieurwesen Bau" tags=' [ "wirtschaft" ,"bau" ]'></htwg-thumbnail-textelement>
+							<htwg-thumbnail-textelement text-Caption="Umwelttechnik und Ressourcemanagement" tags=' [ "umwelt" ,"ressourcen" ]'></htwg-thumbnail-textelement>
+						</htwg-thumbnail>
+					</div>
+					<div class="col-8 col-s-8 col-m-8 col-l-8">
+						<htwg-thumbnail class="elektro" title="Elektro- & Informationstechnik" icon="../../images/icons/icon_elektroinformation.png">
+							<htwg-thumbnail-textelement text-Caption="Automobil- Informationstechnik" link="http://www.google.de" tags=' [ "auto" ,"elektrotechnik" ]'></htwg-thumbnail-textelement>
+							<htwg-thumbnail-textelement text-Caption="Elektro- und Informationstechnik" tags=' [ "elektrotechnik" ,"computer" ]'></htwg-thumbnail-textelement>
+							<htwg-thumbnail-textelement text-Caption="Wirtschaftsingenieurwesen Elektro- und Informationstechnik" tags=' [ "elektro" ,"wirtschaft" ]'></htwg-thumbnail-textelement>
+						</htwg-thumbnail>
+					</div>
+					<div class="col-8 col-s-8 col-m-8 col-l-8">
+						<htwg-thumbnail class="wirtschaft" title="Wirtschafts-, Kultur- & Rechtswissenschaften" icon="../../images/icons/icon_wirtschaftkulturrecht.png">
+							<htwg-thumbnail-textelement text-Caption="Betriebswirtschaftslehre" tags=' [ "wirtschaft" ,"geld" ,"hemd" ]'></htwg-thumbnail-textelement>
+							<htwg-thumbnail-textelement text-Caption="Wirtschaftsrecht" tags=' [ "recht" ,"wirtschaft" ]'></htwg-thumbnail-textelement>
+							<htwg-thumbnail-textelement text-Caption="Wirtschaftssprachen Asien und Management China | Südost- und Südasien" tags=' [ "girls" ,"asien" ,"china" ]'></htwg-thumbnail-textelement>
+							<htwg-thumbnail-textelement text-Caption="Wirtschaftssprachen Deutsch und Tourismusmanagement" tags=' [ "deutsch" ,"tourismus" ]'></htwg-thumbnail-textelement>
+						</htwg-thumbnail>
+					</div>
 				</div>
 			</htwg-overlay-menu>
 

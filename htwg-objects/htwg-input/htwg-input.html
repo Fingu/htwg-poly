@@ -8,7 +8,9 @@
           border: 0;
           outline: 0;
           background: transparent;
-          border-bottom: 2px solid black;
+		  width: 100%;
+		  min-width: 1000pt;
+		  @apply(--input-font-style);
        }
        ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
           opacity: 0.8;
@@ -58,8 +60,8 @@
     attached: function(){
 
       //Set the width and the style
-      this.$$(".custominput").style.width = this.inputwidth + "vw";
-      this.$$(".custominput").style.fontSize = this.inputfontsize + "pt";
+      //this.$$(".custominput").style.width = this.inputwidth + "vw";
+      //this.$$(".custominput").style.fontSize = this.inputfontsize + "pt";
 
       var inputs = this.$.input;
           inputs.value = inputs.getAttribute('data-placeholder');
