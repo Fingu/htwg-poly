@@ -1,8 +1,6 @@
 
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 <link rel="import" href="../htwg-grid/htwg-grid.html">
-<script src="https://code.jquery.com/jquery-2.1.4.js"></script>
-
 
 <dom-module id="htwg-container">
 
@@ -83,7 +81,7 @@
         this.$.gapOne.classList.add("col-2", "col-s-2", "col-m-2", "col-l-2");
         this.$.contentOne.classList.add("col-7", "col-s-10", "col-m-13", "col-l-20");
         this.$.contentTwo.classList.add("col-7", "col-s-10", "col-m-13", "col-l-20");
-      } else if (this.menu) {
+      } else {
         this.$.borderLeft.classList.add("col-1", "col-s-2", "col-m-2", "col-l-3");
         this.$.borderRight.classList.add("col-1", "col-s-2", "col-m-2", "col-l-3");
         this.$.gapOne.classList.add("col-4", "col-s-4", "col-m-4", "col-l-4");
@@ -91,34 +89,32 @@
         this.$.contentTwo.classList.add("col-7", "col-s-11", "col-m-16", "col-l-25");        
       }
     },
-	close: function(){
-    this.style.transition = "height 2s";
-		this.active = false;
+  	close: function(){
+      this.style.transition = "height 2s";
+  		this.active = false;
 
-    var positionTop = this.$.test.getBoundingClientRect().top + window.scrollY - window.innerHeight;
-    $('body, html').animate({scrollTop: positionTop});
-    
-	},
-  closeWithAnimation:function(){
-    this.style.transition = "height 0s";
-    this.active = false;
-  },
-  _activeChanged: function(){
-    if(this.active){
-          var listElements = document.getElementsByTagName("htwg-container");
-          for(i = 0; i < listElements.length; i++){
-            if(listElements[i] != this){
-              listElements[i].closeWithAnimation();
-              listElements[i].active = false;
+      var positionTop = this.$.test.getBoundingClientRect().top + window.scrollY - window.innerHeight;
+      $('body, html').animate({scrollTop: positionTop});
+      
+  	},
+    closeWithAnimation:function(){
+      this.style.transition = "height 0s";
+      this.active = false;
+    },
+    _activeChanged: function(){
+      if(this.active){
+            var listElements = document.getElementsByTagName("htwg-container");
+            for(i = 0; i < listElements.length; i++){
+              if(listElements[i] != this){
+                listElements[i].closeWithAnimation();
+                listElements[i].active = false;
+              }
             }
-          }
+      var positionTop = this.$.test.getBoundingClientRect().top + window.scrollY;
+      $('body, html').animate({scrollTop: positionTop});
 
-
-    var positionTop = this.$.test.getBoundingClientRect().top + window.scrollY;
-    $('body, html').animate({scrollTop: positionTop});
-
+      }
     }
-  }
   
   });
 </script>
