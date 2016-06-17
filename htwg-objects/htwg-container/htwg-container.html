@@ -33,7 +33,7 @@
   </style>
 
   <template>
-  	<div class="backgroundArea">
+  	<div class="backgroundArea" id="container">
   		<div class="contentclass">
   		<img src="../../images/closebutton-over.png" class="closecontainer" on-tap="close"></img>
         <div class="row">
@@ -93,7 +93,7 @@
       this.style.transition = "height 2s";
   		this.active = false;
 
-      var positionTop = this.$.test.getBoundingClientRect().top + window.scrollY - window.innerHeight;
+      var positionTop = this.$.container.getBoundingClientRect().top + window.scrollY - window.innerHeight;
       $('body, html').animate({scrollTop: positionTop});
       
   	},
@@ -110,7 +110,7 @@
                 listElements[i].active = false;
               }
             }
-      var positionTop = this.$.test.getBoundingClientRect().top + window.scrollY;
+      var positionTop = this.$.container.getBoundingClientRect().top + window.scrollY;
       $('body, html').animate({scrollTop: positionTop});
 
       }
