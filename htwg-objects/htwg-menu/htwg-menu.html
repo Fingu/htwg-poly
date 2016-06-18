@@ -10,13 +10,38 @@
       background: rgba(255, 255, 255, 0.5);
       position: fixed;
       width: 100%;
-      height: 10vh;
+      height: 40px;
       top: 0px;
       left: 0px;
       cursor: pointer;
       z-index: 99;
     }
-    .contentClass{
+
+    @media(min-width: 1000px){ /*  Laptopsize*/
+    	.menuClass{
+    		height: 70px;
+    	}
+    }
+
+    @media (min-width: 768px){ /*768 x 1024 IPad*/
+    	.menuClass{
+    		height: 60px;
+    	}
+    }
+
+    @media (min-width: 375px){ /*378 x 667 IPhone*/
+    	.menuClass{
+    		height: 50px;
+    	}
+    }
+
+    @media(max-width: 1000px){ /*  Laptopsize*/
+      .contentMenuClass{
+        visibility: hidden;
+      }
+    }
+
+    .contentMenuClass{
       display: inline-block;
       text-align: center;
       position: fixed;
@@ -30,7 +55,7 @@
 
     <div class="menuClass" id="menu">
       <ul id="MenuList">
-          <div class="contentClass">
+          <div class="contentMenuClass">
             <content select="htwg-menuelement" id="mycontent"></content>
           </div>
           
@@ -53,7 +78,7 @@
       }
     },
     attached: function(){
-      this.$.menu.style.height = this.height + "vh";
+      //this.$.menu.style.height = this.height + "vh";
         $('a[href^="#"]').on('click',function (e) {
           e.preventDefault();
 

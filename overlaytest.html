@@ -46,8 +46,6 @@
 	  <link rel="import" href="htwg-objects/htwg-container/htwg-container-text.html">
 	  <link rel="import" href="htwg-objects/htwg-container/htwg-container-fileloader.html">
 	  <link rel="import" href="htwg-objects/htwg-dropdown/htwg-dropdown.html">
-	  <link rel="import" href="htwg-objects/htwg-image-viewer/htwg-image-viewer.html">
-	  <link rel="import" href="htwg-objects/htwg-image-viewer/htwg-image.html">
 
   	  	<style is="custom-style" include="htwg-grid htwg-color htwg-font">
 		.bachelor{
@@ -83,28 +81,6 @@
 			--bubble-color: var(--htwg-ag-80);
 		}
 		
-  	  	.bubbleKurzportrait{
-  	  		--bubble-frame-image: url("../../images/AIN/studentin.jpg");
-  	  	}
-
-  	  	.bubbleBewerbung{
-  	  		--bubble-frame-image: url("../../images/AIN/student.jpg");
-  	  	}
-
-  	  	.bubbleArbeiten{
-  	  		--bubble-frame-image: url("../../images/AIN/code.jpg");
-  	  	}
-
-  	  	.bubbleFachschaft{
-  	  		--bubble-frame-image: url("../../images/AIN/group.jpg");
-  	  	}
-
-  	  	#contactContainer{
-  	  		--container-background: var(--htwg-ag-100);
-  	  	}
-  	  	htwg-container{
-  	  		background: var(--htwg-ag-100);
-  	  	} 
   	  	#top{
   	  		--container-background: url("../../images/AIN/auto.jpg")
   	  	}
@@ -169,6 +145,7 @@
 					<div class="row">
 						<div class="col-8 col-s-8 col-m-8 col-l-8">
 							<htwg-thumbnail class="informatik" title="Informatik" icon="../../images/icons/icon_information.png">
+
 								<htwg-thumbnail-textelement text-Caption="Angewandte Informatik" link="AIN.html" tags=' ["computer" , "hacken"] '></htwg-thumbnail-textelement>
 								<htwg-thumbnail-textelement text-Caption="Automobilinformatik" tags=' [ "computer","auto" ,"motor" ]'></htwg-thumbnail-textelement>
 								<htwg-thumbnail-textelement text-Caption="Gesundheitsinformatik" tags=' ["computer", "medizin" ,"gesund" ]'></htwg-thumbnail-textelement>
@@ -236,171 +213,6 @@
 			</div>
 		</htwg-window-container>
 
-
-		<htwg-window-container id="kurzportrait">
-			<htwg-bubble-frame class="bubbleKurzportrait">
-					<div class="row" style="margin-top: 35%;">
-						<div class="col-9 col-s-15 col-m-21 col-l-31"></div>
-						<div class="col-2 col-s-4 col-m-6 col-l-8">
-							<htwg-container-opener class="content" target="kurzportraitContainer"><h2>Kurzportrait</h2></htwg-container-opener>
-						</div>
-					</div>
-				</htwg-bubble-frame>
-
-			
-
-		</htwg-window-container>
-
-
-<!-- HTWG Container (popped auf-->
-		<htwg-container id="kurzportraitContainer">
-
-			<h1 class="title">Kurzportrait</h1>
-
-			<span>
-				Ein gutes Studium verändert das Leben. Es macht aus Absolventen Persönlichkeiten. Talente sollen in Konstanz zu solchen Gestalterpersönlichkeiten heranreifen. Deshalb arbeiten hier neun Professoren mit nur 20 Studenten pro Semester. Sie bieten eine fundierte Ausbildung in allen Bereichen des Kommunikationsdesigns
-
-				- außergewöhnlich engagierte Professoren mit großer Erfahrung;
-				- ein Mitarbeiterstab, der das Drumherum meistert;
-				- Lehrbeauftragte, die Spezialkenntnisse beisteuern;
-				- Studenten, die – zum Beispiel über die Fachschaft – Außergewöhnliches auf die Beine stellen;
-				- ein Studiengang mit Tradition;
-				- eine Ausstattung, die auf dem neuesten Stand ist.
-
-				Kommunikation bestimmt den modernen Alltag. Menschen kommunizieren, um sich zu informieren, um in soziale Interaktion zu treten, um sich zu unterhalten. In der Dienstleistungsgesellschaft wird Kommunikation selbst zunehmend zum Wirtschaftsfaktor. Dabei stand noch nie eine so umfangreiche mediale Bandbreite zur Verfügung wie am Beginn des 21. Jahrhunderts: Sie reicht vom Buch bis zur Homepage, vom Ausstellungsbanner bis zum interaktiven Interface.
-				Kommunikationsdesigner beschäftigen sich in vielfältiger Weise mit der Gestaltung von Kommunikation. Sie entscheiden, mit welchem visuellen Erscheinungsbild eine Firma nach außen tritt. Sie entwickeln Leit- und Orientierungssysteme, gestalten Bücher und Magazine, entwerfen Ausstellungen und konzipieren multimediale Internetauftritte und Interfaces. Sie arbeiten im öffentlichen Raum, für private und institutionelle Auftraggeber. Bereits seit 2004 bietet die Fakultät Architektur und Gestaltung an der renommierten Konstanzer Hochschule den akkreditierten Bachelorstudiengang Kommunikationsdesign an – mit einem besonderen Profil.
-			</span>
-		</htwg-container>
-
-<!-- Neues Window -->
-		<htwg-window-container
-			id="bewerbung">
-
-			<htwg-bubble-frame class="bubbleBewerbung">
-					<div class="row" style="margin-top: 35%;">
-						<div class="col-9 col-s-15 col-m-21 col-l-31"></div>
-						<div class="col-2 col-s-4 col-m-6 col-l-8">
-							<htwg-container-opener class="content" target="bewerbungContainer"><h2>Bewerbung</h2></htwg-container-opener>
-						</div>
-					</div>
-			</htwg-bubble-frame>
-
-			
-		</htwg-window-container>
-
-		<htwg-container id="bewerbungContainer">
-			<h1 class="title">Bewerbung</h1>
-			<htwg-container-menu>
-				<htwg-container-menuitem linkid="bewerbenTermine" active>
-					Termine und Fristen
-				</htwg-container-menuitem>
-				<htwg-container-menuitem linkid="bewerbenVorrausetzung">
-					Voraussetzung
-				</htwg-container-menuitem>
-				<htwg-container-menuitem linkid="bewerbenZulassung">
-					Zulassung
-				</htwg-container-menuitem>
-			</htwg-container-menu>
-			<htwg-container-text id="bewerbenTermine" active>
-				<p>
-					<h3>Termine und Fristen</h3>
-					Für das Wintersemester 2016/17 ist eine Bewerbung um einen Studienplatz an der HTWG Konstanz ausschließlich über die Online-Bewerbung möglich.
-					Alle Informationen dazu fnden Sie hier. 
-				</p>
-			</htwg-container-text>
-
-			<htwg-container-text id="bewerbenVorrausetzung">
-				<p>
-					<h3>Vorraussetzungen</h3>
-					Hochschulzugangsberechtigung: z.B. Fachhochschulreife oder Abitur.
-					Vorkenntnisse im Programmieren werden nicht erwartet.
-					Bewerber/innen mit ausländischer Staatsangehörigkeit und mit ausländischen Schul- und Hochschulzeugnissen benötigen eine Zeugnisanerkennung des Studienkollegs Konstanz (STK). Dies gilt auch dann, wenn Sie bereits außerhalb der Hochschule Konstanz eine Feststellungsprüfung, die DSH-Prüfung oder TestDaF erfolgreich erworben haben. Mit der Zeugnisanerkennung des STK und Ihren vollständigen Bewerbungsunterlagen können Sie sich anschließend um einen Studienplatz an der Hochschule Konstanz bewerben.
-					Deutsche Staatsbürger mit ausländischen Bildungsnachweisen benötigen für ihre Bewerbung eine Anerkennung durch das Regierungspräsidium Stuttgart, Breitscheidtstr. 42, 70176 Stuttgart. Tel.: 0711/90 440 700
-				</p>
-			</htwg-container-text>
-
-			<htwg-container-text id="bewerbenZulassung">
-				<p>
-					<h3>Zulassung</h3>
-					Im Wintersemester stehen 60, im Sommersemester 30 Studienplätze zur Verfügung. Die Zulassung erfolgt über ein Auswahlverfahren auf Basis der Bewerbungsunterlagen.
-					Die Zugangsnote berechnet sich aus
-					• der Note für die Hochschulzugangsberechtigung und
-					• Bonuspunkten für die folgenden Bereiche (sofern Belege vorliegen), die je nach
-					inhaltlicher Nähe zum angestrebten Studiengang und Umfang vergeben werden ◦ Berufsausbildung (z.B. Fachinformatiker/in, IT-Systemelektroniker/in )
-					◦ Berufsausübung
-					    
-					◦ außerunterrichtliche besondere Leistungen (z.B. freiwilliges soziales oder ökologisches Jahr)
-					Aufgrund dieser ermittelten Note wird eine Rangliste erstellt, nach der die Studienplätze vergeben werden.
-				</p>
-			</htwg-container-text>
-		</htwg-container> 
-
-
-		<htwg-window-container
-			id="arbeiten">
-
-			<htwg-bubble-frame class="bubbleArbeiten">
-					<div class="row" style="margin-top: 35%;">
-						<div class="col-9 col-s-15 col-m-21 col-l-31"></div>
-						<div class="col-2 col-s-4 col-m-6 col-l-8">
-							<htwg-container-opener class="content" target="arbeitenContainer"><h2>Arbeiten</h2></htwg-container-opener>
-						</div>
-					</div>
-			</htwg-bubble-frame>
-
-			
-		</htwg-window-container>
-
-		<htwg-container id="arbeitenContainer">
-			<h1 class="title">Arbeiten</h1>
-
-			<htwg-image-viewer>
-				<htwg-image src="images/KD/arbeiten/arbeit1.png" title="arbeit1">Lorem ipsum dolor sit amet, consetetur sadipscing elitr</htwg-image>
-				<htwg-image src="images/KD/arbeiten/arbeit2.jpg" title="arbeit2">Lorem ipsum dolor sit amet, consetetur sadipscing elitr</htwg-image>
-				<htwg-image src="images/KD/arbeiten/arbeit3.jpg" title="arbeit3">Lorem ipsum dolor sit amet, consetetur sadipscing elitr</htwg-image>
-				<htwg-image src="images/KD/arbeiten/arbeit4.jpg" title="arbeit4">Lorem ipsum dolor sit amet, consetetur sadipscing elitr</htwg-image>
-				<htwg-image src="images/KD/arbeiten/arbeit5.jpg" title="arbeit5">Lorem ipsum dolor sit amet, consetetur sadipscing elitr</htwg-image>
-				<htwg-image src="images/KD/arbeiten/arbeit6.jpg" title="arbeit6">Lorem ipsum dolor sit amet, consetetur sadipscing elitr</htwg-image>
-			</htwg-image-viewer>
-
-		</htwg-container>
-
-
-		<htwg-window-container
-			id="fachschaft">
-
-			<htwg-bubble-frame class="bubbleFachschaft">
-					<div class="row" style="margin-top: 35%;">
-						<div class="col-9 col-s-15 col-m-21 col-l-31"></div>
-						<div class="col-2 col-s-4 col-m-6 col-l-8">
-							<htwg-container-opener class="content" target="fachschaftContainer"><h2>Fachschaft</h2></htwg-container-opener>
-						</div>
-					</div>
-			</htwg-bubble-frame>
-
-			
-		</htwg-window-container>
-
-		<htwg-container id="fachschaftContainer">
-			<h1 class="title">Fachschaft</h1>
-
-			<p>
-				Das Kollegium der Studiengänge Kommunikationsdesign bilden zehn Professoren. Den gestandenen Kommunikationsdesignern stehen mehrere Spezialisten zur Seite ...
-			</p>
-
-		</htwg-container>
-
-		<htwg-window-container id="contactContainer">
-			<div class="col-8 col-s-12 col-m-16 col-l-24">
-				<img src="images/gmaps-in.png" width="90%" height="90%"></img>
-			</div>
-			<div class="col-8 col-s-12 col-m-16 col-l-24">
-				<h3>asdasdasdasd</h3>
-				<p>
-					Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-				</p>
-			</div>
-		</htwg-window-container>
 
 	</body>
 
