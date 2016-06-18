@@ -21,9 +21,7 @@
 
       .burger {
         position: absolute;
-        top: 3%;
-        right: 3%;
-        font-size: 3em;
+        font-size: 20px;
         cursor: pointer;
         color: var(--overlay-color, rgba(0,0,0, 0.8));
         z-index: 101;
@@ -32,6 +30,25 @@
       .open {
         color: white;
       }
+
+
+    @media(min-width: 1000px){ /*  Laptopsize*/
+      .burger {
+        font-size: 55px;
+      }
+    }
+
+    @media (min-width: 768px){ /*768 x 1024 IPad*/
+      .burger {
+        font-size: 40px;
+      }
+    }
+
+    @media (min-width: 375px){ /*378 x 667 IPhone*/
+      .burger {
+        font-size: 30px;
+      }
+    }
 
     </style>
 
