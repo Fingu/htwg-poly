@@ -32,10 +32,15 @@
       }
 
 
+
     @media(min-width: 1000px){ /*  Laptopsize*/
       .burger {
         font-size: 55px;
       }
+      .select{
+        visibility: hidden;
+      }
+
     }
 
     @media (min-width: 768px){ /*768 x 1024 IPad*/
@@ -48,14 +53,41 @@
       .burger {
         font-size: 30px;
       }
+
     }
 
+    @media(max-width: 1000px){ /*  Laptopsize*/
+      .select{
+        visibility: visible;
+      }
+    }
+
+    .select{
+      position: absolute;
+      left: 50%;
+    }
+
+    .selectButton{
+      width:20px;
+      height: 20px;
+    }
     </style>
 
   <span class="burger" on-tap="changeNav">☰</span>
 
   <div id="navbar" class="overlay">
-      <content></content>
+      <div class="mobilePage1">
+          <content select="htwg-overlay-menubar"></content>
+      </div>
+
+      <div class="mobilePage2">
+          <content></content>
+      </div>
+
+      <div class="select">
+        <input class="selectButton" type="Radio" name="Auswahl" checked="checked" on-tap="selectPage1"/> 
+        <input class="selectButton" type="Radio" name="Auswahl" on-tap="selectPage2"/> 
+      </div>
   </div>
     
   </template>
@@ -73,7 +105,18 @@
       }
     }, 
     attached:function(){
+      var that = this;
+      window.addEventListener("resize", function() {
+          if (window.matchMedia("(min-width: 1000px)").matches) {
+            that.$$(".mobilePage1").style.visibility = "visible";
+            that.$$(".mobilePage2").style.visibility = "visible";
+          }else{
+            that.$$(".mobilePage1").style.visibility = "visible";
+            that.$$(".mobilePage2").style.visibility = "hidden";
+          }
 
+
+       });
     }, 
     changeNav: function(){
       if (!this.active){
@@ -87,6 +130,14 @@
         this.$$(".burger").textContent = "☰";
         this.active = false;
       }
+    },
+    selectPage1: function(){
+        this.$$(".mobilePage1").style.visibility = "visible";
+        this.$$(".mobilePage2").style.visibility = "hidden";
+    },
+    selectPage2: function(){
+        this.$$(".mobilePage2").style.visibility = "visible";
+        this.$$(".mobilePage1").style.visibility = "hidden";
     }
 
 

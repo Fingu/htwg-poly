@@ -35,7 +35,13 @@
     	}
     }
 
-    .contentClass{
+    @media(max-width: 1000px){ /*  Laptopsize*/
+      .contentMenuClass{
+        visibility: hidden;
+      }
+    }
+
+    .contentMenuClass{
       display: inline-block;
       text-align: center;
       position: fixed;
@@ -49,7 +55,7 @@
 
     <div class="menuClass" id="menu">
       <ul id="MenuList">
-          <div class="contentClass">
+          <div class="contentMenuClass">
             <content select="htwg-menuelement"  id = "mycontent"></content>
           </div>
           
