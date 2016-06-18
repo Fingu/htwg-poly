@@ -1,0 +1,88 @@
+
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../htwg-grid/htwg-grid.html">
+
+<dom-module id="htwg-image">
+  <template>
+    <style include="htwg-grid">
+		#image {
+			width: 90%;
+			height: auto;
+		}
+		#info {
+			display: none;
+		}
+		:host([active]) #info {
+			display: block;
+		}
+		:host([active]) #image {
+			width: 90%;
+			height: auto;
+		}
+		#frame {
+			cursor: pointer;
+			transition: 1s;
+			margin: auto;
+			min-height: 200pt;
+		}
+    </style>
+	<div id="column" class="col-8 col-s-8 col-m-8 col-l-12">
+		<div id="frame" on-tap="showDetails">
+			<img id="image" src="{{src}}"/>
+			<h3>{{title}}</h3>
+			<p id="info"><content></content></p>
+		</div>
+	</div>
+
+  </template>
+</dom-module>
+
+<script>
+ Polymer({
+    is: 'htwg-image',
+    properties: {
+		src: {
+			type: String,
+			value: ""
+		},
+		title: {
+			type: String,
+			value: ""
+		},
+	    active: {
+			type: Boolean,
+			value: false,
+			reflectToAttribute: true,
+			notify: true
+        }
+    },
+    attached: function(){
+
+    },
+	showDetails: function() {
+		if(this.active) {
+			this.active = false;
+			this.$.column.classList.remove("col-16");
+			this.$.column.classList.remove("col-s-16");
+			this.$.column.classList.remove("col-m-16");
+			this.$.column.classList.remove("col-l-24");
+		} else {
+			var imgs = this.parentNode.getElementsByTagName("htwg-image");
+			console.log(imgs);
+			for(i = 0; i < imgs.length; i++) {
+				imgs[i].active = false;
+				imgs[i].$.column.classList.remove("col-16");
+				imgs[i].$.column.classList.remove("col-s-16");
+				imgs[i].$.column.classList.remove("col-m-16");
+				imgs[i].$.column.classList.remove("col-l-24");
+			}
+			this.$.column.classList.add("col-16");
+			this.$.column.classList.add("col-s-16");
+			this.$.column.classList.add("col-m-16");
+			this.$.column.classList.add("col-l-24");
+			this.active = true;
+		}
+	}
+  });
+</script>
+

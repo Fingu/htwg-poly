@@ -46,6 +46,8 @@
 	  <link rel="import" href="htwg-objects/htwg-container/htwg-container-text.html">
 	  <link rel="import" href="htwg-objects/htwg-container/htwg-container-fileloader.html">
 	  <link rel="import" href="htwg-objects/htwg-dropdown/htwg-dropdown.html">
+	  <link rel="import" href="htwg-objects/htwg-image-viewer/htwg-image-viewer.html">
+	  <link rel="import" href="htwg-objects/htwg-image-viewer/htwg-image.html">
 
   	  	<style is="custom-style" include="htwg-grid htwg-color htwg-font">
 		.bachelor{
@@ -167,7 +169,6 @@
 					<div class="row">
 						<div class="col-8 col-s-8 col-m-8 col-l-8">
 							<htwg-thumbnail class="informatik" title="Informatik" icon="../../images/icons/icon_information.png">
-								<!--<htwg-thumbnail-textelement text-Caption="Angewandte Informatik" link="http://www.google.de" tags=' { "tag" : "Computer" , "tag1" : "Hacken" }'></htwg-thumbnail-textelement>-->
 								<htwg-thumbnail-textelement text-Caption="Angewandte Informatik" link="AIN.html" tags=' ["computer" , "hacken"] '></htwg-thumbnail-textelement>
 								<htwg-thumbnail-textelement text-Caption="Automobilinformatik" tags=' [ "computer","auto" ,"motor" ]'></htwg-thumbnail-textelement>
 								<htwg-thumbnail-textelement text-Caption="Gesundheitsinformatik" tags=' ["computer", "medizin" ,"gesund" ]'></htwg-thumbnail-textelement>
@@ -241,7 +242,7 @@
 					<div class="row" style="margin-top: 35%;">
 						<div class="col-9 col-s-15 col-m-21 col-l-31"></div>
 						<div class="col-2 col-s-4 col-m-6 col-l-8">
-							<htwg-container-opener class="content" target="kurzportraitContainer"><h3>Kurzportrait</h3></htwg-container-opener>
+							<htwg-container-opener class="content" target="kurzportraitContainer"><h2>Kurzportrait</h2></htwg-container-opener>
 						</div>
 					</div>
 				</htwg-bubble-frame>
@@ -279,7 +280,7 @@
 					<div class="row" style="margin-top: 35%;">
 						<div class="col-9 col-s-15 col-m-21 col-l-31"></div>
 						<div class="col-2 col-s-4 col-m-6 col-l-8">
-							<htwg-container-opener class="content" target="bewerbungContainer"><h3>Bewerbung</h3></htwg-container-opener>
+							<htwg-container-opener class="content" target="bewerbungContainer"><h2>Bewerbung</h2></htwg-container-opener>
 						</div>
 					</div>
 			</htwg-bubble-frame>
@@ -342,7 +343,7 @@
 					<div class="row" style="margin-top: 35%;">
 						<div class="col-9 col-s-15 col-m-21 col-l-31"></div>
 						<div class="col-2 col-s-4 col-m-6 col-l-8">
-							<htwg-container-opener class="content" target="arbeitenContainer"><h3>Arbeiten</h3></htwg-container-opener>
+							<htwg-container-opener class="content" target="arbeitenContainer"><h2>Arbeiten</h2></htwg-container-opener>
 						</div>
 					</div>
 			</htwg-bubble-frame>
@@ -367,7 +368,7 @@
 					<div class="row" style="margin-top: 35%;">
 						<div class="col-9 col-s-15 col-m-21 col-l-31"></div>
 						<div class="col-2 col-s-4 col-m-6 col-l-8">
-							<htwg-container-opener class="content" target="fachschaftContainer"><h3>Fachschaft</h3></htwg-container-opener>
+							<htwg-container-opener class="content" target="fachschaftContainer"><h2>Fachschaft</h2></htwg-container-opener>
 						</div>
 					</div>
 			</htwg-bubble-frame>
@@ -395,6 +396,15 @@
 				</p>
 			</div>
 		</htwg-window-container>
+		
+		<htwg-image-viewer>
+			<htwg-image src="images/KD/arbeiten/arbeit1.png" title="arbeit1">Lorem ipsum dolor sit amet, consetetur sadipscing elitr</htwg-image>
+			<htwg-image src="images/KD/arbeiten/arbeit2.jpg" title="arbeit2">Lorem ipsum dolor sit amet, consetetur sadipscing elitr</htwg-image>
+			<htwg-image src="images/KD/arbeiten/arbeit3.jpg" title="arbeit3">Lorem ipsum dolor sit amet, consetetur sadipscing elitr</htwg-image>
+			<htwg-image src="images/KD/arbeiten/arbeit4.jpg" title="arbeit4">Lorem ipsum dolor sit amet, consetetur sadipscing elitr</htwg-image>
+			<htwg-image src="images/KD/arbeiten/arbeit5.jpg" title="arbeit5">Lorem ipsum dolor sit amet, consetetur sadipscing elitr</htwg-image>
+			<htwg-image src="images/KD/arbeiten/arbeit6.jpg" title="arbeit6">Lorem ipsum dolor sit amet, consetetur sadipscing elitr</htwg-image>
+		</htwg-image-viewer>
 
 	</body>
 

@@ -9,15 +9,12 @@
     <style>
 	  :host {
 		--input-font-style: {
-			font-family: MarkProBlack;
-			font-size: 136pt;
 			color: white;
-			opacity: 0.8;			
-		};
-		@font-face {
+			opacity: 0.8;
 			font-family: MarkProBlack;
-			src: url("../fonts/MarkPro-Black.otf") format("opentype");
-		}
+			font-size: 280pt;
+			line-height: 336pt;
+		};
       }
       .wrapper{
 		width: 110pt;
@@ -30,7 +27,7 @@
 
   <div class="wrapper">
       <div id="textfieldtagfilter" class="tagfilter" >
-          <htwg-input on-keyup="keyup" on-input="validateInput" id="taginput"></htwg-input>
+          <htwg-input class="search" on-keyup="keyup" on-input="validateInput" id="taginput"></htwg-input>
       </div>
   </div>
 
