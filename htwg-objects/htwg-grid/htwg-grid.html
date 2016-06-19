@@ -13,7 +13,9 @@
 			min-height: 18px;
 			position: relative;
 		}
-				
+
+		/* .col-1 {width: calc(100% / 16 * 1)} wär auch gegangen */
+		
 		/*for mobile phone*/
 		.col-1 {width: 6.25%;}
 		.col-2 {width: 12.5%;
@@ -32,6 +34,11 @@
 		.col-14 {width: 87.5%;}
 		.col-15 {width: 93.75%;}
 		.col-16 {width: 100%;}
+		
+		.push-8 {left: 50%}
+		.pull-8 {left: -50%}
+		.push-16 {left: 100%}
+		.pull-16 {left: -100%}
 		
 		/*for tablet*/
 		@media only screen and (min-width: 600px) {
@@ -60,6 +67,11 @@
 			.col-s-22 {width: 91.666%;}
 			.col-s-23 {width: 95.833%;}
 			.col-s-24 {width: 100%;}
+			
+			.push-s-8 {left: 33.333%}
+			.pull-s-8 {left: -33.333%}
+			.push-s-16 {left: 66.666%}
+			.pull-s-16 {left: -66.666%}
 		}
 
 		/*for desktop*/
@@ -98,6 +110,11 @@
 			.col-m-30 {width: 93.75%;}
 			.col-m-31 {width: 96.875%;}
 			.col-m-32 {width: 100%;}
+					
+			.push-m-8 {left: 25%}
+			.pull-m-8 {left: -25%}
+			.push-m-16 {left: 50%}
+			.pull-m-16 {left: -50%}
 		}
 		
 		/*for large screen*/
@@ -152,6 +169,11 @@
 			.col-l-46 {width: 95.833%;}
 			.col-l-47 {width: 97.917%;}
 			.col-l-48 {width: 100%;}
+			
+			.push-l-12 {left: 25%}
+			.pull-l-12 {left: -25%}
+			.push-l-24 {left: 50%}
+			.pull-l-24 {left: -50%}
 		}
     </style>
   </template>

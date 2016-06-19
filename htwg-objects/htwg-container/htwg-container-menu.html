@@ -1,26 +1,37 @@
 
 <link rel="import" href="../../bower_components/polymer/polymer.html">
-<script src="https://code.jquery.com/jquery-2.1.4.js"></script>
-
+<link rel="import" href="../htwg-grid/htwg-grid.html">
 
 <dom-module id="htwg-container-menu">
 
-  <style>
-  :host {
-    cursor: pointer;
-  }
-
+  <style include="htwg-grid">
   ul {
     list-style-type: none; 
     padding: 0pt;
     margin: 0pt;
   }
+  
+  img {
+	cursor: pointer;
+	transition: 1s;
+	width: 300px;
+	height: 300px;
+  }
   </style>
 
   <template>
-    <ul>
-      <content></content>
-    </ul>
+		<div class="row">
+			<div class="col-4 col-s-6 col-m-8 col-l-12">
+				<ul>
+					<content select="htwg-container-menuitem"></content>
+				</ul>
+			</div>
+			<div class="col-12 col-s-18 col-m-24 col-l-36">
+				<div class="row">
+					<content select="htwg-container-text"></content>
+				</div>
+			</div>
+		</div>
   </template>
 
 </dom-module>

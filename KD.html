@@ -11,11 +11,11 @@
 		};
 		function openOverlay(studienart){
 			if(studienart == "bachelor"){
-				document.getElementById('BACHELOR').style.visibility = "visible";
-				document.getElementById('MASTER').style.visibility = "hidden";
+				document.getElementById('BACHELOR').style.display = "block";
+				document.getElementById('MASTER').style.display = "none";
 			}else if(studienart == "master"){
-				document.getElementById('MASTER').style.visibility = "visible";
-				document.getElementById('BACHELOR').style.visibility = "hidden";
+				document.getElementById('MASTER').style.display = "block";
+				document.getElementById('BACHELOR').style.display = "none";
 			}
 		}
 	  </script>
@@ -51,10 +51,10 @@
 
   	  	<style is="custom-style" include="htwg-grid htwg-color htwg-font">
 		.bachelor{
-			visibility: hidden;
+			display: none;
 		}
 		.master{
-			visibility: hidden;
+			display: none;
 		}
   	  	#overlayMenu{
   	  		position:absolute;
@@ -300,39 +300,39 @@
 				<htwg-container-menuitem linkid="bewerbenZulassung">
 					Zulassung
 				</htwg-container-menuitem>
+				<htwg-container-text id="bewerbenTermine" active>
+					<p>
+						<h3>Termine und Fristen</h3>
+						Für das Wintersemester 2016/17 ist eine Bewerbung um einen Studienplatz an der HTWG Konstanz ausschließlich über die Online-Bewerbung möglich.
+						Alle Informationen dazu fnden Sie hier. 
+					</p>
+				</htwg-container-text>
+
+				<htwg-container-text id="bewerbenVorrausetzung">
+					<p>
+						<h3>Vorraussetzungen</h3>
+						Hochschulzugangsberechtigung: z.B. Fachhochschulreife oder Abitur.
+						Vorkenntnisse im Programmieren werden nicht erwartet.
+						Bewerber/innen mit ausländischer Staatsangehörigkeit und mit ausländischen Schul- und Hochschulzeugnissen benötigen eine Zeugnisanerkennung des Studienkollegs Konstanz (STK). Dies gilt auch dann, wenn Sie bereits außerhalb der Hochschule Konstanz eine Feststellungsprüfung, die DSH-Prüfung oder TestDaF erfolgreich erworben haben. Mit der Zeugnisanerkennung des STK und Ihren vollständigen Bewerbungsunterlagen können Sie sich anschließend um einen Studienplatz an der Hochschule Konstanz bewerben.
+						Deutsche Staatsbürger mit ausländischen Bildungsnachweisen benötigen für ihre Bewerbung eine Anerkennung durch das Regierungspräsidium Stuttgart, Breitscheidtstr. 42, 70176 Stuttgart. Tel.: 0711/90 440 700
+					</p>
+				</htwg-container-text>
+
+				<htwg-container-text id="bewerbenZulassung">
+					<p>
+						<h3>Zulassung</h3>
+						Im Wintersemester stehen 60, im Sommersemester 30 Studienplätze zur Verfügung. Die Zulassung erfolgt über ein Auswahlverfahren auf Basis der Bewerbungsunterlagen.
+						Die Zugangsnote berechnet sich aus
+						• der Note für die Hochschulzugangsberechtigung und
+						• Bonuspunkten für die folgenden Bereiche (sofern Belege vorliegen), die je nach
+						inhaltlicher Nähe zum angestrebten Studiengang und Umfang vergeben werden ◦ Berufsausbildung (z.B. Fachinformatiker/in, IT-Systemelektroniker/in )
+						◦ Berufsausübung
+							
+						◦ außerunterrichtliche besondere Leistungen (z.B. freiwilliges soziales oder ökologisches Jahr)
+						Aufgrund dieser ermittelten Note wird eine Rangliste erstellt, nach der die Studienplätze vergeben werden.
+					</p>
+				</htwg-container-text>
 			</htwg-container-menu>
-			<htwg-container-text id="bewerbenTermine" active>
-				<p>
-					<h3>Termine und Fristen</h3>
-					Für das Wintersemester 2016/17 ist eine Bewerbung um einen Studienplatz an der HTWG Konstanz ausschließlich über die Online-Bewerbung möglich.
-					Alle Informationen dazu fnden Sie hier. 
-				</p>
-			</htwg-container-text>
-
-			<htwg-container-text id="bewerbenVorrausetzung">
-				<p>
-					<h3>Vorraussetzungen</h3>
-					Hochschulzugangsberechtigung: z.B. Fachhochschulreife oder Abitur.
-					Vorkenntnisse im Programmieren werden nicht erwartet.
-					Bewerber/innen mit ausländischer Staatsangehörigkeit und mit ausländischen Schul- und Hochschulzeugnissen benötigen eine Zeugnisanerkennung des Studienkollegs Konstanz (STK). Dies gilt auch dann, wenn Sie bereits außerhalb der Hochschule Konstanz eine Feststellungsprüfung, die DSH-Prüfung oder TestDaF erfolgreich erworben haben. Mit der Zeugnisanerkennung des STK und Ihren vollständigen Bewerbungsunterlagen können Sie sich anschließend um einen Studienplatz an der Hochschule Konstanz bewerben.
-					Deutsche Staatsbürger mit ausländischen Bildungsnachweisen benötigen für ihre Bewerbung eine Anerkennung durch das Regierungspräsidium Stuttgart, Breitscheidtstr. 42, 70176 Stuttgart. Tel.: 0711/90 440 700
-				</p>
-			</htwg-container-text>
-
-			<htwg-container-text id="bewerbenZulassung">
-				<p>
-					<h3>Zulassung</h3>
-					Im Wintersemester stehen 60, im Sommersemester 30 Studienplätze zur Verfügung. Die Zulassung erfolgt über ein Auswahlverfahren auf Basis der Bewerbungsunterlagen.
-					Die Zugangsnote berechnet sich aus
-					• der Note für die Hochschulzugangsberechtigung und
-					• Bonuspunkten für die folgenden Bereiche (sofern Belege vorliegen), die je nach
-					inhaltlicher Nähe zum angestrebten Studiengang und Umfang vergeben werden ◦ Berufsausbildung (z.B. Fachinformatiker/in, IT-Systemelektroniker/in )
-					◦ Berufsausübung
-					    
-					◦ außerunterrichtliche besondere Leistungen (z.B. freiwilliges soziales oder ökologisches Jahr)
-					Aufgrund dieser ermittelten Note wird eine Rangliste erstellt, nach der die Studienplätze vergeben werden.
-				</p>
-			</htwg-container-text>
 		</htwg-container> 
 
 
@@ -354,15 +354,39 @@
 		<htwg-container id="arbeitenContainer">
 			<h1 class="title">Arbeiten</h1>
 
-			<htwg-image-viewer>
-				<htwg-image src="images/KD/arbeiten/arbeit1.png" title="arbeit1">Lorem ipsum dolor sit amet, consetetur sadipscing elitr</htwg-image>
-				<htwg-image src="images/KD/arbeiten/arbeit2.jpg" title="arbeit2">Lorem ipsum dolor sit amet, consetetur sadipscing elitr</htwg-image>
-				<htwg-image src="images/KD/arbeiten/arbeit3.jpg" title="arbeit3">Lorem ipsum dolor sit amet, consetetur sadipscing elitr</htwg-image>
-				<htwg-image src="images/KD/arbeiten/arbeit4.jpg" title="arbeit4">Lorem ipsum dolor sit amet, consetetur sadipscing elitr</htwg-image>
-				<htwg-image src="images/KD/arbeiten/arbeit5.jpg" title="arbeit5">Lorem ipsum dolor sit amet, consetetur sadipscing elitr</htwg-image>
-				<htwg-image src="images/KD/arbeiten/arbeit6.jpg" title="arbeit6">Lorem ipsum dolor sit amet, consetetur sadipscing elitr</htwg-image>
-			</htwg-image-viewer>
+			<htwg-container-menu>
+				<htwg-container-menuitem linkid="bilder1" active>
+					Bilder
+				</htwg-container-menuitem>
+				<htwg-container-menuitem linkid="bilder2">
+					noch mehr davon
+				</htwg-container-menuitem>
+				<htwg-container-menuitem linkid="bilder3">
+					und noch eins
+				</htwg-container-menuitem>
 
+				<htwg-container-text id="bilder1" active>
+					<h3>Bilder</h3>
+					<htwg-image src="images/KD/arbeiten/arbeit1.png" title="arbeit1">Lorem ipsum dolor sit amet, consetetur sadipscing elitr</htwg-image>
+					<htwg-image src="images/KD/arbeiten/arbeit2.jpg" title="arbeit2">Lorem ipsum dolor sit amet, consetetur sadipscing elitr</htwg-image>
+					<htwg-image src="images/KD/arbeiten/arbeit3.jpg" title="arbeit3">Lorem ipsum dolor sit amet, consetetur sadipscing elitr</htwg-image>
+					<htwg-image src="images/KD/arbeiten/arbeit4.jpg" title="arbeit4">Lorem ipsum dolor sit amet, consetetur sadipscing elitr</htwg-image>
+					<htwg-image src="images/KD/arbeiten/arbeit5.jpg" title="arbeit5">Lorem ipsum dolor sit amet, consetetur sadipscing elitr</htwg-image>
+					<htwg-image src="images/KD/arbeiten/arbeit6.jpg" title="arbeit6">Lorem ipsum dolor sit amet, consetetur sadipscing elitr</htwg-image>
+				</htwg-container-text>
+
+				<htwg-container-text id="bilder2">
+					<h3>noch mehr davon</h3>
+					<htwg-image src="images/KD/arbeiten/arbeit1.png" title="arbeit1">Lorem ipsum dolor sit amet, consetetur sadipscing elitr</htwg-image>
+					<htwg-image src="images/KD/arbeiten/arbeit2.jpg" title="arbeit2">Lorem ipsum dolor sit amet, consetetur sadipscing elitr</htwg-image>
+					<htwg-image src="images/KD/arbeiten/arbeit3.jpg" title="arbeit3">Lorem ipsum dolor sit amet, consetetur sadipscing elitr</htwg-image>
+				</htwg-container-text>
+
+				<htwg-container-text id="bilder3">
+					<h3>und noch eins</h3>
+					<htwg-image src="images/KD/arbeiten/arbeit6.jpg" title="arbeit6">Lorem ipsum dolor sit amet, consetetur sadipscing elitr</htwg-image>
+				</htwg-container-text>
+			</htwg-container-menu>
 		</htwg-container>
 
 
@@ -383,11 +407,22 @@
 
 		<htwg-container id="fachschaftContainer">
 			<h1 class="title">Fachschaft</h1>
-
 			<p>
 				Das Kollegium der Studiengänge Kommunikationsdesign bilden zehn Professoren. Den gestandenen Kommunikationsdesignern stehen mehrere Spezialisten zur Seite ...
 			</p>
-
+			<htwg-image src="images/KD/fachschaft/andi.jpg" title="Andi">Lorem ipsum dolor sit amet, consetetur sadipscing elitr</htwg-image>
+			<htwg-image src="images/KD/fachschaft/bettina.jpg" title="Bettina">Lorem ipsum dolor sit amet, consetetur sadipscing elitr</htwg-image>
+			<htwg-image src="images/KD/fachschaft/brian.jpg" title="Brian">Lorem ipsum dolor sit amet, consetetur sadipscing elitr</htwg-image>
+			<htwg-image src="images/KD/fachschaft/carmen.jpg" title="Carmen">Lorem ipsum dolor sit amet, consetetur sadipscing elitr</htwg-image>
+			<htwg-image src="images/KD/fachschaft/eberhard.jpg" title="Eberhard">Lorem ipsum dolor sit amet, consetetur sadipscing elitr</htwg-image>
+			<htwg-image src="images/KD/fachschaft/jo.jpg" title="Jo">Lorem ipsum dolor sit amet, consetetur sadipscing elitr</htwg-image>
+			<htwg-image src="images/KD/fachschaft/jochen.jpg" title="Jochen">Lorem ipsum dolor sit amet, consetetur sadipscing elitr</htwg-image>
+			<htwg-image src="images/KD/fachschaft/judith.jpg" title="Judith">Lorem ipsum dolor sit amet, consetetur sadipscing elitr</htwg-image>
+			<htwg-image src="images/KD/fachschaft/karin.jpg" title="Karin">Lorem ipsum dolor sit amet, consetetur sadipscing elitr</htwg-image>
+			<htwg-image src="images/KD/fachschaft/phillip.jpg" title="Phillip">Lorem ipsum dolor sit amet, consetetur sadipscing elitr</htwg-image>
+			<htwg-image src="images/KD/fachschaft/thilo2.jpg" title="Thilo">Lorem ipsum dolor sit amet, consetetur sadipscing elitr</htwg-image>
+			<htwg-image src="images/KD/fachschaft/tine.jpg" title="Tine">Lorem ipsum dolor sit amet, consetetur sadipscing elitr</htwg-image>
+			<htwg-image src="images/KD/fachschaft/valentin.jpg" title="Valentin">Lorem ipsum dolor sit amet, consetetur sadipscing elitr</htwg-image>
 		</htwg-container>
 
 		<htwg-window-container id="contactContainer">

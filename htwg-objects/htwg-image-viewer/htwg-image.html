@@ -6,7 +6,7 @@
   <template>
     <style include="htwg-grid">
 		#image {
-			width: 90%;
+			width: 100%;
 			height: auto;
 			transition: 1s;
 		}
@@ -16,15 +16,12 @@
 		:host([active]) #info {
 			display: block;
 		}
-		:host([active]) #image {
-			width: 90%;
-			height: auto;
-		}
 		#frame {
 			cursor: pointer;
 			transition: 1s;
-			margin: auto;
+			margin: 10%;
 			min-height: 200pt;
+			text-align: center;
 		}
     </style>
 	<div id="column" class="col-8 col-s-8 col-m-8 col-l-12">
@@ -69,7 +66,6 @@
 			this.$.column.classList.remove("col-l-24");
 		} else {
 			var imgs = this.parentNode.getElementsByTagName("htwg-image");
-			console.log(imgs);
 			for(i = 0; i < imgs.length; i++) {
 				imgs[i].active = false;
 				imgs[i].$.column.classList.remove("col-16");
