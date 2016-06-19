@@ -76,8 +76,8 @@
   <span class="burger" on-tap="changeNav">☰</span>
 
   <div id="navbar" class="overlay">
-      <div class="mobilePage1">
-          <content select="htwg-overlay-menubar"></content>
+      <div class="mobilePage1" >
+          <content select="htwg-overlay-menubar" id="myoverlaymenubar"></content>
       </div>
 
       <div class="mobilePage2">
@@ -110,9 +110,18 @@
           if (window.matchMedia("(min-width: 1000px)").matches) {
             that.$$(".mobilePage1").style.visibility = "visible";
             that.$$(".mobilePage2").style.visibility = "visible";
+            var listmenubars = that.getContentChildren('#myoverlaymenubar');
+              for(i = 0; i < listmenubars.length; i++){
+                listmenubars[i].mobilesize = false;
+              }
           }else{
+            //Mobilesize
             that.$$(".mobilePage1").style.visibility = "visible";
             that.$$(".mobilePage2").style.visibility = "hidden";
+            var listmenubars = that.getContentChildren('#myoverlaymenubar');
+            for(i = 0; i < listmenubars.length; i++){
+              listmenubars[i].mobilesize = true;
+            }
           }
 
 

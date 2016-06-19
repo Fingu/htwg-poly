@@ -7,7 +7,7 @@
 
     <style type="text/css">
 
-      .overlay-content {
+      .overlay-content-big {
         width: 100%;
         margin-top: 5%;
         margin-left: 5%;
@@ -15,6 +15,13 @@
         border-bottom: 2px solid white;
         max-width: 90%;
         white-space: nowrap;
+      }
+
+
+      .overlay-content-mobile {
+        width: 50%;
+        white-space: normal;
+        border:solid;
       }
 
       img {
@@ -26,7 +33,7 @@
 
     </style>
   
-    <div class="overlay-content">
+    <div class="overlay-content-big" id="contentdiv">
       <img src="{{logo}}" alt="picture not found" style="width:80px;height:80px" on-tap="openLink"></img>
         <content></content>
     </div>
@@ -48,13 +55,34 @@
         type: String,
         value: ""
       },
+      mobilesize: {
+        type: Boolean,
+        value: false,
+        observer: "_mobilesizechanged"
+      }
 
     },
     attached:function(){
+      //If window smaller than 1000px switch to mobilesize
+      if (!window.matchMedia("(min-width: 1000px)").matches) {
+        this.mobilesize = true;
+      }
     },
+
     openLink:function(){
         if (this.link != ""){
           window.open(this.link, "_self");
+      }
+    },
+
+    _mobilesizechanged: function(){
+      // IF we are in mobilesize set another class to the overlay menu
+      if(this.mobilesize){
+          this.$.contentdiv.className = "overlay-content-mobile";
+          var currentClass = this.$.contentdiv.className;
+      }else{
+        this.$.contentdiv.className = "overlay-content-big";
+        var currentClass = this.$.contentdiv.className;
       }
     }
   });
