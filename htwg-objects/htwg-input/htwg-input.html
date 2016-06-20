@@ -1,17 +1,49 @@
 
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
 <dom-module id="htwg-input">
   <template>
     <style>
-      .custominput {
+
+    @media(min-width: 1000px){ /*  Laptopsize*/
+      input {
+        font-size: 120pt;
+        line-height: 156pt;
+        border:dotted;
+      }
+    }
+
+    @media (min-width: 768px){ /*768 x 1024 IPad*/
+      input {
+        font-size: 50pt;
+        line-height: 136pt;
+        border: solid;
+        }
+    }
+
+    @media (min-width: 375px){ /*378 x 667 IPhone*/
+       input {
+        font-size: 10pt;
+        line-height: 116pt;
+        border:dashed;
+        }
+    }
+
+      input {
           border: 0;
           outline: 0;
           background: transparent;
-		  width: 100%;
-		  min-width: 1000pt;
-		  @apply(--input-font-style);
+    		  width: 100%;
+    		  min-width: 1000pt;
+          color: white;
+          opacity: 0.8;
+          font-family: MarkProBlack;
+          font-size: 120pt;
+          line-height: 156pt;
        }
+
        ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
           opacity: 0.8;
         }

@@ -13,9 +13,11 @@
 			if(studienart == "bachelor"){
 				document.getElementById('BACHELOR').style.display = "block";
 				document.getElementById('MASTER').style.display = "none";
+				document.getElementById('TAGFILTER').style.display = "block";
 			}else if(studienart == "master"){
 				document.getElementById('MASTER').style.display = "block";
 				document.getElementById('BACHELOR').style.display = "none";
+				document.getElementById('TAGFILTER').style.display = "block";
 			}
 		}
 	  </script>
@@ -56,10 +58,14 @@
 		.master{
 			display: none;
 		}
+
+		.tagfilter{
+			display:none;
+		}
+
   	  	#overlayMenu{
   	  		position:absolute;
   	  		right: 5%;
-  	  		--overlay-color: var(--htwg-gray-80);
   	  	}
   	  	.ueberschrift{
   	  		position: relative;
@@ -167,9 +173,9 @@
 					<htwg-overlay-menuitem>Grenzenlos studieren</htwg-overlay-menuitem>
 				</htwg-overlay-menubar>
 
-				<div class="row">
+				<div class="row" >
 					<div class="col-8 col-s-8 col-m-8 col-l-8">
-						<htwg-thumbnail-tagfilter></htwg-thumbnail-tagfilter>
+						<htwg-thumbnail-tagfilter class="tagfilter" id="TAGFILTER"></htwg-thumbnail-tagfilter>
 					</div>
 				</div>
 
