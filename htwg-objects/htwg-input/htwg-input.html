@@ -6,31 +6,6 @@
 <dom-module id="htwg-input">
   <template>
     <style>
-
-    @media(min-width: 1000px){ /*  Laptopsize*/
-      input {
-        font-size: 120pt;
-        line-height: 156pt;
-        border:dotted;
-      }
-    }
-
-    @media (min-width: 768px){ /*768 x 1024 IPad*/
-      input {
-        font-size: 50pt;
-        line-height: 136pt;
-        border: solid;
-        }
-    }
-
-    @media (min-width: 375px){ /*378 x 667 IPhone*/
-       input {
-        font-size: 10pt;
-        line-height: 116pt;
-        border:dashed;
-        }
-    }
-
       input {
           border: 0;
           outline: 0;
@@ -43,6 +18,28 @@
           font-size: 120pt;
           line-height: 156pt;
        }
+     @media (min-width: 375px){ /*378 x 667 IPhone*/
+       input {
+        font-size: 10pt;
+        line-height: 116pt;
+        }
+    }      
+    @media (min-width: 768px){ /*768 x 1024 IPad*/
+      input {
+        font-size: 50pt;
+        line-height: 136pt;
+        }
+    }
+
+    @media(min-width: 1000px){ /*  Laptopsize*/
+      input {
+        font-size: 120pt;
+        line-height: 156pt;
+      }
+    }
+
+
+
 
        ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
           opacity: 0.8;
