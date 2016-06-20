@@ -2,6 +2,7 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 <link rel="import" href="htwg-tagelement.html">
 <link rel="import" href="../htwg-input/htwg-input.html">
+<link rel="import" href="../htwg-toast/htwg-toast.html">
 <dom-module id="htwg-thumbnail-tagfilter">
 
   <template>
@@ -24,7 +25,7 @@
           <htwg-input class="search" on-keyup="keyup" on-input="validateInput" id="taginput"></htwg-input>
       </div>
   </div>
-
+  <htwg-toast text="Not a valid Tag" timeout=5000 id="toast"></htwg-toast>
     
   </template>
 </dom-module>
@@ -84,7 +85,7 @@
           }
         }
         if (!valid){
-          alert("Not a valid tag!");
+          this.$.toast.openfkt();
         } else {
 			this.markTag();
 		  }
