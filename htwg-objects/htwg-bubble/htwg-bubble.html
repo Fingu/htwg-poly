@@ -133,9 +133,8 @@
   </style>
 
   <template>
-      <div class="col-2 col-s-2 col-m-2 col-l-2" style="position: relative;">
-        <content id="myContent"></content>
-		<div id="bubbles">
+      <div class="col-2 col-s-2 col-m-2 col-l-2" style="position: relative;" on-mouseover="pushBubble">
+		<div id="bubbles" on-mouseover="pushBubble">
 		  <div class="bubble-container">
 		    <div class="bubble">
 		    </div>
@@ -380,6 +379,22 @@
 			}
 		}
 		this.content = false;
+	},
+	
+	pushBubble: function() {
+		if(this.active) {
+			this.active = this.content || false;
+			if(this.neighbors[2] != null && Math.random() > 0.5  && !this.neighbors[2].active) {
+				this.neighbors[2].active = true;
+			} else {
+				if(this.neighbors[6] != null && !this.neighbors[6].active){
+					this.neighbors[6].active = true;
+				} else if (this.neighbors[2] != null) {
+					this.neighbors[2].active = true;
+				}	
+			}
+		}
+			
 	}
   });
 </script>
