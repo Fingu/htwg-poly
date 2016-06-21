@@ -7,34 +7,65 @@
 
   <style include="htwg-grid">
     :host([active]) {
-      height:auto; /*height: 100vw*/
-      max-height: 100vh;
-      padding-bottom: 70px;
+        height:auto; /*height: 100vw*/
+        max-height: 100vh;
+        padding-bottom: 70px;
     	width: 100vw;
     	transition: height 2s;
     	display: block;
-		  overflow: scroll;
+	 	overflow: scroll;
     }
 	  :host {
 	  	height: 0px;
 	  }
     .contentclass{
       position: relative;
+      padding-top: 70px;
     }
   	.backgroundArea{
   		height: inherit;
   		overflow: hidden;
   	}
   	.closecontainer{
-  		position: absolute;
+	  position: absolute;
       z-index: 10;
-  		right: 5%;
+	  right: 5%;
       top: 5vh;
       cursor: pointer;
+      padding-top: 50px;
   	}
     #textcontent {
       margin-top: 70px;
       margin-bottom: 70px;
+    }
+
+    @media(min-width: 1000px){ /*  Laptopsize*/
+	    .contentclass{
+	      position: relative;
+	      padding-top: 70px;
+	    }
+	    .closecontainer{
+	    	padding-top: 50px;
+	    }
+    }
+
+    @media (min-width: 768px){ /*768 x 1024 IPad*/
+	    .contentclass{
+	      position: relative;
+	      padding-top: 60px;
+	    }
+	    .closecontainer{
+	    	padding-top: 40px;
+	    }
+    }
+
+    @media (min-width: 375px){ /*378 x 667 IPhone*/
+	    .contentclass{
+	      padding-top: 50px;
+	    }
+	    .closecontainer{
+	    	padding-top: 30px;
+	    }
     }
 
   </style>
