@@ -15,23 +15,22 @@
         user-select: none;
 
         height: 110pt; 
-		margin: auto;
+		    margin: auto;
       };
       .container-rounded{
-		border-radius: 10px;
+		    border-radius: 10px;
         padding: 0px;  
         margin: 0px;
-		/*background-image: url('"+this.icon+"');*/
         background-repeat: no-repeat;
-		background-size: auto 60%;
-		width: 110pt;
-		height: auto;
+    		background-size: auto 60%;
+    		width: 110pt;
+    		height: auto;
         background-position: center;
       }
       #title {
         opacity: 1;
         text-align: center;
-		color: var(--htwg-thumbnail-title-color,white);
+		    color: var(--htwg-thumbnail-title-color,white);
       }
 
       .innerwrapper{
@@ -42,20 +41,24 @@
         flex-direction: row;
         justify-content: center;
         position: relative;
-		width: 110pt; 
+	      width: 110pt; 
         height: 110pt;
+        
       }
       .outerwrapper{
+        z-index: 1;
         background-color: "transparent";
         border-radius: 10px;
-		margin: auto;
-		width: 110pt;
+    		margin: auto;
+    		width: 110pt;
       }
       .outerwrapperactive{
+        z-index: 10;
         background-color: var(--htwg-thumbnail-background-color,white);
         border-radius: 10px;
-		margin: auto;
-		width: 110pt;
+    		margin: auto;
+    		width: 110pt;
+        
       }
 
       hr{
@@ -72,8 +75,8 @@
       .markednumtest{
         position: absolute;
         width: 21px;;
-		left: 95%;
-		top: -5%;
+    		left: 95%;
+    		top: -5%;
         border: solid 1px #fff;
         border-radius: 35vw;
         text-align: center;
@@ -170,24 +173,24 @@
           this.active = true;
           this.$.wrapper.className = "outerwrapper";  
           this.$.wrapper.style.opacity = 1;
-		  this.$.wrapper.style.display = "block";
+		      this.$.wrapper.style.display = "block";
           this.$.wrapper.style.transition = "ease-in 0.5s";
           this.$.content.style.opacity = 0;
-		  this.$.content.style.display = "none";
+		      this.$.content.style.display = "none";
           this.$.content.style.transition = "ease-out 0.5s";
-		  this.customStyle['--htwg-thumbnail-title-color'] = 'white';
-		  this.updateStyles();  
+		      this.customStyle['--htwg-thumbnail-title-color'] = 'white';
+		      this.updateStyles();  
     }, fadeOut: function(){
           this.active = false;
           this.$.wrapper.className = "outerwrapperactive";
           this.$.wrapper.style.opacity = 1;
-		  this.$.wrapper.style.display = "block";
+		      this.$.wrapper.style.display = "block";
           this.$.wrapper.style.transition = "ease-out 1.0s";
           this.$.content.style.opacity = 1;
-		  this.$.content.style.display = "block";
+		      this.$.content.style.display = "block";
           this.$.content.style.transition = "ease-in 0.5s";
-		  this.customStyle['--htwg-thumbnail-title-color'] = 'black';
-		  this.updateStyles();   
+		      this.customStyle['--htwg-thumbnail-title-color'] = 'black';
+		      this.updateStyles();   
     },
     __gotMarked: function(){
       //Zahlen oben einblenden/ausblenden und setzen
