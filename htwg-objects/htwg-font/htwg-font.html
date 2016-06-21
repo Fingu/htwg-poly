@@ -4,7 +4,7 @@
 
 			body {
 				font-family: MarkPro;
-				font-size: 14pt;
+				font-size: 14pt;	
 				-webkit-hyphens: auto;
 			    -moz-hyphens: auto;
 			    -ms-hyphens: auto;
@@ -12,7 +12,7 @@
 			}
 			h1 {
 				font-family: MarkProBlack;
-				font-size: 136pt;
+				font-size: 90pt;
 				-webkit-user-select: none;
 			    -moz-user-select: none;
 			    -ms-user-select: none;
@@ -29,33 +29,7 @@
 			h3 {
 				font-family: MarkProBold;
 				font-size: 17pt;
-			}/*
-			htwg-overlay-menuitem,
-			htwg-menuelement {
-				font-family: MarkProBold;
-				font-size: 66pt;
-				line-height: 80pt;
 			}
-			dropdown-content {
-				font-family: MarkPro;
-				font-size: 45pt;
-				line-height: 50pt;
-			}
-			htwg-thumbnail {
-				font-family: MarkProBold;
-				font-size: 45pt;
-				line-height: 50pt;
-			}
-			htwg-thumbnail-textelement {
-				font-family: MarkPro;
-				font-size: 40pt;
-				line-height: 45pt;
-			}
-			htwg-tagelement {
-				font-family: MarkPro;
-				font-size: 40pt;
-				line-height: 45pt;
-			}*/
 			span, h1, h2, h3, p {
 				margin: 0%;
 				display: block;
@@ -82,6 +56,52 @@
 				font-family: MarkProBold;
 				src: url("../fonts/MarkPro-Bold.otf") format("opentype");
 			}
+
+			/*for large screen*/
+			@media only screen and (max-width: 1920px) {
+				h1 {
+					font-size: 70pt;
+				}
+				h2 {
+					font-size: 25pt;
+				}
+				h3 {
+					font-size: 17pt;
+				}
+
+			}
+
+
+			/*for desktop*/
+			@media only screen and (max-width: 768px) {
+				h1 {
+					font-size: 50pt;
+				}
+				h2 {
+					font-size: 22pt;
+				}
+				h3 {
+					font-size: 16pt;
+				}
+			}
+
+			/*for tablet*/
+			@media only screen and (max-width: 600px) {
+				h1 {
+					font-size: 30pt;
+				}
+				h2 {
+					font-size: 20pt;
+				}
+				h3 {
+					font-size: 15pt;
+				}
+
+			}
+
+
+		
+
 		
     </style>
   </template>
