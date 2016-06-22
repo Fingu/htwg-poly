@@ -72,7 +72,10 @@
       var inputVal = this.$.taginput.value;
       var valid = false;
 
+
+
       if(event.keyCode === enterKey){
+        this.fire("search", {search: inputVal});
         for(i = 0 ; i < this.tagList.length; i++){
           for(ii = 0; ii < this.tagList[i].length;ii++){
             if(this.tagList[i][ii] == inputVal){
@@ -134,6 +137,7 @@
 
     },
     attached:function(){
+
       var listElements = document.getElementsByTagName("htwg-thumbnail-textelement");
       for(i = 0; i < listElements.length; i++){
           this.tagList.push(listElements[i].tags);
@@ -143,7 +147,7 @@
       this.savedTag.splice(this.savedTag.indexOf(obj.text),1);
       this.markTag(-1);
       obj.remove();
-    }
+    },
 
   });
 </script>

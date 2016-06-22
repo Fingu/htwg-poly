@@ -57,11 +57,24 @@
     },
 
     _activeChanged: function(){
+
       if(this.active){
         this.$.text.style.opacity = 1;
       }else{
         this.$.text.style.opacity = 0.2;
+        this.sendTags();
       }
+    },
+
+    attached: function(){
+      
+    },
+
+    sendTags: function(){
+      var that = this;
+      console.log("fire: " + this.active);
+      this.fire('sendtag');
+      document.dispatchEvent(new CustomEvent('sendtag', {}));
     }
   });
 </script>
