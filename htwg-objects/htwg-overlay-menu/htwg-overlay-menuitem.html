@@ -24,10 +24,25 @@
         cursor: pointer;
       }
 
+      li{
+		    display: inline;
+		}
+
+    @media(min-width: 1001px){ /*  Laptopsize*/
+      li{
+		    display: inline;
+		}
+    }
+	@media(max-width: 1000px){ /*  Laptopsize*/
+      li{
+		    display: list-item;
+		}
+    }
+
     </style>
 
       <span on-tap="openLink">
-      <content></content>
+      <li><content></content></li>
       </span>
     
   </template>

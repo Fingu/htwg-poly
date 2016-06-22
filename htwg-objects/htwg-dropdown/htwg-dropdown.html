@@ -41,7 +41,7 @@
 		::content a:hover {color: black}
 
 
-    	@media(min-width: 1000px){ /*  Laptopsize*/
+    	@media(min-width: 1001px){ /*  Laptopsize*/
 			/* Show the dropdown menu on hover */
 			.dropdown:hover .dropdown-content {
 			    display: block;
@@ -50,6 +50,18 @@
 			.dropdown:hover{
 				background-color: rgba(255,255,255,0.5);
 			}
+		}
+
+    	@media(max-width: 1001px){ /*  Laptopsize*/
+    		::content a{
+    			padding: 0px 0px;
+    		}
+    		.dropdown{
+    			padding-left: 0px;
+    		}
+	  		.dropbtn{
+    			padding: 0px;
+    		}
 		}
 
 

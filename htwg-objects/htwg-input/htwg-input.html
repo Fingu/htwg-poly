@@ -111,11 +111,6 @@
       }
     },
     attached: function(){
-
-      //Set the width and the style
-      //this.$$(".custominput").style.width = this.inputwidth + "vw";
-      //this.$$(".custominput").style.fontSize = this.inputfontsize + "pt";
-
       var inputs = this.$.input;
           inputs.value = inputs.getAttribute('data-placeholder');
           inputs.addEventListener('focus', function() {

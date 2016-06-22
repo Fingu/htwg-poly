@@ -29,12 +29,18 @@
         -ms-user-select: none;
         user-select: none;
       }
+      ul{
+      	display: inline;
+      	list-style-type: none;
+      }
 
     </style>
   
     <div class="overlay-content-big" id="contentdiv">
       <img src="{{logo}}" alt="picture not found" style="width:80px;height:80px" on-tap="openLink"></img>
-        <content id="mycontent"></content>
+      	<ul>
+        	<content id="mycontent"></content>
+        </ul>
     </div>
     
   </template>
