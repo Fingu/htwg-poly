@@ -54,7 +54,7 @@
 
 		<div class="row" >
 			<div class="col-8 col-s-8 col-m-8 col-l-8">
-				<htwg-thumbnail-tagfilter class="tagfilter" id="TAGFILTER"></htwg-thumbnail-tagfilter>
+				<htwg-thumbnail-tagfilter class="tagfilter" id="TAGFILTER" on-search="searchEvent"></htwg-thumbnail-tagfilter>
 			</div>
 		</div>
 
@@ -63,7 +63,6 @@
 				<div class="col-8 col-s-8 col-m-8 col-l-8">
 					<htwg-thumbnail class="informatik" title="Informatik" icon="../../images/icons/icon_information.png">
 						<htwg-thumbnail-textelement text-Caption="Angewandte Informatik" link="AIN.html" tags=' ["computer" , "hacken"] '></htwg-thumbnail-textelement>
-						<htwg-thumbnail-textelement text-Caption="Automobilinformatik" tags=' [ "computer","auto" ,"motor" ]'></htwg-thumbnail-textelement>
 						<htwg-thumbnail-textelement text-Caption="Gesundheitsinformatik" tags=' ["computer", "medizin" ,"gesund" ]'></htwg-thumbnail-textelement>
 						<htwg-thumbnail-textelement text-Caption="Wirtschaftsinformatik" tags=' [ "geld" ,"wirtschaft" ]'></htwg-thumbnail-textelement>
 					</htwg-thumbnail>
@@ -84,7 +83,7 @@
 				</div>
 				<div class="col-8 col-s-8 col-m-8 col-l-8">
 					<htwg-thumbnail class="bauingenieurwesen" title="Bauingenieurwesen" icon="../../images/icons/icon_bauingenieur.png">
-						<htwg-thumbnail-textelement text-Caption="Bauingenieurwesen" link="http://www.google.de" tags=' ["bau" , "strasse"] '></htwg-thumbnail-textelement>
+						<htwg-thumbnail-textelement text-Caption="Bauingenieurwesen" link="#" tags=' ["bau" , "strasse"] '></htwg-thumbnail-textelement>
 						<htwg-thumbnail-textelement text-Caption="Wirtschaftsingenieurwesen Bau" tags=' [ "wirtschaft" ,"bau" ]'></htwg-thumbnail-textelement>
 						<htwg-thumbnail-textelement text-Caption="Umwelttechnik und Ressourcemanagement" tags=' [ "umwelt" ,"ressourcen" ]'></htwg-thumbnail-textelement>
 					</htwg-thumbnail>
@@ -110,7 +109,7 @@
 			<div class="row">
 				<div class="col-8 col-s-8 col-m-8 col-l-8">
 					<htwg-thumbnail class="architektur" title="Architektur und Gestaltung" icon="../../images/icons/icon_architekturgestaltung.png">
-						<htwg-thumbnail-textelement text-Caption="Architektur" link="http://www.google.de" tags=' [ "bauen" ,"haus"]'></htwg-thumbnail-textelement>
+						<htwg-thumbnail-textelement text-Caption="Architektur" link="#" tags=' [ "bauen" ,"haus"]'></htwg-thumbnail-textelement>
 						<htwg-thumbnail-textelement text-Caption="Kommunikationsdesign" link="KD.html" tags=' [ "girls" ,"love" ,"fashion" ]'></htwg-thumbnail-textelement>
 					</htwg-thumbnail>
 				</div>
@@ -136,6 +135,14 @@
 			this.$.BACHELOR.style.display = "none";
 			this.$.TAGFILTER.style.display = "block";
 		}
+	},
+
+	searchEvent: function(e){
+		this.searchTag(e.detail.search);
+	},
+
+	searchTag: function(tag) {
+		console.log("Searching for tag: " + tag);
 	}
   });
 

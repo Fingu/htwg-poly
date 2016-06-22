@@ -17,6 +17,11 @@
     }
     .tagfilter{
         position: relative;
+        display: inline;
+    }
+    #tagsdiv{
+    	display: inline;
+    	width: 100%;
     }
     </style>
 
@@ -25,6 +30,7 @@
           <htwg-input class="search" on-keyup="keyup" on-input="validateInput" id="taginput"></htwg-input>
       </div>
   </div>
+  <div id="tagsdiv"></div>
   <htwg-toast text="Not a valid Tag" timeout=5000 id="toast"></htwg-toast>
     
   </template>
@@ -72,7 +78,10 @@
       var inputVal = this.$.taginput.value;
       var valid = false;
 
+
+
       if(event.keyCode === enterKey){
+        this.fire("search", {search: inputVal});
         for(i = 0 ; i < this.tagList.length; i++){
           for(ii = 0; ii < this.tagList[i].length;ii++){
             if(this.tagList[i][ii] == inputVal){
@@ -127,13 +136,15 @@
           }
       }
       if (create == 0) {
+      	// Create Tags
         var tagelement = document.createElement('htwg-tagelement');
-        this.$.textfieldtagfilter.appendChild(tagelement);
+        this.$.tagsdiv.appendChild(tagelement);
         tagelement.text = this.$.taginput.value;
       }
 
     },
     attached:function(){
+
       var listElements = document.getElementsByTagName("htwg-thumbnail-textelement");
       for(i = 0; i < listElements.length; i++){
           this.tagList.push(listElements[i].tags);
@@ -143,7 +154,7 @@
       this.savedTag.splice(this.savedTag.indexOf(obj.text),1);
       this.markTag(-1);
       obj.remove();
-    }
+    },
 
   });
 </script>
