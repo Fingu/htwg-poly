@@ -10,7 +10,6 @@
           width: 100vw;
           margin-top: 0px;
           background: var(--container-background);
-          background-size: 100% 100%;
         }
         .contentclass{
           position: relative;
@@ -40,12 +39,10 @@
       }
     },
     attached: function(){
-      //this.$.window_container.style.background = "url("+this.backgroundImage+")";
-      //this.$.window_container.style.backgroundSize = "100vw 100vh";
-	  
 	  this.computeHeight();
+	  this.positionBackground();
 	  var that = this;
-	  window.addEventListener("resize", function() { that.computeHeight(); });
+	  window.addEventListener("resize", function() { that.computeHeight(); that.positionBackground();});
     },
 	
 	computeHeight: function() {
@@ -62,7 +59,18 @@
 			columns = 24;
 		}
 	    this.$.window_container.style.height = (height - (height % (width / columns)) + (width / columns)) + "px";
-	}
+	},
+	
+	positionBackground: function() {
+      var container   = this.$.window_container;
+	  var widthImg = 1920;
+	  if(window.innerWidth > widthImg) {
+		widthImg = window.innerWidth;
+	  }
+	  container.style.backgroundPosition = "-" + (((widthImg - window.innerWidth) / 2) + container.getBoundingClientRect().left) + "px -" + ((window.innerWidth) / 2 + container.getBoundingClientRect().top + window.scrollY) + "px";
+	  container.style.backgroundSize = widthImg + "px " + this.computeHeight();
+
+    }
 
   });
 </script>
