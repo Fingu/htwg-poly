@@ -134,7 +134,9 @@
         this.$.navbar.style.height = "100%";
         this.$$(".burger").textContent = "X";
         this.$$(".burger").classList.add("open");
-        this.$$(".select").style.visibility = "visible";
+        if (!window.matchMedia("(min-width: 1000px)").matches) {
+        	this.$$(".select").style.visibility = "visible";
+    	}
         this.active = true;
       } else {
         this.$$(".select").style.visibility = "hidden";
