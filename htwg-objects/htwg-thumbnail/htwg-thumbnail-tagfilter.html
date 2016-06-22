@@ -17,6 +17,11 @@
     }
     .tagfilter{
         position: relative;
+        display: inline;
+    }
+    #tagsdiv{
+    	display: inline;
+    	width: 100%;
     }
     </style>
 
@@ -25,6 +30,7 @@
           <htwg-input class="search" on-keyup="keyup" on-input="validateInput" id="taginput"></htwg-input>
       </div>
   </div>
+  <div id="tagsdiv"></div>
   <htwg-toast text="Not a valid Tag" timeout=5000 id="toast"></htwg-toast>
     
   </template>
@@ -127,8 +133,9 @@
           }
       }
       if (create == 0) {
+      	// Create Tags
         var tagelement = document.createElement('htwg-tagelement');
-        this.$.textfieldtagfilter.appendChild(tagelement);
+        this.$.tagsdiv.appendChild(tagelement);
         tagelement.text = this.$.taginput.value;
       }
 

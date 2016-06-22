@@ -63,8 +63,10 @@
     }
 
     .select{
-      position: absolute;
+      position: fixed;
       left: 50%;
+      bottom: 0px;
+      visibility: hidden;
     }
 
     .selectButton{
@@ -132,11 +134,14 @@
         this.$.navbar.style.height = "100%";
         this.$$(".burger").textContent = "X";
         this.$$(".burger").classList.add("open");
+        this.$$(".select").style.visibility = "visible";
         this.active = true;
       } else {
+        this.$$(".select").style.visibility = "hidden";
         this.$.navbar.style.height = "0%";
         this.$$(".burger").classList.remove("open");
         this.$$(".burger").textContent = "☰";
+        
         this.active = false;
       }
     },
