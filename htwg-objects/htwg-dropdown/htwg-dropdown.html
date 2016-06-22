@@ -6,6 +6,16 @@
 
   <template>
     <style is="custom-style" include="htwg-grid htwg-color htwg-font">
+
+	    @-webkit-keyframes fadeIn {
+		    from { opacity: 0; }
+		      to { opacity: 1; }
+		}  
+		@keyframes fadeIn {
+		    from { opacity: 0; }
+		      to { opacity: 1; }
+		}
+
 		/* Dropdown Button */
 		.dropbtn {
 		    color: white;
@@ -27,6 +37,13 @@
 		    background-color: rgba(255,255,255,0.5);
 			width: 100%;
 			z-index: 9001;
+		}
+
+		.dropdown-content-mobile {
+		    display: none;
+			width: 100%;
+			-webkit-animation: fadeIn 2s;
+    		animation: fadeIn 2s;
 		}
 
 		/* Links inside the dropdown */
@@ -54,10 +71,15 @@
 
     	@media(max-width: 1001px){ /*  Laptopsize*/
     		::content a{
-    			padding: 0px 0px;
+    			padding: 6px 25px;
+    		}
+    		::content a:before{
+    			content: "-";
+    			margin-right: 6px;
     		}
     		.dropdown{
-    			padding-left: 0px;
+    			padding-top: 20px;
+    			padding-bottom: 20px;
     		}
 	  		.dropbtn{
     			padding: 0px;
@@ -68,12 +90,10 @@
     </style>
 
 		<div class="dropdown">
-		 <div class="dropbtn" on-tap="openMenu">
-		 	<content select="htwg-overlay-menuitem"></content>
-		 </div>
+		 	<content class="dropbtn" on-tap="openMenu" select="htwg-overlay-menuitem"></content>
 		  <div class="dropdown-content" id="dropdowncontent">
-		    <content select="a"></content>
-		  </div>
+		    <content></content>
+	      </div>
 		</div>
 
   </template>
@@ -93,28 +113,22 @@
 
     attached: function(){
 		var that = this;
-		/*window.addEventListener("click", 
-			function(event) { 
-				if(this.open){
-					that.closeFunction(event);
-				}
-			 });*/
+
     },
     openMenu: function(){
-    	if (!window.matchMedia("(min-width: 1000px)").matches) {
-	    	if( this.$$(".dropdown-content").style.display == "block"){
-	    		 this.$$(".dropdown-content").style.display = "none";
+    	if (!window.matchMedia("(min-width: 1001px)").matches) {
+    		this.$.dropdowncontent.className = "dropdown-content-mobile";
+	    	if( this.$$(".dropdown-content-mobile").style.display == "list-item"){
+	    		 this.$$(".dropdown-content-mobile").style.display = "none";
 	    	}else{
-	    		this.$$(".dropdown-content").style.display = "block"
+	    		this.$$(".dropdown-content-mobile").style.display = "list-item";
 	    	}
+    	}else{
+    		this.$.dropdowncontent.className = "dropdown-content";
     	}
     },
     selected: function(){
     	alert("selected");
-    },
-    closefunction: function(event){
-		/*this.$.myDropdown.style.visibility = "hidden";
-    	this.open = false;*/
     }
 
   });

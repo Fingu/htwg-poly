@@ -7,7 +7,7 @@
 
     <style type="text/css">
 
-      span {
+      .mycontent {
         margin-left: 4%;
         font-size: 24pt;
         color: white;
@@ -19,7 +19,7 @@
         user-select: none;
       }
 
-      span:hover {
+      .mycontent:hover {
         color: grey;
         cursor: pointer;
       }
@@ -37,13 +37,17 @@
       li{
 		    display: list-item;
 		}
+	  .mycontent {
+	  	display: block;
+	  	margin-left: 0%;
+	  }
     }
 
     </style>
 
-      <span on-tap="openLink">
+      <div class="mycontent" on-tap="openLink">
       <li><content></content></li>
-      </span>
+      </div>
     
   </template>
 
