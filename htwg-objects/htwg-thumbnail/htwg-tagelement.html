@@ -9,17 +9,24 @@
         min-width: 160px;
         height: 30px; 
         color: white;
-      }
-      .container-rounded span{
+        display: inline;
         cursor: pointer;
-        float: right;
+        white-space: nowrap;
+        padding-left: 5px;
+      }
+
+      .delete{
+        cursor: pointer;
+        color: red;
+        display: inline;
+        padding-left: 10px;
       }
 
   </style>
 
   <template>
    <div id="container" class="container-rounded tag">
-    #{{text}}<span id="close" on-tap="delete">x</span>
+    #{{text}}   <p class="delete" on-tap="delete">x</p>
    </div>
 
   </template>
