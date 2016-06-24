@@ -1,7 +1,7 @@
 
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 
-<dom-module id="htwg-thumbnail-textelement">
+<dom-module id="htwg-thumbnail-textelement" attributes="filter">
 
   <style>
   a{
@@ -67,14 +67,11 @@
     },
 
     attached: function(){
-      
+      document.querySelector('htwg-build-overlay-menu').addEventListener('containTag', this.hasTag);
     },
 
-    sendTags: function(){
-      var that = this;
-      console.log("fire: " + this.active);
-      this.fire('sendtag');
-      document.dispatchEvent(new CustomEvent('sendtag', {}));
+    hasTag: function(){
+      console.log("Has Tag")
     }
   });
 </script>
