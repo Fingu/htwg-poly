@@ -54,7 +54,7 @@
 
 		<div class="row" >
 			<div class="col-8 col-s-8 col-m-8 col-l-8">
-				<htwg-thumbnail-tagfilter class="tagfilter" id="TAGFILTER" on-search="searchEvent"></htwg-thumbnail-tagfilter>
+				<htwg-thumbnail-tagfilter class="tagfilter" id="TAGFILTER" on-search="searchEvent" parent-Layer="3"></htwg-thumbnail-tagfilter>
 			</div>
 		</div>
 
@@ -124,6 +124,8 @@
   Polymer({
     is: 'htwg-build-overlay-menu',
 
+
+
     openOverlay: function(e){
     	var studienart = e.target.textContent;
 		if(studienart == "Bachelor"){
@@ -142,7 +144,7 @@
 		for(var i = 0 ; i < elem.length; i++){
 			elem[i].checktag(tag);
 		}
-	},
+	}
   });
 
 </script>

@@ -50,17 +50,11 @@
         this.$.text.style.opacity = 1;
       }else{
         this.$.text.style.opacity = 0.2;
-        this.sendTags();
       }
     },
 
     checktag: function(tag){
-      for(var j = 0; j < this.tags.length; j++){
-        if (this.tags[j] == tag){
-          console.log("contain tag");
-          return;
-        }
-      }
-    }
+      //doSomething
+    },
   });
 </script>

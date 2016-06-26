@@ -44,7 +44,7 @@
       }
     },
     delete: function(){
-      document.getElementsByTagName("htwg-thumbnail-tagfilter")[0].deleteTag(this)
+      this.fire('deleteTag', {elem: this});
     }
 
   });
