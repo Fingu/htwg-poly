@@ -225,7 +225,7 @@
 
 		var that = this;
 		window.addEventListener("resize", function() { that.checkCollisions(); that.positionBackground();});
-		window.addEventListener("scroll", function() { that.positionBackground();});
+		//window.addEventListener("scroll", function() { that.positionBackground();});
     },
 
 	_activeChanged: function() {
@@ -358,16 +358,24 @@
 	},
 	
 	positionBackground: function() {
-      var bubble   = this.$$('.bubble');
+      var bubbles = this.$.bubbles.getBoundingClientRect();
+	  var height = bubbles.bottom - bubbles.top;
 	  var widthImg = 1920;
 	  if(window.innerWidth > widthImg) {
 		widthImg = window.innerWidth;
 	  }
-	  bubble.style.backgroundPosition = "-" + (((widthImg - window.innerWidth) / 2) + bubble.getBoundingClientRect().left) + "px -" + (bubble.getBoundingClientRect().top + window.scrollY) + "px";
-	  bubble.style.backgroundSize = widthImg + "px " + this.computeHeight();
+	  if(this.id == "x0y0") {
+		console.log(this.y * height);
+	  }
+	  
+	  var pos = "-" + (((widthImg - window.innerWidth) / 2) + bubbles.left) + "px -" + (this.y * height) + "px";
+	  var size = widthImg + "px " + this.computeHeight();
+	  var bubble   = this.$$('.bubble');
+	  bubble.style.backgroundPosition = pos;
+	  bubble.style.backgroundSize = size;
 	  var container   = this.$$('.bubble-container');
-	  container.style.backgroundPosition = "-" + ((widthImg - window.innerWidth) / 2 + container.getBoundingClientRect().left) + "px -" + (container.getBoundingClientRect().top + window.scrollY) + "px";
-	  container.style.backgroundSize = widthImg + "px " + this.computeHeight();
+	  container.style.backgroundPosition = pos;
+	  container.style.backgroundSize = size;
     },
 	
 	computeHeight: function() {
@@ -377,9 +385,9 @@
 		if(width < 600) {
 			columns = 8;
 		} else if(width < 768) {
-			columns = 12;
-		} else if(width < 1920) {
 			columns = 16;
+		} else if(width < 1920) {
+			columns = 18;
 		} else {
 			columns = 24;
 		}
