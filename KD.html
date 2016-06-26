@@ -44,6 +44,7 @@
 	  <link rel="import" href="htwg-objects/htwg-dropdown/htwg-dropdown.html">
 	  <link rel="import" href="htwg-objects/htwg-image-viewer/htwg-image-viewer.html">
 	  <link rel="import" href="htwg-objects/htwg-image-viewer/htwg-image.html">
+<link rel="import" href="htwg-objects/htwg-container/htwg-container-with-menu.html">
 
   	  	<style is="custom-style" include="htwg-grid htwg-color htwg-font">
 
@@ -61,6 +62,10 @@
 
 		htwg-window-container,
 		htwg-container {
+			color: var(--htwg-white);
+		}
+
+		htwg-container-with-menu {
 			color: var(--htwg-white);
 		}
 
@@ -90,6 +95,9 @@
   	  	htwg-container{
   	  		background: var(--htwg-ag-100);
   	  	} 
+  	  	htwg-container-with-menu{
+  	  		background: var(--htwg-ag-100);
+  	  	}
   	  	#top{
   	  		--container-background: url("../../images/KD/students.png")
   	  	}
@@ -175,7 +183,6 @@
 			<span class="content">
 				Kommunikation bestimmt den modernen Alltag. Menschen kommunizieren, um sich zu informieren, um in soziale Interaktion zu treten, um sich zu unterhalten. In der Dienstleistungsgesellschaft wird Kommunikation selbst zunehmend zum Wirtschaftsfaktor. Dabei stand noch nie eine so umfangreiche mediale Bandbreite zur Verfügung wie am Beginn des 21. Jahrhunderts: Sie reicht vom Buch bis zur Homepage, vom Ausstellungsbanner bis zum interaktiven Interface.
 				Kommunikationsdesigner beschäftigen sich in vielfältiger Weise mit der Gestaltung von Kommunikation. Sie entscheiden, mit welchem visuellen Erscheinungsbild eine Firma nach außen tritt. Sie entwickeln Leit- und Orientierungssysteme, gestalten Bücher und Magazine, entwerfen Ausstellungen und konzipieren multimediale Internetauftritte und Interfaces. Sie arbeiten im öffentlichen Raum, für private und institutionelle Auftraggeber. Bereits seit 2004 bietet die Fakultät Architektur und Gestaltung an der renommierten Konstanzer Hochschule den akkreditierten Bachelorstudiengang Kommunikationsdesign an – mit einem besonderen Profil.
-				Deine MutterDeine MutterDeine MutterDeine MutterDeine MutterDeine MutterDeine MutterDeine MutterDeine MutterDeine MutterDeine MutterDeine MutterDeine MutterDeine MutterDeine MutterDeine MutterDeine MutterDeine MutterDeine MutterDeine MutterDeine MutterDeine MutterDeine MutterDeine MutterDeine MutterDeine MutterDeine MutterDeine MutterDeine MutterDeine MutterDeine MutterDeine MutterDeine MutterDeine MutterDeine MutterDeine MutterDeine MutterDeine MutterDeine MutterDeine MutterDeine MutterDeine MutterDeine MutterDeine MutterDeine MutterDeine MutterDeine MutterDeine MutterDeine MutterDeine MutterDeine MutterDeine MutterDeine MutterDeine MutterDeine MutterDeine MutterDeine MutterDeine MutterDeine MutterDeine MutterDeine MutterDeine MutterDeine MutterDeine MutterDeine MutterDeine MutterDeine MutterDeine MutterDeine MutterDeine MutterDeine MutterDeine MutterDeine MutterDeine MutterDeine MutterDeine MutterDeine MutterDeine MutterDeine MutterDeine MutterDeine MutterDeine MutterDeine MutterDeine MutterDeine MutterDeine MutterDeine MutterDeine MutterDeine Mutter
 			</span>
 		</htwg-container>
 
@@ -195,7 +202,7 @@
 			
 		</htwg-window-container>
 
-		<htwg-container id="bewerbungContainer">
+		<htwg-container-with-menu id="bewerbungContainer">
 			<h1 class="title">Bewerbung</h1>
 			<htwg-container-menu class="content1">
 				<htwg-container-menuitem linkid="bewerbenTermine" active>
@@ -242,7 +249,7 @@
 						Aufgrund dieser ermittelten Note wird eine Rangliste erstellt, nach der die Studienplätze vergeben werden.
 					</p>
 				</htwg-container-text>
-		</htwg-container> 
+		</htwg-container-with-menu> 
 
 
 		<htwg-window-container
@@ -260,7 +267,7 @@
 			
 		</htwg-window-container>
 
-		<htwg-container id="arbeitenContainer" menu>
+		<htwg-container-with-menu id="arbeitenContainer" menu>
 			<h1 class="title">Arbeiten</h1>
 
 			<htwg-container-menu class="content1">
@@ -297,7 +304,7 @@
 					<htwg-image src="images/KD/arbeiten/arbeit6.jpg" title="arbeit6">Lorem ipsum dolor sit amet, consetetur sadipscing elitr</htwg-image>
 				</htwg-container-text>
 
-		</htwg-container>
+		</htwg-container-with-menu>
 
 
 		<htwg-window-container
@@ -315,7 +322,7 @@
 			
 		</htwg-window-container>
 
-		<htwg-container id="fachschaftContainer">
+		<htwg-container-with-menu id="fachschaftContainer">
 			<h1 class="title">Fachschaft</h1>
 			<p class="content1">
 				Das Kollegium der Studiengänge Kommunikationsdesign bilden zehn Professoren. Den gestandenen Kommunikationsdesignern stehen mehrere Spezialisten zur Seite ...
@@ -333,7 +340,7 @@
 			<htwg-image src="images/KD/fachschaft/thilo2.jpg" title="Thilo">Lorem ipsum dolor sit amet, consetetur sadipscing elitr</htwg-image>
 			<htwg-image src="images/KD/fachschaft/tine.jpg" title="Tine">Lorem ipsum dolor sit amet, consetetur sadipscing elitr</htwg-image>
 			<htwg-image src="images/KD/fachschaft/valentin.jpg" title="Valentin">Lorem ipsum dolor sit amet, consetetur sadipscing elitr</htwg-image>
-		</htwg-container>
+		</htwg-container-with-menu>
 
 		<htwg-window-container id="contactContainer">
 			<br>
