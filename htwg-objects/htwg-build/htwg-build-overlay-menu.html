@@ -13,7 +13,7 @@
 <dom-module id="htwg-build-overlay-menu">
 
   <style  include="htwg-grid">
-    #overlayMenu{
+    htwg-overlay-menu{
   	  	position:absolute;
   	  	right: 5%;
   	}
@@ -35,7 +35,7 @@
   </style>
 
   <template>
-	<htwg-overlay-menu id="overlayMenu">
+	<htwg-overlay-menu>
 		<htwg-overlay-menubar logo="images/htwg-logo.png" link="index.html">
 			<htwg-overlay-menuitem link="homeindex.html">Hochschule</htwg-overlay-menuitem>
 			<htwg-dropdown>
@@ -136,15 +136,13 @@
 			this.$.TAGFILTER.style.display = "block";
 		}
 	},
-
 	searchEvent: function(e){
-		this.searchTag(e.detail.search);
+		tag = e.detail.search;
+		var elem = Polymer.dom(this.root).querySelectorAll('htwg-thumbnail-textelement');
+		for(var i = 0 ; i < elem.length; i++){
+			elem[i].checktag(tag);
+		}
 	},
-
-	searchTag: function(tag) {
-		console.log("Searching for tag: " + tag);
-		this.fire('containTag');
-	}
   });
 
 </script>

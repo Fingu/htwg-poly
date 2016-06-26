@@ -25,18 +25,6 @@
     is: 'htwg-thumbnail-textelement',
 
     properties: {
-      textColor: {
-        type: String,
-        value: "black"
-      },
-      textSize: { 
-        type: Number,
-        value: 10
-      },
-      textFamily:{
-        type: String,
-        value: "Arial"
-      },
       textCaption:{
         type: String,
         value: "Text"
@@ -66,12 +54,13 @@
       }
     },
 
-    attached: function(){
-      document.querySelector('htwg-build-overlay-menu').addEventListener('containTag', this.hasTag);
-    },
-
-    hasTag: function(){
-      console.log("Has Tag")
+    checktag: function(tag){
+      for(var j = 0; j < this.tags.length; j++){
+        if (this.tags[j] == tag){
+          console.log("contain tag");
+          return;
+        }
+      }
     }
   });
 </script>
