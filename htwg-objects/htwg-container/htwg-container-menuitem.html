@@ -36,7 +36,8 @@
     },
     attached: function(){
       if(this.active){
-        this.style.textShadow = "1px 1px 0px black";
+        //this.style.textShadow = "1px 1px 0px black";
+        this.style.fontWeight = 'bold';
       }
     },
     tapped: function(){
@@ -56,9 +57,12 @@
     },
     _activechanged: function(){
       if(this.active){
-        this.style.textShadow = "1px 1px 0px black";
+        
+        //this.style.textShadow = "1px 1px 0px black";
+        this.style.fontWeight = 'bold';
       }else{
-        this.style.textShadow = "0px 0px 0px black";
+        //this.style.textShadow = "0px 0px 0px black";
+        this.style.fontWeight = 'normal';
       }
     }
   });
