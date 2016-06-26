@@ -175,14 +175,11 @@
           this.tagList.push(this.childElements[i].tags);
       }
     },
+
     deleteTag: function(obj){
       var object = obj.detail.elem;
-      var tag = object.text;
-      console.log(object);
-      console.log(tag);
-      console.log(this.savedTag);
-      console.log(this.markTag);
-      this.savedTag.splice(this.savedTag.indexOf(tag),1);
+      console.log(this.$$("htwg-thumbnail-tagfilter"));
+      this.savedTag.splice(this.savedTag.indexOf(object.text),1);
       this.markTag(-1);
       object.remove();
     },
