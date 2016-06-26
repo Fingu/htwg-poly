@@ -69,7 +69,6 @@
             }
           }
           this.$.taginput.proposes = proposes;
-          console.log("Proposals:" + this.$.taginput.proposes);
       }
     },
 
@@ -82,7 +81,7 @@
 
       if(event.keyCode === enterKey){
         this.fire("search", {search: inputVal});
-        for(i = 0 ; i < this.tagList.length; i++){
+        /*for(i = 0 ; i < this.tagList.length; i++){
           for(ii = 0; ii < this.tagList[i].length;ii++){
             if(this.tagList[i][ii] == inputVal){
               if (this.savedTag.indexOf(inputVal) == -1) {
@@ -98,6 +97,7 @@
         } else {
 			this.markTag();
 		  }
+      */
 		  this.$.taginput.value = "";
     }
       
