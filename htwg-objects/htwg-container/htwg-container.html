@@ -38,8 +38,8 @@
     #textcontent {
       margin-top: 70px;
       margin-bottom: 70px;
-      margin-left: 5%;
-      margin-right: 5%;
+      /*margin-left: 5%;*/
+      /*margin-right: 5%;*/
       width: 90%;
       column-count: 1;
     }
@@ -55,8 +55,8 @@
       #textcontent {
         margin-top: 70px;
         margin-bottom: 70px;
-        margin-left: 5%;
-        margin-right: 5%;
+        /*margin-left: 5%;*/
+        /*margin-right: 5%;*/
         width: 90%;
         column-count: 2;
         column-gap: 5em;            
@@ -131,10 +131,10 @@
     },
     attached: function(){
       if (!this.menu) {
-        //this.$.borderLeft.classList.add("col-1", "col-s-1", "col-m-2", "col-l-3");
+        this.$.borderLeft.classList.add("col-2", "col-s-2", "col-m-4", "col-l-6");
         //this.$.borderRight.classList.add("col-1", "col-s-1", "col-m-2", "col-l-3");
         //this.$.gapOne.classList.add("col-2", "col-s-2", "col-m-2", "col-l-2");
-        //this.$.contentOne.classList.add("col-7", "col-s-10", "col-m-13", "col-l-20");
+        this.$.contentOne.classList.add("col-14", "col-s-20", "col-m-26", "col-l-40");
         //this.$.contentTwo.classList.add("col-7", "col-s-10", "col-m-13", "col-l-20");
       } else {
         //this.$.borderLeft.classList.add("col-1", "col-s-2", "col-m-2", "col-l-3");
