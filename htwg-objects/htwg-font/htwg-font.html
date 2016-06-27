@@ -4,7 +4,7 @@
 
 			body {
 				font-family: MarkPro;
-				font-size: 1em;	
+				font-size: 2em;	
 				-webkit-hyphens: auto;
 			    -moz-hyphens: auto;
 			    -ms-hyphens: auto;
@@ -12,7 +12,7 @@
 			}
 			h1 {
 				font-family: MarkProBlack;
-				font-size: 6em;
+				font-size: 1.5em;
 				-webkit-user-select: none;
 			    -moz-user-select: none;
 			    -ms-user-select: none;
@@ -20,7 +20,7 @@
 			}
 			h2 {
 				font-family: MarkProBold;
-				font-size: 1.5em;
+				font-size: 1em;
 		        -webkit-user-select: none;
 		        -moz-user-select: none;
 		        -ms-user-select: none;
@@ -57,55 +57,36 @@
 				src: url("../fonts/MarkPro-Bold.otf") format("opentype");
 			}
 
+			/*for smaller desktop*/
+			@media only screen and (min-width: 1024px) {
+				h1 {
+					font-size: 2.5em;
+				}
+				h2 {
+					font-size: 1.5em;
+				}
+				h3 {
+					font-size: 1em;
+				}
+
+				body {
+					font-size: 2em;	
+				}
+			}
+
 			/*for large screen*/
-			@media only screen and (max-width: 1920px) {
+			@media only screen and (min-width: 1920px) {
 				h1 {
 					font-size: 6em;
 				}
 				h2 {
-					font-size: 2.5em;
+					font-size: 1.5em;
 				}
 				h3 {
 					font-size: 1em;
 				}
-
 				body {
 					font-size: 1em;	
-				}
-
-			}
-
-
-			/*for desktop*/
-			@media only screen and (max-width: 1024px) {
-				h1 {
-					font-size: 2.5em;
-				}
-				h2 {
-					font-size: 1.5em;
-				}
-				h3 {
-					font-size: 1em;
-				}
-
-				body {
-					font-size: 2em;	
-				}
-			}
-
-			/*for tablet*/
-			@media only screen and (max-width: 600px) {
-				h1 {
-					font-size: 1.5em;
-				}
-				h2 {
-					font-size: 1em;
-				}
-				h3 {
-					font-size: 1em;
-				}
-				body {
-					font-size: 2em;	
 				}
 
 			}
