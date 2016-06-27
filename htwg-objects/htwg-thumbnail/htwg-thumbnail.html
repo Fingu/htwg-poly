@@ -111,7 +111,8 @@
         display: none;
       }
 	  #content {
-		display: none;
+		/*display: none;*/
+    visibility: hidden;
 	  }
     </style>
     
@@ -199,7 +200,9 @@
 		      this.$.wrapper.style.display = "block";
           this.$.wrapper.style.transition = "ease-in 0.5s";
           this.$.content.style.opacity = 0;
-		      this.$.content.style.display = "none";
+		      //this.$.content.style.display = "none";
+          this.$.content.style.visibility = "hidden";
+          this.$.content.style.zIndex = "1";
           this.$.content.style.transition = "ease-out 0.5s";
 		      this.customStyle['--htwg-thumbnail-title-color'] = 'white';
 		      this.updateStyles();  
@@ -210,7 +213,9 @@
 		      this.$.wrapper.style.display = "block";
           this.$.wrapper.style.transition = "ease-out 1.0s";
           this.$.content.style.opacity = 1;
-		      this.$.content.style.display = "block";
+		      //this.$.content.style.display = "block";
+          this.$.content.style.zIndex = "999";
+          this.$.content.style.visibility = "visible";
           this.$.content.style.transition = "ease-in 0.5s";
 		      this.customStyle['--htwg-thumbnail-title-color'] = 'black';
 		      this.updateStyles();   
