@@ -145,6 +145,7 @@
         this.$.tagsdiv.appendChild(tagelement);
         tagelement.text = this.$.taginput.value;
         tagelement.addEventListener('deleteTag', this.deleteTag);
+        this._observer = Polymer.dom(this.$.tagelement)
       }
 
     },
@@ -178,11 +179,14 @@
 
     deleteTag: function(obj){
       var object = obj.detail.elem;
-      console.log(this.$$("htwg-thumbnail-tagfilter"));
-      this.savedTag.splice(this.savedTag.indexOf(object.text),1);
-      this.markTag(-1);
+      var tmp = (Polymer.dom(this.parentNode.parentNode.host.cleanTagfilter(object.text)));
       object.remove();
     },
+
+    cleanTagfilter: function(tag){
+      this.savedTag.splice(this.savedTag.indexOf(tag),1);
+      this.markTag(-1);
+    }
 
   });
 </script>
