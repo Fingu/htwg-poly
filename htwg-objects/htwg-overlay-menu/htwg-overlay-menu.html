@@ -92,7 +92,7 @@
       </div>
 
       <div id="mobilepage2" class="mobilePage2">
-          <content></content>
+          <content id="mycontent2"></content>
       </div>
 
       <div class="select">
@@ -120,7 +120,7 @@
         this.$$(".mobilePage1").style.visibility = "visible";
         this.$$(".mobilePage2").style.visibility = "visible";
         var listmenubars = this.getContentChildren('#myoverlaymenubar');
-          for(i = 0; i < listmenubars.length; i++){
+          for(var i = 0; i < listmenubars.length; i++){
             listmenubars[i].mobilesize = false;
           }
       }else{
@@ -128,9 +128,13 @@
         this.$$(".mobilePage1").style.visibility = "visible";
         this.$$(".mobilePage2").style.visibility = "hidden";
         var listmenubars = this.getContentChildren('#myoverlaymenubar');
-        for(i = 0; i < listmenubars.length; i++){
+        for(var i = 0; i < listmenubars.length; i++){
           listmenubars[i].mobilesize = true;
         }
+
+        
+
+        
       }
 
       var that = this;
@@ -178,6 +182,7 @@
         this.$$(".mobilePage2").style.visibility = "hidden";
     },
     selectPage2: function(){
+      console.log("selectpage2 caled");
         this.$$(".mobilePage2").style.visibility = "visible";
         this.$$(".mobilePage1").style.visibility = "hidden";
     }

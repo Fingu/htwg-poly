@@ -97,7 +97,7 @@
 		<div class="dropdown">
 		 	<content class="dropbtn" on-tap="openMenu" select="htwg-overlay-menuitem"></content>
 		  <div class="dropdown-content" id="dropdowncontent">
-		    <content></content>
+		    <content on-tap="contenttapped"></content>
 	      </div>
 		</div>
 
@@ -116,9 +116,11 @@
       }
     },
 
-    attached: function(){
-		var that = this;
-
+    contenttapped: function(){
+    	// Event wird gefeuert aber noch nirgends abgefangen!!!
+    	if (window.matchMedia("(max-width: 1000px)").matches) {
+			this.fire('switchslide');
+		}
     },
     openMenu: function(){
     	if (!window.matchMedia("(min-width: 1001px)").matches) {
