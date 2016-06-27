@@ -33,6 +33,8 @@
 	  <link rel="import" href="htwg-objects/htwg-container/htwg-container-menuitem.html">
 	  <link rel="import" href="htwg-objects/htwg-container/htwg-container-text.html">
 	  <link rel="import" href="htwg-objects/htwg-container/htwg-container-fileloader.html">
+<link rel="import" href="htwg-objects/htwg-container/htwg-container-with-menu.html">
+
 
 
   	  	<style is="custom-style" include="htwg-grid htwg-color htwg-font">
@@ -58,6 +60,9 @@
 		htwg-container {
 			color: var(--htwg-white);
 		}
+ 	  	htwg-container-with-menu{
+  	  		color: var(--htwg-white);
+  	  	}
 
 		htwg-bubble-frame{
 			--bubble-color: var(--htwg-in-80);
@@ -85,6 +90,9 @@
   	  	htwg-container{
   	  		background: var(--htwg-in-100);
   	  	} 
+  	  	htwg-container-with-menu{
+  	  		background: var(--htwg-in-100);
+  	  	}
   	  	#top{
   	  		--container-background: url("../../images/AIN/auto.jpg")
   	  	}
@@ -154,7 +162,7 @@
 
 			<h1 class="title">Kurzportrait</h1>
 
-			<span class="content1">
+			<span class="contentt">
 				Kürzel: AIN<br>
 				Vertiefungsrichtungen: Computer and Network Engineering, Embedded Systems, Medieninformatik, Software-Engineering
 				Profil: praxisorientiert
@@ -167,7 +175,6 @@
 				für das Sommersemester der 15. Januar. Studiengebühren: entfallen ab SS 2012
 				Auslands-Semester: möglich z.B. an Partnerhochschulen.
 				Abschluss: Bachelor of Science (B.Sc.)
-			</span><span class="content2">
 				Weiterqualifzierung: Angebot der HTWG: dreisemestriges Masterstudium
 				Informatik (MSI) oder Business Information Technology (BIT) 
 				Akkreditierung: Der Studiengang ist durch die zentrale Evaluations- und
@@ -193,7 +200,7 @@
 			
 		</htwg-window-container>
 
-		<htwg-container id="bewerbungContainer" menu>
+		<htwg-container-with-menu id="bewerbungContainer" menu>
 			<h1 class="title">Bewerbung</h1>
 			<htwg-container-menu class="content1">
 				<htwg-container-menuitem linkid="bewerbenTermine" active>
@@ -241,8 +248,7 @@
 					Aufgrund dieser ermittelten Note wird eine Rangliste erstellt, nach der die Studienplätze vergeben werden.
 				</p>
 			</htwg-container-text>
-		</htwg-container> 
-
+		</htwg-container-with-menu>
 
 		<htwg-window-container
 			id="studienaufbau">
@@ -259,7 +265,7 @@
 			
 		</htwg-window-container>
 
-		<htwg-container id="studienaufbauContainer">
+		<htwg-container-with-menu id="studienaufbauContainer">
 			<h1 class="title">Studienaufbau</h1>
 
 			<htwg-container-menu class="content1">
@@ -327,7 +333,7 @@ Ein deutlicher Schwerpunkt liegt auf den informatikbezogenen Lerninhalten. Desha
 			Software kommt heutzutage in fast allen Wirtschafts- und Industriebereichen eine strategische Bedeutung zu. Als Beispiele seien die Bereiche Banken und Versicherungen, öffentliche Verwaltung, Medien, Spiele und Unterhaltung, oder Anlagen- und Systemsteuerung genannt.
 Die professionelle Erstellung von komplexer, robuster und zuverlässiger Software kann heute und in Zukunft nur noch auf der Grundlage wissenschaftlich fundierter Entwurfsverfahren geschehen. Neben den unerlässlichen allgemeinen Grundlagen erwerben die Studierenden das theoretische und praktische Wissen zur Modellierung konkreter Aufgabenstellungen. Im Team wird Software für die verschiedenartigsten Rechnersysteme entworfen, implementiert und getestet. Schwerpunkte sind  Softwarearchitekturen, Softwarequalitätssicherung , Systemsoftware, IT-Sicherheit, Web-Technologien und Sprachkonzepte.
 			</htwg-container-text>
-		</htwg-container>
+		</htwg-container-with-menu>
 
 
 		<htwg-window-container
@@ -348,7 +354,7 @@ Die professionelle Erstellung von komplexer, robuster und zuverlässiger Softwar
 		<htwg-container id="fachschaftContainer">
 			<h1 class="title">Fachschaft</h1>
 
-			<p class="content1">
+			<p class="contentt">
 				Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
 			</p>
 
