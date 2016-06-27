@@ -85,7 +85,8 @@
         -moz-box-shadow:    1px 1px 1px 1px #ccc;
         -webkit-box-shadow: 1px 1px 1px 1px #ccc;
         box-shadow:         1px 1px 1px 1px #ccc;
-        visibility: hidden;
+        /*visibility: hidden;*/
+        display: none;
       }
 	  #content {
 		display: none;
@@ -198,10 +199,10 @@
           if (!window.matchMedia("(min-width: 1024px)").matches) {
               if(this.marked > 0){
                 this.$.markedcounter.value = this.marked;
-                this.$.markedcounter.style.visibility = "visible";
+                this.$.markedcounter.style.display = "block";
               }
               else{
-                this.$.markedcounter.style.visibility = "hidden";
+                this.$.markedcounter.style.display = "none";
               }
           }
 
