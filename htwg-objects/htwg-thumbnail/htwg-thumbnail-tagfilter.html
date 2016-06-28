@@ -7,30 +7,33 @@
 
   <style>
 
-  .wrapper{
-  	width: 110pt;
-  	margin: auto;
-  }
-  .tagfilter{
-    position: relative;
-    display: inline;
-  }
-  #tagsdiv{
-  	display: inline;
-  	width: 100%;
-  }
+    .wrapper{
+    		width: 110pt;
+    		margin: auto;
+    }
+
+    .tagfilter{
+        position: relative;
+        display: inline;
+    }
+
+    #tagsdiv{
+    	width: 100vw;
+    	padding-bottom: 50px;
+    	padding-left: 5%;
+    }
 
   </style>
-
+  
   <template>
 
-  <div class="wrapper">
-    <div id="textfieldtagfilter" class="tagfilter" >
-      <htwg-input class="search" on-keyup="keyup" on-input="validateInput" id="taginput"></htwg-input>
+    <div class="wrapper">
+      <div id="textfieldtagfilter" class="tagfilter" >
+        <htwg-input class="search" on-keyup="keyup" on-input="validateInput" id="taginput"></htwg-input>
+      </div>
     </div>
-  </div>
-  <div id="tagsdiv"></div>
-  <htwg-toast text="Not a valid Tag" timeout=5000 id="toast"></htwg-toast>
+    <div id="tagsdiv"></div>
+    <htwg-toast text="Not a valid Tag" timeout=5000 id="toast"></htwg-toast>
     
   </template>
 </dom-module>
