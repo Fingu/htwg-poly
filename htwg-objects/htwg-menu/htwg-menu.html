@@ -17,27 +17,18 @@
       z-index: 99;
     }
 
-    @media(min-width: 1000px){ /*  Laptopsize*/
+    @media(min-width: 1001px){ /*  Laptopsize*/
     	.menuClass{
-    		height: 70px;
-    	}
-    }
-
-    @media (min-width: 768px){ /*768 x 1024 IPad*/
-    	.menuClass{
-    		height: 60px;
-    	}
-    }
-
-    @media (min-width: 375px){ /*378 x 667 IPhone*/
-    	.menuClass{
-    		height: 50px;
+        background: rgba(255, 255, 255, 0.5);
     	}
     }
 
     @media(max-width: 1000px){ /*  Laptopsize*/
       .contentMenuClass{
         visibility: hidden;
+      }
+            .menuClass{
+        background: transparent;
       }
     }
 
