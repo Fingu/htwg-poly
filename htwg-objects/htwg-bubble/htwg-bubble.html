@@ -240,211 +240,211 @@
 			window.addEventListener("resize", function() { that.checkCollisions(); that.positionBackground();});
     },
 
-		_activeChanged: function() {
-			if(this.neighbors != undefined) {
-				this.checkNeighbors();
-				for(neighbor of this.neighbors) {
-					if(neighbor != null) {
-						neighbor.checkNeighbors();
-					}
+	_activeChanged: function() {
+		if(this.neighbors != undefined) {
+			this.checkNeighbors();
+			for(neighbor of this.neighbors) {
+				if(neighbor != null) {
+					neighbor.checkNeighbors();
 				}
 			}
-			this.checkCollisions();
-			if(this.active) {
-				var that = this;
-				setTimeout(function(){
-					that.active = that.content || Math.random() > 0.99;
+		}
+		this.checkCollisions();
+		if(this.active) {
+			var that = this;
+			setTimeout(function(){
+				that.active = that.content || Math.random() > 0.99;
 
-					if(that.neighbors[3] != null && !that.neighbors[3].active) {
-						that.neighbors[3].active = Math.random() > 0.8;
-						if(that.neighbors[3].active) {return;};
-					}
-					if(that.neighbors[4] != null && !that.neighbors[4].active) {
-						that.neighbors[4].active = Math.random() > 0.8;
-						if(that.neighbors[4].active) {return;};
-					}
-					if(that.neighbors[5] != null && !that.neighbors[5].active) {
-						that.neighbors[5].active = Math.random() > 0.8;
-						if(that.neighbors[5].active) {return;};
-					}
-					if(that.neighbors[7] != null && !that.neighbors[7].active) {
-						that.neighbors[7].active = Math.random() > 0.8;
-						if(that.neighbors[7].active) {return;};
-					}
-					if(that.neighbors[0] != null && !that.neighbors[0].active) {
-						that.neighbors[0].active = Math.random() > 0.8;
-						if(that.neighbors[0].active) {return;};
-					}
-					if(that.neighbors[1] != null && !that.neighbors[1].active) {
-						that.neighbors[1].active = Math.random() > 0.8;
-						if(that.neighbors[1].active) {return;};
-					}
-				}, (Math.random() * 30000) + 1000);
-			}
-		},
-
-		setNeighbors: function() {
-			var frame = this.parentNode.parentNode.parentNode.host;
-			this.neighbors[0] = frame.$$('#x' +  this.x      + 'y' + (this.y - 1));
-			this.neighbors[1] = frame.$$('#x' + (this.x + 1) + 'y' + (this.y -1));
-			this.neighbors[2] = frame.$$('#x' + (this.x + 1) + 'y' +  this.y);
-			this.neighbors[3] = frame.$$('#x' + (this.x + 1) + 'y' + (this.y + 1));
-			this.neighbors[4] = frame.$$('#x' +  this.x      + 'y' + (this.y + 1));
-			this.neighbors[5] = frame.$$('#x' + (this.x - 1) + 'y' + (this.y + 1));
-			this.neighbors[6] = frame.$$('#x' + (this.x - 1) + 'y' +  this.y);
-			this.neighbors[7] = frame.$$('#x' + (this.x - 1) + 'y' + (this.y - 1));
-		},
-
-		checkNeighbors: function() {
-			this.updateStyles();
-			this.$$('.bubble').classList.remove(this.currentState);
-			var check = [];
-			for(i = 0; i < 8; i++) {
-				var active;
-				if(this.neighbors[i] == null) {
-					active = false;
-				} else {
-					active = this.neighbors[i].active;
+				if(that.neighbors[3] != null && !that.neighbors[3].active) {
+					that.neighbors[3].active = Math.random() > 0.8;
+					if(that.neighbors[3].active) {return;};
 				}
-				check[i] = active;
-			}
-			if(this.active) {
-				if(!check[0] && !check[1] && !check[2] && !check[3] && !check[4] && !check[5] && !check[6] && !check[7]) {
-					this.currentState = this.activeStates[15];
-				} else if(!check[0] && !check[2] && !check[3] && !check[4] && !check[5] && !check[6] && !check[7]) {//notTopRight
-					this.currentState = this.activeStates[9];
-				} else if(!check[0] && !check[1] && !check[2] && !check[4] && !check[5] && !check[6] && !check[7]) {//notBottomRight
-					this.currentState = this.activeStates[10];
-				} else if(!check[0] && !check[1] && !check[2] && !check[3] && !check[4] && !check[6] && !check[7]) {//notBottomLeft
-					this.currentState = this.activeStates[11];
-				} else if(!check[0] && !check[1] && !check[2] && !check[3] && !check[4] && !check[5] && !check[6]) {//notTopLeft
-					this.currentState = this.activeStates[12];
-				} else if(!check[0] && !check[2] && !check[3] && !check[4] && !check[6] && !check[7]) {//diagonalRight
-					this.currentState = this.activeStates[13];
-				} else if(!check[0] && !check[1] && !check[2] && !check[4] && !check[5] && !check[6]) {//diagonalLeft
-					this.currentState = this.activeStates[14];
-				} else if(!check[6] && !check[7] && !check[0] && !check[1] && !check[2]) {//top
-					this.currentState = this.activeStates[5];
-				} else if(!check[0] && !check[1] && !check[2] && !check[3] && !check[4]) {//right
-					this.currentState = this.activeStates[6];
-				} else if(!check[2] && !check[3] && !check[4] && !check[5] && !check[6]) {//bottom
-					this.currentState = this.activeStates[7];
-				} else if(!check[4] && !check[5] && !check[6] && !check[7] && !check[0]) {//left
-					this.currentState = this.activeStates[8];
-				} else if(!check[0] && !check[1] && !check[2]) {//topRight
-					this.currentState = this.activeStates[1];
-				} else if(!check[2] && !check[3] && !check[4]) {//bottomRight
-					this.currentState = this.activeStates[2];
-				} else if(!check[4] && !check[5] && !check[6]) {//bottomLeft
-					this.currentState = this.activeStates[3];
-				} else if(!check[6] && !check[7] && !check[0]) {//topLeft
-					this.currentState = this.activeStates[4];
-				} else {//empty
-					this.currentState = this.activeStates[0];
+				if(that.neighbors[4] != null && !that.neighbors[4].active) {
+					that.neighbors[4].active = Math.random() > 0.8;
+					if(that.neighbors[4].active) {return;};
 				}
+				if(that.neighbors[5] != null && !that.neighbors[5].active) {
+					that.neighbors[5].active = Math.random() > 0.8;
+					if(that.neighbors[5].active) {return;};
+				}
+				if(that.neighbors[7] != null && !that.neighbors[7].active) {
+					that.neighbors[7].active = Math.random() > 0.8;
+					if(that.neighbors[7].active) {return;};
+				}
+				if(that.neighbors[0] != null && !that.neighbors[0].active) {
+					that.neighbors[0].active = Math.random() > 0.8;
+					if(that.neighbors[0].active) {return;};
+				}
+				if(that.neighbors[1] != null && !that.neighbors[1].active) {
+					that.neighbors[1].active = Math.random() > 0.8;
+					if(that.neighbors[1].active) {return;};
+				}
+			}, (Math.random() * 30000) + 1000);
+		}
+	},
+
+	setNeighbors: function() {
+		var frame = this.parentNode.parentNode.parentNode.host;
+		this.neighbors[0] = frame.$$('#x' +  this.x      + 'y' + (this.y - 1));
+		this.neighbors[1] = frame.$$('#x' + (this.x + 1) + 'y' + (this.y -1));
+		this.neighbors[2] = frame.$$('#x' + (this.x + 1) + 'y' +  this.y);
+		this.neighbors[3] = frame.$$('#x' + (this.x + 1) + 'y' + (this.y + 1));
+		this.neighbors[4] = frame.$$('#x' +  this.x      + 'y' + (this.y + 1));
+		this.neighbors[5] = frame.$$('#x' + (this.x - 1) + 'y' + (this.y + 1));
+		this.neighbors[6] = frame.$$('#x' + (this.x - 1) + 'y' +  this.y);
+		this.neighbors[7] = frame.$$('#x' + (this.x - 1) + 'y' + (this.y - 1));
+	},
+
+	checkNeighbors: function() {
+		this.updateStyles();
+		this.$$('.bubble').classList.remove(this.currentState);
+		var check = [];
+		for(i = 0; i < 8; i++) {
+			var active;
+			if(this.neighbors[i] == null) {
+				active = false;
 			} else {
-				if((!check[0] && !check[4]) || (!check[2] && !check[6])) {
-					this.currentState = this.inactiveStates[0];
-				} else if(check[0] && check[2] && check[4] && check[6]) {
-					this.currentState = this.inactiveStates[1];
-				} else if(!check[4] && !check[6]) {
-					this.currentState = this.inactiveStates[2];
-				} else if(!check[6] && !check[0]) {
-					this.currentState = this.inactiveStates[3];
-				} else if(!check[0] && !check[2]) {
-					this.currentState = this.inactiveStates[4];
-				} else if(!check[2] && !check[4]) {
-					this.currentState = this.inactiveStates[5];
-				} else if(!check[4]) {
-					this.currentState = this.inactiveStates[6];
-				} else if(!check[6]) {
-					this.currentState = this.inactiveStates[7];
-				} else if(!check[0]) {
-					this.currentState = this.inactiveStates[8];
-				} else if(!check[2]) {
-					this.currentState = this.inactiveStates[9];
-				}
+				active = this.neighbors[i].active;
 			}
-			this.$$('.bubble').classList.add(this.currentState);
-			this.positionBackground();
-		},
+			check[i] = active;
+		}
+		if(this.active) {
+			if(!check[0] && !check[1] && !check[2] && !check[3] && !check[4] && !check[5] && !check[6] && !check[7]) {
+				this.currentState = this.activeStates[15];
+			} else if(!check[0] && !check[2] && !check[3] && !check[4] && !check[5] && !check[6] && !check[7]) {//notTopRight
+				this.currentState = this.activeStates[9];
+			} else if(!check[0] && !check[1] && !check[2] && !check[4] && !check[5] && !check[6] && !check[7]) {//notBottomRight
+				this.currentState = this.activeStates[10];
+			} else if(!check[0] && !check[1] && !check[2] && !check[3] && !check[4] && !check[6] && !check[7]) {//notBottomLeft
+				this.currentState = this.activeStates[11];
+			} else if(!check[0] && !check[1] && !check[2] && !check[3] && !check[4] && !check[5] && !check[6]) {//notTopLeft
+				this.currentState = this.activeStates[12];
+			} else if(!check[0] && !check[2] && !check[3] && !check[4] && !check[6] && !check[7]) {//diagonalRight
+				this.currentState = this.activeStates[13];
+			} else if(!check[0] && !check[1] && !check[2] && !check[4] && !check[5] && !check[6]) {//diagonalLeft
+				this.currentState = this.activeStates[14];
+			} else if(!check[6] && !check[7] && !check[0] && !check[1] && !check[2]) {//top
+				this.currentState = this.activeStates[5];
+			} else if(!check[0] && !check[1] && !check[2] && !check[3] && !check[4]) {//right
+				this.currentState = this.activeStates[6];
+			} else if(!check[2] && !check[3] && !check[4] && !check[5] && !check[6]) {//bottom
+				this.currentState = this.activeStates[7];
+			} else if(!check[4] && !check[5] && !check[6] && !check[7] && !check[0]) {//left
+				this.currentState = this.activeStates[8];
+			} else if(!check[0] && !check[1] && !check[2]) {//topRight
+				this.currentState = this.activeStates[1];
+			} else if(!check[2] && !check[3] && !check[4]) {//bottomRight
+				this.currentState = this.activeStates[2];
+			} else if(!check[4] && !check[5] && !check[6]) {//bottomLeft
+				this.currentState = this.activeStates[3];
+			} else if(!check[6] && !check[7] && !check[0]) {//topLeft
+				this.currentState = this.activeStates[4];
+			} else {//empty
+				this.currentState = this.activeStates[0];
+			}
+		} else {
+			if((!check[0] && !check[4]) || (!check[2] && !check[6])) {
+				this.currentState = this.inactiveStates[0];
+			} else if(check[0] && check[2] && check[4] && check[6]) {
+				this.currentState = this.inactiveStates[1];
+			} else if(!check[4] && !check[6]) {
+				this.currentState = this.inactiveStates[2];
+			} else if(!check[6] && !check[0]) {
+				this.currentState = this.inactiveStates[3];
+			} else if(!check[0] && !check[2]) {
+				this.currentState = this.inactiveStates[4];
+			} else if(!check[2] && !check[4]) {
+				this.currentState = this.inactiveStates[5];
+			} else if(!check[4]) {
+				this.currentState = this.inactiveStates[6];
+			} else if(!check[6]) {
+				this.currentState = this.inactiveStates[7];
+			} else if(!check[0]) {
+				this.currentState = this.inactiveStates[8];
+			} else if(!check[2]) {
+				this.currentState = this.inactiveStates[9];
+			}
+		}
+		this.$$('.bubble').classList.add(this.currentState);
+		this.positionBackground();
+	},
+	
+	positionBackground: function() {
+		var bubbles = this.$.bubbles.getBoundingClientRect();
+		var height = bubbles.bottom - bubbles.top;
+		var widthImg = 1920;
 		
-		positionBackground: function() {
-			var bubbles = this.$.bubbles.getBoundingClientRect();
-			var height = bubbles.bottom - bubbles.top;
-			var widthImg = 1920;
-			
-			if(window.innerWidth > widthImg) {
-				widthImg = window.innerWidth;
-			}
-			
-			var pos = "-" + (((widthImg - window.innerWidth) / 2) + bubbles.left) + "px -" + (this.y * height) + "px";
-			var size = widthImg + "px " + this.computeHeight();
-			var bubble   = this.$$('.bubble');
-			bubble.style.backgroundPosition = pos;
-			bubble.style.backgroundSize = size;
-			var container   = this.$$('.bubble-container');
-			container.style.backgroundPosition = pos;
-			container.style.backgroundSize = size;
-		},
+		if(window.innerWidth > widthImg) {
+			widthImg = window.innerWidth;
+		}
 		
-		computeHeight: function() {
-			var columns = 0;
-			var width = window.innerWidth;
-			var height = window.innerHeight;
-			if(width < 600) {
-				columns = 8;
-			} else if(width < 768) {
-				columns = 16;
-			} else if(width < 1920) {
-				columns = 18;
-			} else {
-				columns = 24;
-			}
-			return (height - (height % (width / columns)) + (width / columns)) + "px";
-		},
+		var pos = "-" + (((widthImg - window.innerWidth) / 2) + bubbles.left) + "px -" + (this.y * height) + "px";
+		var size = widthImg + "px " + this.computeHeight();
+		var bubble   = this.$$('.bubble');
+		bubble.style.backgroundPosition = pos;
+		bubble.style.backgroundSize = size;
+		var container   = this.$$('.bubble-container');
+		container.style.backgroundPosition = pos;
+		container.style.backgroundSize = size;
+	},
+	
+	computeHeight: function() {
+		var columns = 0;
+		var width = window.innerWidth;
+		var height = window.innerHeight;
+		if(width < 600) {
+			columns = 8;
+		} else if(width < 768) {
+			columns = 16;
+		} else if(width < 1920) {
+			columns = 18;
+		} else {
+			columns = 24;
+		}
+		return (height - (height % (width / columns)) + (width / columns)) + "px";
+	},
 
-		checkCollisions: function() {
-			var divs = document.getElementsByClassName("content");
-			myRect = this.$.bubbles.getBoundingClientRect();
-			myTop = myRect.top;
-			myHeight = myRect.bottom - myRect.top;
-			myLeft = myRect.left;
-			myWidth = myRect.right - myRect.left;
-			if(myHeight + myWidth == 0) {
+	checkCollisions: function() {
+		var divs = document.getElementsByClassName("content");
+		myRect = this.$.bubbles.getBoundingClientRect();
+		myTop = myRect.top;
+		myHeight = myRect.bottom - myRect.top;
+		myLeft = myRect.left;
+		myWidth = myRect.right - myRect.left;
+		if(myHeight + myWidth == 0) {
+			return;
+		}
+		for (var i=0; i < divs.length; i++) {
+			divRect = divs[i].getBoundingClientRect();
+			divTop = divRect.top;
+			divHeight = divRect.bottom - divRect.top;
+			divLeft = divRect.left;
+			divWidth = divRect.right - divRect.left;
+
+			
+			if (((divTop <= myTop && (divTop + divHeight) >= myTop) && ((divLeft <= myLeft && (divLeft + divWidth) >= myLeft) || (divLeft >= myLeft && (myLeft + myWidth) >= divLeft))) || 
+				((myTop <= divTop && (myTop + myHeight) >= divTop) && ((myLeft <= divLeft && (myLeft + myWidth) >= divLeft) || (myLeft >= divLeft && (divLeft + divWidth) >= myLeft)))) {
+				this.active = true;
+				this.content = true;
 				return;
 			}
-			for (var i=0; i < divs.length; i++) {
-				divRect = divs[i].getBoundingClientRect();
-				divTop = divRect.top;
-				divHeight = divRect.bottom - divRect.top;
-				divLeft = divRect.left;
-				divWidth = divRect.right - divRect.left;
-
-				
-				if (((divTop <= myTop && (divTop + divHeight) >= myTop) && ((divLeft <= myLeft && (divLeft + divWidth) >= myLeft) || (divLeft >= myLeft && (myLeft + myWidth) >= divLeft))) || 
-					((myTop <= divTop && (myTop + myHeight) >= divTop) && ((myLeft <= divLeft && (myLeft + myWidth) >= divLeft) || (myLeft >= divLeft && (divLeft + divWidth) >= myLeft)))) {
-					this.active = true;
-					this.content = true;
-					return;
-				}
-			}
-			this.content = false;
-		},
-		
-		pushBubble: function() {
-			if(this.active) {
-				this.active = this.content || false;
-				if(this.neighbors[2] != null && Math.random() > 0.5  && !this.neighbors[2].active) {
-					this.neighbors[2].active = true;
-				} else {
-					if(this.neighbors[6] != null && !this.neighbors[6].active){
-						this.neighbors[6].active = true;
-					} else if (this.neighbors[2] != null) {
-						this.neighbors[2].active = true;
-					}	
-				}
-			}	
 		}
+		this.content = false;
+	},
+	
+	pushBubble: function() {
+		if(this.active) {
+			this.active = this.content || false;
+			if(this.neighbors[2] != null && Math.random() > 0.5  && !this.neighbors[2].active) {
+				this.neighbors[2].active = true;
+			} else {
+				if(this.neighbors[6] != null && !this.neighbors[6].active){
+					this.neighbors[6].active = true;
+				} else if (this.neighbors[2] != null) {
+					this.neighbors[2].active = true;
+				}	
+			}
+		}	
+	}
   });
 </script>
