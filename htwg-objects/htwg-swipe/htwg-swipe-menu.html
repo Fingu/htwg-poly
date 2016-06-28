@@ -3,50 +3,50 @@
 
 <dom-module id="htwg-swipe-menu">
 
-  <template>
-    <style>
+  <style>
+
     .okButtonContainer{
-	    border: groove;
+      border: groove;
 
-	    padding-top: 10px;
-	    padding-bottom: 10px;
-	    padding-right: 10px;
-	    padding-left: 10px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      padding-right: 10px;
+      padding-left: 10px;
 
-	    cursor: pointer;
-	    overflow: hidden;
+      cursor: pointer;
+      overflow: hidden;
     }
 
     #sliderContainer {
-	    border: groove;
+      border: groove;
 
-	    padding-top: 15px;
-	    padding-bottom: 15px;
-	    padding-right: 10px;
-	    padding-left: 10px;
+      padding-top: 15px;
+      padding-bottom: 15px;
+      padding-right: 10px;
+      padding-left: 10px;
 
-	    cursor: pointer;
-		width: inherit;
-		height: inherit;
+      cursor: pointer;
+      width: inherit;
+      height: inherit;
     }
 
     .submit{
-		width:3%;
-		height:3%;
-		float: right;
+      width:3%;
+      height:3%;
+      float: right;
     }
 
+  </style>
 
-
-    </style>
-      <div class="okButtonContainer">
-      	<input class="submit" type="image" src="haken.svg" on-click='submitted'/>
+  <template>
+    <div class="okButtonContainer">
+    	<input class="submit" type="image" src="haken.svg" on-click='submitted'/>
+    </div>
+    <div id="sliderContainer" on-track="handleTrack" background="none">
+      <div id="sliderFrame">
+     		<content id="myContent"></content>
       </div>
-      <div id="sliderContainer" on-track="handleTrack" background="none">
-        <div id="sliderFrame">
-       		<content id="myContent"></content>
-        </div>
-      </div>
+    </div>
   </template>
 
 </dom-module>
@@ -81,37 +81,34 @@
       	value: false
       }
     },
+
     submitted: function(){
-		var distributed = this.getContentChildren('#myContent');
-		for (i=1; i<=this.items; i++){
-            var cObject = distributed[i-1];
-            if(cObject.active){
-            	if(cObject.link != '#'){
-            		window.open(cObject.link, '_parent');
-            	}
-            }
+  		var distributed = this.getContentChildren('#myContent');
+  		for (i=1; i<=this.items; i++){
+        var cObject = distributed[i-1];
+        if(cObject.active){
+        	if(cObject.link != '#'){
+        		window.open(cObject.link, '_parent');
+        	}
         }
-    }
-    ,
+      }
+    },
+
     attached: function() {
       var distributed = this.getContentChildren('#myContent');
-
-
       this.items = distributed.length;
 
       for(i = 1; i <= distributed.length; i++){
         distributed[i-1].id = "hsm"+i;
       }
-     
     },
 
-	changeOpacity: function(element, opacity) {
-        element.customStyle['--swipe-element-opacity'] = ""+opacity;
-        element.updateStyles();
+    changeOpacity: function(element, opacity) {
+      element.customStyle['--swipe-element-opacity'] = ""+opacity;
+      element.updateStyles();
     },
 
     handleTrack: function(e) {
-
       var container_top = this.$.sliderContainer.getBoundingClientRect().top; 
       var container_bottom = this.$.sliderContainer.getBoundingClientRect().bottom;
       var sliderFrame = this.$.sliderFrame;
@@ -130,20 +127,18 @@
             cObjectTop = cObject.getBoundingClientRect().top;
             cObjectBot = cObject.getBoundingClientRect().bottom;
             cObject.positionY= (e.detail.y - this.startY) + this.diffX;
-    			  //this.changeOpacity(cObject, Math.abs(Math.sin((Math.PI / (container_bottom - container_top)) * (cObjectTop + cObject.positionY))));
-    			  //console.log(Math.abs(Math.sin((Math.PI / (container_bottom - container_top)) * (cObjectTop + cObject.positionY))));
 
-//Mitte berechnen. Kann man das wo anders rein? 
-//In Attached fehlt der Ok-Button-Div, da kommen falsche Werte raus...
-//Hier auch doof, wird jetzt jedes mal geschaut ob schon gesetzt wurde (this.test)
-         if(distributed[i-1].active && (this.test == false)){
-        	var container_top = distributed[i-1].getBoundingClientRect().top; 
-		    var container_bottom = distributed[i-1].getBoundingClientRect().bottom;
-		    this.container_middle = (container_top + ((container_bottom - container_top) / 2));
-        	this.test = true;
-        }
-//bis hierhin geht der teil des mitte-berechnens        
+            //Mitte berechnen. Kann man das wo anders rein? 
+            //In Attached fehlt der Ok-Button-Div, da kommen falsche Werte raus...
+            //Hier auch doof, wird jetzt jedes mal geschaut ob schon gesetzt wurde (this.test)
+            if(distributed[i-1].active && (this.test == false)){
+              var container_top = distributed[i-1].getBoundingClientRect().top; 
+      		    var container_bottom = distributed[i-1].getBoundingClientRect().bottom;
+      		    this.container_middle = (container_top + ((container_bottom - container_top) / 2));
+              this.test = true;
+            }
 
+            //bis hierhin geht der teil des mitte-berechnens        
             //faehrt oben raus
             if (cObjectTop + cObject.positionY < container_top) {
               tmp = (this.startY - e.detail.y) - (cObjectTop - container_top);
@@ -153,7 +148,7 @@
                 this.startY = e.detail.y;
               }
             }
-            
+              
             //faehrt unten raus
             else if (cObjectBot +cObject.positionY > container_bottom) {
             	tmp = ( e.detail.y - this.startY) - (container_bottom - cObjectBot);
@@ -164,16 +159,13 @@
             }
 
             //in der Mitte
-           if ( (cObjectTop+ cObject.positionY) < this.container_middle && (cObjectBot+ cObject.positionY) > this.container_middle) {
+            if ( (cObjectTop+ cObject.positionY) < this.container_middle && (cObjectBot+ cObject.positionY) > this.container_middle) {
                 cObject.active = true;
-            }
-            else{
+            } else {
               cObject.active = false;
             }
 
-      
-          }
-
+          }//for
           break;
 
         case 'end':
@@ -184,9 +176,6 @@
           this.diffX = cObject.positionY;
           break;
       }
-
     }
-
-
   });
 </script>
