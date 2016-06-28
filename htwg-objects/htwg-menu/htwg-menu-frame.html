@@ -3,24 +3,29 @@
 
 <dom-module id="htwg-menu-frame">
 
-  <template>
-    <style>
-    .menuContainer{
-	    padding-top: 10px;
-	    padding-bottom: 10px;
-	    padding-right: 10px;
-	    padding-left: 10px;
-		display: inline-flex;
-    }
-	.wrapper{
-		border: groove;
-		display: none;
-	}
-	.label{
-		transform: rotate(270deg) translate(-190px,0px);
-		display: none;
-	}
-    </style>
+	<style>
+		.menuContainer{
+		    padding-top: 10px;
+		    padding-bottom: 10px;
+		    padding-right: 10px;
+		    padding-left: 10px;
+			display: inline-flex;
+		}
+
+		.wrapper{
+			border: groove;
+			display: none;
+		}
+
+		.label{
+			transform: rotate(270deg) translate(-190px,0px);
+			display: none;
+		}
+
+	</style>
+
+    <template>
+
       <div class="menuContainer">
 		<div class="wrapper" id="w1" on-tap="switchLayer">
 			<div class="label" id="l1">Fakultäten</div>
@@ -40,6 +45,7 @@
 			</div>
 		</div>
       </div>
+
   </template>
 
 </dom-module>
@@ -76,7 +82,6 @@
 		this.layer1 = this.getContentChildren('#content1');
 		this.layer2 = this.getContentChildren('#content2');
 		this.layer3 = this.getContentChildren('#content3');
-		//console.log(this.layer1[0].children);
 		this.selectActive();
     },
 	
@@ -84,14 +89,12 @@
 		var active1 = "";
 		var active2 = "";
 		for(i=0; i < this.layer1[0].children.length; ++i) {
-			//console.log(this.layer1[0].children[i].name);
 			if(this.layer1[0].children[i].active) {
 				active1 = this.layer1[0].children[i].name.replace("_", "");
 				break;
 			}
 		}		
 		for(i=0; i < this.layer2.length; ++i) {
-			//console.log(this.layer2[i].id);
 			if(this.layer2[i].id != active1) {
 				this.layer2[i].style.display = 'none';
 			} else {
@@ -105,7 +108,6 @@
 			}
 		}
 		for(i=0; i < this.layer3.length; ++i) {
-			//console.log(this.layer3[i].id);
 			if(this.layer3[i].id != active2) {
 				this.layer3[i].style.display = 'none';
 			} else {
@@ -116,7 +118,6 @@
 	
     _layerChanged: function(newValue, oldValue){
 		console.log(this.activeLayer + " is active");
-		//this.prevLayer = oldValue;
 		if(this.activeLayer == 1) {
 			this.fadeIn(this.$.layer1);
 			this.fadeOut(this.$.layer2);
@@ -127,7 +128,6 @@
 			this.$.w2.style.display = 'none';
 			this.$.l2.style.display = "none";
 			this.$.w3.style.display = 'none';
-
 			this.$.w1.style.backgroundColor = "white";
         	this.$.w1.style.color = "black";
 
@@ -141,9 +141,6 @@
 			this.$.l1.style.display = "flex";
 			this.$.w2.style.display = 'block';
 			this.$.l2.style.display = "none";
-			//this.$.w2.style.border = 'none';//
-			//this.$.w3.style.display = 'none';//
-
 			this.$.w1.style.backgroundColor = "grey";
         	this.$.w1.style.color = "white";
 			this.$.w2.style.backgroundColor = "white";
@@ -162,8 +159,6 @@
 			this.$.w2.style.border = 'groove';
 			this.$.l2.style.display = "flex";
 			this.$.w3.style.display = 'block';
-			//this.$.w3.style.border = 'none';//
-
 			this.$.w1.style.backgroundColor = "grey";
         	this.$.w1.style.color = "white";
         	this.$.w2.style.backgroundColor = "grey";
@@ -177,19 +172,15 @@
         layer.style.opacity = 1;
 		layer.style.width = "322.89px";
         layer.style.transition = "ease-in 0.5s";
-
     },
 
 	fadeOut: function(layer){
         layer.style.opacity = 0;
 		layer.style.width = "40px";
         layer.style.transition = "ease-out 0.5s";
-
     },
 	
 	switchLayer: function(e){
-	//console.log(e.currentTarget);
-	//console.log(this.activeLayer + " " + this.prevLayer);
 		var l = parseInt(e.currentTarget.id.replace("w", ""));
 		if(l != this.activeLayer) {
 			this.activeLayer = l;

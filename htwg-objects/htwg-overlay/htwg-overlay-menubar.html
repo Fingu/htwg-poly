@@ -3,40 +3,39 @@
 
 <dom-module id="htwg-overlay-menubar">
 
-  <template>
+  <style type="text/css">
 
-    <style type="text/css">
+    .overlay-content-big {
+      margin-top: 5%;
+      margin-left: 2%;
+      margin-right: 2%;
+      border-bottom: 2px solid white;
+      max-width: 96%;
+      white-space: nowrap;
+    }
 
-      .overlay-content-big {
-        margin-top: 5%;
-        margin-left: 2%;
-        margin-right: 2%;
-        border-bottom: 2px solid white;
-        max-width: 96%;
-        white-space: nowrap;
-      }
+    .overlay-content-mobile {
+      width: 100%;
+      white-space: normal;
+    }
 
+    img {
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      -webkit-filter: brightness(0) invert(1);
+      filter: brightness(0) invert(1);
+    }
 
-      .overlay-content-mobile {
-        width: 100%;
-        white-space: normal;
-      }
-
-      img {
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-        -webkit-filter: brightness(0) invert(1);
-        filter: brightness(0) invert(1);
-      }
-      ul{
-      	display: inline;
-      	list-style-type: none;
-      }
+    ul{
+    	display: inline;
+    	list-style-type: none;
+    }
 
 
-    </style>
+  </style>
+  <template> 
   
     <div class="overlay-content-big" id="contentdiv">
       <img src="{{logo}}" alt="picture not found" style="width:80px;height:80px" on-tap="openLink"></img>
@@ -67,8 +66,8 @@
         value: false,
         observer: "_mobilesizechanged"
       }
-
     },
+
     attached:function(){
       //If window smaller than 1000px switch to mobilesize
       if (!window.matchMedia("(min-width: 1000px)").matches) {

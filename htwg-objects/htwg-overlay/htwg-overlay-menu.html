@@ -3,35 +3,31 @@
 
 <dom-module id="htwg-overlay-menu">
 
-  <template>
+  <style type="text/css">
 
-    <style type="text/css">
+    .overlay {
+      height: 0%;
+      width: 100%;
+      position: fixed;
+      z-index: 100;
+      top: 0;
+      left: 0;
+      background-color: var(--overlay-color, rgba(94,94,93, 0.95));
+      overflow-x: hidden;
+      transition: 0.7s;
+    }
 
-      .overlay {
-        height: 0%;
-        width: 100%;
-        position: fixed;
-        z-index: 100;
-        top: 0;
-        left: 0;
-        background-color: var(--overlay-color, rgba(94,94,93, 0.95));
-        overflow-x: hidden;
-        transition: 0.7s;
-      }
+    .burger {
+      position: absolute;
+      font-size: 20px;
+      cursor: pointer;
+      color: var(--overlay-color, rgba(0,0,0, 0.8));
+      z-index: 101;
+    }
 
-      .burger {
-        position: absolute;
-        font-size: 20px;
-        cursor: pointer;
-        color: var(--overlay-color, rgba(0,0,0, 0.8));
-        z-index: 101;
-      }
-
-      .open {
-        color: white;
-      }
-
-
+    .open {
+      color: white;
+    }
 
     @media(min-width: 1000px){ /*  Laptopsize*/
       .burger {
@@ -40,7 +36,6 @@
       .select{
         visibility: hidden;
       }
-
     }
 
     @media (min-width: 768px){ /*768 x 1024 IPad*/
@@ -53,7 +48,6 @@
       .burger {
         font-size: 30px;
       }
-
     }
 
     @media(max-width: 1000px){ /*  Laptopsize*/
@@ -64,7 +58,6 @@
       	position: absolute;
       	top: 2%;
         left:5%;
-
       }
       .mobilePage2{
      	position: absolute;
@@ -77,31 +70,33 @@
       left: 50%;
       bottom: 0px;
       visibility: hidden;
-
     }
 
     .selectButton{
       width:20px;
       height: 20px;
     }
-    </style>
 
-  <span class="burger" on-tap="changeNav">☰</span>
+  </style>
+  
+  <template>
 
-  <div id="navbar" class="overlay" on-track="handleTrack">
+    <span class="burger" on-tap="changeNav">☰</span>
+
+    <div id="navbar" class="overlay" on-track="handleTrack">
       <div class="mobilePage1" >
-          <content select="htwg-overlay-menubar" id="myoverlaymenubar"></content>
+        <content select="htwg-overlay-menubar" id="myoverlaymenubar"></content>
       </div>
 
       <div id="mobilepage2" class="mobilePage2">
-          <content id="mycontent2"></content>
+        <content id="mycontent2"></content>
       </div>
 
       <div class="select">
-        <input class="selectButton" id="select1" type="Radio" name="Auswahl" checked=true on-tap="selectPage1"/> 
+        <input class="selectButton" id="select1" type="Radio" name="Auswahl" checked=true on-tap="selectPage1"/>
         <input class="selectButton" id="select2" type="Radio" name="Auswahl" on-tap="selectPage2"/> 
       </div>
-  </div>
+    </div>
     
   </template>
 
@@ -121,29 +116,28 @@
         value: 0
       }
     }, 
+
     handleTrack: function(e){
-    
       var endX = 0;
 
       switch(e.detail.state) {
-          case 'start':
-            this.startX = e.detail.x;
-            break;
-          case 'end':
-            endX = e.detail.x;
-            var tmp = this.startX-endX;
-            if((tmp > 50) || (tmp < -50)){
-              if(this.$.select1.checked == true){
-                  this.selectPage2();
-              }else{
-                  this.selectPage1();
-              }
-              
+        case 'start':
+          this.startX = e.detail.x;
+          break;
+        case 'end':
+          endX = e.detail.x;
+          var tmp = this.startX-endX;
+          if((tmp > 50) || (tmp < -50)){
+            if(this.$.select1.checked == true){
+              this.selectPage2();
+            }else{
+              this.selectPage1();
             }
-            break;
-        }
-
+          }
+          break;
+      }
     },
+
     attached:function(){
       if (window.matchMedia("(min-width: 1000px)").matches) {
         this.$$(".mobilePage1").style.visibility = "visible";
@@ -164,29 +158,28 @@
 
       var that = this;
       window.addEventListener("resize", function() {
-          if (window.matchMedia("(min-width: 1000px)").matches) {
-            that.$$(".mobilePage1").style.visibility = "visible";
-            that.$$(".mobilePage2").style.visibility = "visible";
-            var listmenubars = that.getContentChildren('#myoverlaymenubar');
-              for(i = 0; i < listmenubars.length; i++){
-                listmenubars[i].mobilesize = false;
-              }
-          }else{
-            //Mobilesize
-            that.$$(".mobilePage1").style.visibility = "visible";
-            that.$$(".mobilePage2").style.visibility = "hidden";
-            var listmenubars = that.getContentChildren('#myoverlaymenubar');
-            for(i = 0; i < listmenubars.length; i++){
-              listmenubars[i].mobilesize = true;
-            }
+        if (window.matchMedia("(min-width: 1000px)").matches) {
+          that.$$(".mobilePage1").style.visibility = "visible";
+          that.$$(".mobilePage2").style.visibility = "visible";
+          var listmenubars = that.getContentChildren('#myoverlaymenubar');
+          for(i = 0; i < listmenubars.length; i++){
+            listmenubars[i].mobilesize = false;
           }
-
-
+        } else {
+          //Mobilesize
+          that.$$(".mobilePage1").style.visibility = "visible";
+          that.$$(".mobilePage2").style.visibility = "hidden";
+          var listmenubars = that.getContentChildren('#myoverlaymenubar');
+          for(i = 0; i < listmenubars.length; i++){
+            listmenubars[i].mobilesize = true;
+          }
+        }
        });
       window.addEventListener("switchslide",function(){
         that.selectPage2();
       });
     }, 
+
     changeNav: function(){
       if (!this.active){
         this.$.navbar.style.height = "100%";
@@ -194,30 +187,29 @@
         this.$$(".burger").classList.add("open");
         if (!window.matchMedia("(min-width: 1000px)").matches) {
         	this.$$(".select").style.visibility = "visible";
-    	}
+        }
         this.active = true;
       } else {
         this.$$(".select").style.visibility = "hidden";
         this.$.navbar.style.height = "0%";
         this.$$(".burger").classList.remove("open");
         this.$$(".burger").textContent = "☰";
-        
         this.active = false;
       }
     },
+
     selectPage1: function(){
         this.$$(".mobilePage1").style.visibility = "visible";
         this.$$(".mobilePage2").style.visibility = "hidden";
         this.$.select1.checked=true;
         this.$.select2.checked=false;
     },
+
     selectPage2: function(){
         this.$$(".mobilePage2").style.visibility = "visible";
         this.$$(".mobilePage1").style.visibility = "hidden";
         this.$.select2.checked=true;
         this.$.select1.checked=false;
     }
-
-
   });
 </script>

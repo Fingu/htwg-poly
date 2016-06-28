@@ -29,14 +29,18 @@
        }
     }
 
-      a:hover   { text-shadow: 1px 1px 0px black;}
+    a:hover{ 
+      text-shadow: 1px 1px 0px black;
+    }
 
   </style>
 
   <template>
-  <div class="wrapper">
-   <li><a href={{link}} id ="text">{{textCaption}}</a></li>
-  </div>
+
+    <div class="wrapper">
+     <li><a href={{link}} id ="text">{{textCaption}}</a></li>
+    </div>
+
   </template>
 
 </dom-module>
@@ -75,7 +79,7 @@
     },
 
     checktag: function(tag){
-      //doSomething
+      //event not implemented because tagfilter currently doesn't know if no tags (for toast) was found.
     },
   });
 </script>

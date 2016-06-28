@@ -6,17 +6,18 @@
 
   <style>
     :host {
-        @apply(--layout-inline);
-        @apply(--layout-center);
-        @apply(--layout-center-justified);
-        @apply(--layout-flex-auto);
-        position: relative;
-        padding: 0 1vw;
-        overflow: hidden;
-        vertical-align: middle;
-        @apply(--paper-font-common-base);
-        @apply(--paper-tab);
+      @apply(--layout-inline);
+      @apply(--layout-center);
+      @apply(--layout-center-justified);
+      @apply(--layout-flex-auto);
+      position: relative;
+      padding: 0 1vw;
+      overflow: hidden;
+      vertical-align: middle;
+      @apply(--paper-font-common-base);
+      @apply(--paper-tab);
       }
+
       .tab-content > ::content > a {
         @apply(--layout-flex-auto);
       }
@@ -24,9 +25,11 @@
      .tab-content > ::content > a:hover {
         text-shadow: 1px 1px 0px black;
       }
+
   </style>
 
   <template>
+
    <div class="tab-content">
       <content></content>
    </div>
