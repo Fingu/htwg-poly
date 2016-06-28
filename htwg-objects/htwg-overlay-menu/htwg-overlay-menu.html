@@ -96,8 +96,8 @@
       </div>
 
       <div class="select">
-        <input class="selectButton" type="Radio" name="Auswahl" checked="checked" on-tap="selectPage1"/> 
-        <input class="selectButton" type="Radio" name="Auswahl" on-tap="selectPage2"/> 
+        <input class="selectButton" id="select1" type="Radio" name="Auswahl" checked="checked" on-tap="selectPage1"/> 
+        <input class="selectButton" id="select2" type="Radio" name="Auswahl" on-tap="selectPage2"/> 
       </div>
   </div>
     
@@ -158,6 +158,13 @@
 
 
        });
+      window.addEventListener("switchslide",function(){
+        console.log("selectpage");
+        that.$$(".mobilePage2").style.visibility = "visible";
+        that.$$(".mobilePage1").style.visibility = "hidden";
+        that.$.select2.checked=true;
+        that.$.select1.checked=false;
+      });
     }, 
     changeNav: function(){
       if (!this.active){
@@ -180,11 +187,14 @@
     selectPage1: function(){
         this.$$(".mobilePage1").style.visibility = "visible";
         this.$$(".mobilePage2").style.visibility = "hidden";
+        this.$.select1.checked=true;
+        this.$.select2.checked=false;
     },
     selectPage2: function(){
-      console.log("selectpage2 caled");
         this.$$(".mobilePage2").style.visibility = "visible";
         this.$$(".mobilePage1").style.visibility = "hidden";
+        this.$.select2.checked=true;
+        this.$.select1.checked=false;
     }
 
 
