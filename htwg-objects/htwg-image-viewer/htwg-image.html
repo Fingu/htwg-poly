@@ -62,23 +62,11 @@
 	showDetails: function() {
 		if(this.active) {
 			this.active = false;
-			this.$.column.classList.remove("col-16");
-			this.$.column.classList.remove("col-s-16");
-			this.$.column.classList.remove("col-m-16");
-			this.$.column.classList.remove("col-l-24");
 		} else {
 			var imgs = this.parentNode.getElementsByTagName("htwg-image");
 			for(i = 0; i < imgs.length; i++) {
 				imgs[i].active = false;
-				imgs[i].$.column.classList.remove("col-16");
-				imgs[i].$.column.classList.remove("col-s-16");
-				imgs[i].$.column.classList.remove("col-m-16");
-				imgs[i].$.column.classList.remove("col-l-24");
 			}
-			this.$.column.classList.add("col-16");
-			this.$.column.classList.add("col-s-16");
-			this.$.column.classList.add("col-m-16");
-			this.$.column.classList.add("col-l-24");
 			this.active = true;
 		}
 	}
