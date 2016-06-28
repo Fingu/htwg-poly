@@ -62,7 +62,9 @@
       }
       .mobilePage1{
       	position: absolute;
-      	top: 0px;
+      	top: 2%;
+        left:5%;
+
       }
       .mobilePage2{
      	position: absolute;
@@ -86,7 +88,7 @@
 
   <span class="burger" on-tap="changeNav">☰</span>
 
-  <div id="navbar" class="overlay">
+  <div id="navbar" class="overlay" on-track="handleTrack">
       <div class="mobilePage1" >
           <content select="htwg-overlay-menubar" id="myoverlaymenubar"></content>
       </div>
@@ -96,7 +98,7 @@
       </div>
 
       <div class="select">
-        <input class="selectButton" id="select1" type="Radio" name="Auswahl" checked="checked" on-tap="selectPage1"/> 
+        <input class="selectButton" id="select1" type="Radio" name="Auswahl" checked=true on-tap="selectPage1"/> 
         <input class="selectButton" id="select2" type="Radio" name="Auswahl" on-tap="selectPage2"/> 
       </div>
   </div>
@@ -113,8 +115,35 @@
       active: {
         type: Boolean,
         value: false
+      },
+      startX:{
+        type:Number,
+        value: 0
       }
     }, 
+    handleTrack: function(e){
+    
+      var endX = 0;
+
+      switch(e.detail.state) {
+          case 'start':
+            this.startX = e.detail.x;
+            break;
+          case 'end':
+            endX = e.detail.x;
+            var tmp = this.startX-endX;
+            if((tmp > 50) || (tmp < -50)){
+              if(this.$.select1.checked == true){
+                  this.selectPage2();
+              }else{
+                  this.selectPage1();
+              }
+              
+            }
+            break;
+        }
+
+    },
     attached:function(){
       if (window.matchMedia("(min-width: 1000px)").matches) {
         this.$$(".mobilePage1").style.visibility = "visible";
@@ -131,10 +160,6 @@
         for(var i = 0; i < listmenubars.length; i++){
           listmenubars[i].mobilesize = true;
         }
-
-        
-
-        
       }
 
       var that = this;
@@ -159,11 +184,7 @@
 
        });
       window.addEventListener("switchslide",function(){
-        console.log("selectpage");
-        that.$$(".mobilePage2").style.visibility = "visible";
-        that.$$(".mobilePage1").style.visibility = "hidden";
-        that.$.select2.checked=true;
-        that.$.select1.checked=false;
+        that.selectPage2();
       });
     }, 
     changeNav: function(){
