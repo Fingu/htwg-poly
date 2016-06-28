@@ -74,6 +74,10 @@
     	@media(max-width: 1001px){ /*  Laptopsize*/
     		::content a{
     			padding: 6px 25px;
+    			-ms-user-select: none;
+		        -webkit-user-select: none;
+				-moz-user-select: none;
+				user-select: none;
     		}
     		::content a:before{
     			content: "-";
@@ -135,7 +139,6 @@
     	}
     },
     selected: function(){
-    	alert("selected");
     }
 
   });
