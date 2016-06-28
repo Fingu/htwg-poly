@@ -5,30 +5,24 @@
 		<script src="bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
 
 		<script>
-		/* this script must run before Polymer is imported */
-		window.Polymer = {
-		  dom: 'shadow', //use shadow dom if possible
-		  lazyRegister: true
-		};
-	  </script>
+			/* this script must run before Polymer is imported */
+			window.Polymer = {
+			  dom: 'shadow', //use shadow dom if possible
+			  lazyRegister: true
+			};
+	  	</script>
 
-	  <link rel="import" href="htwg-objects/htwg-grid/htwg-grid.html">
-	  <link rel="import" href="htwg-objects/htwg-color/htwg-color.html">
-	  <link rel="import" href="htwg-objects/htwg-font/htwg-font.html">
+		<link rel="import" href="htwg-objects/htwg-grid/htwg-grid.html">
+		<link rel="import" href="htwg-objects/htwg-color/htwg-color.html">
+		<link rel="import" href="htwg-objects/htwg-font/htwg-font.html">
+		<link rel="import" href="htwg-objects/htwg-build/htwg-build-overlay-menu.html">
 
-	  <link rel="import" href="htwg-objects/htwg-build/htwg-build-overlay-menu.html">
+		<link rel="import" href="htwg-objects/htwg-bubble-frame/htwg-bubble-frame.html">
+		<link rel="import" href="htwg-objects/htwg-window-container/htwg-window-container.html">
 
-	  <link rel="import" href="htwg-objects/htwg-thumbnail/htwg-thumbnail.html">
-	  <link rel="import" href="htwg-objects/htwg-thumbnail/htwg-thumbnail-tagfilter.html">
-	  <link rel="import" href="htwg-objects/htwg-thumbnail/htwg-thumbnail-textelement.html">
-	  <link rel="import" href="htwg-objects/htwg-thumbnail/htwg-tagelement.html">
+		<link rel="import" href="bower_components/iron-input/iron-input.html">
 
-	  <link rel="import" href="htwg-objects/htwg-bubble-frame/htwg-bubble-frame.html">
-	  <link rel="import" href="htwg-objects/htwg-window-container/htwg-window-container.html">
-
-	  <link rel="import" href="bower_components/iron-input/iron-input.html">
-
-  	  	<style is="custom-style" include="htwg-color htwg-grid htwg-font">
+		<style is="custom-style" include="htwg-color htwg-grid htwg-font">
 
   	  		body{
   	  			overflow: hidden;
@@ -52,11 +46,13 @@
 				--bubble-color: var(--htwg-gray-80);
 				--bubble-frame-image: url("images/home/home_01.jpg");
 			}
+
 	  	  	body{
 	  	  		margin-top: 0px;
 	  	  		margin-left: 0px;
 	  	  		position: absolute;
   	  		}
+
   	  		htwg-window-container {
   	  			color: var(--htwg-white);
   	  		}
@@ -69,10 +65,12 @@
 				left: 	55px;
 				bottom: 55px;
   	  		}
+
 		</style>
 	</head>
 
 	<body>
+
 		<htwg-build-overlay-menu>
 		</htwg-build-overlay-menu>
 
@@ -101,21 +99,21 @@
 
 		<a href="#"><img id="login" src="images/home/login_weiss.png"/></a>
 
+
 		<script type="text/javascript">
 
-		var number = 2;
-			var myVar=setInterval(function(){
-				currentObj = document.getElementById('main');
-				currentObj.customStyle["--bubble-frame-image"] = 'url("images/home/home_0' + number + '.jpg")';
-				currentObj.updateStyles();
-				number++;
-				if (number==4){
-					number = 1;
-				}
-			}, 30000);
+			var number = 2;
+				var myVar=setInterval(function(){
+					currentObj = document.getElementById('main');
+					currentObj.customStyle["--bubble-frame-image"] = 'url("images/home/home_0' + number + '.jpg")';
+					currentObj.updateStyles();
+					number++;
+					if (number==4){
+						number = 1;
+					}
+				}, 30000);
+
 		</script>
 
 	</body>
-
-
 </html>

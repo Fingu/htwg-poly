@@ -4,111 +4,112 @@
 		<meta charset="utf-8"/>
 		<script src="bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
 		<script>
-		/* this script must run before Polymer is imported */
-		window.Polymer = {
-		  dom: 'shadow', //use shadow dom if possible
-		  lazyRegister: true
-		};
-	  </script>
+			/* this script must run before Polymer is imported */
+			window.Polymer = {
+			  dom: 'shadow', //use shadow dom if possible
+			  lazyRegister: true
+			};
+	  	</script>
 
-	  <link rel="import" href="htwg-objects/htwg-grid/htwg-grid.html">
-	  <link rel="import" href="htwg-objects/htwg-color/htwg-color.html">
-	  <link rel="import" href="htwg-objects/htwg-font/htwg-font.html">
+		<link rel="import" href="htwg-objects/htwg-grid/htwg-grid.html">
+		<link rel="import" href="htwg-objects/htwg-color/htwg-color.html">
+		<link rel="import" href="htwg-objects/htwg-font/htwg-font.html">
+		<link rel="import" href="htwg-objects/htwg-build/htwg-build-overlay-menu.html">
 
-	  <link rel="import" href="htwg-objects/htwg-bubble-frame/htwg-bubble-frame.html">
-	  <link rel="import" href="htwg-objects/htwg-window-container/htwg-window-container.html">
+		<link rel="import" href="htwg-objects/htwg-bubble-frame/htwg-bubble-frame.html">
+		<link rel="import" href="htwg-objects/htwg-window-container/htwg-window-container.html">
 
-	  <link rel="import" href="htwg-objects/htwg-menu/htwg-menu.html">
-	  <link rel="import" href="htwg-objects/htwg-menu/htwg-menuelement.html">
-
- 	  <link rel="import" href="htwg-objects/htwg-build/htwg-build-overlay-menu.html">
-
-	  <link rel="import" href="htwg-objects/htwg-thumbnail/htwg-thumbnail.html">
-	  <link rel="import" href="htwg-objects/htwg-thumbnail/htwg-thumbnail-tagfilter.html">
-	  <link rel="import" href="htwg-objects/htwg-thumbnail/htwg-thumbnail-textelement.html">
-
-	  <link rel="import" href="htwg-objects/htwg-container/htwg-container.html">
-	  <link rel="import" href="htwg-objects/htwg-container/htwg-container-opener.html">
-	  <link rel="import" href="htwg-objects/htwg-container/htwg-container-menu.html">
-	  <link rel="import" href="htwg-objects/htwg-container/htwg-container-menuitem.html">
-	  <link rel="import" href="htwg-objects/htwg-container/htwg-container-text.html">
-	  <link rel="import" href="htwg-objects/htwg-container/htwg-container-fileloader.html">
-<link rel="import" href="htwg-objects/htwg-container/htwg-container-with-menu.html">
-
-
+		<link rel="import" href="htwg-objects/htwg-menu/htwg-menu.html">
+		<link rel="import" href="htwg-objects/htwg-menu/htwg-menuelement.html">
+		
+		<link rel="import" href="htwg-objects/htwg-container/htwg-container.html">
+		<link rel="import" href="htwg-objects/htwg-container/htwg-container-opener.html">
+		<link rel="import" href="htwg-objects/htwg-container/htwg-container-menu.html">
+		<link rel="import" href="htwg-objects/htwg-container/htwg-container-menuitem.html">
+		<link rel="import" href="htwg-objects/htwg-container/htwg-container-text.html">
+		<link rel="import" href="htwg-objects/htwg-container/htwg-container-fileloader.html">
+		<link rel="import" href="htwg-objects/htwg-container/htwg-container-with-menu.html">
 
   	  	<style is="custom-style" include="htwg-grid htwg-color htwg-font">
 		
-  	  	#overlayMenu{
-  	  		position:absolute;
-  	  		right: 5%;
-  	  		--overlay-color: var(--htwg-gray-80);
-  	  	}
-  	  	.ueberschrift{
-  	  		position: relative;
-  	  		top: 20vh;
-			padding-bottom: 20vh;
-			color: var(--htwg-black);
-  	  	}
-  	  	body{
-  	  		margin-top: 0px;
-  	  		margin-left: 0px;
-  	  		position: absolute;
-  	  	}
+	  	  	#overlayMenu{
+	  	  		position:absolute;
+	  	  		right: 5%;
+	  	  		--overlay-color: var(--htwg-gray-80);
+	  	  	}
 
-		htwg-window-container,
-		htwg-container {
-			color: var(--htwg-white);
-		}
- 	  	htwg-container-with-menu{
-  	  		color: var(--htwg-white);
-  	  	}
+	  	  	.ueberschrift{
+	  	  		position: relative;
+	  	  		top: 20vh;
+				padding-bottom: 20vh;
+				color: var(--htwg-black);
+	  	  	}
 
-		htwg-bubble-frame{
-			--bubble-color: var(--htwg-in-80);
-		}
-		
-  	  	.bubbleKurzportrait{
-  	  		--bubble-frame-image: url("../../images/AIN/studentin.jpg");
-  	  	}
+	  	  	body{
+	  	  		margin-top: 0px;
+	  	  		margin-left: 0px;
+	  	  		position: absolute;
+	  	  	}
 
-  	  	.bubbleBewerbung{
-  	  		--bubble-frame-image: url("../../images/AIN/student.jpg");
-  	  	}
+			htwg-window-container,
+			htwg-container {
+				color: var(--htwg-white);
+			}
 
-  	  	.bubbleStudienaufbau{
-  	  		--bubble-frame-image: url("../../images/AIN/code.jpg");
-  	  	}
+	 	  	htwg-container-with-menu{
+	  	  		color: var(--htwg-white);
+	  	  	}
 
-  	  	.bubbleFachschaft{
-  	  		--bubble-frame-image: url("../../images/AIN/group.jpg");
-  	  	}
+			htwg-bubble-frame{
+				--bubble-color: var(--htwg-in-80);
+			}
+			
+	  	  	.bubbleKurzportrait{
+	  	  		--bubble-frame-image: url("../../images/AIN/studentin.jpg");
+	  	  	}
 
-  	  	#contactContainer{
-  	  		--container-background: var(--htwg-in-100);
-  	  	}
-  	  	htwg-container{
-  	  		background: var(--htwg-in-100);
-  	  	} 
-  	  	htwg-container-with-menu{
-  	  		background: var(--htwg-in-100);
-  	  	}
-  	  	#top{
-  	  		--container-background: url("../../images/AIN/auto.jpg")
-  	  	}
-   		a{
-	      color: black;
-	    }
+	  	  	.bubbleBewerbung{
+	  	  		--bubble-frame-image: url("../../images/AIN/student.jpg");
+	  	  	}
 
-	    a:visited {
-	      color: black;
-	    }
+	  	  	.bubbleStudienaufbau{
+	  	  		--bubble-frame-image: url("../../images/AIN/code.jpg");
+	  	  	}
+
+	  	  	.bubbleFachschaft{
+	  	  		--bubble-frame-image: url("../../images/AIN/group.jpg");
+	  	  	}
+
+	  	  	#contactContainer{
+	  	  		--container-background: var(--htwg-in-100);
+	  	  	}
+
+	  	  	htwg-container{
+	  	  		background: var(--htwg-in-100);
+	  	  	} 
+
+	  	  	htwg-container-with-menu{
+	  	  		background: var(--htwg-in-100);
+	  	  	}
+
+	  	  	#top{
+	  	  		--container-background: url("../../images/AIN/auto.jpg")
+	  	  	}
+
+	   		a{
+		      color: black;
+		    }
+
+		    a:visited {
+		      color: black;
+		    }
+
 		</style>
 
 	</head>
 
 	<body>
-			<htwg-menu height=6>
+		<htwg-menu height=6>
 			<htwg-menuelement >
 				<a href="#kurzportrait">Kurzportrait</a>
 			</htwg-menuelement>
@@ -133,9 +134,6 @@
 
 			<htwg-build-overlay-menu>
 			</htwg-build-overlay-menu>
-
-
-
 		</htwg-menu>
 
 		<htwg-window-container
@@ -148,23 +146,21 @@
 			</div>
 		</htwg-window-container>
 
-
 		<htwg-window-container id="kurzportrait">
 			<htwg-bubble-frame class="bubbleKurzportrait">
-					<div class="row" style="margin-top: 35%;">
-						<div class="col-9 col-s-15 col-m-21 col-l-31"></div>
-						<div class="col-6 col-s-8 col-m-8 col-l-8">
-							<htwg-container-opener class="content" target="kurzportraitContainer"><h2>Kurzportrait</h2></htwg-container-opener>
-						</div>
+
+				<div class="row" style="margin-top: 35%;">
+					<div class="col-9 col-s-15 col-m-21 col-l-31"></div>
+					<div class="col-6 col-s-8 col-m-8 col-l-8">
+						<htwg-container-opener class="content" target="kurzportraitContainer"><h2>Kurzportrait</h2></htwg-container-opener>
 					</div>
-				</htwg-bubble-frame>
+				</div>
 
-			
-
+			</htwg-bubble-frame>
 		</htwg-window-container>
 
 
-<!-- HTWG Container (popped auf-->
+		<!-- HTWG Container (popped auf-->
 		<htwg-container id="kurzportraitContainer">
 
 			<h1 class="title">Kurzportrait</h1>
@@ -186,29 +182,28 @@
 				Informatik (MSI) oder Business Information Technology (BIT) 
 				Akkreditierung: Der Studiengang ist durch die zentrale Evaluations- und
 				Akkreditierungsagentur Hannover (ZEvA) akkreditiert.
-				
-
 			</span>
+
 		</htwg-container>
 
 <!-- Neues Window -->
-		<htwg-window-container
-			id="bewerbung">
-
+		<htwg-window-container id="bewerbung">
 			<htwg-bubble-frame class="bubbleBewerbung">
-					<div class="row" style="margin-top: 35%;">
-						<div class="col-9 col-s-15 col-m-21 col-l-31"></div>
-						<div class="col-6 col-s-8 col-m-8 col-l-8">
-							<htwg-container-opener class="content" target="bewerbungContainer"><h2>Bewerbung</h2></htwg-container-opener>
-						</div>
-					</div>
-			</htwg-bubble-frame>
 
-			
+				<div class="row" style="margin-top: 35%;">
+					<div class="col-9 col-s-15 col-m-21 col-l-31"></div>
+					<div class="col-6 col-s-8 col-m-8 col-l-8">
+						<htwg-container-opener class="content" target="bewerbungContainer"><h2>Bewerbung</h2></htwg-container-opener>
+					</div>
+				</div>
+
+			</htwg-bubble-frame>
 		</htwg-window-container>
 
 		<htwg-container-with-menu id="bewerbungContainer" menu>
+
 			<h1 class="title">Bewerbung</h1>
+
 			<htwg-container-menu class="content1">
 				<htwg-container-menuitem linkid="bewerbenTermine" active>
 					Termine und Fristen
@@ -220,6 +215,7 @@
 					Zulassung
 				</htwg-container-menuitem>
 			</htwg-container-menu>
+
 			<htwg-container-text id="bewerbenTermine" class="content2" active>
 				<p>
 					<br>
@@ -252,24 +248,24 @@
 					Aufgrund dieser ermittelten Note wird eine Rangliste erstellt, nach der die Studienplätze vergeben werden.
 				</p>
 			</htwg-container-text>
+
 		</htwg-container-with-menu>
 
-		<htwg-window-container
-			id="studienaufbau">
-
+		<htwg-window-container id="studienaufbau">
 			<htwg-bubble-frame class="bubbleStudienaufbau">
-					<div class="row" style="margin-top: 35%;">
-						<div class="col-7 col-s-15 col-m-21 col-l-31"></div>
-						<div class="col-8 col-s-10 col-m-10 col-l-8">
-							<htwg-container-opener class="content" target="studienaufbauContainer"><h2>Studienaufbau</h2></htwg-container-opener>
-						</div>
-					</div>
-			</htwg-bubble-frame>
 
-			
+				<div class="row" style="margin-top: 35%;">
+					<div class="col-7 col-s-15 col-m-21 col-l-31"></div>
+					<div class="col-8 col-s-10 col-m-10 col-l-8">
+						<htwg-container-opener class="content" target="studienaufbauContainer"><h2>Studienaufbau</h2></htwg-container-opener>
+					</div>
+				</div>
+
+			</htwg-bubble-frame>
 		</htwg-window-container>
 
 		<htwg-container-with-menu id="studienaufbauContainer">
+
 			<h1 class="title">Studienaufbau</h1>
 
 			<htwg-container-menu class="content1">
@@ -301,61 +297,65 @@
 			</htwg-container-text>
 
 			<htwg-container-text id="saGrundstudium" class="content2">
-				<p>Das Grundstudium umfasst die ersten zwei Semester. Das erste Semester, das sog. Assessment-Semester, soll den Studierenden den Einstieg erleichtern und ihnen helfen, frühzeitig zu erkennen, ob das gewählte Studium ihren Vorstellungen und Neigungen entspricht. 
-In den ersten drei Semestern haben alle Studierenden einen gemeinsamen Kern an Lehrveranstaltungen, auf den dann die Vertiefungsrichtungen aufsetzen. Dieser gemeinsame Kern legt den Schwerpunkt auf allgemeine Grundlagen der Informatik (Digitaltechnik, Rechnerarchitekturen, Technische Grundlagen der angewandten Informatik, Betriebssysteme), softwareorientierte Lehrveranstaltungen (Programmiertechnik, Systemmodellierung, Systemprogrammierung, Softwaretechnik, Datenbanksysteme) sowie Mathematik. </p>
+				<p>
+					Das Grundstudium umfasst die ersten zwei Semester. Das erste Semester, das sog. Assessment-Semester, soll den Studierenden den Einstieg erleichtern und ihnen helfen, frühzeitig zu erkennen, ob das gewählte Studium ihren Vorstellungen und Neigungen entspricht. 
+					In den ersten drei Semestern haben alle Studierenden einen gemeinsamen Kern an Lehrveranstaltungen, auf den dann die Vertiefungsrichtungen aufsetzen. Dieser gemeinsame Kern legt den Schwerpunkt auf allgemeine Grundlagen der Informatik (Digitaltechnik, Rechnerarchitekturen, Technische Grundlagen der angewandten Informatik, Betriebssysteme), softwareorientierte Lehrveranstaltungen (Programmiertechnik, Systemmodellierung, Systemprogrammierung, Softwaretechnik, Datenbanksysteme) sowie Mathematik. 
+				</p>
 			</htwg-container-text>
 
-
 			<htwg-container-text id="saHauptstudium" class="content2">
-			Das Hauptstudium umfasst das dritte bis siebte Semester.
+				Das Hauptstudium umfasst das dritte bis siebte Semester.
 
-Das vierte Semester ist ein integriertes praktisches Studiensemester (PSS) in einem Unternehmen außerhalb der Hochschule. Dies kann im Inland, aber auch im Ausland sein.
-Im 6. und 7. Semester geben Teamprojekt und Wahlmodule den Studierenden weitere Möglichkeiten, eigene Interessensgebiete zu vertiefen.
-Zusätzlich umfasst das Studium auch ergänzende Veranstaltungen zur Vermittlung von Englischkenntnissen, sowie von Arbeitstechniken wie Teamarbeit, Präsentationstechnik, Rhetorik und Projektmanagement. Dies ist eine gute Vorbereitung auf die Berufswelt, in der auch internationale Zusammenarbeit über kulturelle Grenzen hinweg immer alltäglicher wird.
-Den Abschluss des Studiums bildet die Bachelorarbeit. Hier zeigen die Studierenden, dass sie ein komplexes Thema mit wissenschaftlichen Methoden in einer vorgegebenen Zeit selbstständig bearbeiten können. Als Abschluss wird der Titel Bachelor of Science (B.Sc.) verliehen.
+				Das vierte Semester ist ein integriertes praktisches Studiensemester (PSS) in einem Unternehmen außerhalb der Hochschule. Dies kann im Inland, aber auch im Ausland sein.
+				Im 6. und 7. Semester geben Teamprojekt und Wahlmodule den Studierenden weitere Möglichkeiten, eigene Interessensgebiete zu vertiefen.
+				Zusätzlich umfasst das Studium auch ergänzende Veranstaltungen zur Vermittlung von Englischkenntnissen, sowie von Arbeitstechniken wie Teamarbeit, Präsentationstechnik, Rhetorik und Projektmanagement. Dies ist eine gute Vorbereitung auf die Berufswelt, in der auch internationale Zusammenarbeit über kulturelle Grenzen hinweg immer alltäglicher wird.
+				Den Abschluss des Studiums bildet die Bachelorarbeit. Hier zeigen die Studierenden, dass sie ein komplexes Thema mit wissenschaftlichen Methoden in einer vorgegebenen Zeit selbstständig bearbeiten können. Als Abschluss wird der Titel Bachelor of Science (B.Sc.) verliehen.
 			</htwg-container-text>
 
 			<htwg-container-text id="saCNE" class="content2">
-			Vertieft die technischen Aspekte von Informatiksystemen und beschäftigt sich schwerpunktmäßig mit der Entwicklung und Vernetzung von Computersystemen. Als eine Kernkompetenz werden in dieser Vertiefungsrichtung Hardware-Beschreibungssprachen erlernt, also Programmiersprachen, mit denen es möglich ist, komplexe digitale Systeme zu beschreiben und zu entwerfen. Dies erfordert auch Kenntnisse über die Anwendung von elektronischen Bauelementen. Darüber hinaus wird auf das Zusammenspiel von Hard- und Software sowie die Zuverlässigkeit und Sicherheit von Computersystemen eingegangen.
-Ein zweiter wesentlicher Aspekt ist die Kommunikation zwischen den Komponenten eines Computers oder zwischen verschiedenen Computersystemen. Hierzu werden die wichtigsten Prinzipien der Computervernetzung und die dazu notwendigen Protokolle praxisnah vermittelt. Die Studierenden entwickeln so ein Verständnis für Computersysteme in ihrer Gesamtheit und sind selbst in der Lage Computersysteme zu entwerfen. 
-Schwerpunktfächer sind Elektronik, Kommunikationstechnik, Mikroprozessorsysteme, Komponenten Digitaler Systeme, Hardware /Software Codesign.
+				Vertieft die technischen Aspekte von Informatiksystemen und beschäftigt sich schwerpunktmäßig mit der Entwicklung und Vernetzung von Computersystemen. Als eine Kernkompetenz werden in dieser Vertiefungsrichtung Hardware-Beschreibungssprachen erlernt, also Programmiersprachen, mit denen es möglich ist, komplexe digitale Systeme zu beschreiben und zu entwerfen. Dies erfordert auch Kenntnisse über die Anwendung von elektronischen Bauelementen. Darüber hinaus wird auf das Zusammenspiel von Hard- und Software sowie die Zuverlässigkeit und Sicherheit von Computersystemen eingegangen.
+				Ein zweiter wesentlicher Aspekt ist die Kommunikation zwischen den Komponenten eines Computers oder zwischen verschiedenen Computersystemen. Hierzu werden die wichtigsten Prinzipien der Computervernetzung und die dazu notwendigen Protokolle praxisnah vermittelt. Die Studierenden entwickeln so ein Verständnis für Computersysteme in ihrer Gesamtheit und sind selbst in der Lage Computersysteme zu entwerfen. 
+				Schwerpunktfächer sind Elektronik, Kommunikationstechnik, Mikroprozessorsysteme, Komponenten Digitaler Systeme, Hardware /Software Codesign.
 			</htwg-container-text>
 
 			<htwg-container-text id="saES" class="content2">
-			Eingebettete Systeme haben inzwischen alle Bereiche der Industrie durchdrungen. Sie kommen in einer Vielzahl von Gebrauchsobjekten wie Handys, Autos und Geräten der Unterhaltungselektronik, meist unsichtbar für den Benutzer, zum Einsatz. 
+				Eingebettete Systeme haben inzwischen alle Bereiche der Industrie durchdrungen. Sie kommen in einer Vielzahl von Gebrauchsobjekten wie Handys, Autos und Geräten der Unterhaltungselektronik, meist unsichtbar für den Benutzer, zum Einsatz. 
 
-Bei der Entwicklung von Embedded Systems wird besonderer Augenmerk auf Größe, Stromverbrauch und Robustheit des Systems gelegt. Aber auch der Entwurf der zugehörigen Software ist besonders anspruchsvoll und spannend. Als sogenannte Echtzeitsysteme sind bei eingebetteten Systemen beispielsweise harte, zeitliche Vorgaben einzuhalten. Das gelingt nur bei einem strukturierten, methodischen Vorgehen beim Softwareentwurf. Aufgrund der für den Entwurf und die Realisierung von eingebetteten Systemen notwendigen Kenntnisse im Bereich Software und Hardware vereint das Studienprogramm unter anderem Themenfelder der Mikrosystemtechnik mit denen des Software-Engineerings. Schwerpunktfächer sind Ubiquitous Computing, Realzeitsysteme, Mobile Roboter, Systemtechnik, Softwarequalitätssicherung und Systemsoftware.
+				Bei der Entwicklung von Embedded Systems wird besonderer Augenmerk auf Größe, Stromverbrauch und Robustheit des Systems gelegt. Aber auch der Entwurf der zugehörigen Software ist besonders anspruchsvoll und spannend. Als sogenannte Echtzeitsysteme sind bei eingebetteten Systemen beispielsweise harte, zeitliche Vorgaben einzuhalten. Das gelingt nur bei einem strukturierten, methodischen Vorgehen beim Softwareentwurf. Aufgrund der für den Entwurf und die Realisierung von eingebetteten Systemen notwendigen Kenntnisse im Bereich Software und Hardware vereint das Studienprogramm unter anderem Themenfelder der Mikrosystemtechnik mit denen des Software-Engineerings. Schwerpunktfächer sind Ubiquitous Computing, Realzeitsysteme, Mobile Roboter, Systemtechnik, Softwarequalitätssicherung und Systemsoftware.
 			</htwg-container-text>
 
 			<htwg-container-text id="saMI" class="content2">
-			In unserem heutigen Zeitalter der digitalen Medien und der computerbasierten Kommunikationsformen ist die Medieninformatik eine der Schlüsseltechnologien. Sie beschäftigt sich mit Methoden und Werkzeugen zur Konzeption, Gestaltung, Produktion, Speicherung und Verteilung digitaler Medien. Dabei geht es darum, multimediale Computersysteme zu schaffen, die auf den Menschen, seine Aufgaben und seine Lebenssituation zugeschnitten sind und die eine verständliche und effiziente Interaktion ermöglichen.
-Ziel dieser Vertiefungsrichtung ist die Vermittlung von Kenntnissen und Methoden zur Entwicklung solcher multimedialer Informatiksysteme. Dabei gehört die Fähigkeit der Gestaltung digitaler Medien ebenso dazu wie die Realisierung interaktiver Komponenten. Folgende Themenbereiche werden schwerpunktmäßig behandelt: Computergrafik, Bildverarbeitung, Mediendesign, Multimedia, Web-Technologien.
-Ein deutlicher Schwerpunkt liegt auf den informatikbezogenen Lerninhalten. Deshalb wollen wir gleich an dieser Stelle darauf aufmerksam machen, dass es sich bei Medieninformatik vorwiegend um einen technischen Studiengang und nicht um ein Designstudium handelt.
+
+				In unserem heutigen Zeitalter der digitalen Medien und der computerbasierten Kommunikationsformen ist die Medieninformatik eine der Schlüsseltechnologien. Sie beschäftigt sich mit Methoden und Werkzeugen zur Konzeption, Gestaltung, Produktion, Speicherung und Verteilung digitaler Medien. Dabei geht es darum, multimediale Computersysteme zu schaffen, die auf den Menschen, seine Aufgaben und seine Lebenssituation zugeschnitten sind und die eine verständliche und effiziente Interaktion ermöglichen.
+				Ziel dieser Vertiefungsrichtung ist die Vermittlung von Kenntnissen und Methoden zur Entwicklung solcher multimedialer Informatiksysteme. Dabei gehört die Fähigkeit der Gestaltung digitaler Medien ebenso dazu wie die Realisierung interaktiver Komponenten. Folgende Themenbereiche werden schwerpunktmäßig behandelt: Computergrafik, Bildverarbeitung, Mediendesign, Multimedia, Web-Technologien.
+				Ein deutlicher Schwerpunkt liegt auf den informatikbezogenen Lerninhalten. Deshalb wollen wir gleich an dieser Stelle darauf aufmerksam machen, dass es sich bei Medieninformatik vorwiegend um einen technischen Studiengang und nicht um ein Designstudium handelt.
+
 			</htwg-container-text>
 
 			<htwg-container-text id="saSE" class="content2">
-			Software kommt heutzutage in fast allen Wirtschafts- und Industriebereichen eine strategische Bedeutung zu. Als Beispiele seien die Bereiche Banken und Versicherungen, öffentliche Verwaltung, Medien, Spiele und Unterhaltung, oder Anlagen- und Systemsteuerung genannt.
-Die professionelle Erstellung von komplexer, robuster und zuverlässiger Software kann heute und in Zukunft nur noch auf der Grundlage wissenschaftlich fundierter Entwurfsverfahren geschehen. Neben den unerlässlichen allgemeinen Grundlagen erwerben die Studierenden das theoretische und praktische Wissen zur Modellierung konkreter Aufgabenstellungen. Im Team wird Software für die verschiedenartigsten Rechnersysteme entworfen, implementiert und getestet. Schwerpunkte sind  Softwarearchitekturen, Softwarequalitätssicherung , Systemsoftware, IT-Sicherheit, Web-Technologien und Sprachkonzepte.
+
+				Software kommt heutzutage in fast allen Wirtschafts- und Industriebereichen eine strategische Bedeutung zu. Als Beispiele seien die Bereiche Banken und Versicherungen, öffentliche Verwaltung, Medien, Spiele und Unterhaltung, oder Anlagen- und Systemsteuerung genannt.
+				Die professionelle Erstellung von komplexer, robuster und zuverlässiger Software kann heute und in Zukunft nur noch auf der Grundlage wissenschaftlich fundierter Entwurfsverfahren geschehen. Neben den unerlässlichen allgemeinen Grundlagen erwerben die Studierenden das theoretische und praktische Wissen zur Modellierung konkreter Aufgabenstellungen. Im Team wird Software für die verschiedenartigsten Rechnersysteme entworfen, implementiert und getestet. Schwerpunkte sind  Softwarearchitekturen, Softwarequalitätssicherung , Systemsoftware, IT-Sicherheit, Web-Technologien und Sprachkonzepte.
+
 			</htwg-container-text>
+
 		</htwg-container-with-menu>
 
-
-		<htwg-window-container
-			id="fachschaft">
-
+		<htwg-window-container id="fachschaft">
 			<htwg-bubble-frame class="bubbleFachschaft">
-					<div class="row" style="margin-top: 35%;">
-						<div class="col-9 col-s-15 col-m-21 col-l-31"></div>
-						<div class="col-6 col-s-6 col-m-10 col-l-8">
-							<htwg-container-opener class="content" target="fachschaftContainer"><h2>Fachschaft</h2></htwg-container-opener>
-						</div>
-					</div>
-			</htwg-bubble-frame>
 
-			
+				<div class="row" style="margin-top: 35%;">
+					<div class="col-9 col-s-15 col-m-21 col-l-31"></div>
+					<div class="col-6 col-s-6 col-m-10 col-l-8">
+						<htwg-container-opener class="content" target="fachschaftContainer"><h2>Fachschaft</h2></htwg-container-opener>
+					</div>
+				</div>
+
+			</htwg-bubble-frame>
 		</htwg-window-container>
 
 		<htwg-container id="fachschaftContainer">
+
 			<h1 class="title">Fachschaft</h1>
 
 			<p class="contentt">
@@ -365,6 +365,7 @@ Die professionelle Erstellung von komplexer, robuster und zuverlässiger Softwar
 		</htwg-container>
 
 		<htwg-window-container id="contactContainer">
+
 			<br>
 			<div class="col-1 col-s-1 col-m-2 col-l-3">
 			</div>
@@ -383,11 +384,7 @@ Die professionelle Erstellung von komplexer, robuster und zuverlässiger Softwar
 			</div>
 			<div class="col-1 col-s-1 col-m-2 col-l-3">
 			</div>
+
 		</htwg-window-container>
-
-
-
 	</body>
-
-
 </html>
