@@ -2,13 +2,12 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
 
-
 <dom-module id="htwg-container-menuitem">
 
   <style>
-  :host {
-	cursor: pointer;
-  }
+		:host {
+			cursor: pointer;
+		}
   </style>
 
   <template>
@@ -34,17 +33,18 @@
         observer: "_activechanged"
       }
     },
-    attached: function(){
+		
+    attached: function() {
       if(this.active){
-        //this.style.textShadow = "1px 1px 0px black";
         this.style.fontWeight = 'bold';
       }
     },
-    tapped: function(){
+		
+    tapped: function() {
       var texts = Polymer.dom(this).parentNode.parentNode.getElementsByTagName("htwg-container-text");
       var menuitems = Polymer.dom(this).parentNode.parentNode.getElementsByTagName("htwg-container-menuitem");
 
-     for(i = 0; i < texts.length; i++){
+      for(i = 0; i < texts.length; i++){
         texts[i].active = false;
       }
       for(i = 0; i < texts.length; i++){
@@ -55,13 +55,11 @@
       }
       this.active = true;
     },
+		
     _activechanged: function(){
-      if(this.active){
-        
-        //this.style.textShadow = "1px 1px 0px black";
+      if(this.active) {
         this.style.fontWeight = 'bold';
-      }else{
-        //this.style.textShadow = "0px 0px 0px black";
+      }else {
         this.style.fontWeight = 'normal';
       }
     }

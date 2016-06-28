@@ -3,19 +3,21 @@
 <link rel="import" href="../htwg-grid/htwg-grid.html">
 
 <dom-module id="htwg-image">
-  <template>
-    <style include="htwg-grid">
+	<style include="htwg-grid">
 		#image {
 			width: 100%;
 			height: auto;
 			transition: 1s;
 		}
+		
 		#info {
 			display: none;
 		}
+		
 		:host([active]) #info {
 			display: block;
 		}
+		
 		#frame {
 			cursor: pointer;
 			transition: 1s;
@@ -23,52 +25,53 @@
 			min-height: 200pt;
 			text-align: center;
 		}
-    </style>
+	</style>
+	
+  <template>		
     <div id="wrapper" class="wrapperclass">
-	<div id="column" class="col-15 col-s-15 col-m-15 col-l-12">
-		<div id="frame" on-tap="showDetails">
-			<img id="image" src="{{src}}"/>
-			<h3>{{title}}</h3>
-			<p id="info"><content></content></p>
+			<div id="column" class="col-15 col-s-15 col-m-15 col-l-12">
+				<div id="frame" on-tap="showDetails">
+					<img id="image" src="{{src}}"/>
+					<h3>{{title}}</h3>
+						<p id="info"><content></content></p>
+				</div>
+			</div>
 		</div>
-	</div>
-	</div>
-
   </template>
+	
 </dom-module>
 
 <script>
- Polymer({
+	Polymer({
     is: 'htwg-image',
+		
     properties: {
-		src: {
-			type: String,
-			value: ""
-		},
-		title: {
-			type: String,
-			value: ""
-		},
+			src: {
+				type: String,
+				value: ""
+			},
+			title: {
+				type: String,
+				value: ""
+			},
 	    active: {
-			type: Boolean,
-			value: false,
-			reflectToAttribute: true,
-			notify: true
-        }
-    },
-    attached: function(){
-
-    },
-	showDetails: function() {
-		if(this.active) {
-			this.active = false;
-		} else {
-			var imgs = this.parentNode.getElementsByTagName("htwg-image");
-			for(i = 0; i < imgs.length; i++) {
-				imgs[i].active = false;
+				type: Boolean,
+				value: false,
+				reflectToAttribute: true,
+				notify: true
 			}
-			this.active = true;
+    },
+
+		showDetails: function() {
+			if(this.active) {
+				this.active = false;
+			} else {
+				var imgs = this.parentNode.getElementsByTagName("htwg-image");
+				for(i = 0; i < imgs.length; i++) {
+					imgs[i].active = false;
+				}
+				this.active = true;
+			}
 		}
-	}
   });
 </script>

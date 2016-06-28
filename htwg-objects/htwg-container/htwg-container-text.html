@@ -29,15 +29,17 @@
         observer: "_activechanged"
       }
     },
-    attached: function(){
-      if(this.active){
+		
+    attached: function() {
+      if(this.active) {
         this.style.display="block";
       }
     },
-    _activechanged: function(){
-      if(this.active){
+		
+    _activechanged: function() {
+      if(this.active) {
         this.style.display="block";
-      }else{
+      } else {
         this.style.display="none";
       }
     }

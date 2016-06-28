@@ -1,7 +1,5 @@
 
 <link rel="import" href="../../bower_components/polymer/polymer.html">
-<script src="https://code.jquery.com/jquery-2.1.4.js"></script>
-
 
 <dom-module id="htwg-container-opener">
 
@@ -14,7 +12,7 @@
   </style>
 
   <template>
-  	<div id="text" on-tap="popContainer" on-mouseover="mouseover" on-mouseout="mouseout">
+  	<div id="text" on-tap="popContainer">
       <content></content>
   	</div>
   </template>
@@ -28,9 +26,10 @@
     properties: {
       target: {
         type: String,
-        value: "",
+        value: ""
       },
     },
+		
     popContainer:function(){
       container = this.target;
       if(!document.getElementById(container).active){
@@ -38,14 +37,6 @@
       }else{
         document.getElementById(container).active = false;
       }
-    },
-    mouseover:function(){
-
-    },
-
-    mouseout:function(){
-
     }
-  
   });
 </script>

@@ -4,108 +4,113 @@
 
 <dom-module id="htwg-dropdown">
 
-  <template>
-    <style is="custom-style" include="htwg-grid htwg-color htwg-font">
+	<style is="custom-style" include="htwg-grid htwg-color htwg-font">
 
-	    @-webkit-keyframes fadeIn {
-		    from { opacity: 0; }
-		      to { opacity: 1; }
-		}  
+		@-webkit-keyframes fadeIn {
+			from { opacity: 0; }
+			to { opacity: 1; }
+		} 
+		
 		@keyframes fadeIn {
-		    from { opacity: 0; }
-		      to { opacity: 1; }
+			from { opacity: 0; }
+			to { opacity: 1; }
 		}
 
 		/* Dropdown Button */
 		.dropbtn {
-		    color: white;
-		    padding: 16px;
-		    border: none;
-		    cursor: pointer;
+			color: white;
+			padding: 16px;
+			border: none;
+			cursor: pointer;
 		}
 
 		/* The container <div> - needed to position the dropdown content */
 		.dropdown {
-		    position: relative;
-		    display: inline-block;
+			position: relative;
+			display: inline-block;
 		}
 
 		/* Dropdown Content (Hidden by Default) */
 		.dropdown-content {
-		    display: none;
-		    position: absolute;
-		    background-color: rgba(255,255,255,0.5);
+			display: none;
+			position: absolute;
+			background-color: rgba(255,255,255,0.5);
 			width: 100%;
 			z-index: 9001;
 		}
 
 		.dropdown-content-mobile {
-		    display: none;
+			display: none;
 			width: 100%;
 			-webkit-animation: fadeIn 2s;
-    		animation: fadeIn 2s;
+			animation: fadeIn 2s;
 		}
 
 		/* Links inside the dropdown */
 		::content a {
-		    padding: 12px 16px;
-		    text-decoration: none;
-		    display: block;
+			padding: 12px 16px;
+			text-decoration: none;
+			display: block;
 		}
 
 		/* Change color of dropdown links on hover */
-		::content a:hover {color: black}
-
+		::content a:hover {
+			color: black;
+		}
 
     	@media(min-width: 1001px){ /*  Laptopsize*/
-			/* Show the dropdown menu on hover */
-			.dropdown:hover .dropdown-content {
+				/* Show the dropdown menu on hover */
+				.dropdown:hover .dropdown-content {
 			    display: block;
-			}
+				}
 
-			.dropdown:hover{
-				background-color: rgba(255,255,255,0.5);
-			}
-			.dropdown {
-			    margin-left: 4%;
-			}
+				.dropdown:hover{
+					background-color: rgba(255,255,255,0.5);
+				}
+				
+				.dropdown {
+						margin-left: 4%;
+				}
 		}
 
     	@media(max-width: 1001px){ /*  Laptopsize*/
     		::content a{
     			padding: 6px 25px;
     			-ms-user-select: none;
-		        -webkit-user-select: none;
-				-moz-user-select: none;
-				user-select: none;
+					-webkit-user-select: none;
+					-moz-user-select: none;
+					user-select: none;
     		}
+				
     		::content a:before{
     			content: "-";
     			margin-right: 6px;
     		}
+				
     		.dropdown{
     			padding-top: 20px;
     			padding-bottom: 20px;
     		}
+				
 	  		.dropbtn{
     			padding: 0px;
     		}
-			.dropdown {
-			    margin-left: 0%;
-			}
+				
+				.dropdown {
+					margin-left: 0%;
+				}
 		}
 
-
-    </style>
-
+	</style>
+	
+	<template>
 		<div class="dropdown">
-		 	<content class="dropbtn" on-tap="openMenu" select="htwg-overlay-menuitem"></content>
-		  <div class="dropdown-content" id="dropdowncontent">
-		    <content on-tap="contenttapped"></content>
-	      </div>
+			<content class="dropbtn" on-tap="openMenu" select="htwg-overlay-menuitem"></content>
+			<div class="dropdown-content" id="dropdowncontent">
+				<content on-tap="contenttapped"></content>
+			</div>
 		</div>
-
-  </template>
+	</template>
 
 </dom-module>
 
@@ -120,26 +125,24 @@
       }
     },
 
-    contenttapped: function(){
+    contenttapped: function() {
     	// Event wird gefeuert aber noch nirgends abgefangen!!!
     	if (window.matchMedia("(max-width: 1000px)").matches) {
-			this.fire('switchslide');
-		}
+				this.fire('switchslide');
+			}
     },
-    openMenu: function(){
+		
+    openMenu: function() {
     	if (!window.matchMedia("(min-width: 1001px)").matches) {
     		this.$.dropdowncontent.className = "dropdown-content-mobile";
-	    	if( this.$$(".dropdown-content-mobile").style.display == "list-item"){
+	    	if( this.$$(".dropdown-content-mobile").style.display == "list-item") {
 	    		 this.$$(".dropdown-content-mobile").style.display = "none";
-	    	}else{
+	    	} else {
 	    		this.$$(".dropdown-content-mobile").style.display = "list-item";
 	    	}
-    	}else{
+    	} else {
     		this.$.dropdowncontent.className = "dropdown-content";
     	}
-    },
-    selected: function(){
     }
-
   });
 </script>

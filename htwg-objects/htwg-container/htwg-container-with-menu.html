@@ -7,26 +7,30 @@
 
   <style include="htwg-grid">
     :host([active]) {
-      height:auto; /*height: 100vw*/
+      height: auto;
       max-height: 100vh;
       padding-bottom: 70px;
     	width: 100vw;
     	transition: height 2s;
     	display: block;
   	 	overflow: scroll;
-      overflow-x:hidden;
+      overflow-x: hidden;
     }
+		
 	  :host {
 	  	height: 0px;
 	  }
+		
     .contentclass{
       position: relative;
       padding-top: 70px;
     }
+		
   	.backgroundArea{
   		height: inherit;
   		overflow: hidden;
   	}
+		
   	.closecontainer{
       position: absolute;
       z-index: 10;
@@ -37,23 +41,25 @@
       height: 4vh;
       width: 4vh;
   	}
+		
     #textcontent {
       margin-top: 70px;
       margin-bottom: 70px;
       margin-left: 5%;
     }
 
-
     @media(min-width: 1000px){ /*  Laptopsize*/
 	    .contentclass{
 	      position: relative;
 	      padding-top: 70px;
 	    }
+			
 	    .closecontainer{
 	    	padding-top: 50px;
         height: 4vh;
         width: 4vh;
 	    }
+			
       #textcontent {
         margin-top: 70px;
         margin-bottom: 70px;
@@ -66,6 +72,7 @@
 	      position: relative;
 	      padding-top: 60px;
 	    }
+			
 	    .closecontainer{
 	    	padding-top: 40px;
         height: 3vh;
@@ -77,6 +84,7 @@
 	    .contentclass{
 	      padding-top: 50px;
 	    }
+			
 	    .closecontainer{
 	    	padding-top: 30px;
         height: 2vh;
@@ -106,7 +114,7 @@
           <div class="content"id="contentTwo"><content select=".content2"></content></div>
           <div class="border" id="borderRight"></div>
         </div>
-		<content></content>
+				<content></content>
   		</div>
   	</div>
   </template>
@@ -130,15 +138,16 @@
         value: false
       }
     },
-    attached: function(){
+		
+    attached: function() {
       this.setgrid();
       var that = this;
     },
-    setgrid: function(){
-       if (window.matchMedia("(max-width: 1000px)").matches) { 
+		
+    setgrid: function() {
+			if (window.matchMedia("(max-width: 1000px)").matches) { 
           this.$.gapOne.classList.add("col-16", "col-s-32", "col-m-48", "col-l-65");
-
-      }else{
+      } else {
         if (!this.menu) {
           this.$.borderLeft.classList.add("col-1", "col-s-1", "col-m-2", "col-l-3");
           this.$.borderRight.classList.add("col-1", "col-s-1", "col-m-2", "col-l-3");
@@ -154,32 +163,31 @@
         }
       }
     },
+		
   	close: function(){
       this.style.transition = "height 2s";
   		this.active = false;
-
       var positionTop = this.$.container.getBoundingClientRect().top + window.scrollY - window.innerHeight;
       $('body, html').animate({scrollTop: positionTop});
-      
   	},
+		
     closeWithAnimation:function(){
       this.style.transition = "height 0s";
       this.active = false;
     },
+		
     _activeChanged: function(){
       if(this.active){
-            var listElements = document.getElementsByTagName("htwg-container");
-            for(i = 0; i < listElements.length; i++){
-              if(listElements[i] != this){
-                listElements[i].closeWithAnimation();
-                listElements[i].active = false;
-              }
-            }
-      var positionTop = this.$.container.getBoundingClientRect().top + window.scrollY;
-      $('body, html').animate({scrollTop: positionTop});
-
+				var listElements = document.getElementsByTagName("htwg-container");
+				for(i = 0; i < listElements.length; i++){
+					if(listElements[i] != this){
+						listElements[i].closeWithAnimation();
+						listElements[i].active = false;
+					}
+				}
+				var positionTop = this.$.container.getBoundingClientRect().top + window.scrollY;
+				$('body, html').animate({scrollTop: positionTop});
       }
     }
-  
   });
 </script>

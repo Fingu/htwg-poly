@@ -9,6 +9,7 @@
 		  dom: 'shadow', //use shadow dom if possible
 		  lazyRegister: true
 		};
+		
 		function openOverlay(studienart){
 			if(studienart == "bachelor"){
 				document.getElementById('BACHELOR').style.display = "block";
@@ -21,7 +22,6 @@
 			}
 		}
 	  </script>
-
 
 	  <link rel="import" href="htwg-objects/htwg-grid/htwg-grid.html">
 	  <link rel="import" href="htwg-objects/htwg-color/htwg-color.html">
@@ -45,68 +45,74 @@
 	  <link rel="import" href="htwg-objects/htwg-image/htwg-image.html">
 	  <link rel="import" href="htwg-objects/htwg-container/htwg-container-with-menu.html">
 
-  	  	<style is="custom-style" include="htwg-grid htwg-color htwg-font">
+		<style is="custom-style" include="htwg-grid htwg-color htwg-font">
 
-  	  	.ueberschrift{
-  	  		position: relative;
-  	  		top: 20vh;
-			padding-bottom: 20vh;
-			color: var(--htwg-black);
-  	  	}
-  	  	body{
-  	  		padding:0px;
-  	  		margin: 0px;
-  	  		position: absolute;
-  	  	}
+			.ueberschrift{
+				position: relative;
+				top: 20vh;
+				padding-bottom: 20vh;
+				color: var(--htwg-black);
+			}
+			
+			body{
+				padding:0px;
+				margin: 0px;
+				position: absolute;
+			}
 
-		htwg-window-container,
-		htwg-container {
-			color: var(--htwg-white);
-		}
+			htwg-window-container,
+			htwg-container {
+				color: var(--htwg-white);
+			}
 
-		htwg-container-with-menu {
-			color: var(--htwg-white);
-		}
+			htwg-container-with-menu {
+				color: var(--htwg-white);
+			}
 
-		htwg-bubble-frame{
-			--bubble-color: var(--htwg-ag-80);
-		}
+			htwg-bubble-frame{
+				--bubble-color: var(--htwg-ag-80);
+			}
 		
-  	  	.bubbleKurzportrait{
-  	  		--bubble-frame-image: url("../../images/KD/kd.png");
-  	  	}
+			.bubbleKurzportrait{
+				--bubble-frame-image: url("../../images/KD/kd.png");
+			}
 
-  	  	.bubbleBewerbung{
-  	  		--bubble-frame-image: url("../../images/KD/kino.png");
-  	  	}
+			.bubbleBewerbung{
+				--bubble-frame-image: url("../../images/KD/kino.png");
+			}
 
-  	  	.bubbleArbeiten{
-  	  		--bubble-frame-image: url("../../images/KD/raum2.png");
-  	  	}
+			.bubbleArbeiten{
+				--bubble-frame-image: url("../../images/KD/raum2.png");
+			}
 
-  	  	.bubbleFachschaft{
-  	  		--bubble-frame-image: url("../../images/KD/jo.png");
-  	  	}
+			.bubbleFachschaft{
+				--bubble-frame-image: url("../../images/KD/jo.png");
+			}
 
-  	  	#contactContainer{
-  	  		--container-background: var(--htwg-ag-100);
-  	  	}
-  	  	htwg-container{
-  	  		background: var(--htwg-ag-100);
-  	  	} 
-  	  	htwg-container-with-menu{
-  	  		background: var(--htwg-ag-100);
-  	  	}
-  	  	#top{
-  	  		--container-background: url("../../images/KD/students.png")
-  	  	}
-  	  	htwg-thumbnail{
-			--htwg-thumbnail-background-color: var(--htwg-white);
-		}
-		.wrapper{	
-			float: left;
-			display: inline-flex;
-		}
+			#contactContainer{
+				--container-background: var(--htwg-ag-100);
+			}
+			
+			htwg-container{
+				background: var(--htwg-ag-100);
+			}
+			
+			htwg-container-with-menu{
+				background: var(--htwg-ag-100);
+			}
+			
+			#top{
+				--container-background: url("../../images/KD/students.png")
+			}
+			
+			htwg-thumbnail{
+				--htwg-thumbnail-background-color: var(--htwg-white);
+			}
+			
+			.wrapper{	
+				float: left;
+				display: inline-flex;
+			}
 
    		a{
 	      color: black;
@@ -116,30 +122,30 @@
 	      color: black;
 	    }
 		</style>
-
+		
 	</head>
 
 	<body>
 		<htwg-menu height=6>
-			<htwg-menuelement >
+			<htwg-menuelement>
 				<a href="#kurzportrait">Kurzportrait</a>
 			</htwg-menuelement>
-			<htwg-menuelement >
+			<htwg-menuelement>
 				·
 			</htwg-menuelement>
-			<htwg-menuelement >
+			<htwg-menuelement>
 				<a href="#bewerbung">Bewerbung</a>
 			</htwg-menuelement>
-			<htwg-menuelement >
+			<htwg-menuelement>
 				·
 			</htwg-menuelement>
-			<htwg-menuelement >
+			<htwg-menuelement>
 				<a href="#arbeiten">Arbeiten</a>
 			</htwg-menuelement>
-			<htwg-menuelement >
+			<htwg-menuelement>
 				·
 			</htwg-menuelement>
-			<htwg-menuelement >
+			<htwg-menuelement>
 				<a href="#fachschaft">Fachschaft</a>
 			</htwg-menuelement>
 
@@ -147,9 +153,8 @@
 			</htwg-build-overlay-menu>
 		</htwg-menu>
 
-
-		<htwg-window-container
-			id="top">
+		
+		<htwg-window-container id="top">
 			<div class="row">
 				<div class="col-2"></div>
 				<div class="col-14">
@@ -158,49 +163,38 @@
 			</div>
 		</htwg-window-container>
 
-
+		
 		<htwg-window-container id="kurzportrait">
 			<htwg-bubble-frame class="bubbleKurzportrait">
-					<div class="row" style="margin-top: 35%;">
-						<div class="col-9 col-s-15 col-m-21 col-l-31"></div>
-						<div class="col-6 col-s-8 col-m-8 col-l-8">
-							<htwg-container-opener class="content" target="kurzportraitContainer"><h2>Kurzportrait</h2></htwg-container-opener>
-						</div>
+				<div class="row" style="margin-top: 35%;">
+					<div class="col-9 col-s-15 col-m-21 col-l-31"></div>
+					<div class="col-6 col-s-8 col-m-8 col-l-8">
+						<htwg-container-opener class="content" target="kurzportraitContainer"><h2>Kurzportrait</h2></htwg-container-opener>
 					</div>
-				</htwg-bubble-frame>
-
-			
-
+				</div>
+			</htwg-bubble-frame>
 		</htwg-window-container>
-
-
-<!-- HTWG Container (popped auf-->
+		
 		<htwg-container id="kurzportraitContainer">
-
 			<h1 class="title">Kurzportrait</h1>
-
 			<span class="contentt">
 				Kommunikation bestimmt den modernen Alltag. Menschen kommunizieren, um sich zu informieren, um in soziale Interaktion zu treten, um sich zu unterhalten. In der Dienstleistungsgesellschaft wird Kommunikation selbst zunehmend zum Wirtschaftsfaktor. Dabei stand noch nie eine so umfangreiche mediale Bandbreite zur Verfügung wie am Beginn des 21. Jahrhunderts: Sie reicht vom Buch bis zur Homepage, vom Ausstellungsbanner bis zum interaktiven Interface.
 				Kommunikationsdesigner beschäftigen sich in vielfältiger Weise mit der Gestaltung von Kommunikation. Sie entscheiden, mit welchem visuellen Erscheinungsbild eine Firma nach außen tritt. Sie entwickeln Leit- und Orientierungssysteme, gestalten Bücher und Magazine, entwerfen Ausstellungen und konzipieren multimediale Internetauftritte und Interfaces. Sie arbeiten im öffentlichen Raum, für private und institutionelle Auftraggeber. Bereits seit 2004 bietet die Fakultät Architektur und Gestaltung an der renommierten Konstanzer Hochschule den akkreditierten Bachelorstudiengang Kommunikationsdesign an – mit einem besonderen Profil.
 			</span>
 		</htwg-container>
 
-<!-- Neues Window -->
-		<htwg-window-container
-			id="bewerbung">
-
+		
+		<htwg-window-container id="bewerbung">
 			<htwg-bubble-frame class="bubbleBewerbung">
-					<div class="row" style="margin-top: 35%;">
-						<div class="col-9 col-s-15 col-m-21 col-l-31"></div>
-						<div class="col-6 col-s-8 col-m-8 col-l-8">
-							<htwg-container-opener class="content" target="bewerbungContainer"><h2>Bewerbung</h2></htwg-container-opener>
-						</div>
+				<div class="row" style="margin-top: 35%;">
+					<div class="col-9 col-s-15 col-m-21 col-l-31"></div>
+					<div class="col-6 col-s-8 col-m-8 col-l-8">
+						<htwg-container-opener class="content" target="bewerbungContainer"><h2>Bewerbung</h2></htwg-container-opener>
 					</div>
-			</htwg-bubble-frame>
-
-			
+				</div>
+			</htwg-bubble-frame>			
 		</htwg-window-container>
-
+		
 		<htwg-container-with-menu id="bewerbungContainer">
 			<h1 class="title">Bewerbung</h1>
 			<htwg-container-menu class="content1">
@@ -214,58 +208,50 @@
 					Zulassung
 				</htwg-container-menuitem>
 			</htwg-container-menu>
-				<htwg-container-text id="bewerbenTermine" active class="content2">
-					<p>
-						<br>
-						Für das Wintersemester 2016/17 ist eine Bewerbung um einen Studienplatz an der HTWG Konstanz ausschließlich über die Online-Bewerbung möglich.
-						Alle Informationen dazu fnden Sie hier. 
-					</p>
-				</htwg-container-text>
-
-				<htwg-container-text id="bewerbenVorrausetzung" class="content2">
-					<p>
-						<br>
-						Hochschulzugangsberechtigung: z.B. Fachhochschulreife oder Abitur.
-						Vorkenntnisse im Programmieren werden nicht erwartet.
-						Bewerber/innen mit ausländischer Staatsangehörigkeit und mit ausländischen Schul- und Hochschulzeugnissen benötigen eine Zeugnisanerkennung des Studienkollegs Konstanz (STK). Dies gilt auch dann, wenn Sie bereits außerhalb der Hochschule Konstanz eine Feststellungsprüfung, die DSH-Prüfung oder TestDaF erfolgreich erworben haben. Mit der Zeugnisanerkennung des STK und Ihren vollständigen Bewerbungsunterlagen können Sie sich anschließend um einen Studienplatz an der Hochschule Konstanz bewerben.
-						Deutsche Staatsbürger mit ausländischen Bildungsnachweisen benötigen für ihre Bewerbung eine Anerkennung durch das Regierungspräsidium Stuttgart, Breitscheidtstr. 42, 70176 Stuttgart. Tel.: 0711/90 440 700
-					</p>
-				</htwg-container-text>
-
-				<htwg-container-text id="bewerbenZulassung" class="content2">
-					<p>
-						Im Wintersemester stehen 60, im Sommersemester 30 Studienplätze zur Verfügung. Die Zulassung erfolgt über ein Auswahlverfahren auf Basis der Bewerbungsunterlagen.
-						Die Zugangsnote berechnet sich aus
-						• der Note für die Hochschulzugangsberechtigung und
-						• Bonuspunkten für die folgenden Bereiche (sofern Belege vorliegen), die je nach
-						inhaltlicher Nähe zum angestrebten Studiengang und Umfang vergeben werden ◦ Berufsausbildung (z.B. Fachinformatiker/in, IT-Systemelektroniker/in )
-						◦ Berufsausübung
-							
-						◦ außerunterrichtliche besondere Leistungen (z.B. freiwilliges soziales oder ökologisches Jahr)
-						Aufgrund dieser ermittelten Note wird eine Rangliste erstellt, nach der die Studienplätze vergeben werden.
-					</p>
-				</htwg-container-text>
+			<htwg-container-text id="bewerbenTermine" active class="content2">
+				<p>
+					<br>
+					Für das Wintersemester 2016/17 ist eine Bewerbung um einen Studienplatz an der HTWG Konstanz ausschließlich über die Online-Bewerbung möglich.
+					Alle Informationen dazu fnden Sie hier. 
+				</p>
+			</htwg-container-text>
+			<htwg-container-text id="bewerbenVorrausetzung" class="content2">
+				<p>
+					<br>
+					Hochschulzugangsberechtigung: z.B. Fachhochschulreife oder Abitur.
+					Vorkenntnisse im Programmieren werden nicht erwartet.
+					Bewerber/innen mit ausländischer Staatsangehörigkeit und mit ausländischen Schul- und Hochschulzeugnissen benötigen eine Zeugnisanerkennung des Studienkollegs Konstanz (STK). Dies gilt auch dann, wenn Sie bereits außerhalb der Hochschule Konstanz eine Feststellungsprüfung, die DSH-Prüfung oder TestDaF erfolgreich erworben haben. Mit der Zeugnisanerkennung des STK und Ihren vollständigen Bewerbungsunterlagen können Sie sich anschließend um einen Studienplatz an der Hochschule Konstanz bewerben.
+					Deutsche Staatsbürger mit ausländischen Bildungsnachweisen benötigen für ihre Bewerbung eine Anerkennung durch das Regierungspräsidium Stuttgart, Breitscheidtstr. 42, 70176 Stuttgart. Tel.: 0711/90 440 700
+				</p>
+			</htwg-container-text>
+			<htwg-container-text id="bewerbenZulassung" class="content2">
+				<p>
+					Im Wintersemester stehen 60, im Sommersemester 30 Studienplätze zur Verfügung. Die Zulassung erfolgt über ein Auswahlverfahren auf Basis der Bewerbungsunterlagen.
+					Die Zugangsnote berechnet sich aus
+					• der Note für die Hochschulzugangsberechtigung und
+					• Bonuspunkten für die folgenden Bereiche (sofern Belege vorliegen), die je nach
+					inhaltlicher Nähe zum angestrebten Studiengang und Umfang vergeben werden ◦ Berufsausbildung (z.B. Fachinformatiker/in, IT-Systemelektroniker/in )
+					◦ Berufsausübung
+					◦ außerunterrichtliche besondere Leistungen (z.B. freiwilliges soziales oder ökologisches Jahr)
+					Aufgrund dieser ermittelten Note wird eine Rangliste erstellt, nach der die Studienplätze vergeben werden.
+				</p>
+			</htwg-container-text>
 		</htwg-container-with-menu> 
 
-
-		<htwg-window-container
-			id="arbeiten">
-
+		
+		<htwg-window-container id="arbeiten">
 			<htwg-bubble-frame class="bubbleArbeiten">
-					<div class="row" style="margin-top: 35%;">
-						<div class="col-11 col-s-15 col-m-21 col-l-31"></div>
-						<div class="col-4 col-s-6 col-m-8 col-l-8">
-							<htwg-container-opener class="content" target="arbeitenContainer"><h2>Arbeiten</h2></htwg-container-opener>
-						</div>
+				<div class="row" style="margin-top: 35%;">
+					<div class="col-11 col-s-15 col-m-21 col-l-31"></div>
+					<div class="col-4 col-s-6 col-m-8 col-l-8">
+						<htwg-container-opener class="content" target="arbeitenContainer"><h2>Arbeiten</h2></htwg-container-opener>
 					</div>
+				</div>
 			</htwg-bubble-frame>
-
-			
 		</htwg-window-container>
 
-		<htwg-container-with-menu id="arbeitenContainer" menu>
+		<htwg-container-with-menu id="arbeitenContainer">
 			<h1 class="title">Arbeiten</h1>
-
 			<htwg-container-menu class="content1">
 				<htwg-container-menuitem linkid="bilder1" active>
 					Bilder
@@ -277,42 +263,34 @@
 					und noch eins
 				</htwg-container-menuitem>
 			</htwg-container-menu>
-
-				<htwg-container-text id="bilder1" active class="content2">
-					<htwg-image src="images/KD/arbeiten/arbeit1.png" title="arbeit1">Lorem ipsum dolor sit amet, consetetur sadipscing elitr</htwg-image>
-					<htwg-image src="images/KD/arbeiten/arbeit2.jpg" title="arbeit2">Lorem ipsum dolor sit amet, consetetur sadipscing elitr</htwg-image>
-					<htwg-image src="images/KD/arbeiten/arbeit3.jpg" title="arbeit3">Lorem ipsum dolor sit amet, consetetur sadipscing elitr</htwg-image>
-					<htwg-image src="images/KD/arbeiten/arbeit4.jpg" title="arbeit4">Lorem ipsum dolor sit amet, consetetur sadipscing elitr</htwg-image>
-					<htwg-image src="images/KD/arbeiten/arbeit5.jpg" title="arbeit5">Lorem ipsum dolor sit amet, consetetur sadipscing elitr</htwg-image>
-					<htwg-image src="images/KD/arbeiten/arbeit6.jpg" title="arbeit6">Lorem ipsum dolor sit amet, consetetur sadipscing elitr</htwg-image>
-				</htwg-container-text>
-
-				<htwg-container-text id="bilder2" class="content2">
-					<htwg-image src="images/KD/arbeiten/arbeit3.jpg" title="arbeitslos">Lorem ipsum dolor sit amet, consetetur sadipscing elitr</htwg-image>
-					<htwg-image src="images/KD/arbeiten/arbeit2.jpg" title="arbeit & arbeit">Lorem ipsum dolor sit amet, consetetur sadipscing elitr</htwg-image>
-					<htwg-image src="images/KD/arbeiten/arbeit1.png" title="arbeit">Lorem ipsum dolor sit amet, consetetur sadipscing elitr</htwg-image>
-				</htwg-container-text>
-
-				<htwg-container-text id="bilder3" class="content2">
-					<htwg-image src="images/KD/arbeiten/arbeit6.jpg" title="arbeit6">Lorem ipsum dolor sit amet, consetetur sadipscing elitr</htwg-image>
-				</htwg-container-text>
-
+			<htwg-container-text id="bilder1" active class="content2">
+				<htwg-image src="images/KD/arbeiten/arbeit1.png" title="arbeit1">Lorem ipsum dolor sit amet, consetetur sadipscing elitr</htwg-image>
+				<htwg-image src="images/KD/arbeiten/arbeit2.jpg" title="arbeit2">Lorem ipsum dolor sit amet, consetetur sadipscing elitr</htwg-image>
+				<htwg-image src="images/KD/arbeiten/arbeit3.jpg" title="arbeit3">Lorem ipsum dolor sit amet, consetetur sadipscing elitr</htwg-image>
+				<htwg-image src="images/KD/arbeiten/arbeit4.jpg" title="arbeit4">Lorem ipsum dolor sit amet, consetetur sadipscing elitr</htwg-image>
+				<htwg-image src="images/KD/arbeiten/arbeit5.jpg" title="arbeit5">Lorem ipsum dolor sit amet, consetetur sadipscing elitr</htwg-image>
+				<htwg-image src="images/KD/arbeiten/arbeit6.jpg" title="arbeit6">Lorem ipsum dolor sit amet, consetetur sadipscing elitr</htwg-image>
+			</htwg-container-text>
+			<htwg-container-text id="bilder2" class="content2">
+				<htwg-image src="images/KD/arbeiten/arbeit3.jpg" title="arbeitslos">Lorem ipsum dolor sit amet, consetetur sadipscing elitr</htwg-image>
+				<htwg-image src="images/KD/arbeiten/arbeit2.jpg" title="arbeit & arbeit">Lorem ipsum dolor sit amet, consetetur sadipscing elitr</htwg-image>
+				<htwg-image src="images/KD/arbeiten/arbeit1.png" title="arbeit">Lorem ipsum dolor sit amet, consetetur sadipscing elitr</htwg-image>
+			</htwg-container-text>
+			<htwg-container-text id="bilder3" class="content2">
+				<htwg-image src="images/KD/arbeiten/arbeit6.jpg" title="arbeit6">Lorem ipsum dolor sit amet, consetetur sadipscing elitr</htwg-image>
+			</htwg-container-text>
 		</htwg-container-with-menu>
 
-
-		<htwg-window-container
-			id="fachschaft">
-
+		
+		<htwg-window-container id="fachschaft">
 			<htwg-bubble-frame class="bubbleFachschaft">
-					<div class="row" style="margin-top: 35%;">
-						<div class="col-9 col-s-15 col-m-21 col-l-31"></div>
-						<div class="col-6 col-s-6 col-m-10 col-l-8">
-							<htwg-container-opener class="content" target="fachschaftContainer"><h2>Fachschaft</h2></htwg-container-opener>
-						</div>
+				<div class="row" style="margin-top: 35%;">
+					<div class="col-9 col-s-15 col-m-21 col-l-31"></div>
+					<div class="col-6 col-s-6 col-m-10 col-l-8">
+						<htwg-container-opener class="content" target="fachschaftContainer"><h2>Fachschaft</h2></htwg-container-opener>
 					</div>
+				</div>
 			</htwg-bubble-frame>
-
-			
 		</htwg-window-container>
 
 		<htwg-container-with-menu id="fachschaftContainer">
@@ -335,6 +313,7 @@
 			<htwg-image src="images/KD/fachschaft/valentin.jpg" title="Valentin">Lorem ipsum dolor sit amet, consetetur sadipscing elitr</htwg-image>
 		</htwg-container-with-menu>
 
+		
 		<htwg-window-container id="contactContainer">
 			<br>
 			<div class="col-1 col-s-1 col-m-2 col-l-3">
@@ -354,8 +333,5 @@
 			<div class="col-1 col-s-1 col-m-2 col-l-3">
 			</div>
 		</htwg-window-container>
-
 	</body>
-
-
 </html>

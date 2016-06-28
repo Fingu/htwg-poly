@@ -9,26 +9,30 @@
     .showBorder{
       border: solid;
     }
-	:host {
-		--bubble-border-radius: 40%;
-	}
-	.wrapper {
-		position: absolute;
-		width: 100%;
-		height: 100%;
-	}
-	.page-content {
-		position: relative;
-		margin: auto;
-		/*width: 70%;*/
-		padding-top: 11vh;
-		pointer-events: none;
-	}
-	::content h2, 
-	::content h1,
-	::content a {
-		pointer-events: all;
-	}
+		
+		:host {
+			--bubble-border-radius: 40%;
+		}
+		
+		.wrapper {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+		}
+		
+		.page-content {
+			position: relative;
+			margin: auto;
+			padding-top: 11vh;
+			pointer-events: none;
+		}
+		
+		::content h2, 
+		::content h1,
+		::content a {
+			pointer-events: all;
+		}
+		
   </style>
 
   <template>
@@ -45,6 +49,7 @@
 	<div class="page-content">
 		<content></content>
 	</div>
+	
   </template>
 
 </dom-module>
@@ -58,59 +63,62 @@
         type: String,
         value: "black"
       },
-	  rowCount: {
-		type: Number,
-		value: 5
-	  },
-	  columnCount: {
-		type: Number,
-		value: 10
-	  },
-	  bubbles: {
-		type: Array,
-		computed: 'computeBubbles(rowCount)'
-	  }
-    },
-	attached: function() {
-		var that = this;
-		window.addEventListener("resize", function() { that.computeRows(); });
-		that.computeRows();
-	},
-	computeRows: function() {
-		width = window.innerWidth;
-		if(width < 768) {
-			this.columnCount = 8;
-		} else if(width < 1024) {
-			this.columnCount = 16;
-		} else if(width < 1920) {
-			this.columnCount = 18;
-		} else {
-			this.columnCount = 24;
-		}
-		height = this.$$(".wrapper").offsetHeight;
-		this.rowCount = Math.round(height / (width/this.columnCount));
-	},
-	computeBubbles: function(rowCount) {
-		var a = 1;
-		bubbles = [];
-		for(i=0; i < rowCount; i++) {
-			a = 0.95;
-			if(i == 0 || i == rowCount - 1) {
-				a = 1;
+			rowCount: {
+				type: Number,
+				value: 5
+			},
+			columnCount: {
+				type: Number,
+				value: 10
+			},
+			bubbles: {
+				type: Array,
+				computed: 'computeBubbles(rowCount)'
 			}
-			row = [];
-			for(j=0; j < this.columnCount; j++) {
-				if(j == 0 || j == this.columnCount - 1) {
+    },
+		
+		attached: function() {
+			var that = this;
+			window.addEventListener("resize", function() { that.computeRows(); });
+			that.computeRows();
+		},
+		
+		computeRows: function() {
+			width = window.innerWidth;
+			if(width < 768) {
+				this.columnCount = 8;
+			} else if(width < 1024) {
+				this.columnCount = 16;
+			} else if(width < 1920) {
+				this.columnCount = 18;
+			} else {
+				this.columnCount = 24;
+			}
+			height = this.$$(".wrapper").offsetHeight;
+			this.rowCount = Math.round(height / (width/this.columnCount));
+		},
+		
+		computeBubbles: function(rowCount) {
+			var a = 1;
+			bubbles = [];
+			for(i=0; i < rowCount; i++) {
+				a = 0.95;
+				if(i == 0 || i == rowCount - 1) {
 					a = 1;
 				}
-				row[j] = {x: j, y: i, active: (Math.random() > a)};
-				if(i != 0 && i != rowCount - 1) {
-					a = 0.95;
+				row = [];
+				for(j=0; j < this.columnCount; j++) {
+					if(j == 0 || j == this.columnCount - 1) {
+						a = 1;
+					}
+					row[j] = {x: j, y: i, active: (Math.random() > a)};
+					if(i != 0 && i != rowCount - 1) {
+						a = 0.95;
+					}
 				}
+				bubbles[i] = row;
 			}
-			bubbles[i] = row;
+			return bubbles;
 		}
-		return bubbles;
-	}
   });
 </script>
