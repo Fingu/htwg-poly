@@ -16,8 +16,8 @@
     visibility: hidden;
     opacity: 0;
     border-radius: 5px;
-
   }
+
   .contentclass{
     position: relative;
     text-align: center;  
@@ -61,15 +61,14 @@
 
       that=this;
       setTimeout(function(){
-          that.closefkt();
+        that.closefkt();
       }, this.timeout);
     },
     closefkt: function(){
       this.$.TOASTWRAPPER.style.opacity = 0;   
-
       that = this;
       setTimeout(function(){
-          that.$.TOASTWRAPPER.style.visibility = "hidden";
+        that.$.TOASTWRAPPER.style.visibility = "hidden";
       }, 500);
     
       this.open = false;

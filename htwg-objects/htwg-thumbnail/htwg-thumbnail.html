@@ -3,140 +3,134 @@
 
 <dom-module id="htwg-thumbnail">
 
-  <template>
+  <style type="text/css">
+    :host{
+      word-wrap: break-word;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
 
-    <style type="text/css">
-      :host{
-        word-wrap: break-word;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
+      height: 110pt; 
+	    margin: auto;
+      margin-top: 10%;
+    };
+    .container-rounded{
+	    border-radius: 10px;
+      padding: 0px;  
+      margin: 0px;
+      background-repeat: no-repeat;
+  		background-size: auto 60%;
+  		width: 110pt;
+  		height: auto;
+      background-position: center;
+    }
 
-        user-select: none;
-
-        height: 110pt; 
-		    margin: auto;
-        margin-top: 10%;
-      };
-      .container-rounded{
-		    border-radius: 10px;
-        padding: 0px;  
-        margin: 0px;
-        background-repeat: no-repeat;
-    		background-size: auto 60%;
-    		width: 110pt;
-    		height: auto;
-        background-position: center;
-      }
-
-      #title {
-        opacity: 1;
-        text-align: center;
-        color: var(--htwg-thumbnail-title-color,white);
-        font-size: 7pt;
-        text-rendering:optimizeLegibility 
-      }
+    #title {
+      opacity: 1;
+      text-align: center;
+      color: var(--htwg-thumbnail-title-color,white);
+      font-size: 7pt;
+      text-rendering:optimizeLegibility 
+    }
 
    @media (min-width: 375px){ /*378 x 667 IPhone*/
-       #title {
-          font-size: 10pt;
-        }
+      #title {
+        font-size: 10pt;
+      }
     }      
     @media (min-width: 768px){ /*768 x 1024 IPad*/
-       #title {
-          font-size: 13pt;
-        }
+      #title {
+        font-size: 13pt;
+      }
     }
 
     @media(min-width: 1000px){ /*  Laptopsize*/
-       #title {
-          font-size: 16pt;
-        }
+      #title {
+        font-size: 16pt;
+      }
     }
 
+    .innerwrapper{
+      background-color: var(--htwg-thumbnail-background-color,white);
+      border-radius: 10px;
+      margin: 0 auto; 
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      position: relative;
+      width: 110pt; 
+      height: 110pt;      
+    }
 
+    .outerwrapper{
+      z-index: 1;
+      background-color: "transparent";
+      border-radius: 10px;
+  		margin: auto;
+  		width: 110pt;
+    }
 
-      .innerwrapper{
-        background-color: var(--htwg-thumbnail-background-color,white);
-        border-radius: 10px;
-        margin: 0 auto; 
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        position: relative;
-	      width: 110pt; 
-        height: 110pt;
-        
-      }
-      .outerwrapper{
-        z-index: 1;
-        background-color: "transparent";
-        border-radius: 10px;
-    		margin: auto;
-    		width: 110pt;
-      }
-      .outerwrapperactive{
-        z-index: 10;
-        background-color: var(--htwg-thumbnail-background-color,white);
-        border-radius: 10px;
-    		margin: auto;
-    		width: 110pt;
-        
-      }
+    .outerwrapperactive{
+      z-index: 10;
+      background-color: var(--htwg-thumbnail-background-color,white);
+      border-radius: 10px;
+  		margin: auto;
+  		width: 110pt;  
+    }
 
-      hr{
-        border: 0;
-        height: 1px;
-        background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
-      }
+    hr{
+      border: 0;
+      height: 1px;
+      background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+    }
 
-      ul {
-       list-style:none;
-       text-align: center;
-       padding-left: 0px;
-      }
-      .markednumtest{
-        position: absolute;
-        width: 21px;;
-    		left: 95%;
-    		top: -5%;
-        border: solid 1px #fff;
-        border-radius: 35vw;
-        text-align: center;
-        color: red;
-        font-weight: bold;
-        -moz-box-shadow:    1px 1px 1px 1px #ccc;
-        -webkit-box-shadow: 1px 1px 1px 1px #ccc;
-        box-shadow:         1px 1px 1px 1px #ccc;
-        display: none;
-      }
-	  #content {
-		/*display: none;*/
-    visibility: hidden;
-	  }
-    </style>
-    
+    ul {
+     list-style:none;
+     text-align: center;
+     padding-left: 0px;
+    }
 
-    <div class="outerwrapper" id="wrapper"  on-mouseout="fadeIn" on-mouseover="fadeOut">
-        <div class="innerwrapper" on-tap="tapFunction" >
-          <!-- Div with the icon background-->
-          <input id="markedcounter"type="text" value="0" readonly class="markednumtest"></input>
-          <div id="container" class="container-rounded"></div>
-            
-          </div>
-        
+    .markednumtest{
+      position: absolute;
+      width: 21px;;
+  		left: 95%;
+  		top: -5%;
+      border: solid 1px #fff;
+      border-radius: 35vw;
+      text-align: center;
+      color: red;
+      font-weight: bold;
+      -moz-box-shadow:    1px 1px 1px 1px #ccc;
+      -webkit-box-shadow: 1px 1px 1px 1px #ccc;
+      box-shadow:         1px 1px 1px 1px #ccc;
+      display: none;
+    }
 
-          <!-- represents the content and the title -->
-          <h3 id="title">{{title}}</h3>
+    #content {
+      visibility: hidden;
+    }
 
-          <div id="content">
-            <hr>
-            <ul>
-              <content></content>
-            </ul>
-        </div>
+  </style>
+
+  <template>
+
+  <div class="outerwrapper" id="wrapper"  on-mouseout="fadeIn" on-mouseover="fadeOut">
+    <div class="innerwrapper" on-tap="tapFunction" >
+      <!-- Div with the icon background-->
+      <input id="markedcounter"type="text" value="0" readonly class="markednumtest"></input>
+      <div id="container" class="container-rounded"></div>    
     </div>
-  </template>
+      <!-- represents the content and the title -->
+    <h3 id="title">{{title}}</h3>
+    <div id="content">
+      <hr>
+      <ul>
+        <content></content>
+      </ul>
+    </div>
+  </div>
+</template>
 
 </dom-module>
 
@@ -192,60 +186,63 @@
         value: true,
         observer: "_visibleChanged"
       }
+    }, 
 
-    }, fadeIn: function(){
-          this.active = true;
-          this.$.wrapper.className = "outerwrapper";  
-          this.$.wrapper.style.opacity = 1;
-		      this.$.wrapper.style.display = "block";
-          this.$.wrapper.style.transition = "ease-in 0.5s";
-          this.$.content.style.opacity = 0;
-		      //this.$.content.style.display = "none";
-          this.$.content.style.visibility = "hidden";
-          this.$.content.style.zIndex = "1";
-          this.$.content.style.transition = "ease-out 0.5s";
-		      this.customStyle['--htwg-thumbnail-title-color'] = 'white';
-		      this.updateStyles();  
-    }, fadeOut: function(){
-          this.active = false;
-          this.$.wrapper.className = "outerwrapperactive";
-          this.$.wrapper.style.opacity = 1;
-		      this.$.wrapper.style.display = "block";
-          this.$.wrapper.style.transition = "ease-out 1.0s";
-          this.$.content.style.opacity = 1;
-		      //this.$.content.style.display = "block";
-          this.$.content.style.zIndex = "999";
-          this.$.content.style.visibility = "visible";
-          this.$.content.style.transition = "ease-in 0.5s";
-		      this.customStyle['--htwg-thumbnail-title-color'] = 'black';
-		      this.updateStyles();   
+    fadeIn: function(){
+      this.active = true;
+      this.$.wrapper.className = "outerwrapper";  
+      this.$.wrapper.style.opacity = 1;
+      this.$.wrapper.style.display = "block";
+      this.$.wrapper.style.transition = "ease-in 0.5s";
+      this.$.content.style.opacity = 0;
+      this.$.content.style.visibility = "hidden";
+      this.$.content.style.zIndex = "1";
+      this.$.content.style.transition = "ease-out 0.5s";
+      this.customStyle['--htwg-thumbnail-title-color'] = 'white';
+      this.updateStyles();  
+    }, 
+
+    fadeOut: function(){
+      this.active = false;
+      this.$.wrapper.className = "outerwrapperactive";
+      this.$.wrapper.style.opacity = 1;
+      this.$.wrapper.style.display = "block";
+      this.$.wrapper.style.transition = "ease-out 1.0s";
+      this.$.content.style.opacity = 1;
+      this.$.content.style.zIndex = "999";
+      this.$.content.style.visibility = "visible";
+      this.$.content.style.transition = "ease-in 0.5s";
+      this.customStyle['--htwg-thumbnail-title-color'] = 'black';
+      this.updateStyles();   
     },
+
     __gotMarked: function(){
       //Zahlen oben einblenden/ausblenden und setzen
       //Bei ipad oder kleiner (1024) werden Zahlen angezeigt
-          if (!window.matchMedia("(min-width: 1024px)").matches) {
-              if(this.marked > 0){
-                this.$.markedcounter.value = this.marked;
-                this.$.markedcounter.style.display = "block";
-              }
-              else{
-                this.$.markedcounter.style.display = "none";
-              }
+      if (!window.matchMedia("(min-width: 1024px)").matches) {
+          if(this.marked > 0){
+            this.$.markedcounter.value = this.marked;
+            this.$.markedcounter.style.display = "block";
           }
-
+          else{
+            this.$.markedcounter.style.display = "none";
+          }
+      }
     },
+
     // Thumbnail ausgrauen oder nicht
     _visibleChanged: function(){
       //Bei Ipad oder kleiner(1024px) wird nichtmehr ausgegraut
       if (window.matchMedia("(min-width: 1024px)").matches) {
-          if(this.visibleElement){
-              this.$$(".innerwrapper").style.opacity = 1.0;
-          }else{
-              this.$$(".innerwrapper").style.opacity = 0.5;
-          }
-     }
+        if(this.visibleElement){
+            this.$$(".innerwrapper").style.opacity = 1.0;
+        }else{
+            this.$$(".innerwrapper").style.opacity = 0.5;
+        }
+      }
     },
-     tapFunction: function(){
+
+    tapFunction: function(){
       if (!this.active){
         this.fadeIn();
       } else {

@@ -3,30 +3,35 @@
 
 <dom-module id="htwg-swipe-element">
 
+  <style>
+  	#swipeelement{
+  		-ms-user-select: none;
+  		-webkit-user-select: none;
+  		-moz-user-select: none;
+  		user-select: none;
+  		opacity: var(--swipe-element-opacity, 1);
+  		padding-top: 5px;
+      padding-bottom: 5px;
+      padding-right: 5px;
+      padding-left: 5px;
+  		text-align: center;
+      white-space: nowrap
+  	}
+
+  </style>
+
   <template>
-    <style>
-	#swipeelement{
-		-ms-user-select: none;
-		-webkit-user-select: none;
-		-moz-user-select: none;
-		user-select: none;
-		opacity: var(--swipe-element-opacity, 1);
-		padding-top: 5px;
-    padding-bottom: 5px;
-    padding-right: 5px;
-    padding-left: 5px;
-		text-align: center;
-    white-space: nowrap
-	}
-    </style>
+
     <div id="swipeelement" class="content-wrapper">
       <content></content>
     </div>
+
   </template>
 
 </dom-module>
 
 <script>
+
   Polymer({
     is: 'htwg-swipe-element',
 
@@ -34,7 +39,8 @@
       positionY: {
         type: Number,
         observer: '_positionYChanged'
-      },active: {
+      },
+      active: {
         type: Boolean,
         value: false,
         observer: '_activeChanged'
@@ -43,12 +49,12 @@
         type: String,
         value: "#"
       },
-	  name:{
-		type: String,
-		value: "_none"
-	  }
-
+  	  name:{
+    		type: String,
+    		value: "_none"
+  	  }
     },
+
     attached: function(){
       this.$.swipeelement.style.color = this.textColor;
       this.$.swipeelement.style.fontFamily = this.textFamily;
@@ -62,24 +68,23 @@
             
       }
     },
+
     _positionYChanged: function(newValue, oldValue){
       this.$.swipeelement.style.transform = "translateY(" + this.positionY + "px)";
     },
+
     _activeChanged: function(){
-      if(this.active)
-        {
-          this.$.swipeelement.style.fontSize = (this.textSize + 3) + "px";
-          this.$.swipeelement.style.border = "outset";
-          this.customStyle['--swipe-element-opacity'] = "1";
-          this.updateStyles();
-        }
-      else{
+      if(this.active) {
+        this.$.swipeelement.style.fontSize = (this.textSize + 3) + "px";
+        this.$.swipeelement.style.border = "outset";
+        this.customStyle['--swipe-element-opacity'] = "1";
+        this.updateStyles();
+      } else {
         this.$.swipeelement.style.fontSize = this.textSize + "px";
         this.$.swipeelement.style.border = "none";
         this.customStyle['--swipe-element-opacity'] = "0.4";
         this.updateStyles();
       }
     }
-
   });
 </script>

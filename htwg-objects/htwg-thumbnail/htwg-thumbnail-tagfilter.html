@@ -5,32 +5,35 @@
 <link rel="import" href="../htwg-toast/htwg-toast.html">
 <dom-module id="htwg-thumbnail-tagfilter">
 
-  <template>
-
-    <style>
+  <style>
 
     .wrapper{
     		width: 110pt;
     		margin: auto;
     }
+
     .tagfilter{
         position: relative;
         display: inline;
     }
+
     #tagsdiv{
     	width: 100vw;
     	padding-bottom: 50px;
     	padding-left: 5%;
     }
-    </style>
 
-  <div class="wrapper">
+  </style>
+  
+  <template>
+
+    <div class="wrapper">
       <div id="textfieldtagfilter" class="tagfilter" >
-          <htwg-input class="search" on-keyup="keyup" on-input="validateInput" id="taginput"></htwg-input>
+        <htwg-input class="search" on-keyup="keyup" on-input="validateInput" id="taginput"></htwg-input>
       </div>
-  </div>
-  <div id="tagsdiv"></div>
-  <htwg-toast text="Not a valid Tag" timeout=5000 id="toast"></htwg-toast>
+    </div>
+    <div id="tagsdiv"></div>
+    <htwg-toast text="Not a valid Tag" timeout=5000 id="toast"></htwg-toast>
     
   </template>
 </dom-module>
@@ -57,25 +60,26 @@
         value: []
       }
     },
+    
     validateInput: function(event){
-        var inputValue = this.$.taginput.value;
+      var inputValue = this.$.taginput.value;
+      var inputChar = inputValue.substring(inputValue.length-1, inputValue.length);
 
-        var inputChar = inputValue.substring(inputValue.length-1, inputValue.length);
-        if(!inputChar.match("[a-z]")){
-          var newString = inputValue.substring(0,inputValue.length-1);
-          this.$.taginput.value = newString;
-        }
+      if(!inputChar.match("[a-z]")){
+        var newString = inputValue.substring(0,inputValue.length-1);
+        this.$.taginput.value = newString;
+      }
 
-        if(inputValue.length > 0){
-          var proposes = [];
-          for(i = 0 ; i < this.tagList.length; i++){
-            for(ii = 0; ii < this.tagList[i].length;ii++){
-              if(this.tagList[i][ii].startsWith(inputValue)){
-                proposes.push(this.tagList[i][ii]);
-              }
+      if(inputValue.length > 0){
+        var proposes = [];
+        for(i = 0 ; i < this.tagList.length; i++){
+          for(ii = 0; ii < this.tagList[i].length;ii++){
+            if(this.tagList[i][ii].startsWith(inputValue)){
+              proposes.push(this.tagList[i][ii]);
             }
           }
-          this.$.taginput.proposes = proposes;
+        }
+        this.$.taginput.proposes = proposes;
       }
     },
 
@@ -83,6 +87,7 @@
       const enterKey = 13;
       var inputVal = this.$.taginput.value;
       var valid = false;
+
       if(event.keyCode === enterKey){
         //this.fire("search", {search: inputVal});
         for(i = 0 ; i < this.tagList.length; i++){
@@ -92,23 +97,25 @@
                 this.savedTag.push(inputVal);
               }
               valid = true;
-			  break;
+              break;
             }
           }
         }
+
         if (!valid){
           this.$.toast.openfkt();
         } else {
-			this.markTag();
-		  }
-		  this.$.taginput.value = "";
-    }
-      
+          this.markTag();
+		    }
+		    this.$.taginput.value = "";
+      }
     },
+
     markTag: function(create){
       create = create | 0;
       var listElements = this.childElements;
-    // wenn keine Elemente existieren, blende alle wieder ein!
+      
+      // wenn keine Elemente existieren, blende alle wieder ein!
       if(this.savedTag.length == 0){
         for(i = 0; i < listElements.length; i++){
           listElements[i].active = true;
@@ -117,7 +124,8 @@
         }
         return;
       }
-    // wenn Elemente existieren, blende nur die markierten ein
+
+      // wenn Elemente existieren, blende nur die markierten ein
   	  for(i = 0; i < listElements.length; i++){
   		  listElements[i].parentElement.marked = 0;
         listElements[i].parentElement.visibleElement = false;
@@ -139,14 +147,14 @@
           }
       }
       if (create == 0) {
-      	// Create Tags
+      	// Create tag
         var tagelement = document.createElement('htwg-tagelement');
         this.$.tagsdiv.appendChild(tagelement);
         tagelement.text = this.$.taginput.value;
         tagelement.addEventListener('deleteTag', this.deleteTag);
       }
-
     },
+
     attached:function(){
       var listElements = [];
       switch(this.parentLayer) {

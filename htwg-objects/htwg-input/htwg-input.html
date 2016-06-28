@@ -4,26 +4,28 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <dom-module id="htwg-input">
-  <template>
-    <style>
+  
+  <style>
+    input {
+      border: 0;
+      outline: 0;
+      background: transparent;
+  	  width: 100%;
+  	  min-width: 1000pt;
+      color: white;
+      opacity: 0.8;
+      font-family: MarkProBlack;
+      font-size: 120pt;
+      line-height: 156pt;
+     }
+
+    @media (min-width: 375px){ /*378 x 667 IPhone*/
       input {
-          border: 0;
-          outline: 0;
-          background: transparent;
-    		  width: 100%;
-    		  min-width: 1000pt;
-          color: white;
-          opacity: 0.8;
-          font-family: MarkProBlack;
-          font-size: 120pt;
-          line-height: 156pt;
-       }
-     @media (min-width: 375px){ /*378 x 667 IPhone*/
-       input {
-          font-size: 100pt;
-          line-height: 106pt;
-        }
-    }      
+        font-size: 100pt;
+        line-height: 106pt;
+      }
+    }
+
     @media (min-width: 768px){ /*768 x 1024 IPad*/
       input {
           font-size: 110pt;
@@ -39,23 +41,25 @@
       }
     }
 
+    ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+      opacity: 0.8;
+    }
 
+    ::-moz-placeholder { /* Firefox 19+ */
+      opacity: 0.8;        
+    }
 
+    :-ms-input-placeholder { /* IE 10+ */
+     opacity: 0.8;
+    }
 
-       ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-          opacity: 0.8;
-        }
-        ::-moz-placeholder { /* Firefox 19+ */
-          opacity: 0.8;        
-        }
-        :-ms-input-placeholder { /* IE 10+ */
-         opacity: 0.8;
-        }
-        :-moz-placeholder { /* Firefox 18- */
-         opacity: 0.8;
-        }
+    :-moz-placeholder { /* Firefox 18- */
+     opacity: 0.8;
+    }
 
-    </style>
+  </style>
+
+  <template>
 
     <input class="custominput" pattern="[a-z]" on-input="valchanged" id="input" placeholder="suchen"></input>
 
@@ -64,7 +68,9 @@
 
 <script>
  Polymer({
+
     is: 'htwg-input',
+
     properties: {
       value: {
         type: String,
@@ -87,25 +93,28 @@
         value: []
       }
     },
+
     attached: function(){
       var inputs = this.$.input;
-          inputs.value = inputs.getAttribute('data-placeholder');
-          inputs.addEventListener('focus', function() {
-              if (this.value == this.getAttribute('data-placeholder')) {
-//Todo: Hier Tagvoschläge suchen und in this.value klatschen
-                  this.value = '';
-              }
-          });
-          inputs.addEventListener('blur', function() {
-              if (this.value == '') {
-                  this.value = this.getAttribute('data-placeholder');
-              }
-          });
+        inputs.value = inputs.getAttribute('data-placeholder');
+        inputs.addEventListener('focus', function() {
+          if (this.value == this.getAttribute('data-placeholder')) {
+              //Todo: Hier Tagvoschläge suchen und in this.value klatschen
+              this.value = '';
+          }
+        });
+        inputs.addEventListener('blur', function() {
+          if (this.value == '') {
+              this.value = this.getAttribute('data-placeholder');
+          }
+        });
     },
+
     valchanged: function(){
       var inputValue = this.$.input.value;
       this.value = inputValue;
     },
+    
     _valueobserver: function(){
       this.$.input.value = this.value;
     }

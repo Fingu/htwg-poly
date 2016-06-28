@@ -3,51 +3,52 @@
 
 <dom-module id="htwg-overlay-menuitem">
 
-  <template>
+  <style type="text/css">
 
-    <style type="text/css">
+    .mycontent {
+      margin-left: 3%;
+      font-size: 22pt;
+      color: white;
+      vertical-align: middle;
+      display: inline;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
 
-      .mycontent {
-        margin-left: 3%;
-        font-size: 22pt;
-        color: white;
-        vertical-align: middle;
-        display: inline;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-      }
+    .mycontent:hover {
+      color: grey;
+      cursor: pointer;
+    }
 
-      .mycontent:hover {
-        color: grey;
-        cursor: pointer;
-      }
-
-      li{
-		    display: inline;
-		}
+    li{
+	    display: inline;
+    }
 
     @media(min-width: 1001px){ /*  Laptopsize*/
       li{
-		    display: inline;
-		}
+  	    display: inline;
+      }
     }
-	@media(max-width: 1000px){ /*  Laptopsize*/
+
+    @media(max-width: 1000px){ /*  Laptopsize*/
       li{
-		    display: list-item;
-		}
-	  .mycontent {
-	  	display: block;
-	  	margin-left: 0%;
-	  }
+  	    display: list-item;
+      }
+
+      .mycontent {
+      	display: block;
+      	margin-left: 0%;
+      }
     }
 
-    </style>
+  </style>
+  <template>
 
-      <div class="mycontent" on-tap="openLink">
+    <div class="mycontent" on-tap="openLink">
       <li><content></content></li>
-      </div>
+    </div>
     
   </template>
 

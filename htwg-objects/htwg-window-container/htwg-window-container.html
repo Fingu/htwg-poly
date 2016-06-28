@@ -24,6 +24,7 @@
         </content>
       </div>
     </div>
+
   </template>
 
 </dom-module>
@@ -38,11 +39,15 @@
         value: ""
       }
     },
+
     attached: function(){
-	  this.computeHeight();
-	  this.positionBackground();
-	  var that = this;
-	  window.addEventListener("resize", function() { that.computeHeight(); that.positionBackground();});
+  	  this.computeHeight();
+  	  this.positionBackground();
+  	  var that = this;
+  	  window.addEventListener("resize", function() { 
+        that.computeHeight(); 
+        that.positionBackground();
+      });
     },
 	
 	computeHeight: function() {
@@ -62,14 +67,13 @@
 	},
 	
 	positionBackground: function() {
-      var container   = this.$.window_container;
+    var container   = this.$.window_container;
 	  var widthImg = 1920;
 	  if(window.innerWidth > widthImg) {
-		widthImg = window.innerWidth;
+		  widthImg = window.innerWidth;
 	  }
 	  container.style.backgroundPosition = "-" + (((widthImg - window.innerWidth) / 2) + container.getBoundingClientRect().left) + "px -" + ((window.innerWidth) / 2 + container.getBoundingClientRect().top + window.scrollY) + "px";
 	  container.style.backgroundSize = widthImg + "px " + this.computeHeight();
-
     }
 
   });
