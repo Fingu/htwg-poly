@@ -7,7 +7,7 @@ This project contains own Polymer object.
 Our focus was the design and responsive behavoir of our objects.
 The objects are used in an example for a possible web page for our university.
 
-You need a HTTP server to run this project.
+https://fingu.github.io/htwg-poly/
 
 Cheers
 
